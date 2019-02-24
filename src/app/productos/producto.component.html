@@ -1,0 +1,18 @@
+<ActionBar title="{{producto.categoria.descripcion}}" icon="" class="action-bar">
+    <NavigationButton text="Back" (tap)="onBackButtonTap()" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+<GridLayout>
+    <ScrollView class="page">
+        <StackLayout>
+            <CardView class="card" elevation="40" radius="10" ios:shadowRadius="3">
+                <StackLayout class="card-layout">
+                    <Image class="img-thumbnail" [src]="producto.img | imagen:'producto'"></Image>
+                    <Label class="h2" text="{{producto.categoria.descripcion}}"></Label>
+                    <Label class="h3" [text]="producto.nombre"></Label>
+                    <Label class="body" textWrap="true" [text]="producto.descripcion"></Label>
+                    <Label class="h2 text-right" textWrap="true" [text]="producto.precioUni"></Label>
+                </StackLayout>
+            </CardView>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>

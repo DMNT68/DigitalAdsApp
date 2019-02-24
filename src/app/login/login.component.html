@@ -1,0 +1,23 @@
+<FlexboxLayout class="page">
+    <StackLayout class="form">
+        <Image class="logo" src="~/assets/images/logo.png"></Image>
+        <Label class="header" text="Digital Ads"></Label>
+        <GridLayout rows="auto, auto">
+
+            <StackLayout row="0" class="input-field">
+                <TextField class="input" hint="Correo Electrónico" keyboardType="email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="email"></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+
+            <StackLayout row="1" class="input-field">
+                <TextField class="input" hint="Contraseña" secure="true" [(ngModel)]="password"></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+
+        </GridLayout>
+
+
+        <Button text="Ingresar a tu Cuenta" class="btn btn-primary" (tap)="ingresar()"></Button>
+        <Button text="Registrar una Cuenta" (tap)="irRegistrar()" class="btn btn-outline"></Button>
+    </StackLayout>
+</FlexboxLayout>

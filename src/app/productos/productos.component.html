@@ -1,0 +1,15 @@
+<GridLayout>
+    <ScrollView class="page">
+        <StackLayout>
+            <CardView *ngFor="let producto of productos" (tap)="onProductoTap(producto._id)" class="card" elevation="40" radius="10" ios:shadowRadius="3">
+                <StackLayout class="card-layout">
+                    <Image class="img-thumbnail" [src]="producto.img | imagen:'producto'"></Image>
+                    <Label class="h2" text="{{producto.categoria.descripcion}}"></Label>
+                    <Label class="h3" [text]="producto.nombre"></Label>
+                    <Label class="body" textWrap="true" [text]="producto.descripcion"></Label>
+                    <Label class="h2 text-right text-danger" textWrap="true" text="${{producto.precioUni}}"></Label>
+                </StackLayout>
+            </CardView>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>

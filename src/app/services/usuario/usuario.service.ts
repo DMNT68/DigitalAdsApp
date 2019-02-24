@@ -1,0 +1,98 @@
+import { Injectable } from "@angular/core"; 
+import { Router } from "@angular/router";
+import { HttpClient,HttpHeaders  } from "@angular/common/http";
+
+import { throwError } from "rxjs";
+import { map} from "rxjs/operators";
+
+import {getString, setString, remove} from "application-settings";
+
+
+import { Usuario } from '../../models/usuario.model';
+import { URL_SERVICIOS } from '../../config/config';
+
+@Injectable() 
+export class UsuarioService { 
+
+    usuario: Usuario;
+    token: string;
+
+    constructor(private router: Router , private http:HttpClient) { 
+        this.cargaLocalData();
+    } 
+
+    estaLogueado() {
+        return(this.token.length > 5 ) ? true : false; 
+      }
+
+    cargaLocalData() {
+
+        if ( getString('token')) {
+          this.token = getString('token');
+          this.usuario = JSON.parse( getString('usuario') );
+        } else {
+          this.token = '';
+          this.usuario = null;
+        }
+    
+      }
+
+    guardarLocaData(id: string, token: string, usuario: Usuario){
+        
+        setString('id',id);
+        setString('token',token);
+        setString('usuario',JSON.stringify(usuario));
+        this.usuario = usuario;
+        this.token = token;
+    }
+
+    login (usuario: Usuario) {
+        let url=URL_SERVICIOS + '/login';
+        if(!usuario.email || !usuario.password) {
+            return throwError("Por favor tus datos por favor.");
+        }
+        return this.http.post(url,usuario)
+        .pipe(map((resp:any)=>{
+            this.guardarLocaData(String(resp._id) , String(resp.token) , resp.usuario);
+            console.log(resp);
+        }))
+
+    }
+
+    logout() {
+
+        this.usuario = null;
+        this.token = '';
+    
+        remove('usuario');
+        remove('token');
+    
+        this.router.navigate(['login']);
+    
+      }
+
+    crearUsuario(usuario:Usuario){
+
+        let url=URL_SERVICIOS + '/usuario';
+
+        if(!usuario.email || !usuario.password || !usuario.telefono) {
+            return throwError("Por favor tus datos por favor.");
+        }
+
+        // let options = this.createRequestOptions();
+
+        return this.http.post(url,usuario)
+        .pipe( map( (resp:any) => {
+            return resp.Usuario;
+        }));
+
+    }
+
+    // private createRequestOptions() {
+    //     let headers = new HttpHeaders({
+    //         "Content-Type": "application/x-www-form-urlencoded"
+    //     });
+    //     return headers;
+    // }
+
+} 

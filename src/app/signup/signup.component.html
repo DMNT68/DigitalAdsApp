@@ -1,0 +1,42 @@
+<FlexboxLayout class="page">
+    <StackLayout class="form">
+        <Image class="logo" src="~/assets/images/logo.png"></Image>
+        <Label class="header" text="Resgistra una cuenta en Digital Ads"></Label>
+        <ScrollView>
+            <StackLayout>
+                <GridLayout rows="auto auto auto auto,auto">
+
+                    <StackLayout row="0" class="input-field">
+                        <TextField class="input" hint="Nombre y Apellido" autocorrect="false" [(ngModel)]="nombre"></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+                    </StackLayout>
+
+                    <StackLayout row="1" class="input-field">
+                        <TextField class="input" hint="Correo Electrónico" keyboardType="email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="email"></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+                    </StackLayout>
+
+                    <StackLayout row="2" class="input-field">
+                        <TextField class="input" hint="Número telefónico" keyboardType="phone" [(ngModel)]="telefono"></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+                    </StackLayout>
+
+                    <StackLayout row="3" class="input-field">
+                        <TextField class="input" hint="Contraseña" secure="true" [(ngModel)]="password"></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+                    </StackLayout>
+
+                    <StackLayout row="4" class="input-field">
+                        <TextField class="input" hint="Confirmar Contraseña" secure="true" [(ngModel)]="password2"></TextField>
+                        <StackLayout class="hr-light"></StackLayout>
+                    </StackLayout>
+
+                </GridLayout>
+
+                <Button text="Registrate" class="btn btn-primary" (tap)="signup()"></Button>
+                <Button text="Login ->" (tap)="regresarLogin()" class="btn btn-sky"></Button>
+
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</FlexboxLayout>
