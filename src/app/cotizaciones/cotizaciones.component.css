@@ -1,0 +1,14 @@
+.imageList {
+    margin: 15;
+    height: 60;
+    width: 60;
+}
+
+.margenSeparacion {
+    margin-top: 10;
+    margin-bottom: 10;
+}
+
+label {
+    margin-right: 5;
+}

@@ -1,0 +1,31 @@
+<ListView class="list-group-item-text" [items]="getLista">
+
+    <ng-template let-estudio="item" let-i="index" let-odd="odd" let-event="even">
+        <StackLayout class="margenSeparacion" orientation="horizontal">
+
+            <Image class="imageList img-circle" [src]="estudio.image"></Image>
+            <StackLayout orientation="vertical">
+                <StackLayout class="list-group-item-heading" orientation="horizontal">
+                    <Label text="Id:" textWrap="true"></Label>
+                    <Label [text]="estudio.id"></Label>
+                    <Label text="Personaje:" textWrap="true"></Label>
+                    <Label [text]="estudio.name"></Label>
+                </StackLayout>
+                <StackLayout class="list-group-item-text" orientation="vertical">
+                    <StackLayout class="list-group-item-text" orientation="horizontal">
+                        <Label text="Género:" textWrap="true"></Label>
+                        <Label [text]="estudio.gender"></Label>
+                    </StackLayout>
+                    <StackLayout class="list-group-item-text" orientation="horizontal">
+                        <Label text="Especie:" textWrap="true"></Label>
+                        <Label [text]="estudio.species"></Label>
+                    </StackLayout>
+                    <StackLayout class="list-group-item-text" orientation="horizontal">
+                        <Label text="Estado:" textWrap="true"></Label>
+                        <Label [text]="estudio.status"></Label>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ng-template>
+</ListView>

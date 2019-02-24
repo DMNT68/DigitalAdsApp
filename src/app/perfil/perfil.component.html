@@ -1,0 +1,20 @@
+<GridLayout row="auto , auto" backgroundColor="green">
+    <ScrollView class="page">
+
+        <StackLayout class="form">
+
+            <Image class="logo" [src]="usuario.img | imagen"></Image>
+
+            <Label *ngIf="!editar" class="input input-border" text="NOMBRE: {{usuario.nombre}} " textWrap="true"></Label>
+            <TextField *ngIf="editar" hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="usuario.nombre" class="input input-border"></TextField>
+            <Label *ngIf="!editar" class="input input-border" text="CORREO: {{usuario.email}} " textWrap="true"></Label>
+            <TextField *ngIf="editar" hint="correo" [(ngModel)]="usuario.email" class="input input-border"></TextField>
+            <Label *ngIf="!editar" class="input input-border" text="TELEFONO: {{usuario.telefono}} " textWrap="true"></Label>
+            <TextField *ngIf="editar" hint="telefono" [(ngModel)]="usuario.telefono" class="input input-border"></TextField>
+            <Button text="Logout" class="btn btn-primary" (tap)="salir()"></Button>
+
+
+        </StackLayout>
+
+    </ScrollView>
+</GridLayout>

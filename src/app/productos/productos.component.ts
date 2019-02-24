@@ -36,8 +36,8 @@ export class ProductosComponent implements OnInit {
     this.routerExtensions.navigate(["producto/" + productoId, {
       animated: true,
       transition: {
-          name: "slideBottom",
-          duration: 3000,
+          name: "fade",
+          duration: 1000,
           curve: "easeIn"
       }
     }]);
@@ -46,7 +46,9 @@ export class ProductosComponent implements OnInit {
   getProductos() {
     
     this._productosService.cargarProductos()
-    .subscribe(productos => this.productos = productos);
+    .subscribe(productos => {
+      this.productos = productos;
+    });
   
   }
 

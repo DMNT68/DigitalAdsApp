@@ -11,6 +11,7 @@
 }
 
 .logo {
+    border-radius: 40;
     margin-bottom: 12;
     height: 90;
     font-weight: bold;
@@ -18,9 +19,9 @@
 
 .header {
     horizontal-align: center;
-    font-size: 15;
+    font-size: 25;
     font-weight: 600;
-    margin-bottom: 30;
+    margin-bottom: 70;
     text-align: center;
     color: #D51A1A;
 }
@@ -55,4 +56,12 @@
 
 .bold {
     color: #000000;
+}
+
+.img-circle {
+    border-radius: 15;
+}
+
+.img-rounded {
+    border-radius: 30;
 }

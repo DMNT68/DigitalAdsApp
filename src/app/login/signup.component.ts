@@ -11,7 +11,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
   providers: [UsuarioService],
   moduleId: module.id,
   templateUrl: `signup.component.html`,
-  styleUrls: ['signup.component.css']
+  styleUrls: ['login.component.css']
 
 })
 export class SignupComponent {

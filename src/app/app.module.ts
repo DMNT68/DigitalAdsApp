@@ -10,11 +10,14 @@ import { ItemsComponent } from "./item/items.component";
 import { ItemDetailComponent } from "./item/item-detail.component";
 
 import { LoginComponent } from './login/login.component';
-import { SignupComponent } from "./signup/signup.component";
+import { SignupComponent } from "./login/signup.component";
 import { ServiceModule } from "./services/service.module";
 import { ProductosComponent } from "./productos/productos.component";
 import { ProductoComponent } from './productos/producto.component';
 import { PipesModule } from "./pipes/pipes.module";
+import { TabsComponent } from './tabs/tabs.component';
+import { PerfilComponent } from "./perfil/perfil.component";
+import { CotizacionesComponent } from "./cotizaciones/cotizaciones.component";
 
 @NgModule({
     bootstrap: [
@@ -35,7 +38,10 @@ import { PipesModule } from "./pipes/pipes.module";
         ItemsComponent,
         ItemDetailComponent,
         ProductosComponent,
-        ProductoComponent
+        ProductoComponent,
+        TabsComponent,
+        PerfilComponent,
+        CotizacionesComponent
     ],
     providers: [],
     schemas: [
