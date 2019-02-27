@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Page } from 'tns-core-modules/ui/page/page';
 
 @Component({
   selector: 'Tabs',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class TabsComponent {
 
-  constructor() {
-
-  }
+  constructor(private page: Page){
+    this.page.actionBarHidden = true;
+}
 }

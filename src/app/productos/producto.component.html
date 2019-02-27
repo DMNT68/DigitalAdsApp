@@ -1,18 +1,22 @@
-<ActionBar title="{{producto.categoria.descripcion}}" icon="" class="action-bar">
+<ActionBar title="{{nombre}}" icon="" class="action-bar">
     <NavigationButton text="Back" (tap)="onBackButtonTap()" android.systemIcon="ic_menu_back"></NavigationButton>
 </ActionBar>
-<GridLayout>
-    <ScrollView class="page">
-        <StackLayout>
-            <CardView class="card" elevation="40" radius="10" ios:shadowRadius="3">
-                <StackLayout class="card-layout">
-                    <Image class="img-thumbnail" [src]="producto.img | imagen:'producto'"></Image>
-                    <Label class="h2" text="{{producto.categoria.descripcion}}"></Label>
-                    <Label class="h3" [text]="producto.nombre"></Label>
-                    <Label class="body" textWrap="true" [text]="producto.descripcion"></Label>
-                    <Label class="h2 text-right" textWrap="true" [text]="producto.precioUni"></Label>
-                </StackLayout>
-            </CardView>
+<GridLayout class="page">
+
+    <StackLayout class="card-layout">
+        <Image class="img-thumbnail" [src]="producto.img | imagen:'producto'"></Image>
+        <Label class="h2" text="{{nombre}}"></Label>
+        <Label class="h3" [text]="producto.nombre"></Label>
+        <Label class="body" textWrap="true" [text]="producto.descripcion"></Label>
+        <Label class="h3" text="Aquí puedes cotizar el producto" textWrap="true"></Label>
+        <StackLayout orientation="horizontal">
+            <Label class="h3" text="Cantidad." textWrap="true"></Label>
+            <Button text="<" (tap)="variarPrecio(-1)" class="btn btn-sky"></Button>
+            <Label class="input input-field" [text]="cantidad"></Label>
+            <Button text=">" (tap)="variarPrecio(+1)" class="btn btn-sky"></Button>
+
         </StackLayout>
-    </ScrollView>
+        <Label class="h2 text-right text-danger" textWrap="true" text=" Precio Final:  ${{precioFinal}}"></Label>
+    </StackLayout>
+
 </GridLayout>

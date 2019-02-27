@@ -11,18 +11,19 @@ import { ProductoComponent } from "./productos/producto.component";
 import { TabsComponent } from './tabs/tabs.component';
 import { CotizacionesComponent } from "./cotizaciones/cotizaciones.component";
 import { PerfilComponent } from "./perfil/perfil.component";
+import { LoginGuard } from "./services/guards/login.guard";
 
 const routes: Routes = [
     { path: "", redirectTo: "/login", pathMatch: "full" },
     { path: "login", component: LoginComponent },
     { path: "signup", component: SignupComponent },
-    { path: "items", component: ItemsComponent },
-    { path: "item/:id", component: ItemDetailComponent },
-    { path: "productos", component: ProductosComponent },
-    { path: "producto/:id", component: ProductoComponent },
-    { path: "tabs", component: TabsComponent },
-    { path: "cotizaciones", component: CotizacionesComponent },
-    { path: "perfil", component: PerfilComponent },
+    { path: "tabs", component: TabsComponent, canActivate:[LoginGuard] },
+    { path: "items", component: ItemsComponent, canActivate:[LoginGuard] },
+    { path: "item/:id", component: ItemDetailComponent, canActivate:[LoginGuard] },
+    { path: "productos", component: ProductosComponent, canActivate:[LoginGuard] },
+    { path: "producto/:id", component: ProductoComponent, canActivate:[LoginGuard] },
+    { path: "cotizaciones", component: CotizacionesComponent, canActivate:[LoginGuard] },
+    { path: "perfil", component: PerfilComponent, canActivate:[LoginGuard] },
 
 ];
 

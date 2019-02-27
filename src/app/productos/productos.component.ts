@@ -23,21 +23,21 @@ export class ProductosComponent implements OnInit {
 
 
   constructor(public _productosService: ProductoService, public routerExtensions:RouterExtensions) {
-    this.getProductos();
+    
   }
 
 
   ngOnInit(): void{
-    
+    this.getProductos();
   }
   
   onProductoTap(productoId){
-    console.log('tapppp...');
+    
     this.routerExtensions.navigate(["producto/" + productoId, {
       animated: true,
       transition: {
           name: "fade",
-          duration: 1000,
+          duration: 3000,
           curve: "easeIn"
       }
     }]);
@@ -51,7 +51,5 @@ export class ProductosComponent implements OnInit {
     });
   
   }
-
-  
 
 }

@@ -16,6 +16,9 @@ import { RouterExtensions } from 'nativescript-angular/router';
 export class ProductoComponent {
 
   producto:Producto;
+  precioFinal:number;
+  cantidad:number=1;
+  nombre:string;
 
   constructor(private _productoService: ProductoService, private activRoute: ActivatedRoute,
     private _routerExtensions: RouterExtensions) {
@@ -31,7 +34,25 @@ export class ProductoComponent {
 
   getProducto(id: string) {
     this._productoService.cargarProducto(id)
-    .subscribe(producto => this.producto = producto);
+    .subscribe(producto =>{ 
+      this.producto = producto;
+      this.precioFinal = +producto.precioUni;
+      this.nombre = producto.categoria.descripcion;
+    });
+  }
+
+  variarPrecio(cantidad:number){
+
+    if(this.precioFinal < +this.producto.precioUni && cantidad < 0){
+      this.precioFinal = +this.producto.precioUni;
+      this.cantidad=1;
+      return;
+    }
+
+    this.cantidad += cantidad; 
+    this.precioFinal = +this.producto.precioUni * this.cantidad;
+    console.log(this.precioFinal);
+
   }
 
   onBackButtonTap(): void {
