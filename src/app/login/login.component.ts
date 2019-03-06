@@ -4,7 +4,6 @@ import { Page } from 'tns-core-modules/ui/page/page';
 import { UsuarioService } from '../services/service.index';
 import { Usuario } from '../models/usuario.model';
 import { RouterExtensions } from 'nativescript-angular/router';
-import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -26,9 +25,9 @@ export class LoginComponent {
   ingresar(){
     let usuario = new Usuario(null,this.email,this.password);
     this._usuarioService.login(usuario)
-    .subscribe(()=> this.router.navigate(['tabs'],{ clearHistory: true,transition:{name:'fade',duration:1000,curve:'linear'} }),
+    .subscribe(()=> this.router.navigate([''],{ clearHistory: true,transition:{name:'fade',duration:1000,curve:'linear'} }),
       error => {
-        alert('No puedes ingresar. Intentalo más tarde',);
+        alert(error.error.mensaje);
         console.log('error ',error);}
     );
     

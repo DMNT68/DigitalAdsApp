@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { registerElement } from 'nativescript-angular/element-registry';
 
+import { PanGestureEventData } from "tns-core-modules/ui/gestures";
+
+
 
 import { ProductoService } from '../services/service.index';
 import { Producto } from '../models/producto.model';
-import { CardView } from 'nativescript-cardview';
-registerElement('CardView', () => CardView);
+
 
 @Component({
   selector: 'Productos',
@@ -17,17 +19,14 @@ registerElement('CardView', () => CardView);
 })
 export class ProductosComponent implements OnInit {
 
-  data = [];
-
+  isLoading = false;
   productos: Producto[] = [];
 
-
-  constructor(public _productosService: ProductoService, public routerExtensions:RouterExtensions) {
-    
-  }
+  constructor(public _productosService: ProductoService, public routerExtensions:RouterExtensions) { }
 
 
   ngOnInit(): void{
+    console.log('Accediste al componente de productos');
     this.getProductos();
   }
   
@@ -50,6 +49,33 @@ export class ProductosComponent implements OnInit {
       this.productos = productos;
     });
   
+  }
+
+  public deltaX: number;
+  public deltaY: number;
+  public state: number;
+
+  onPan(args: PanGestureEventData) {
+
+    console.log("Event name: " + args.eventName);
+    console.log("Pan delta: [" + args.deltaX + ", " + args.deltaY + "] state: " + args.state);
+
+    this.deltaX = args.deltaX;
+    this.deltaY = args.deltaY;
+    this.state = args.state;
+
+    
+    if (this.state === 3) {
+
+      setTimeout(() => {
+        this.getProductos();
+        this.isLoading = false;
+      }, 1000);
+        
+      this.isLoading = true;
+    }
+
+
   }
 
 }

@@ -28,7 +28,7 @@ export class SignupComponent {
 
   signup(){
     if (this.password !==  this.password2) {
-      alert("Las contrasenias no coinciden");
+      alert("Las contraseñas no coinciden");
       return false;
     }
 
@@ -41,17 +41,14 @@ export class SignupComponent {
     this._usuarioService.crearUsuario(usuario)
     .subscribe(()=>{
 
-      alert("Su cuenta ha sido creada correctamente");
-      this.router.navigate(['/login']);
-      
-    }, error => {
-      alert("No pudimos crear su cuenta. Intentalo más tarde");
-      console.log('error ',error);
+      alert("Su cuenta ha sido creada correctamente").then(()=>this.router.navigate(['/login']));
+  
     });
+
   }
   
   regresarLogin(){
-    this.router.navigate(['/login']);
+    this.router.navigate(['login']);
   }
 
   alert(message: string) {

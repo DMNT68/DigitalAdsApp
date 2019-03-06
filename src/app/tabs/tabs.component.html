@@ -1,17 +1,23 @@
-<TabView class="tab-view" id="tabViewContainer" androidTabsPosition="bottom">
-    <StackLayout *tabItem="{title: 'Productos'}">
-        <StackLayout>
-            <Productos></Productos>
+<GridLayout class="page">
+
+    <TabView class="tab-view" *ngIf="!isLoading" id="tabViewContainer" androidTabsPosition="bottom">
+        <StackLayout *tabItem="{title: 'Productos'}">
+            <StackLayout>
+                <Productos></Productos>
+            </StackLayout>
         </StackLayout>
-    </StackLayout>
-    <StackLayout *tabItem="{title: 'Cotizaciones'}">
-        <StackLayout>
-            <Cotizaciones></Cotizaciones>
+        <StackLayout *tabItem="{title: 'Cotizaciones'}">
+            <StackLayout>
+                <Cotizaciones></Cotizaciones>
+            </StackLayout>
         </StackLayout>
-    </StackLayout>
-    <StackLayout *tabItem="{title: 'Perfil'}">
-        <StackLayout>
-            <Perfil></Perfil>
+        <StackLayout *tabItem="{title: 'Perfil'}">
+            <StackLayout>
+                <Perfil></Perfil>
+            </StackLayout>
         </StackLayout>
-    </StackLayout>
-</TabView>
+    </TabView>
+
+    <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+
+</GridLayout>

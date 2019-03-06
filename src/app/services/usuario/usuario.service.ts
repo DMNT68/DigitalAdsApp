@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core"; 
-import { Router } from "@angular/router";
+import { RouterExtensions } from 'nativescript-angular/router';
 import { HttpClient,HttpHeaders  } from "@angular/common/http";
 
 import { throwError } from "rxjs";
@@ -17,7 +17,7 @@ export class UsuarioService {
     usuario: Usuario;
     token: string;
 
-    constructor(private router: Router , private http:HttpClient) { 
+    constructor(private router: RouterExtensions , private http:HttpClient) { 
         this.cargaLocalData();
     } 
 
@@ -67,7 +67,7 @@ export class UsuarioService {
         remove('usuario');
         remove('token');
     
-        this.router.navigate(['login']);
+        this.router.navigate(['/login']);
     
       }
 
@@ -76,7 +76,8 @@ export class UsuarioService {
         let url=URL_SERVICIOS + '/usuario';
 
         if(!usuario.email || !usuario.password || !usuario.telefono) {
-            return throwError("Por favor tus datos por favor.");
+            this.alert("Por favor ingresa tu datos por favor.")
+            return throwError("Por favor ingresa tus datos por favor.");
         }
 
         // let options = this.createRequestOptions();
@@ -94,5 +95,13 @@ export class UsuarioService {
     //     });
     //     return headers;
     // }
+
+    alert(message: string) {
+        return alert({
+            title: "DIGITAL ADS",
+            okButtonText: "OK",
+            message: message
+        });
+      }
 
 } 

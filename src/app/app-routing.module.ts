@@ -14,10 +14,9 @@ import { PerfilComponent } from "./perfil/perfil.component";
 import { LoginGuard } from "./services/guards/login.guard";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/login", pathMatch: "full" },
+    { path: "",canActivate:[LoginGuard], component: TabsComponent  },
     { path: "login", component: LoginComponent },
     { path: "signup", component: SignupComponent },
-    { path: "tabs", component: TabsComponent, canActivate:[LoginGuard] },
     { path: "items", component: ItemsComponent, canActivate:[LoginGuard] },
     { path: "item/:id", component: ItemDetailComponent, canActivate:[LoginGuard] },
     { path: "productos", component: ProductosComponent, canActivate:[LoginGuard] },
