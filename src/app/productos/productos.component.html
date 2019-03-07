@@ -3,15 +3,15 @@
     <ListView [items]="productos" class="list-group card " elevation="40" radius="10">
         <ng-template let-producto="item">
             <StackLayout class="card-layout" [nsRouterLink]="['/producto', producto._id]">
-                <Image class="img-thumbnail" [src]="producto.img | imagen:'producto'"></Image>
-                <Label class="h2" [text]="producto.nombre" textWrap="true"></Label>
-                <Label class="h3" [text]="producto.categoria.descripcion" textWrap="true"></Label>
+                <Image class="img-rounded" [src]="producto.img | imagen:'producto'"></Image>
+                <Label class="h3" [text]="producto.nombre" textWrap="true"></Label>
+                <Label class="h4" [text]="producto.categoria.descripcion" textWrap="true"></Label>
                 <Label class="body" textWrap="true" [text]="producto.descripcion" textWrap="true"></Label>
                 <Label class="h2 text-right text-danger" textWrap="true" text="${{producto.precioUni}}"></Label>
             </StackLayout>
         </ng-template>
     </ListView>
 
-    <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+    <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 
 </GridLayout>

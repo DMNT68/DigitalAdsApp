@@ -68,11 +68,12 @@ export class ProductoComponent {
 
   variarPrecio(cantidad?: number){
 
-    if(this.precioFinal < +this.producto.precioUni && cantidad, this.alto, this.nletras, this.ancho < 0){
+    if(this.precioFinal < +this.producto.precioUni && cantidad < 0){
       this.precioFinal = +this.producto.precioUni;
       this.cantidad = 1;
       this.alto = 1;
       this.nletras = 1;
+      this.alert("La cantidad debe ser igual o mayor a 1");
       return;
     }
 
@@ -84,11 +85,17 @@ export class ProductoComponent {
 
   variarPrecioRotulo3D() {
 
+    if(!this.alto || !this.ancho || !this.nletras){
+      this.alert("Ingresa los valores por favor");
+      return;
+    }
+
     if(this.precioFinal < +this.producto.precioUni && this.alto, this.nletras, this.ancho < 0){
       this.precioFinal = +this.producto.precioUni;
       this.cantidad = 1;
       this.alto = 1;
       this.nletras = 1;
+      this.alert("Ingresa los valor igual o mayor a 1");
       return;
     }
 
@@ -99,10 +106,16 @@ export class ProductoComponent {
 
   variarPrecioRotulo() {
 
+    if(!this.alto || !this.ancho){
+     this.alert("Ingresa los valores por favor");
+      return;
+    }
+
     if(this.precioFinal < +this.producto.precioUni && this.alto, this.ancho < 0){
       this.precioFinal = +this.producto.precioUni;
       this.cantidad = 1;
       this.alto = 1;
+      this.alert("Ingresa los valor igual o mayor a 1");
       return;
     }
 
@@ -117,4 +130,12 @@ export class ProductoComponent {
     this.rotulos=false;
   }
 
+
+  alert(message: string) {
+    return alert({
+        title: "DIGITAL ADS",
+        okButtonText: "OK",
+        message: message
+    });
+  }
 }

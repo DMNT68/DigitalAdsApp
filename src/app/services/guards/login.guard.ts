@@ -1,6 +1,7 @@
 import { UsuarioService } from '../usuario/usuario.service';
 import { Injectable, Component } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
+import { RouterExtensions } from 'nativescript-angular/router';
 
 // Servicios
 
@@ -10,7 +11,7 @@ import { CanActivate, Router } from '@angular/router';
 })
 export class LoginGuard implements CanActivate {
 
-  constructor(public _usuarioService: UsuarioService, public router: Router) {}
+  constructor(public _usuarioService: UsuarioService, public router: RouterExtensions) {}
 
   canActivate() {
     
@@ -19,7 +20,7 @@ export class LoginGuard implements CanActivate {
       return true;
     } else {
       // console.log('Bloqueado por el Guard');
-      this.router.navigate(['login']);
+      this.router.navigate(['/login']);
       return false;
     }
   }

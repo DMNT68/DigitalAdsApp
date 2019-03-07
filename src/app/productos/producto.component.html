@@ -4,32 +4,32 @@
 <GridLayout class="page">
     <ScrollView>
 
-        <StackLayout class="card-layout">
+        <StackLayout class="list-group card card-layout">
 
-            <Image class="img-thumbnail" [src]="img | imagen:'producto'"></Image>
-            <Label class="h2" [text]="nombre" textWrap="true"></Label>
-            <Label class="h3" [text]="categoria"></Label>
+            <Image class="img-rounded" [src]="img | imagen:'producto'"></Image>
+            <Label class="h3" [text]="nombre" textWrap="true"></Label>
+            <Label class="h4" [text]="categoria"></Label>
             <Label class="body" textWrap="true" [text]="descripcion"></Label>
-            <Label class="h3" text="Aquí puedes cotizar el producto" textWrap="true"></Label>
+            <Label class="h5" text="Aquí puedes cotizar el producto" textWrap="true"></Label>
 
             <StackLayout orientation="horizontal" *ngIf="!rotulos && !rotulos3D">
-                <Label class="h3" text="Cantidad." textWrap="true"></Label>
-                <Button text="-" (tap)="variarPrecio(-1)" class="btn btn-sky"></Button>
-                <Label class="input input-field" [text]="cantidad"></Label>
-                <Button text="+" (tap)="variarPrecio(+1)" class="btn btn-sky"></Button>
+                <Label class="h4" text="Cantidad." textWrap="true"></Label>
+                <Button text="-" (tap)="variarPrecio(-1)" class="btn btn-outline btn-rounded-lg"></Button>
+                <Label class="inputCantidad input-field" [text]="cantidad"></Label>
+                <Button text="+" (tap)="variarPrecio(+1)" class="btn btn-outline btn-rounded-lg btn-active"></Button>
             </StackLayout>
 
             <StackLayout orientation="horizontal" *ngIf="rotulos">
-                <TextField class="input" hint="Altura" keyboardType="phone" [(ngModel)]="alto"></TextField>
-                <TextField class="input" hint="Ancho" keyboardType="phone" [(ngModel)]="ancho"></TextField>
-                <Button text="Calcular" (tap)="variarPrecioRotulo()" class="btn btn-sky"></Button>
+                <TextField class="inputVariables" hint="Altura" keyboardType="phone" [(ngModel)]="alto"></TextField>
+                <TextField class="inputVariables" hint="Ancho" keyboardType="phone" [(ngModel)]="ancho"></TextField>
+                <Button text="Calcular" (tap)="variarPrecioRotulo()" class="btn btn-outline btn-rounded-lg"></Button>
             </StackLayout>
 
             <StackLayout orientation="horizontal" *ngIf="rotulos3D">
-                <TextField class="input" hint="Altura" keyboardType="phone" [(ngModel)]="alto"></TextField>
-                <TextField class="input" hint="Ancho" keyboardType="phone" [(ngModel)]="ancho"></TextField>
-                <TextField class="input" hint="Número de letras" keyboardType="phone" [(ngModel)]="nletras"></TextField>
-                <Button text="Calcular" (tap)="variarPrecioRotulo3D()" class="btn btn-sky"></Button>
+                <TextField class="inputVariables" hint="Altura" keyboardType="phone" [(ngModel)]="alto"></TextField>
+                <TextField class="inputVariables" hint="Ancho" keyboardType="phone" [(ngModel)]="ancho"></TextField>
+                <TextField class="inputVariables" hint="Número de letras" keyboardType="phone" [(ngModel)]="nletras"></TextField>
+                <Button text="Calcular" (tap)="variarPrecioRotulo3D()" class="btn btn-outline btn-rounded-lg"></Button>
             </StackLayout>
 
             <Label class="h2 text-right text-danger" textWrap="true" text=" Precio Final:  ${{precioFinal}}"></Label>

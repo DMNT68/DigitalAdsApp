@@ -23,6 +23,7 @@ export class LoginComponent {
   }
 
   ingresar(){
+    
     let usuario = new Usuario(null,this.email,this.password);
     this._usuarioService.login(usuario)
     .subscribe(()=> this.router.navigate([''],{ clearHistory: true,transition:{name:'fade',duration:1000,curve:'linear'} }),

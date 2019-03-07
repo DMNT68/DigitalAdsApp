@@ -27,6 +27,7 @@ export class SignupComponent {
   }
 
   signup(){
+    
     if (this.password !==  this.password2) {
       alert("Las contraseñas no coinciden");
       return false;
