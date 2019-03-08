@@ -84,10 +84,7 @@ export class UsuarioService {
 
         // let options = this.createRequestOptions();
 
-        return this.http.post(url,usuario)
-        .pipe( map( (resp:any) => {
-            return resp.Usuario;
-        }));
+        return this.http.post(url,usuario);
 
     }
 

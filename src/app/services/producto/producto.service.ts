@@ -25,7 +25,7 @@ export class ProductoService {
         let url = URL_SERVICIOS + '/producto/' + id;
         return this.http.get(url)
         .pipe(map((resp:any)=> {
-            console.log(resp);
+            console.log(resp.producto.nombre);
             return resp.producto
         }));
     }
