@@ -4,17 +4,20 @@
 }
 
 .form {
-    margin-left: 30;
-    margin-right: 30;
+    margin-left: 20;
+    margin-right: 20;
     flex-grow: 2;
     vertical-align: middle;
 }
 
 .logo {
-    border-radius: 40;
+    margin-top: 20;
     margin-bottom: 12;
-    height: 90;
-    font-weight: bold;
+    height: 150;
+}
+
+.borde {
+    border-radius: 10;
 }
 
 .header {
@@ -27,17 +30,12 @@
 }
 
 .input-field {
-    margin-bottom: 25;
+    margin-bottom: 5;
 }
 
 .input {
     font-size: 18;
     placeholder-color: #A8A8A8;
-}
-
-.input:disabled {
-    background-color: white;
-    opacity: 0.5;
 }
 
 .btn-primary {
