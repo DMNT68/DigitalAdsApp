@@ -87,8 +87,8 @@ export class ProductosComponent implements OnInit {
 
     const texto = <TextField>args.object;
     this.textoBuscar = texto.text;
-    console.log("onTextChange");
-    console.log(this.textoBuscar);
+    // console.log("onTextChange");
+    // console.log(this.textoBuscar);
 
 }
 

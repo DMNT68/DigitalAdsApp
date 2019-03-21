@@ -79,7 +79,7 @@ export class ProductoComponent {
 
     this.cantidad += cantidad; 
     this.precioFinal = +this.producto.precioUni * this.cantidad;
-    console.log(this.precioFinal);
+    // console.log(this.precioFinal);
 
   }
 
@@ -101,7 +101,7 @@ export class ProductoComponent {
 
     let base: number = this.alto * this.ancho; 
     this.precioFinal = (+this.producto.precioUni * base) + (this.nletras*25);
-    console.log(this.precioFinal);
+    // console.log(this.precioFinal);
   }
 
   variarPrecioRotulo() {
@@ -121,7 +121,7 @@ export class ProductoComponent {
 
     let base: number = this.alto * this.ancho; 
     this.precioFinal = +this.producto.precioUni * base;
-    console.log(this.precioFinal);
+    // console.log(this.precioFinal);
   }
 
   onBackButtonTap(): void {
