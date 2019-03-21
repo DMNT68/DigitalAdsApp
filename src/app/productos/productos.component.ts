@@ -8,7 +8,7 @@ import { PanGestureEventData } from "tns-core-modules/ui/gestures";
 
 import { ProductoService } from '../services/service.index';
 import { Producto } from '../models/producto.model';
-
+import { TextField } from "tns-core-modules/ui/text-field";
 
 @Component({
   selector: 'Productos',
@@ -21,13 +21,18 @@ export class ProductosComponent implements OnInit {
 
   isLoading = false;
   productos: Producto[] = [];
+  textoBuscar = '';
 
-  constructor(public _productosService: ProductoService, public routerExtensions:RouterExtensions) { }
+  constructor(public _productosService: ProductoService, public routerExtensions:RouterExtensions) { 
+
+  }
 
 
-  ngOnInit(): void{
+  ngOnInit(){
+
     console.log('Accediste al componente de productos');
     this.getProductos();
+    
   }
   
   onProductoTap(productoId){
@@ -77,5 +82,14 @@ export class ProductosComponent implements OnInit {
 
 
   }
+
+  buscarProducto(args) {
+
+    const texto = <TextField>args.object;
+    this.textoBuscar = texto.text;
+    console.log("onTextChange");
+    console.log(this.textoBuscar);
+
+}
 
 }

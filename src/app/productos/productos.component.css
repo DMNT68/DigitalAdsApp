@@ -25,3 +25,20 @@
         font-size: 12;
         placeholder-color: #A8A8A8;
     }
+    
+    .busqueda-bar {
+        background-color: #0e3746;
+        padding: 5;
+    }
+    
+    .busqueda-bar Image {
+        height: 20;
+        vertical-align: center;
+        margin-left: 10;
+        margin-right: 10;
+    }
+    
+    .busqueda-bar TextField {
+        padding: 10;
+        placeholder-color: #A8A8A8;
+    }

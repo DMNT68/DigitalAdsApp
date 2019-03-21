@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { throwError } from "rxjs";
 import { map} from "rxjs/operators";
 import { URL_SERVICIOS } from '../../config/config';
+import { Producto } from "~/app/models/producto.model";
 
 @Injectable() 
 export class ProductoService { 
@@ -14,7 +15,7 @@ export class ProductoService {
     cargarProductos(){
         let url =  URL_SERVICIOS + '/producto';
 
-        return this.http.get(url)
+        return this.http.get<Producto[]>(url)
         .pipe(map((resp:any)=>{
             this.totalProductos = resp.total;
             return resp.productos;

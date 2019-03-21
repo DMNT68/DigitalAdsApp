@@ -1,10 +1,14 @@
-<GridLayout class="page home-page-content home-page-content" (pan)="onPan($event)">
+<GridLayout rows="auto, *" class="page home-page-content home-page-content" (pan)="onPan($event)">
 
-    <ListView [items]="productos" class="list-group card " elevation="40" radius="10">
+    <StackLayout class="busqueda-bar" row="0" orientation="horizontal">
+        <TextField hint="Buscar Producto..." (textChange)="buscarProducto($event)"></TextField>
+    </StackLayout>
+
+    <ListView row="1" [items]="productos | filtro:textoBuscar" class="list-group card " elevation="40" radius="10">
         <ng-template let-producto="item">
             <StackLayout class="card-layout" [nsRouterLink]="['/producto', producto._id]">
-                <Image class="img-rounded" [src]="producto.img | imagen:'producto'"></Image>
                 <Label class="h3" [text]="producto.nombre" textWrap="true"></Label>
+                <Image class="img-rounded" [src]="producto.img | imagen:'producto'"></Image>
                 <Label class="h4" [text]="producto.categoria.descripcion" textWrap="true"></Label>
                 <Label class="body" textWrap="true" [text]="producto.descripcion" textWrap="true"></Label>
                 <Label class="h2 text-right text-danger" textWrap="true" text="${{producto.precioUni}}"></Label>
