@@ -9,7 +9,7 @@
     }
     
     .card-layout .h1 {
-        margin-bottom: 15;
+        margin-bottom: 10;
     }
     
     .input-field {
@@ -46,4 +46,10 @@
     .search-bar {
         background-color: #0e3746;
         font-family: 'Halcom', 'Halcom_Regular';
+    }
+    
+    .separador {
+        background-color: #eae8dc;
+        height: 10;
+        padding: 1;
     }

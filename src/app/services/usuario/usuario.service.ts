@@ -5,7 +5,7 @@ import { HttpClient,HttpHeaders  } from "@angular/common/http";
 import { throwError } from "rxjs";
 import { map} from "rxjs/operators";
 
-import {getString, setString, remove} from "application-settings";
+import {getString, setString, remove} from "tns-core-modules/application-settings";
 
 
 import { Usuario } from '../../models/usuario.model';

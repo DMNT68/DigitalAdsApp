@@ -1,12 +1,14 @@
 <ActionBar title="{{nombre}}" icon="" class="action-bar">
     <ActionItem text="Item" ios.position="right" android.position="popup"></ActionItem>
-    <ActionItem ios.systemIcon="12" android.systemIcon="ic_menu_search"></ActionItem>
+    <ActionItem text="Item2" ios.position="right" android.position="popup"></ActionItem>
+    <ActionItem text="Item3" ios.position="right" android.position="popup"></ActionItem>
+    <!-- <ActionItem ios.systemIcon="12" android.systemIcon="ic_menu_search"></ActionItem> -->
     <NavigationButton text="Back" (tap)="onBackButtonTap()" android.systemIcon="ic_menu_back"></NavigationButton>
 </ActionBar>
 <GridLayout class="page">
     <ScrollView>
 
-        <StackLayout class="list-group card card-layout">
+        <StackLayout class="list-group  card-layout">
 
             <Image class="img-rounded" [src]="img | imagen:'producto'"></Image>
             <!-- <Label class="h3" [text]="nombre" textWrap="true"></Label> -->
@@ -36,5 +38,6 @@
 
             <Label class="h2 text-right text-danger" textWrap="true" text=" Precio Final:  ${{precioFinal}}"></Label>
         </StackLayout>
+
     </ScrollView>
 </GridLayout>

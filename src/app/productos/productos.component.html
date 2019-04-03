@@ -1,37 +1,19 @@
-<!-- <GridLayout rows="auto, *" class="page home-page-content home-page-content" (pan)="onPan($event)">
-
-    //TODO:toca arreglar
-    <SearchBar row="0" id="searchBar" hint="Buscar producto..." text="" (textChange)="buscarProducto($event)" class="search-bar" textFieldHintColor="gray"></SearchBar>
-
-    <ListView row="1" [items]="productos | filtro:textoBuscar" class="list-group card " elevation="40" radius="10">
-        <ng-template let-producto="item">
-            <StackLayout class="card-layout" [nsRouterLink]="['/producto', producto._id]">
-                <Label class="h3" [text]="producto.nombre" textWrap="true"></Label>
-                <Image class="img-rounded" [src]="producto.img | imagen:'producto'"></Image>
-                <Label class="h4" [text]="producto.categoria.descripcion" textWrap="true"></Label>
-                <Label class="body" textWrap="true" [text]="producto.descripcion" textWrap="true"></Label>
-                <Label class="h2 text-right text-danger" textWrap="true" text="${{producto.precioUni}}"></Label>
-            </StackLayout>
-        </ng-template>
-    </ListView>
-
-    <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
-
-</GridLayout> -->
-
-<GridLayout tkExampleTitle tkToggleNavButton rows="auto, *" class="page home-page-content home-page-content">
+<GridLayout rows="auto, *" class="page home-page-content home-page-content">
 
     <SearchBar row="0" id="searchBar" hint="Buscar producto..." text="" (textChange)="buscarProducto($event)" class="search-bar" textFieldHintColor="gray"></SearchBar>
 
-    <RadListView row="1" class="list-group card " elevation="40" radius="10" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
+    <RadListView row="1" class="card" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
 
         <ng-template let-producto="item">
-            <StackLayout class="card-layout" [nsRouterLink]="['/producto', producto._id]">
-                <Label class="h3" [text]="producto.nombre" textWrap="true"></Label>
-                <Image class="img-rounded" [src]="producto.img | imagen:'producto'"></Image>
-                <Label class="h4" [text]="producto.categoria.descripcion" textWrap="true"></Label>
-                <Label class="body" textWrap="true" [text]="producto.descripcion" textWrap="true"></Label>
-                <Label class="h2 text-right text-danger" textWrap="true" text="${{producto.precioUni}}"></Label>
+            <StackLayout [nsRouterLink]="['/producto', producto._id]">
+                <StackLayout class="card-layout">
+                    <Label class="h3" [text]="producto.nombre" textWrap="true"></Label>
+                    <Image class="img-rounded" [src]="producto.img | imagen:'producto'"></Image>
+                    <Label class="h4" [text]="producto.categoria.descripcion" textWrap="true"></Label>
+                    <Label class="body" textWrap="true" [text]="producto.descripcion" textWrap="true"></Label>
+                    <Label class="h2 text-right text-danger" textWrap="true" text="${{producto.precioUni}}"></Label>
+                </StackLayout>
+                <StackLayout class="separador"></StackLayout>
             </StackLayout>
         </ng-template>
 
