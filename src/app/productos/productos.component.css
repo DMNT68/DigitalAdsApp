@@ -32,13 +32,18 @@
     }
     
     .busqueda-bar Image {
-        height: 20;
+        height: 10;
         vertical-align: center;
-        margin-left: 10;
-        margin-right: 10;
+        margin-left: 5;
+        margin-right: 5;
     }
     
-    .busqueda-bar TextField {
+    .busqueda-bar {
         padding: 10;
         placeholder-color: #A8A8A8;
+    }
+    
+    .search-bar {
+        background-color: #0e3746;
+        font-family: 'Halcom', 'Halcom_Regular';
     }

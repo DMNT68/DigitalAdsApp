@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
-import { registerElement } from 'nativescript-angular/element-registry';
+import { ListViewEventData } from 'nativescript-ui-listview';
 
 import { PanGestureEventData } from "tns-core-modules/ui/gestures";
-
-
+import { View } from 'tns-core-modules/ui/page/page';
 
 import { ProductoService } from '../services/service.index';
 import { Producto } from '../models/producto.model';
@@ -56,40 +55,32 @@ export class ProductosComponent implements OnInit {
   
   }
 
-  public deltaX: number;
-  public deltaY: number;
-  public state: number;
-
-  onPan(args: PanGestureEventData) {
-
-    console.log("Event name: " + args.eventName);
-    console.log("Pan delta: [" + args.deltaX + ", " + args.deltaY + "] state: " + args.state);
-
-    this.deltaX = args.deltaX;
-    this.deltaY = args.deltaY;
-    this.state = args.state;
-
-    
-    if (this.state === 3) {
-
-      setTimeout(() => {
-        this.getProductos();
-        this.isLoading = false;
-      }, 1000);
-        
-      this.isLoading = true;
-    }
-
-
-  }
-
   buscarProducto(args) {
 
     const texto = <TextField>args.object;
     this.textoBuscar = texto.text;
-    // console.log("onTextChange");
-    // console.log(this.textoBuscar);
 
-}
+  }
+
+  public onPullToRefreshInitiated(args: ListViewEventData) {
+    
+    setTimeout(() => {
+      this.getProductos();
+      
+      const listView = args.object;
+      listView.notifyPullToRefreshFinished();
+      this.animacion(listView);
+    }, 1000);
+
+  }
+
+  animacion(target: View) {
+    let duration = 300;
+    target.animate({ opacity: 0, duration: duration })
+          .then(() => target.animate({ opacity: 1, duration: duration }))
+        .catch((e) => {
+            console.log(e.message);
+        });
+  }
 
 }

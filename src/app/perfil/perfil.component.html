@@ -1,4 +1,4 @@
-<GridLayout row="auto , auto" backgroundColor="green">
+<GridLayout row="auto , auto">
     <ScrollView class="page">
 
         <StackLayout class="form">
@@ -7,8 +7,8 @@
             <GridLayout (longPress)="onLongPress($event)">
                 <Label class="input input-field input-rounded" text="NOMBRE: {{usuario.nombre}} " textWrap="true" (longPress)="onLongPress($event)"></Label>
             </GridLayout>
-            <Label *ngIf="!editar" class="input input-field input-rounded" text="CORREO: {{usuario.email}} " textWrap="true"></Label>
-            <Label *ngIf="!editar" class="input input-field input-rounded" text="TELEFONO: {{usuario.telefono}} " textWrap="true"></Label>
+            <Label class="input input-field input-rounded" text="CORREO: {{usuario.email}} " textWrap="true"></Label>
+            <Label class="input input-field input-rounded" text="TELEFONO: {{usuario.telefono}} " textWrap="true"></Label>
             <Button text="Logout" class="btn btn-primary" (tap)="salir()"></Button>
 
         </StackLayout>
