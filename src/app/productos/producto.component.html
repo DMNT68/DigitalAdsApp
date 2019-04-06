@@ -18,7 +18,7 @@
 
             <StackLayout orientation="horizontal" *ngIf="!rotulos && !rotulos3D">
                 <Label class="h4" text="Cantidad." textWrap="true"></Label>
-                <Button text="-" (tap)="variarPrecio(-1)" class="btn btn-outline btn-rounded-lg"></Button>
+                <Button text="-" (tap)="variarPrecio(-1)" class="btn btn-outline btn-rounded-lg btn-active"></Button>
                 <Label class="inputCantidad input-field" [text]="cantidad"></Label>
                 <Button text="+" (tap)="variarPrecio(+1)" class="btn btn-outline btn-rounded-lg btn-active"></Button>
             </StackLayout>
@@ -26,14 +26,14 @@
             <StackLayout orientation="horizontal" *ngIf="rotulos">
                 <TextField class="inputVariables" hint="Altura" keyboardType="phone" [(ngModel)]="alto"></TextField>
                 <TextField class="inputVariables" hint="Ancho" keyboardType="phone" [(ngModel)]="ancho"></TextField>
-                <Button text="Calcular" (tap)="variarPrecioRotulo()" class="btn btn-outline btn-rounded-lg"></Button>
+                <Button text="Calcular" (tap)="variarPrecioRotulo()" class="btn btn-outline btn-rounded-lg btn-active"></Button>
             </StackLayout>
 
             <StackLayout orientation="horizontal" *ngIf="rotulos3D">
                 <TextField class="inputVariables" hint="Altura" keyboardType="phone" [(ngModel)]="alto"></TextField>
                 <TextField class="inputVariables" hint="Ancho" keyboardType="phone" [(ngModel)]="ancho"></TextField>
                 <TextField class="inputVariables" hint="Número de letras" keyboardType="phone" [(ngModel)]="nletras"></TextField>
-                <Button text="Calcular" (tap)="variarPrecioRotulo3D()" class="btn btn-outline btn-rounded-lg"></Button>
+                <Button text="Calcular" (tap)="variarPrecioRotulo3D()" class="btn btn-outline btn-rounded-lg btn-active"></Button>
             </StackLayout>
 
             <Label class="h2 text-right text-danger" textWrap="true" text=" Precio Final:  ${{precioFinal}}"></Label>

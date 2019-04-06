@@ -15,7 +15,7 @@ refer to http://docs.nativescript.org/ui/theme.
     height: 50;
     background-color: #D51A1A;
     border-radius: 5;
-    font-size: 18;
+    font-size: 14;
     font-weight: 600;
 }
 
@@ -23,7 +23,7 @@ refer to http://docs.nativescript.org/ui/theme.
     height: 40;
     background-color: #018abe;
     border-radius: 5;
-    font-size: 15;
+    font-size: 14;
     font-weight: 600;
 }
 
@@ -115,7 +115,7 @@ THEME BUILDER
 }
 
 .body {
-    font-size: 14;
+    font-size: 13;
 }
 
 .h1 {

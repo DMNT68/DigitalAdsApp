@@ -1,9 +1,10 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
+import { ReactiveFormsModule } from '@angular/forms'; 
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
-import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 import {NativeScriptHttpClientModule} from 'nativescript-angular/http-client';
 
+import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -26,6 +27,7 @@ import { CotizacionesComponent } from "./cotizaciones/cotizaciones.component";
     ],
     imports: [
         NativeScriptModule,
+        ReactiveFormsModule,
         NativeScriptFormsModule,
         NativeScriptHttpClientModule,
         NativeScriptUIListViewModule,
