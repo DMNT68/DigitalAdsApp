@@ -22,7 +22,7 @@ const routes: Routes = [
     { path: "productos", component: ProductosComponent, canActivate:[LoginGuard] },
     { path: "producto/:id", component: ProductoComponent, canActivate:[LoginGuard] },
     { path: "cotizaciones", component: CotizacionesComponent, canActivate:[LoginGuard] },
-    { path: "perfil", component: PerfilComponent, canActivate:[LoginGuard] },
+    { path: "perfil", component: PerfilComponent, canActivate:[LoginGuard] }
 
 ];
 

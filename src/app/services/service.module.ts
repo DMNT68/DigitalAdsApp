@@ -15,7 +15,6 @@ import { UsuarioService, ProductoService, LoginGuard} from './service.index';
     UsuarioService,
     ProductoService,
     LoginGuard
-    
   ]
 })
 export class ServiceModule { }

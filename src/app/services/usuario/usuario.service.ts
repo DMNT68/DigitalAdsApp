@@ -49,8 +49,8 @@ export class UsuarioService {
     login (usuario: Usuario) {
         let url=URL_SERVICIOS + '/login';
         if(!usuario.email || !usuario.password) {
-            this.alert("Por favor ingresa tu datos por favor.");
-            return throwError("Por favor tus datos por favor.");
+            this.alert("Ingresa tu datos por favor.");
+            return throwError("Ingresa tu datos por favor.");
         }
         return this.http.post(url,usuario)
         .pipe(map((resp:any)=>{
@@ -69,7 +69,7 @@ export class UsuarioService {
         remove('token');
 
         this.alert('Espero que vuelvas. Hasta luego');
-        this.router.navigate(['/login']);
+        this.router.navigate(['/login'], {transition:{name:'slideRight', duration:1000}});
     
       }
 

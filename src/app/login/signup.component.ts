@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
     this.page.actionBarHidden = true;
   }
 
-  sonIguales(campo1: string, campo2: string) {
+  public sonIguales(campo1: string, campo2: string) {
 
     return (group: FormGroup) => {
 
@@ -67,13 +67,36 @@ export class SignupComponent implements OnInit {
 
      this._usuarioService.crearUsuario(usuario)
      .subscribe(()=>{
-       this.alert("Su cuenta ha sido creada correctamente").then(()=>this.router.navigate(['/login']));
-     });
+
+       this.alert("Su cuenta ha sido creada correctamente")
+       .then(()=>{
+
+         this.router.navigate(['/login'], {
+           transition:{
+             name:'slideLeft', 
+             duration:500, 
+             curve:'linear'
+            }
+        });
+
+      });
+
+     }, error => {
+      this.alert(error.error.err.errors.email.message);
+      console.log('error:',error.error.err.errors.email.message);
+      }
+    );
 
   }
   
   regresarLogin(){
-    this.router.navigate(['login']);
+    this.router.navigate(['login'], {
+      transition:{
+        name:'slideLeft',
+        duration:500, 
+        curve:'linear'
+      }
+    });
   }
 
   alert(message: string) {

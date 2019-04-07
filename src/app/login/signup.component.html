@@ -21,6 +21,7 @@
                         <TextField class="input" hint="Correo Electrónico" max="10" keyboardType="email" autocorrect="false" autocapitalizationType="none" formControlName="email"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
                         <Label text="Es necesario el email" class="text-danger h6" *ngIf="registroForm.controls['email'].errors?.required"></Label>
+                        <Label text="No es un email válido" class="text-danger h6" *ngIf="registroForm.controls['email'].errors?.email"></Label>
 
                     </StackLayout>
 

@@ -26,15 +26,24 @@ export class LoginComponent {
     
     let usuario = new Usuario(null,this.email,this.password);
     this._usuarioService.login(usuario)
-    .subscribe(()=> this.router.navigate([''],{ clearHistory: true,transition:{name:'fade',duration:1000,curve:'linear'} }),
+    .subscribe(()=> this.router.navigate([''],{ clearHistory: true,transition:{name:'slide',duration:1000,curve:'linear'} }),
       error => {
-        alert(error.error.mensaje);
-        console.log('error ',error);}
+        alert(error.err.mensaje);
+        console.log('error ',error);
+      }
     );
     
   }
 
   irRegistrar(){
-      this.router.navigate(['signup']);
+
+    this.router.navigate(['signup'], {
+      transition:{
+        name:'slideRight', 
+        duration:500, 
+        curve:'linear'
+      }
+    });
+
   }
 }
