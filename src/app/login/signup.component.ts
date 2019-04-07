@@ -46,8 +46,8 @@ export class SignupComponent implements OnInit {
     this.registroForm = new FormGroup({
       'nombre': new FormControl('', [Validators.required, Validators.minLength(3)]),
       'email': new FormControl('', [Validators.required, Validators.email]),
-      'telefono': new FormControl('', Validators.required),
-      'password': new FormControl('', Validators.required),
+      'telefono': new FormControl('', [Validators.required, Validators.minLength(6),Validators.maxLength(10)]),
+      'password': new FormControl('', [Validators.required, Validators.minLength(6)]),
       'password2': new FormControl('', Validators.required),
     }, {validators: this.sonIguales('password','pasword2')});
 

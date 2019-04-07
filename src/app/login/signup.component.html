@@ -18,7 +18,7 @@
 
                     <StackLayout row="1" class="input-field">
 
-                        <TextField class="input" hint="Correo Electrónico" keyboardType="email" autocorrect="false" autocapitalizationType="none" formControlName="email"></TextField>
+                        <TextField class="input" hint="Correo Electrónico" max="10" keyboardType="email" autocorrect="false" autocapitalizationType="none" formControlName="email"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
                         <Label text="Es necesario el email" class="text-danger h6" *ngIf="registroForm.controls['email'].errors?.required"></Label>
 
@@ -26,9 +26,10 @@
 
                     <StackLayout row="2" class="input-field">
 
-                        <TextField class="input" hint="Número telefónico" keyboardType="number" formControlName="telefono"></TextField>
+                        <TextField class="input" maxLength="10" hint="Número telefónico" keyboardType="number" formControlName="telefono"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
                         <Label text="Es necesario el telefono" class="text-danger h6" *ngIf="registroForm.controls['telefono'].errors?.required"></Label>
+                        <Label text="No es un número valido" class="text-danger h6" *ngIf="registroForm.controls['telefono'].errors?.minlength || registroForm.controls['telefono'].errors?.maxlength"></Label>
 
                     </StackLayout>
 
@@ -36,14 +37,15 @@
 
                         <TextField class="input" hint="Contraseña" secure="true" formControlName="password"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
-                        <Label text="Es necesario el password" class="text-danger h6" *ngIf="registroForm.controls['password'].errors?.required"></Label>
+                        <Label text="Es necesario la contraseña" class="text-danger h6" *ngIf="registroForm.controls['password'].errors?.required"></Label>
+                        <Label text="Por lo menos 6 caracteres" class="text-danger h6" *ngIf="registroForm.controls['password'].errors?.minlength"></Label>
 
                     </StackLayout>
 
                     <StackLayout row="4" class="input-field">
                         <TextField class="input" hint="Confirmar Contraseña" secure="true" formControlName="password2"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
-                        <Label text="Es necesario el password2" class="text-danger h6" *ngIf="registroForm.controls['password2'].errors?.required"></Label>
+                        <Label text="Es necesario confirmar contraseña" class="text-danger h6" *ngIf="registroForm.controls['password2'].errors?.required"></Label>
                         <Label text="Las contraseñas no coinciden" class="text-danger h6" *ngIf="registroForm.errors?.sonIguales && !registroForm.pristine"></Label>
 
                     </StackLayout>
