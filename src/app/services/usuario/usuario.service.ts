@@ -47,15 +47,20 @@ export class UsuarioService {
     }
 
     login (usuario: Usuario) {
+
         let url=URL_SERVICIOS + '/login';
+
         if(!usuario.email || !usuario.password) {
             this.alert("Ingresa tu datos por favor.");
             return throwError("Ingresa tu datos por favor.");
         }
+
         return this.http.post(url,usuario)
         .pipe(map((resp:any)=>{
+
             this.guardarLocaData(String(resp._id) , String(resp.token) , resp.usuario);
             console.log('ingreso correctamente');
+
         }))
 
     }

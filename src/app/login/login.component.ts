@@ -28,8 +28,8 @@ export class LoginComponent {
     this._usuarioService.login(usuario)
     .subscribe(()=> this.router.navigate([''],{ clearHistory: true,transition:{name:'slide',duration:1000,curve:'linear'} }),
       error => {
-        alert(error.err.mensaje);
-        console.log('error ',error);
+        this.alert(error.error.error.menssage);
+        console.log('error:',error);
       }
     );
     
@@ -45,5 +45,15 @@ export class LoginComponent {
       }
     });
 
+  }
+
+  alert(message: string) {
+
+    return alert({
+        title: "DIGITAL ADS",
+        okButtonText: "OK",
+        message: message
+    });
+    
   }
 }
