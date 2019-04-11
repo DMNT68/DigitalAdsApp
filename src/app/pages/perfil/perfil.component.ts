@@ -6,8 +6,8 @@ import { alert, confirm, prompt, login, action, inputType } from "tns-core-modul
 
 
 
-import { UsuarioService } from '../services/service.index';
-import { Usuario } from '../models/usuario.model';
+import { UsuarioService } from '../../shared/services/service.index';
+import { Usuario } from '../../shared/models/usuario.model';
 
 @Component({
   selector: 'Perfil',

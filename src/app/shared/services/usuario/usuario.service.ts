@@ -9,7 +9,7 @@ import {getString, setString, remove} from "tns-core-modules/application-setting
 
 
 import { Usuario } from '../../models/usuario.model';
-import { URL_SERVICIOS } from '../../config/config';
+import { URL_SERVICIOS } from '../../../config/config';
 
 @Injectable() 
 export class UsuarioService { 

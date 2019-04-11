@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
 
-import { Producto } from '../models/producto.model';
-import { ProductoService } from '../services/service.index';
+import { Producto } from '../../../shared/models/producto.model';
+import { ProductoService } from '../../../shared/services/service.index';
 import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
   moduleId: module.id,
   providers:[ProductoService],
   templateUrl: `producto.component.html`,
-  styleUrls:['productos.component.css']
+  styleUrls:['../productos.component.css']
 
 })
 export class ProductoComponent {

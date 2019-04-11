@@ -1,8 +1,8 @@
 
 import { Component } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page/page';
-import { UsuarioService } from '../services/service.index';
-import { Usuario } from '../models/usuario.model';
+import { UsuarioService } from '../shared/services/service.index';
+import { Usuario } from '../shared/models/usuario.model';
 import { RouterExtensions } from 'nativescript-angular/router';
 
 

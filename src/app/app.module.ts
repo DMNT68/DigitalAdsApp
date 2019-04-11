@@ -8,18 +8,16 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
 
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from "./login/signup.component";
-import { ServiceModule } from "./services/service.module";
-import { ProductosComponent } from "./productos/productos.component";
-import { ProductoComponent } from './productos/producto.component';
-import { PipesModule } from "./pipes/pipes.module";
-import { TabsComponent } from './tabs/tabs.component';
-import { PerfilComponent } from "./perfil/perfil.component";
-import { CotizacionesComponent } from "./cotizaciones/cotizaciones.component";
+import { ServiceModule } from "./shared/services/service.module";
+import { ProductosComponent } from "./pages/productos/productos.component";
+import { ProductoComponent } from './pages/productos/producto-detalle/producto.component';
+import { PipesModule } from "./shared/pipes/pipes.module";
+import { TabsComponent } from './pages/tabs/tabs.component';
+import { PerfilComponent } from "./pages/perfil/perfil.component";
+import { CotizacionesComponent } from "./pages/cotizaciones/cotizaciones.component";
 
 @NgModule({
     bootstrap: [
@@ -39,8 +37,6 @@ import { CotizacionesComponent } from "./cotizaciones/cotizaciones.component";
         AppComponent,
         LoginComponent,
         SignupComponent,
-        ItemsComponent,
-        ItemDetailComponent,
         ProductosComponent,
         ProductoComponent,
         TabsComponent,

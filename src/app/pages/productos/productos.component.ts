@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { ListViewEventData } from 'nativescript-ui-listview';
 
-import { PanGestureEventData } from "tns-core-modules/ui/gestures";
 import { View } from 'tns-core-modules/ui/page/page';
 
-import { ProductoService } from '../services/service.index';
-import { Producto } from '../models/producto.model';
+
+import { Producto } from '../../shared/models/producto.model';
 import { TextField } from "tns-core-modules/ui/text-field";
+import { ProductoService } from '../../shared/services/service.index';
 
 @Component({
   selector: 'Productos',
