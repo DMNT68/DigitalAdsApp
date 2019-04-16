@@ -125,7 +125,7 @@ export class ProductoComponent {
   }
 
   onBackButtonTap(): void {
-    this._routerExtensions.backToPreviousPage();
+    this._routerExtensions.back();
     this.rotulos3D=false;
     this.rotulos=false;
   }

@@ -22,6 +22,7 @@ export class UsuarioService {
     } 
 
     estaLogueado() {
+      this.cargaLocalData();
         return(this.token.length > 5 ) ? true : false; 
       }
 
@@ -44,6 +45,7 @@ export class UsuarioService {
         setString('usuario',JSON.stringify(usuario));
         this.usuario = usuario;
         this.token = token;
+        console.log('guardar',this.token);
     }
 
     login (usuario: Usuario) {
@@ -59,9 +61,9 @@ export class UsuarioService {
         .pipe(map((resp:any)=>{
 
             this.guardarLocaData(String(resp._id) , String(resp.token) , resp.usuario);
-            console.log('ingreso correctamente');
+            return true;
 
-        }))
+        }));
 
     }
 

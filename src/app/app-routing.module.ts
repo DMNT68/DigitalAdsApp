@@ -13,14 +13,14 @@ import { LoginGuard } from './shared/services/service.index';
 import { ProductosComponent } from './pages/productos/productos.component';
 
 const routes: Routes = [
-    { path: "",canActivate:[LoginGuard], component: TabsComponent  },
     { path: "login", component: LoginComponent },
     { path: "signup", component: SignupComponent },
-    { path: "productos", component: ProductosComponent, canActivate:[LoginGuard] },
-    { path: "producto/:id", component: ProductoComponent, canActivate:[LoginGuard] },
-    { path: "cotizaciones", component: CotizacionesComponent, canActivate:[LoginGuard] },
-    { path: "perfil", component: PerfilComponent, canActivate:[LoginGuard] }
-
+    { path: "productos", component: ProductosComponent},
+    { path: "producto/:id", component: ProductoComponent},
+    { path: "cotizaciones", component: CotizacionesComponent},
+    { path: "perfil", component: PerfilComponent},
+    { path: "",canActivate:[LoginGuard], component: TabsComponent}
+    
 ];
 
 @NgModule({
