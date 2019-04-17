@@ -21,8 +21,14 @@ export class ProductosComponent implements OnInit {
   isLoading = false;
   productos: Producto[] = [];
   textoBuscar = '';
+  aparecer = false;
+  suma: number = 1;
+  icoSearch: String = '';
+  icoClose: String = ''
 
   constructor(public _productosService: ProductoService, public routerExtensions:RouterExtensions) { 
+
+    this.icoSearch = String.fromCharCode(0xe986);
 
   }
 
@@ -81,6 +87,22 @@ export class ProductosComponent implements OnInit {
         .catch((e) => {
             console.log(e.message);
         });
+  }
+
+  aparecerBuscar(valor:number) {
+
+    this.suma += valor;
+    let residuo= 0;
+    residuo = this.suma % 2;
+
+    if (residuo === 0) {
+      this.aparecer=true;
+      return;
+    } else {
+      this.aparecer = false;
+      this.textoBuscar='';
+      return;
+    }
   }
 
 }

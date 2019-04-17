@@ -27,29 +27,30 @@
     }
     
     .busqueda-bar {
-        background-color: #0e3746;
-        padding: 5;
+        background-color: #f4f2ec;
+        padding: 1;
     }
     
-    .busqueda-bar Image {
-        height: 10;
+    .busqueda-bar {
+        height: 50;
         vertical-align: center;
-        margin-left: 5;
-        margin-right: 5;
     }
     
     .busqueda-bar {
         padding: 10;
-        placeholder-color: #A8A8A8;
     }
     
-    .search-bar {
-        background-color: #0e3746;
-        font-family: 'Halcom', 'Halcom_Regular';
+    .titulo-bar {
+        font-size: 20;
+        font-weight: bold;
+        text-align: center;
     }
     
     .separador {
         background-color: #eae8dc;
         height: 10;
-        padding: 1;
+    }
+    
+    .searchbar {
+        font-size: 16;
     }

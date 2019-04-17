@@ -1,6 +1,5 @@
-<GridLayout rows="auto, *" class="page home-page-content home-page-content">
+<GridLayout rows="auto, *" class="page">
 
-    <SearchBar row="0" id="searchBar" hint="Buscar producto..." text="" (textChange)="buscarProducto($event)" class="search-bar" textFieldHintColor="gray"></SearchBar>
 
     <RadListView row="1" class="card" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
 
@@ -18,6 +17,16 @@
         </ng-template>
 
     </RadListView>
+
+    <GridLayout class="busqueda-bar" row="0">
+        <GridLayout columns="40,*,40">
+            <Image *ngIf="!aparecer" col="0" src="~/assets/images/logo.png"></Image>
+            <Label *ngIf="aparecer" col="0" text="&#xe904;" class="ico" (tap)="aparecerBuscar(+1)"></Label>
+            <Label *ngIf="!aparecer" col="2" [text]="icoSearch" class="ico" (tap)="aparecerBuscar(+1)"></Label>
+            <Label *ngIf="!aparecer" col="1" text="Productos" class="titulo-bar"></Label>
+            <SearchBar class="searchbar" *ngIf="aparecer" col="1" id="searchBar" hint="Buscar producto..." (textChange)="buscarProducto($event)" textFieldHintColor="gray"></SearchBar>
+        </GridLayout>
+    </GridLayout>
 
     <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 

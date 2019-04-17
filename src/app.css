@@ -11,6 +11,11 @@ refer to http://docs.nativescript.org/ui/theme.
 */
 
 @import '~nativescript-theme-core/css/core.light.css';
+.ico {
+    font-family: 'IcoMoon-Free';
+    font-size: 20;
+}
+
 .btn-primary {
     height: 50;
     background-color: #D51A1A;
