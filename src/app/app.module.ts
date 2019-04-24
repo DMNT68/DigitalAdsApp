@@ -18,6 +18,7 @@ import { PipesModule } from "./shared/pipes/pipes.module";
 import { TabsComponent } from './pages/tabs/tabs.component';
 import { PerfilComponent } from "./pages/perfil/perfil.component";
 import { CotizacionesComponent } from "./pages/cotizaciones/cotizaciones.component";
+import { CarritoComponent } from "./pages/carrito/carrito.component";
 
 @NgModule({
     bootstrap: [
@@ -41,7 +42,8 @@ import { CotizacionesComponent } from "./pages/cotizaciones/cotizaciones.compone
         ProductoComponent,
         TabsComponent,
         PerfilComponent,
-        CotizacionesComponent
+        CotizacionesComponent,
+        CarritoComponent
     ],
     providers: [],
     schemas: [

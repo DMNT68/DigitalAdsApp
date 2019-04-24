@@ -1,23 +1,23 @@
 <FlexboxLayout class="page">
-    <StackLayout class="form">
+    <StackLayout class="form ico">
         <Image class="logo" src="~/assets/images/logo.png"></Image>
         <Label class="header" text="Digital Ads"></Label>
         <GridLayout rows="auto, auto">
 
             <StackLayout row="0" class="input-field">
-                <TextField class="input" hint="Correo Electrónico" keyboardType="email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="email"></TextField>
+                <TextField class="input" hint="&#xe908; Correo Electrónico" keyboardType="email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="email"></TextField>
                 <StackLayout class="hr-light"></StackLayout>
             </StackLayout>
 
             <StackLayout row="1" class="input-field">
-                <TextField class="input" hint="Contraseña" secure="true" [(ngModel)]="password"></TextField>
+                <TextField class="input" hint="&#xe90d; Contraseña" secure="true" [(ngModel)]="password"></TextField>
                 <StackLayout class="hr-light"></StackLayout>
             </StackLayout>
 
         </GridLayout>
 
 
-        <Button text="Ingresar a tu Cuenta" class="btn btn-primary btn-active" (tap)="ingresar()"></Button>
-        <Button text="Registrar una Cuenta" (tap)="irRegistrar()" class="btn btn-outline btn-active"></Button>
+        <Button text="Ingresar a tu Cuenta &#xea13; " class="btn btn-primary btn-active ico" (tap)="ingresar()"></Button>
+        <Button text=" &#xe904;Registrar una Cuenta" (tap)="irRegistrar()" class="btn btn-outline btn-active ico"></Button>
     </StackLayout>
 </FlexboxLayout>

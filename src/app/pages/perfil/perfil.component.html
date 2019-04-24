@@ -1,4 +1,4 @@
-<GridLayout row="auto , auto">
+<!-- <GridLayout row="auto , auto">
     <ScrollView class="page">
 
         <StackLayout class="form">
@@ -14,4 +14,32 @@
         </StackLayout>
 
     </ScrollView>
+</GridLayout> -->
+
+<GridLayout rows="auto auto *" columns="*" sdkExampleTitle sdkToggleNavButton>
+    <GridLayout row="0" col="0" rows="* *" backgroundColor="#adadad">
+        <StackLayout row="0" backgroundColor="#30bcff">
+        </StackLayout>
+        <StackLayout row="0" rowSpan="2" class="p-t-15">
+            <StackLayout class="m-20 p-l-15 p-r-15">
+                <Image [src]="usuario.img | imagen" height="80" width="80" class="img-circle" borderWidth="1" borderColor="white"></Image>
+                <Label [text]="usuario.nombre" class="h2 text-center" textWrap="true"></Label>
+                <Label [text]="usuario.email" class="h4 text-center" textWrap="true"></Label>
+                <Label [text]="usuario.telefono" class="h4 text-center" textWrap="true"></Label>
+                <Label text="Cerrar Sesión &#xea14;" class="h5 text-center text-danger ico" (tap)="salir()"></Label>
+            </StackLayout>
+        </StackLayout>
+    </GridLayout>
+    <GridLayout row="1" col="1" rows="* *" backgroundColor="#adadad">
+        <StackLayout row="0" backgroundColor="#30bcff">
+        </StackLayout>
+        <StackLayout row="0" rowSpan="2" class="p-t-15">
+            <StackLayout class="m-20 p-l-15 p-r-15">
+                <Image src="res://icon" height="80" width="80" class="img-circle" borderWidth="1" borderColor="white"></Image>
+                <Label text="Digital Ads" class="h2 text-center" textWrap="true"></Label>
+                <Label text="usuario.telefono" class="h4 text-center" textWrap="true"></Label>
+            </StackLayout>
+        </StackLayout>
+    </GridLayout>
+
 </GridLayout>

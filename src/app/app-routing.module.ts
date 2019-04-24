@@ -11,6 +11,7 @@ import { CotizacionesComponent } from "./pages/cotizaciones/cotizaciones.compone
 import { PerfilComponent } from "./pages/perfil/perfil.component";
 import { LoginGuard } from './shared/services/service.index';
 import { ProductosComponent } from './pages/productos/productos.component';
+import { CarritoComponent } from "./pages/carrito/carrito.component";
 
 const routes: Routes = [
     { path: "login", component: LoginComponent },
@@ -18,7 +19,9 @@ const routes: Routes = [
     { path: "productos", component: ProductosComponent},
     { path: "producto/:id", component: ProductoComponent},
     { path: "cotizaciones", component: CotizacionesComponent},
+    { path: "cotizaciones/id", component: CotizacionesComponent},
     { path: "perfil", component: PerfilComponent},
+    { path: "carrito", component: CarritoComponent},
     { path: "",canActivate:[LoginGuard], component: TabsComponent}
     
 ];

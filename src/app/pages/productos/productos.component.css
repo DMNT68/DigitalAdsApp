@@ -5,7 +5,7 @@
     }
     
     .card-layout {
-        padding: 20;
+        padding: 15;
     }
     
     .card-layout .h1 {
@@ -53,4 +53,9 @@
     
     .searchbar {
         font-size: 16;
+    }
+    
+    .ico {
+        font-family: 'IcoMoon-Free';
+        font-size: 28;
     }

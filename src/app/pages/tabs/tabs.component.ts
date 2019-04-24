@@ -4,7 +4,8 @@ import { Page } from 'tns-core-modules/ui/page/page';
 @Component({
   selector: 'Tabs',
   moduleId: module.id,
-  templateUrl: `tabs.component.html`
+  templateUrl: `tabs.component.html`,
+  styleUrls:['tabs.component.css']
 })
 export class TabsComponent implements OnInit {
 

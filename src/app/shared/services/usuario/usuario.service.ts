@@ -45,7 +45,7 @@ export class UsuarioService {
         setString('usuario',JSON.stringify(usuario));
         this.usuario = usuario;
         this.token = token;
-        console.log('guardar',this.token);
+        // console.log('guardar',this.token);
     }
 
     login (usuario: Usuario) {
