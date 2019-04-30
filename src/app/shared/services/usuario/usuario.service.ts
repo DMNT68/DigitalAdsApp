@@ -7,6 +7,7 @@ import { map} from "rxjs/operators";
 
 import {getString, setString, remove} from "tns-core-modules/application-settings";
 
+import {UtilService} from "../service.index"
 
 import { Usuario } from '../../models/usuario.model';
 import { URL_SERVICIOS } from '../../../config/config';
@@ -14,100 +15,102 @@ import { URL_SERVICIOS } from '../../../config/config';
 @Injectable() 
 export class UsuarioService { 
 
-    usuario: Usuario;
-    token: string;
+  usuario: Usuario;
+  token: string;
 
-    constructor(private router: RouterExtensions , private http:HttpClient) { 
-        this.cargaLocalData();
-    } 
-
-    estaLogueado() {
+  constructor(private router: RouterExtensions , private http:HttpClient) { 
       this.cargaLocalData();
-        return(this.token.length > 5 ) ? true : false; 
-      }
+  } 
 
-    cargaLocalData() {
-
-        if ( getString('token')) {
-          this.token = getString('token');
-          this.usuario = JSON.parse( getString('usuario') );
-        } else {
-          this.token = '';
-          this.usuario = null;
-        }
-    
-      }
-
-    guardarLocaData(id: string, token: string, usuario: Usuario){
-        
-        setString('id',id);
-        setString('token',token);
-        setString('usuario',JSON.stringify(usuario));
-        this.usuario = usuario;
-        this.token = token;
-        // console.log('guardar',this.token);
+  estaLogueado() {
+    this.cargaLocalData();
+      return(this.token.length > 5 ) ? true : false; 
     }
 
-    login (usuario: Usuario) {
+  cargaLocalData() {
 
-        let url=URL_SERVICIOS + '/login';
-
-        if(!usuario.email || !usuario.password) {
-            this.alert("Ingresa tu datos por favor.");
-            return throwError("Ingresa tu datos por favor.");
-        }
-
-        return this.http.post(url,usuario)
-        .pipe(map((resp:any)=>{
-
-            this.guardarLocaData(String(resp._id) , String(resp.token) , resp.usuario);
-            return true;
-
-        }));
-
-    }
-
-    logout() {
-
-        this.usuario = null;
+      if ( getString('token')) {
+        this.token = getString('token');
+        this.usuario = JSON.parse( getString('usuario') );
+      } else {
         this.token = '';
-    
-        remove('usuario');
-        remove('token');
-
-        this.alert('Espero que vuelvas. Hasta luego');
-        this.router.navigate(['/login'], {transition:{name:'slideRight', duration:1000}});
-    
+        this.usuario = null;
       }
-
-    crearUsuario(usuario:Usuario){
-
-        let url=URL_SERVICIOS + '/usuario';
-
-        if(!usuario.email || !usuario.password || !usuario.telefono) {
-            this.alert("Por favor ingresa tu datos por favor.");
-            return throwError("Por favor ingresa tus datos por favor.");
-        }
-
-        // let options = this.createRequestOptions();
-
-        return this.http.post(url,usuario);
-
+  
     }
 
-    // private createRequestOptions() {
-    //     let headers = new HttpHeaders({
-    //         "Content-Type": "application/x-www-form-urlencoded"
-    //     });
-    //     return headers;
-    // }
+  guardarLocaData(id: string, token: string, usuario: Usuario){
+      
+      setString('id',id);
+      setString('token',token);
+      setString('usuario',JSON.stringify(usuario));
+      this.usuario = usuario;
+      this.token = token;
+      // console.log('guardar',this.token);
+  }
 
-    alert(message: string) {
-        return alert({
-            title: "DIGITAL ADS",
-            okButtonText: "OK",
-            message: message
-        });
+  login (usuario: Usuario) {
+
+      let url=URL_SERVICIOS + '/login';
+
+      if(!usuario.email || !usuario.password) {
+          this.alert("Ingresa tu datos por favor.");
+          return throwError("Ingresa tu datos por favor.");
       }
+
+      return this.http.post(url,usuario)
+      .pipe(map((resp:any)=>{
+
+          this.guardarLocaData(String(resp._id) , String(resp.token) , resp.usuario);
+          return true;
+
+      }));
+
+  }
+
+  logout() {
+
+      this.usuario = null;
+      this.token = '';
+  
+      remove('usuario');
+      remove('token');
+
+      this.alert('Espero que vuelvas. Hasta luego');
+      this.router.navigate(['/login'], {transition:{name:'slideRight', duration:1000}});
+  
+    }
+
+  crearUsuario(usuario:Usuario){
+
+      let url=URL_SERVICIOS + '/usuario';
+
+      if(!usuario.email || !usuario.password || !usuario.telefono) {
+        this.alert("Por favor ingresa tu datos por favor.");
+          return throwError("Por favor ingresa tus datos por favor.");
+      }
+
+      // let options = this.createRequestOptions();
+
+      return this.http.post(url,usuario);
+
+  }
+
+  // private createRequestOptions() {
+  //     let headers = new HttpHeaders({
+  //         "Content-Type": "application/x-www-form-urlencoded"
+  //     });
+  //     return headers;
+  // }
+
+  public alert(message: string) {
+
+    return alert({
+        title: "DIGITAL ADS",
+        okButtonText: "OK",
+        message: message
+    });
+    
+  }
 
 } 

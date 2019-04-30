@@ -4,6 +4,8 @@ import { ObservableArray } from 'tns-core-modules/data/observable-array/observab
 import { ListViewEventData } from 'nativescript-ui-listview';
 import { View } from 'tns-core-modules/ui/page/page';
 
+import { UtilService } from '../../shared/services/service.index';
+
 @Component({
   selector: 'Cotizaciones',
   moduleId: module.id,
@@ -14,9 +16,70 @@ export class CotizacionesComponent {
 
     getLista:any;
     cargando:boolean=false;
+    cotizaciones: any[];
+    code = 0xe93a;
+    public fecha;
 
-  constructor(private http: HttpClient) {
-
+  constructor(private http: HttpClient, private _utilService: UtilService) {
+    this.fecha = new Date();
+    let formato = this._utilService.fechaFormato(this.fecha);
+    this.cotizaciones = [
+      {'img': String.fromCharCode(this.code),
+       'productos':3,
+       'fecha': formato,
+       'total': 199.59 
+      },
+      { 'img': String.fromCharCode(this.code),
+       'productos':10,
+       'fecha': formato,
+       'total': 99.59 
+      },
+      { 'img': String.fromCharCode(this.code),
+       'productos':1,
+       'fecha': formato,
+       'total': 19.59 
+      },
+      { 'img': String.fromCharCode(this.code),
+       'productos':4,
+       'fecha': formato,
+       'total': 239.59 
+      },
+      { 'img': String.fromCharCode(this.code),
+       'productos':10,
+       'fecha': formato,
+       'total': 1459
+      },
+      { 'img': String.fromCharCode(this.code),
+       'productos':3,
+       'fecha': formato,
+       'total': 199.59 
+      },
+      { 'img': String.fromCharCode(this.code),
+       'productos':6,
+       'fecha': formato,
+       'total': 199.59 
+      },
+      { 'img': String.fromCharCode(this.code),
+       'productos':3,
+       'fecha': formato,
+       'total': 1349.59 
+      },
+      { 'img': String.fromCharCode(this.code),
+       'productos':1,
+       'fecha': formato,
+       'total': 19 
+      },
+      { 'img': String.fromCharCode(this.code),
+       'productos':3,
+       'fecha': formato,
+       'total': 199.59 
+      },
+      { 'img': String.fromCharCode(this.code),
+       'productos':1,
+       'fecha': formato,
+       'total': 200.59 
+      },
+    ]
   }
 
   ngOnInit(): void {

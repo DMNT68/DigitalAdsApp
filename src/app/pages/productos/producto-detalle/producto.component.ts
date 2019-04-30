@@ -3,7 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 
 
 import { Producto } from '../../../shared/models/producto.model';
-import { ProductoService } from '../../../shared/services/service.index';
+import { ProductoService, UtilService } from '../../../shared/services/service.index';
 import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
@@ -31,7 +31,7 @@ export class ProductoComponent {
   rotulos3D: boolean = false;
   rotulos: boolean = false;
 
-  constructor(private _productoService: ProductoService, private activRoute: ActivatedRoute,
+  constructor(public _productoService: ProductoService, private _utilService: UtilService , private activRoute: ActivatedRoute,
     private _routerExtensions: RouterExtensions) {
 
     activRoute.params.subscribe(
@@ -73,20 +73,19 @@ export class ProductoComponent {
       this.cantidad = 1;
       this.alto = 1;
       this.nletras = 1;
-      this.alert("La cantidad debe ser igual o mayor a 1");
+      this._utilService.alert("La cantidad debe ser igual o mayor a 1");
       return;
     }
 
     this.cantidad += cantidad; 
     this.precioFinal = +this.producto.precioUni * this.cantidad;
-    // console.log(this.precioFinal);
-
+    
   }
 
   variarPrecioRotulo3D() {
 
     if(!this.alto || !this.ancho || !this.nletras){
-      this.alert("Ingresa los valores por favor");
+      this._utilService.alert("Ingresa los valores por favor");
       return;
     }
 
@@ -95,19 +94,18 @@ export class ProductoComponent {
       this.cantidad = 1;
       this.alto = 1;
       this.nletras = 1;
-      this.alert("Ingresa los valor igual o mayor a 1");
+      this._utilService.alert("Ingresa los valor igual o mayor a 1");
       return;
     }
 
     let base: number = this.alto * this.ancho; 
     this.precioFinal = (+this.producto.precioUni * base) + (this.nletras*25);
-    // console.log(this.precioFinal);
   }
 
   variarPrecioRotulo() {
 
     if(!this.alto || !this.ancho){
-     this.alert("Ingresa los valores por favor");
+     this._utilService.alert("Ingresa los valores por favor");
       return;
     }
 
@@ -115,13 +113,12 @@ export class ProductoComponent {
       this.precioFinal = +this.producto.precioUni;
       this.cantidad = 1;
       this.alto = 1;
-      this.alert("Ingresa los valor igual o mayor a 1");
+      this._utilService.alert("Ingresa los valor igual o mayor a 1");
       return;
     }
 
     let base: number = this.alto * this.ancho; 
     this.precioFinal = +this.producto.precioUni * base;
-    // console.log(this.precioFinal);
   }
 
   onBackButtonTap(): void {
@@ -130,17 +127,8 @@ export class ProductoComponent {
     this.rotulos=false;
   }
 
-
-  alert(message: string) {
-    return alert({
-        title: "DIGITAL ADS",
-        okButtonText: "OK",
-        message: message
-    });
+  agregarCarrito() {
+    this._productoService.agregarCarrito();
   }
-
-
-
-
 
 }

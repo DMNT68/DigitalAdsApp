@@ -10,7 +10,7 @@
         </GridLayout>
     </GridLayout>
 
-    <GridLayout row="1" class="card card-layout">
+    <GridLayout *ngIf="_productosService.activarCarrito" row="1" class="card card-layout">
         <carrito></carrito>
     </GridLayout>
 
@@ -20,19 +20,16 @@
             <StackLayout [nsRouterLink]="['/producto', producto._id]">
                 <StackLayout class="card-layout">
                     <Label class="h3" [text]="producto.nombre" textWrap="true"></Label>
-                    <Image class="img-rounded" [src]="producto.img | imagen:'producto'"></Image>
+                    <Image class="img-rounded" stretch="aspectFill" [src]="producto.img | imagen:'producto'"></Image>
                     <Label class="h4" [text]="producto.categoria.descripcion" textWrap="true"></Label>
                     <Label class="body" textWrap="true" [text]="producto.descripcion" textWrap="true"></Label>
-                    <Label class="h2 text-right text-danger" textWrap="true" text="${{producto.precioUni}}"></Label>
+                    <!-- <Label class="h2 text-right text-danger" textWrap="true" text="${{producto.precioUni}}"></Label> -->
                 </StackLayout>
                 <StackLayout class="separador"></StackLayout>
             </StackLayout>
         </ng-template>
 
     </RadListView>
-
-
-
 
     <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 

@@ -1,14 +1,17 @@
 <ActionBar title="{{nombre}}" icon="" class="action-bar">
-    <ActionItem text="Item" ios.position="right" android.position="popup"></ActionItem>
-    <ActionItem text="Item2" ios.position="right" android.position="popup"></ActionItem>
-    <ActionItem text="Item3" ios.position="right" android.position="popup"></ActionItem>
-    <!-- <ActionItem ios.systemIcon="12" android.systemIcon="ic_menu_search"></ActionItem> -->
     <NavigationButton text="Back" (tap)="onBackButtonTap()" android.systemIcon="ic_menu_back"></NavigationButton>
 </ActionBar>
-<GridLayout class="page">
-    <ScrollView>
 
-        <StackLayout class="list-group  card-layout">
+
+<GridLayout rows="auto, *" class="page">
+
+    <GridLayout *ngIf="_productoService.activarCarrito" row="0" class="card-layout">
+        <carrito></carrito>
+    </GridLayout>
+
+    <ScrollView row="1">
+
+        <StackLayout class="list-group card-layout">
 
             <Image class="img-rounded" [src]="img | imagen:'producto'"></Image>
             <!-- <Label class="h3" [text]="nombre" textWrap="true"></Label> -->
@@ -37,7 +40,9 @@
             </StackLayout>
 
             <Label class="h2 text-right text-danger" textWrap="true" text=" Precio Final:  ${{precioFinal}}"></Label>
+            <Button text="&#xe93a;" class="ico" (tap)="agregarCarrito()"></Button>
+
         </StackLayout>
 
     </ScrollView>
-</GridLayout>
+</GridLayout>s

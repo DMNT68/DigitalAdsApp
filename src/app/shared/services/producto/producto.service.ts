@@ -9,6 +9,7 @@ import { Producto } from "../../models/producto.model";
 export class ProductoService { 
 
     totalProductos: number = 0;
+    activarCarrito: boolean = false;
 
     constructor(private http: HttpClient) { } 
 
@@ -37,6 +38,10 @@ export class ProductoService {
         return this.http.get(url).
         pipe(map((resp: any) => resp.productos));
     
+      }
+
+      agregarCarrito(){
+          this.activarCarrito=!this.activarCarrito;
       }
 
 } 

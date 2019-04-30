@@ -1,7 +1,11 @@
 @import '~nativescript-theme-core/css/core.light.css';
+
+/*
+    font icons - IconMoon
+*/
+
 .ico {
     font-family: 'IcoMoon-Free';
-    font-size: 20;
 }
 
 .btn-primary {

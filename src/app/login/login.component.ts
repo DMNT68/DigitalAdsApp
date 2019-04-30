@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page/page';
-import { UsuarioService } from '../shared/services/service.index';
+import { UsuarioService} from '../shared/services/service.index';
 import { Usuario } from '../shared/models/usuario.model';
 import { RouterExtensions } from 'nativescript-angular/router';
 
@@ -28,7 +28,7 @@ export class LoginComponent {
     this._usuarioService.login(usuario)
     .subscribe(()=> this.router.navigate([''],{ clearHistory: true,transition:{name:'slide',duration:1000,curve:'linear'} }),
       error => {
-        this.alert(error.error.error.menssage);
+        this._usuarioService.alert(error.error.error.message);
         console.log('error:',error);
       }
     );
@@ -47,13 +47,5 @@ export class LoginComponent {
 
   }
 
-  alert(message: string) {
-
-    return alert({
-        title: "DIGITAL ADS",
-        okButtonText: "OK",
-        message: message
-    });
-    
-  }
+  
 }

@@ -68,7 +68,7 @@ export class SignupComponent implements OnInit {
      this._usuarioService.crearUsuario(usuario)
      .subscribe(()=>{
 
-       this.alert("Su cuenta ha sido creada correctamente")
+      this.alert("Su cuenta ha sido creada correctamente")
        .then(()=>{
 
          this.router.navigate(['/login'], {
@@ -82,7 +82,7 @@ export class SignupComponent implements OnInit {
       });
 
      }, error => {
-      this.alert(error.error.err.errors.email.message);
+      this._usuarioService.alert(error.error.err.errors.email.message);
       console.log('error:',error.error.err.errors.email.message);
       }
     );
@@ -100,11 +100,13 @@ export class SignupComponent implements OnInit {
   }
 
   alert(message: string) {
+
     return alert({
         title: "DIGITAL ADS",
         okButtonText: "OK",
         message: message
     });
+    
   }
 
 }
