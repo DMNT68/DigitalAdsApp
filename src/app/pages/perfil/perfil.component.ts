@@ -25,28 +25,37 @@ export class PerfilComponent {
     this.usuario = this._usuarioService.usuario;
   }
 
-  onLongPress (event:GestureEventData){
-    console.log(event.object);
-    console.log(event.view);
-    console.log(event.eventName);
-    this.prompt();
-    
-}
-
-prompt() {
+ modificar (texto:string, Usuario:Usuario){
   prompt({
-      title: "Editar",
-      message: "Your message",
-      okButtonText: "Your button text",
-      cancelButtonText: "Cancel text",
-      neutralButtonText: "Neutral text",
-      defaultText: "Default text",
-      inputType: inputType.text
+    title: "Editar",
+    message: `Vas editar ${texto}`,
+    okButtonText: "Confirmar",
+    cancelButtonText: "Cancelar",
+    defaultText: `${texto}`,
+    inputType: inputType.text
   }).then((result) => {
-      // The result property is true if the dialog is closed with the OK button, false if closed with the Cancel button or undefined if closed with a neutral button.
-      console.log("Dialog result: " + result.result);
-      console.log("Text: " + result.text);
-  })
+    // The result property is true if the dialog is closed with the OK button,
+    // false if closed with the Cancel button or undefined if closed with a neutral button.
+    console.log("Dialog result: " + result.result);
+    console.log("Text: " + result.text);
+    if(result.result){
+      
+      if(texto === 'Nombre'){
+        this.usuario.nombre = result.text;
+        this._usuarioService.actualizarUsuario(this.usuario).subscribe();
+        console.log('nombre',this.usuario.nombre);
+      } else if (texto === 'Correo Electrónico') {
+        this.usuario.email = result.text;
+        this._usuarioService.actualizarUsuario(this.usuario).subscribe();
+        console.log('email',this.usuario.email);
+      } else {
+        this.usuario.telefono = result.text;
+        console.log('telefono',this.usuario.telefono);
+        this._usuarioService.actualizarUsuario(this.usuario).subscribe();
+      }
+
+    }
+  });
 }
 
   salir(){

@@ -89,9 +89,7 @@ export class UsuarioService {
         this.alert("Por favor ingresa tu datos por favor.");
           return throwError("Por favor ingresa tus datos por favor.");
       }
-
-      // let options = this.createRequestOptions();
-
+      
       return this.http.post(url,usuario);
 
   }
@@ -111,6 +109,29 @@ export class UsuarioService {
         message: message
     });
     
+  }
+
+  actualizarUsuario(usuario: Usuario) {
+
+    let url = URL_SERVICIOS + '/usuario/' + usuario._id;
+    
+    let header = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'token': this.token
+    });
+    
+    return this.http.put(url, usuario, {headers: header})
+    .pipe(map((resp: any) => {
+      if (usuario._id === this.usuario._id) {
+        let usuarioDB: Usuario = resp.usuario;
+        this.guardarLocaData(String(usuarioDB._id) , this.token , usuarioDB);
+        console.log('entra');
+      }
+      
+      return true;
+
+    }));
+
   }
 
 } 

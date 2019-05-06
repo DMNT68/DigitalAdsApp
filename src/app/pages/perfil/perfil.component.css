@@ -10,12 +10,18 @@
     vertical-align: middle;
 }
 
-.logo {
-    margin-top: 20;
-    margin-bottom: 12;
+.img-profile {
+    margin-top: 40;
+    margin-bottom: 40;
     height: 150;
+    width: 150;
+    border-radius: 80;
 }
 
-.borde {
-    border-radius: 10;
+.margen {
+    margin-bottom: 20
+}
+
+.margen-linea {
+    margin-top: 20;
 }
