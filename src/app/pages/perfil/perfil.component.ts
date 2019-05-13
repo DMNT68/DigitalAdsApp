@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 
-import { GestureEventData } from "tns-core-modules/ui/gestures";
-import {GridLayout} from "tns-core-modules/ui/layouts/grid-layout";
-import { alert, confirm, prompt, login, action, inputType } from "tns-core-modules/ui/dialogs";
+import {prompt, inputType } from "tns-core-modules/ui/dialogs";
 
 
 
@@ -25,36 +23,40 @@ export class PerfilComponent {
     this.usuario = this._usuarioService.usuario;
   }
 
- modificar (texto:string, Usuario:Usuario){
+ modificar (texto:string, usuario:Usuario){
+
   prompt({
-    title: "Editar",
+    title: "Editar Perfil - Digital ADS",
     message: `Vas editar ${texto}`,
     okButtonText: "Confirmar",
     cancelButtonText: "Cancelar",
-    defaultText: `${texto}`,
+    defaultText: '',
     inputType: inputType.text
   }).then((result) => {
-    // The result property is true if the dialog is closed with the OK button,
-    // false if closed with the Cancel button or undefined if closed with a neutral button.
+
+
     console.log("Dialog result: " + result.result);
     console.log("Text: " + result.text);
+    console.log('usuario parametro: ', usuario);
+
     if(result.result){
       
       if(texto === 'Nombre'){
-        this.usuario.nombre = result.text;
-        this._usuarioService.actualizarUsuario(this.usuario).subscribe();
+        usuario.nombre = result.text;
+        this._usuarioService.actualizarUsuario(usuario).subscribe();
         console.log('nombre',this.usuario.nombre);
       } else if (texto === 'Correo Electrónico') {
-        this.usuario.email = result.text;
-        this._usuarioService.actualizarUsuario(this.usuario).subscribe();
+        usuario.email = result.text;
+        this._usuarioService.actualizarUsuario(usuario).subscribe();
         console.log('email',this.usuario.email);
       } else {
-        this.usuario.telefono = result.text;
+        usuario.telefono = result.text;
         console.log('telefono',this.usuario.telefono);
-        this._usuarioService.actualizarUsuario(this.usuario).subscribe();
+        this._usuarioService.actualizarUsuario(usuario).subscribe();
       }
 
     }
+    
   });
 }
 

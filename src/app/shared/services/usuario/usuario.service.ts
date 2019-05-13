@@ -122,6 +122,7 @@ export class UsuarioService {
     
     return this.http.put(url, usuario, {headers: header})
     .pipe(map((resp: any) => {
+      
       if (usuario._id === this.usuario._id) {
         let usuarioDB: Usuario = resp.usuario;
         this.guardarLocaData(String(usuarioDB._id) , this.token , usuarioDB);

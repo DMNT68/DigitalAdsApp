@@ -4,10 +4,11 @@ import { ListViewEventData } from 'nativescript-ui-listview';
 
 import { View } from 'tns-core-modules/ui/page/page';
 
-
 import { Producto } from '../../shared/models/producto.model';
+
 import { TextField } from "tns-core-modules/ui/text-field";
-import { ProductoService } from '../../shared/services/service.index';
+
+import { ProductoService, UtilService } from '../../shared/services/service.index';
 
 @Component({
   selector: 'Productos',
@@ -26,9 +27,10 @@ export class ProductosComponent implements OnInit {
   icoSearch: String = '';
   icoClose: String = ''
 
-  constructor(public _productosService: ProductoService, public routerExtensions:RouterExtensions) { 
+  constructor(public _utilService: UtilService, public _productosService: ProductoService, public routerExtensions:RouterExtensions) { 
 
     this.icoSearch = String.fromCharCode(0xe986);
+    this.icoClose = String.fromCharCode(0xe904);
 
   }
 
@@ -89,12 +91,15 @@ export class ProductosComponent implements OnInit {
         });
   }
 
+  
   aparecerBuscar(valor:number) {
+
+    this._utilService.cerrarTecladoTelefono();
 
     this.suma += valor;
     let residuo= 0;
     residuo = this.suma % 2;
-
+    
     if (residuo === 0) {
       this.aparecer=true;
       return;

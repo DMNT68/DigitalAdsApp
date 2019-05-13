@@ -1,5 +1,9 @@
 import { Injectable } from "@angular/core"; 
 
+import { isIOS } from "tns-core-modules/platform";
+import * as utils from "tns-core-modules/utils/utils";
+import * as frame from "tns-core-modules/ui/frame";
+
 @Injectable() 
 export class UtilService { 
 
@@ -9,7 +13,7 @@ export class UtilService {
     constructor() { } 
 
     public fechaFormato(fecha: Date) {
-        let formateado = `${this.days[fecha.getDay()]}/${this.months[fecha.getMonth()]}/${fecha.getFullYear()}`;
+        let formateado = `${this.days[fecha.getDay()]}, ${fecha.getDay()}/${this.months[fecha.getMonth()]}/${fecha.getFullYear()}`;
         return formateado;
     }
 
@@ -22,4 +26,15 @@ export class UtilService {
         });
         
     }
+
+    public cerrarTecladoTelefono() {
+        if (isIOS) {
+          frame.topmost().nativeView.endEditing(true);
+          console.log('sigue');
+            } else {
+          utils.ad.dismissSoftInput();
+          console.log('sigue');
+    
+            }
+        }
 }

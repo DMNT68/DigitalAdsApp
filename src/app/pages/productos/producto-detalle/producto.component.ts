@@ -31,7 +31,7 @@ export class ProductoComponent {
   rotulos3D: boolean = false;
   rotulos: boolean = false;
 
-  constructor(public _productoService: ProductoService, private _utilService: UtilService , private activRoute: ActivatedRoute,
+  constructor(public _utilService: UtilService ,public _productoService: ProductoService, private activRoute: ActivatedRoute,
     private _routerExtensions: RouterExtensions) {
 
     activRoute.params.subscribe(
@@ -68,6 +68,7 @@ export class ProductoComponent {
 
   variarPrecio(cantidad?: number){
 
+
     if(this.precioFinal < +this.producto.precioUni && cantidad < 0){
       this.precioFinal = +this.producto.precioUni;
       this.cantidad = 1;
@@ -83,6 +84,8 @@ export class ProductoComponent {
   }
 
   variarPrecioRotulo3D() {
+
+    this._utilService.cerrarTecladoTelefono();
 
     if(!this.alto || !this.ancho || !this.nletras){
       this._utilService.alert("Ingresa los valores por favor");
@@ -103,6 +106,8 @@ export class ProductoComponent {
   }
 
   variarPrecioRotulo() {
+
+    this._utilService.cerrarTecladoTelefono();
 
     if(!this.alto || !this.ancho){
      this._utilService.alert("Ingresa los valores por favor");
