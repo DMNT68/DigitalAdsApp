@@ -50,7 +50,7 @@ import { CarritoComponent } from "./pages/carrito/carrito.component";
         CotizacionesComponent,
         CarritoComponent
     ],
-    providers: [{ provide: LOCALE_ID, useValue: 'es-ECU' }],
+    providers: [{ provide: LOCALE_ID, useValue: 'es-ES' }],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
