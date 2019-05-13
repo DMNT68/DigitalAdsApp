@@ -1,5 +1,10 @@
-import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
+import { NgModule, NO_ERRORS_SCHEMA, LOCALE_ID } from "@angular/core";
 import { ReactiveFormsModule } from '@angular/forms'; 
+
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeEs);
+
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import {NativeScriptHttpClientModule} from 'nativescript-angular/http-client';
@@ -45,7 +50,7 @@ import { CarritoComponent } from "./pages/carrito/carrito.component";
         CotizacionesComponent,
         CarritoComponent
     ],
-    providers: [],
+    providers: [{ provide: LOCALE_ID, useValue: 'es-ECU' }],
     schemas: [
         NO_ERRORS_SCHEMA
     ]

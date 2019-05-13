@@ -18,7 +18,7 @@ export class CotizacionesComponent {
     cargando:boolean=false;
     cotizaciones: any[];
     code = 0xe93a;
-    public fecha;
+    fecha: Date;
 
   constructor(private http: HttpClient, private _utilService: UtilService) {
     this.fecha = new Date();
@@ -26,57 +26,57 @@ export class CotizacionesComponent {
     this.cotizaciones = [
       {'img': String.fromCharCode(this.code),
        'productos':3,
-       'fecha': formato,
+       'fecha': this.fecha,
        'total': 199.59 
       },
       { 'img': String.fromCharCode(this.code),
        'productos':10,
-       'fecha': formato,
+       'fecha': this.fecha,
        'total': 99.59 
       },
       { 'img': String.fromCharCode(this.code),
        'productos':1,
-       'fecha': formato,
+       'fecha': this.fecha,
        'total': 19.59 
       },
       { 'img': String.fromCharCode(this.code),
        'productos':4,
-       'fecha': formato,
+       'fecha': this.fecha,
        'total': 239.59 
       },
       { 'img': String.fromCharCode(this.code),
        'productos':10,
-       'fecha': formato,
+       'fecha': this.fecha,
        'total': 1459
       },
       { 'img': String.fromCharCode(this.code),
        'productos':3,
-       'fecha': formato,
+       'fecha': this.fecha,
        'total': 199.59 
       },
       { 'img': String.fromCharCode(this.code),
        'productos':6,
-       'fecha': formato,
+       'fecha': this.fecha,
        'total': 199.59 
       },
       { 'img': String.fromCharCode(this.code),
        'productos':3,
-       'fecha': formato,
+       'fecha': this.fecha,
        'total': 1349.59 
       },
       { 'img': String.fromCharCode(this.code),
        'productos':1,
-       'fecha': formato,
+       'fecha': this.fecha,
        'total': 19 
       },
       { 'img': String.fromCharCode(this.code),
        'productos':3,
-       'fecha': formato,
+       'fecha': this.fecha,
        'total': 199.59 
       },
       { 'img': String.fromCharCode(this.code),
        'productos':1,
-       'fecha': formato,
+       'fecha': this.fecha,
        'total': 200.59 
       },
     ]

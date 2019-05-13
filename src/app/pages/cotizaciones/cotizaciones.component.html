@@ -11,7 +11,7 @@
                     </StackLayout>
                     <StackLayout class="list-group-item-text" orientation="horizontal">
                         <Label text="Fecha:" textWrap="true"></Label>
-                        <Label [text]="cotizacion.fecha"></Label>
+                        <Label [text]="cotizacion.fecha | date:'fullDate':'es-EC'"></Label>
                     </StackLayout>
                     <StackLayout class="list-group-item-text" orientation="vertical">
                         <StackLayout class="list-group-item-text" orientation="horizontal">

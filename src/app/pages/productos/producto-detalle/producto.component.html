@@ -39,7 +39,7 @@
                 <Button text="Calcular" (tap)="variarPrecioRotulo3D()" class="btn btn-outline btn-rounded-lg btn-active"></Button>
             </StackLayout>
 
-            <Label class="h2 text-right text-danger" textWrap="true" text=" Precio Final:  ${{precioFinal}}"></Label>
+            <Label class="h2 text-right text-danger" textWrap="true" text=" Precio Final: {{precioFinal | currency}}"></Label>
             <Button text="&#xe93a;" class="ico" (tap)="agregarCarrito()"></Button>
 
         </StackLayout>

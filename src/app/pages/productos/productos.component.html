@@ -3,7 +3,7 @@
     <GridLayout class="busqueda-bar" row="0">
         <GridLayout columns="40,*,40">
             <Image *ngIf="!aparecer" col="0" src="~/assets/images/logo.png"></Image>
-            <Label *ngIf="aparecer" col="0" text="&#xe904;" class="ico" (tap)="aparecerBuscar(+1)"></Label>
+            <Label *ngIf="aparecer" col="0" [text]="icoClose" class="ico" (tap)="aparecerBuscar(+1)"></Label>
             <Label *ngIf="!aparecer" col="2" [text]="icoSearch" class="ico" (tap)="aparecerBuscar(+1)"></Label>
             <Label *ngIf="!aparecer" col="1" text="Productos" class="titulo-bar"></Label>
             <SearchBar class="searchbar" *ngIf="aparecer" col="1" id="searchBar" hint="Buscar producto..." (textChange)="buscarProducto($event)" textFieldHintColor="gray"></SearchBar>
