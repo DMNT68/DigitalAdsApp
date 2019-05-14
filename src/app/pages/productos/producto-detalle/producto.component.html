@@ -19,11 +19,13 @@
             <Label class="body" textWrap="true" [text]="descripcion"></Label>
             <Label class="h5" text="Aquí puedes cotizar el producto" textWrap="true"></Label>
 
-            <StackLayout orientation="horizontal" *ngIf="!rotulos && !rotulos3D">
-                <Label class="h4" text="Cantidad." textWrap="true"></Label>
-                <Button text="-" (tap)="variarPrecio(-1)" class="btn btn-outline btn-rounded-lg btn-active"></Button>
-                <Label class="inputCantidad input-field" [text]="cantidad"></Label>
-                <Button text="+" (tap)="variarPrecio(+1)" class="btn btn-outline btn-rounded-lg btn-active"></Button>
+            <StackLayout *ngIf="!rotulos && !rotulos3D">
+                <Label class="h4" text="Cantidad:" textWrap="true"></Label>
+                <StackLayout orientation="horizontal">
+                    <Button text="-" (tap)="variarPrecio(-1)" class="btn btn-cantidad btn-outline btn-rounded-lg btn-active"></Button>
+                    <Label class="input-cantidad" [text]="cantidad"></Label>
+                    <Button text="+" (tap)="variarPrecio(+1)" class="btn btn-cantidad btn-outline btn-rounded-lg btn-active"></Button>
+                </StackLayout>
             </StackLayout>
 
             <StackLayout orientation="horizontal" *ngIf="rotulos">
@@ -39,7 +41,7 @@
                 <Button text="Calcular" (tap)="variarPrecioRotulo3D()" class="btn btn-outline btn-rounded-lg btn-active"></Button>
             </StackLayout>
 
-            <Label class="h2 text-right text-danger" textWrap="true" text=" Precio Final: {{precioFinal | currency}}"></Label>
+            <Label class="h2 text-right text-danger" textWrap="true" text=" Precio Final: ${{precioFinal | number:'.2-2'}}"></Label>
             <Button text="&#xe93a;" class="ico" (tap)="agregarCarrito()"></Button>
 
         </StackLayout>

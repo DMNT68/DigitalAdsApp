@@ -33,14 +33,10 @@ export class ProductoComponent {
 
   constructor(public _utilService: UtilService ,public _productoService: ProductoService, private activRoute: ActivatedRoute,
     private _routerExtensions: RouterExtensions) {
-
-    activRoute.params.subscribe(
-      params => {
-        let id = params['id'];
-        this.getProducto(id);
-      }
-      
-    );
+    
+    const id = this.activRoute.snapshot.params.id;
+    this.getProducto(id);
+  
   }
 
   getProducto(id: string) {

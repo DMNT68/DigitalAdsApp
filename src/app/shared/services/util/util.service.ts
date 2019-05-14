@@ -30,11 +30,8 @@ export class UtilService {
     public cerrarTecladoTelefono() {
         if (isIOS) {
           frame.topmost().nativeView.endEditing(true);
-          console.log('sigue');
             } else {
-          utils.ad.dismissSoftInput();
-          console.log('sigue');
-    
+          utils.ad.dismissSoftInput();    
             }
         }
 }
