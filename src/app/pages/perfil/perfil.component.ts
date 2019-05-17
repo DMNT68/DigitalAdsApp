@@ -23,41 +23,78 @@ export class PerfilComponent {
     this.usuario = this._usuarioService.usuario;
   }
 
- modificar (texto:string, usuario:Usuario){
+  modificar (texto:string, usuario:Usuario) {
 
-  prompt({
-    title: "Editar Perfil - Digital ADS",
-    message: `Vas editar ${texto}`,
-    okButtonText: "Confirmar",
-    cancelButtonText: "Cancelar",
-    defaultText: '',
-    inputType: inputType.text
-  }).then((result) => {
+    if(texto==='Nombre'){
+      prompt({
+        title: "Editar Perfil - Digital ADS",
+        message: `Vas editar ${texto}`,
+        okButtonText: "Confirmar",
+        cancelButtonText: "Cancelar",
+        defaultText: `${usuario.nombre}`,
+        inputType: inputType.text
+      }).then((result) => {
+  
+        if(result.result){
+            usuario.nombre = result.text;
+            this._usuarioService.actualizarUsuario(usuario)
+            .subscribe(()=>{
+                this._usuarioService.alert(`El ${texto} ha sido modificado`);
+              },error => {
+                console.log('error:',error);  
+                this._usuarioService.alert(`No se pudo modificar. Error: ${error}`);
+              }
+            );
+        } else return;
+    });
 
-
-    console.log("Dialog result: " + result.result);
-    console.log("Text: " + result.text);
-    console.log('usuario parametro: ', usuario);
-
-    if(result.result){
-      
-      if(texto === 'Nombre'){
-        usuario.nombre = result.text;
-        this._usuarioService.actualizarUsuario(usuario).subscribe();
-        console.log('nombre',this.usuario.nombre);
-      } else if (texto === 'Correo Electrónico') {
-        usuario.email = result.text;
-        this._usuarioService.actualizarUsuario(usuario).subscribe();
-        console.log('email',this.usuario.email);
-      } else {
-        usuario.telefono = result.text;
-        console.log('telefono',this.usuario.telefono);
-        this._usuarioService.actualizarUsuario(usuario).subscribe();
-      }
-
+    } else if(texto === 'Correo Electrónico') {
+      prompt({
+        title: "Editar Perfil - Digital ADS",
+        message: `Vas editar ${texto}`,
+        okButtonText: "Confirmar",
+        cancelButtonText: "Cancelar",
+        defaultText: `${usuario.email}`,
+        inputType: inputType.email
+      }).then((result) => {
+  
+        if(result.result){
+            usuario.email = result.text;
+            this._usuarioService.actualizarUsuario(usuario)
+            .subscribe(()=>{
+                this._usuarioService.alert(`El ${texto} ha sido modificado`);
+              },error => {
+                console.log('error:',error); 
+                this._usuarioService.alert(`No se pudo modificar. Error: ${error}`); 
+              }
+            );
+  
+          } else return;
+    });
+    } else {
+      prompt({
+        title: "Editar Perfil - Digital ADS",
+        message: `Vas editar ${texto}`,
+        okButtonText: "Confirmar",
+        cancelButtonText: "Cancelar",
+        defaultText: `${usuario.telefono}`,
+        inputType: inputType.number
+      }).then((result) => {
+  
+        if(result.result){
+          
+            usuario.telefono = result.text;
+            this._usuarioService.actualizarUsuario(usuario)
+            .subscribe(()=>{
+                this._usuarioService.alert(`El ${texto} ha sido modificado`);
+              },error => {
+                console.log('error:',error); 
+                this._usuarioService.alert(`No se pudo modificar. Error: ${error}`);
+              }
+            );
+          } else return;
+    });
     }
-    
-  });
 }
 
   salir(){
