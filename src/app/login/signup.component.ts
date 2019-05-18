@@ -9,7 +9,7 @@ import { Usuario } from '../shared/models/usuario.model';
 import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
-  selector: 'Signup',
+  selector: 'ns-signup',
   providers: [UsuarioService],
   moduleId: module.id,
   templateUrl: `signup.component.html`,

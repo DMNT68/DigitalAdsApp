@@ -1,4 +1,5 @@
 <GridLayout>
+
     <RadListView [items]="cotizaciones" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
         <ng-template tkListItemTemplate let-cotizacion="item">
 
@@ -29,6 +30,6 @@
 
         </ng-template>
 
-
     </RadListView>
+
 </GridLayout>

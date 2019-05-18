@@ -7,7 +7,7 @@ import { View } from 'tns-core-modules/ui/page/page';
 import { UtilService } from '../../shared/services/service.index';
 
 @Component({
-  selector: 'Cotizaciones',
+  selector: 'ns-cotizaciones',
   moduleId: module.id,
   templateUrl: `cotizaciones.component.html`,
   styleUrls: ['cotizaciones.component.css']

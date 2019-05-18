@@ -7,7 +7,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
 
 
 @Component({
-  selector: 'Login',
+  selector: 'ns-login',
   providers: [UsuarioService],
   moduleId: module.id,
   templateUrl: 'login.component.html',

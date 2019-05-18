@@ -7,7 +7,7 @@ import { ProductoService, UtilService } from '../../../shared/services/service.i
 import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
-  selector: 'Producto',
+  selector: 'ns-producto',
   moduleId: module.id,
   providers:[ProductoService],
   templateUrl: `producto.component.html`,

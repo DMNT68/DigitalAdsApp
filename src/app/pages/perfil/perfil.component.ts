@@ -8,7 +8,7 @@ import { UsuarioService } from '../../shared/services/service.index';
 import { Usuario } from '../../shared/models/usuario.model';
 
 @Component({
-  selector: 'Perfil',
+  selector: 'ns-perfil',
   moduleId:module.id,
   providers:[UsuarioService],
   templateUrl: `perfil.component.html`,

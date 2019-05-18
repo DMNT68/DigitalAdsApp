@@ -1,21 +1,23 @@
 <GridLayout class="page">
 
     <TabView class="tab-view ico" *ngIf="!isLoading" id="tabViewContainer" androidTabsPosition="bottom">
+
         <StackLayout *tabItem="{title: '&#xe900;'}">
             <StackLayout>
-                <Productos></Productos>
+                <ns-productos></ns-productos>
             </StackLayout>
         </StackLayout>
         <StackLayout *tabItem="{title: '&#xe922;'}">
             <StackLayout>
-                <Cotizaciones></Cotizaciones>
+                <ns-cotizaciones></ns-cotizaciones>
             </StackLayout>
         </StackLayout>
         <StackLayout *tabItem="{title: '&#xe971;'}">
             <StackLayout>
-                <Perfil></Perfil>
+                <ns-perfil></ns-perfil>
             </StackLayout>
         </StackLayout>
+
     </TabView>
 
     <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>

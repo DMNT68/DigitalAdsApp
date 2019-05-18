@@ -23,7 +23,7 @@ import { PipesModule } from "./shared/pipes/pipes.module";
 import { TabsComponent } from './pages/tabs/tabs.component';
 import { PerfilComponent } from "./pages/perfil/perfil.component";
 import { CotizacionesComponent } from "./pages/cotizaciones/cotizaciones.component";
-import { CarritoComponent } from "./pages/carrito/carrito.component";
+import { OrdenComponent } from './pages/orden/orden.component';
 
 @NgModule({
     bootstrap: [
@@ -48,7 +48,7 @@ import { CarritoComponent } from "./pages/carrito/carrito.component";
         TabsComponent,
         PerfilComponent,
         CotizacionesComponent,
-        CarritoComponent
+        OrdenComponent
     ],
     providers: [{ provide: LOCALE_ID, useValue: 'es-ES' }],
     schemas: [

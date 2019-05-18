@@ -11,7 +11,7 @@ import { TextField } from "tns-core-modules/ui/text-field";
 import { ProductoService, UtilService } from '../../shared/services/service.index';
 
 @Component({
-  selector: 'Productos',
+  selector: 'ns-productos',
   moduleId: module.id,
   providers: [ProductoService],
   templateUrl: `productos.component.html`,
@@ -25,7 +25,7 @@ export class ProductosComponent implements OnInit {
   aparecer = false;
   suma: number = 1;
   icoSearch: String = '';
-  icoClose: String = ''
+  icoClose: String = '';
 
   constructor(public _utilService: UtilService, public _productosService: ProductoService, public routerExtensions:RouterExtensions) { 
 
