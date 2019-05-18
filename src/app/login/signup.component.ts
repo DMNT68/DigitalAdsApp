@@ -71,8 +71,7 @@ export class SignupComponent implements OnInit {
       this.alert("Su cuenta ha sido creada correctamente")
        .then(()=>{
 
-         this.router.navigate(['/login'], {
-           transition:{
+         this.router.navigate(['/login'], { clearHistory:true, transition:{
              name:'slideLeft', 
              duration:500, 
              curve:'linear'
@@ -90,10 +89,9 @@ export class SignupComponent implements OnInit {
   }
   
   regresarLogin(){
-    this.router.navigate(['login'], {
-      transition:{
+    this.router.navigate(['login'], { clearHistory:true, transition:{
         name:'slideLeft',
-        duration:500, 
+        duration:400, 
         curve:'linear'
       }
     });

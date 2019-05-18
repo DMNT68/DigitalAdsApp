@@ -1,12 +1,9 @@
-<ActionBar title="{{nombre}}" icon="" class="action-bar">
-    <NavigationButton text="Back" (tap)="onBackButtonTap()" android.systemIcon="ic_menu_back"></NavigationButton>
-</ActionBar>
-
+<ns-action-bar title="{{nombre}}"></ns-action-bar>
 
 <GridLayout rows="auto, *" class="page">
 
     <GridLayout *ngIf="_productoService.activarCarrito" row="0" class="card-layout">
-        <carrito></carrito>
+        <ns-orden></ns-orden>
     </GridLayout>
 
     <ScrollView row="1">

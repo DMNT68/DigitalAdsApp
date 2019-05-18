@@ -24,6 +24,7 @@ import { TabsComponent } from './pages/tabs/tabs.component';
 import { PerfilComponent } from "./pages/perfil/perfil.component";
 import { CotizacionesComponent } from "./pages/cotizaciones/cotizaciones.component";
 import { OrdenComponent } from './pages/orden/orden.component';
+import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component';
 
 @NgModule({
     bootstrap: [
@@ -48,7 +49,8 @@ import { OrdenComponent } from './pages/orden/orden.component';
         TabsComponent,
         PerfilComponent,
         CotizacionesComponent,
-        OrdenComponent
+        OrdenComponent,
+        ActionBarComponent
     ],
     providers: [{ provide: LOCALE_ID, useValue: 'es-ES' }],
     schemas: [
