@@ -1,25 +1,20 @@
-<GridLayout class="page">
+<!-- <GridLayout> -->
 
-    <TabView class="tab-view ico" *ngIf="!isLoading" id="tabViewContainer" androidTabsPosition="bottom">
+<TabView class="tab-view ico" androidTabsPosition="bottom">
+    <StackLayout *tabItem="{title: '&#xe900;'}">
+        <page-router-outlet name="productosTab"></page-router-outlet>
+    </StackLayout>
 
-        <StackLayout *tabItem="{title: '&#xe900;'}">
-            <StackLayout>
-                <ns-productos></ns-productos>
-            </StackLayout>
-        </StackLayout>
-        <StackLayout *tabItem="{title: '&#xe922;'}">
-            <StackLayout>
-                <ns-cotizaciones></ns-cotizaciones>
-            </StackLayout>
-        </StackLayout>
-        <StackLayout *tabItem="{title: '&#xe971;'}">
-            <StackLayout>
-                <ns-perfil></ns-perfil>
-            </StackLayout>
-        </StackLayout>
+    <StackLayout *tabItem="{title: '&#xe922;'}">
+        <page-router-outlet name="cotizacionesTab"></page-router-outlet>
+    </StackLayout>
 
-    </TabView>
+    <StackLayout *tabItem="{title: '&#xe971;'}">
+        <page-router-outlet name="perfilTab"></page-router-outlet>
+    </StackLayout>
 
+</TabView>
+<!-- 
     <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 
-</GridLayout>
+</GridLayout> -->

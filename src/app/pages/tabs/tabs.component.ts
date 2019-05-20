@@ -1,5 +1,7 @@
 import { Component,  OnInit } from '@angular/core';
-import { Page } from 'tns-core-modules/ui/page/page';
+import { ActivatedRoute } from '@angular/router';
+import { RouterExtensions } from 'nativescript-angular/router';
+import { Page } from 'tns-core-modules/ui/page';
 
 @Component({
   selector: 'Tabs',
@@ -9,18 +11,30 @@ import { Page } from 'tns-core-modules/ui/page/page';
 })
 export class TabsComponent implements OnInit {
 
-  isLoading = false;
-
-  constructor(private page: Page){
-    this.page.actionBarHidden = true;
-  }
+  constructor(
+    private router: RouterExtensions,
+    private active: ActivatedRoute,
+    private page: Page
+  ){}
 
   ngOnInit(){
-    
-    this.isLoading = true;
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 1000);
+
+    this.router.navigate(
+      [
+        {
+          outlets: {
+            productosTab: ['productos'],
+            cotizacionesTab: ['cotizaciones'],
+            perfilTab: ['perfil']
+          }
+        }
+      ],
+      {
+        relativeTo: this.active
+      }
+    );
+
+    this.page.actionBarHidden = true;
 
   }
         

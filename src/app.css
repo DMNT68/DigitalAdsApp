@@ -229,18 +229,9 @@ THEME BUILDER
 }
 
 .tab-view {
-    selected-tab-text-color: #f4f2ec;
-}
-
-.tab-view {
+    selected-tab-text-color: #be2623;
     tab-text-color: #f4f2ec;
-}
-
-.tab-view {
     tab-background-color: #0e3743;
-}
-
-.tab-view {
     android-selected-tab-highlight-color: #be2623;
 }
 

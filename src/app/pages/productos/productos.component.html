@@ -1,14 +1,20 @@
-<GridLayout rows="auto, auto,*" class="page">
+<ns-action-bar title="Productos">
+    <ActionItem *ngIf="!aparecer" ios.systemIcon="12" android.systemIcon="ic_menu_search" (tap)="aparecerBuscar(+1)"></ActionItem>
+    <ActionItem *ngIf="aparecer" ios.systemIcon="1" android.systemIcon="ic_menu_close_clear_cancel
+    " (tap)="aparecerBuscar(+1)"></ActionItem>
+    <SearchBar class="searchbar" *ngIf="aparecer" col="1" id="searchBar" hint="Buscar producto..." (textChange)="buscarProducto($event)" textFieldHintColor="gray"></SearchBar>
+</ns-action-bar>
 
-    <GridLayout class="busqueda-bar" row="0">
+<GridLayout rows="auto, auto,*" class="page" *ngIf="!isLoading">
+
+    <!-- <GridLayout class="busqueda-bar" row="0">
         <GridLayout columns="40,*,40">
             <Image *ngIf="!aparecer" col="0" src="~/assets/images/logo.png"></Image>
             <Label *ngIf="aparecer" col="0" [text]="icoClose" class="ico" (tap)="aparecerBuscar(+1)"></Label>
             <Label *ngIf="!aparecer" col="2" [text]="icoSearch" class="ico" (tap)="aparecerBuscar(+1)"></Label>
             <Label *ngIf="!aparecer" col="1" text="Productos" class="titulo-bar"></Label>
-            <SearchBar class="searchbar" *ngIf="aparecer" col="1" id="searchBar" hint="Buscar producto..." (textChange)="buscarProducto($event)" textFieldHintColor="gray"></SearchBar>
         </GridLayout>
-    </GridLayout>
+    </GridLayout> -->
 
     <GridLayout *ngIf="_productosService.activarCarrito" row="1" class="card card-layout">
         <ns-orden></ns-orden>

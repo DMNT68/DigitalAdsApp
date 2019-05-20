@@ -14,14 +14,18 @@ import { ProductosComponent } from './pages/productos/productos.component';
 
 
 const routes: Routes = [
-    { path: "login", component: LoginComponent },
+    { path: "", component: LoginComponent },
     { path: "signup", component: SignupComponent },
-    { path: "productos", component: ProductosComponent},
     { path: "producto/:id", component: ProductoComponent},
-    { path: "cotizaciones", component: CotizacionesComponent},
-    { path: "cotizaciones/id", component: CotizacionesComponent},
-    { path: "perfil", component: PerfilComponent},
-    { path: "",canActivate:[LoginGuard], component: TabsComponent}
+
+    { path: "pages",canActivate:[LoginGuard], component: TabsComponent, children: [
+        { path: "productos", 
+        component: ProductosComponent, outlet:'productosTab'},
+        { path: "cotizaciones",
+         component: CotizacionesComponent, outlet:'cotizacionesTab'},
+        { path: "perfil",
+         component: PerfilComponent, outlet:'perfilTab'}       
+    ]}
     
 ];
 
