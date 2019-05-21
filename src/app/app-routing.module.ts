@@ -14,17 +14,19 @@ import { ProductosComponent } from './pages/productos/productos.component';
 
 
 const routes: Routes = [
-    { path: "", component: LoginComponent },
+    { path: "login", component: LoginComponent },
     { path: "signup", component: SignupComponent },
-    { path: "producto/:id", component: ProductoComponent},
-
-    { path: "pages",canActivate:[LoginGuard], component: TabsComponent, children: [
-        { path: "productos", 
-        component: ProductosComponent, outlet:'productosTab'},
-        { path: "cotizaciones",
-         component: CotizacionesComponent, outlet:'cotizacionesTab'},
-        { path: "perfil",
-         component: PerfilComponent, outlet:'perfilTab'}       
+    
+    { path: "",canActivate:[LoginGuard], children: [
+        {path:'tabs', component: TabsComponent, children:[
+            
+            { path: "productos", component: ProductosComponent, outlet:'productosTab'},
+            { path: "cotizaciones", component: CotizacionesComponent, outlet:'cotizacionesTab'},
+            { path: "perfil", component: PerfilComponent, outlet:'perfilTab'}       
+        ] 
+        },
+        { path: "producto/:id", component: ProductoComponent},
+        {path: '', redirectTo:'tabs', pathMatch:'full'}
     ]}
     
 ];

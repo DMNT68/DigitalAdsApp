@@ -77,7 +77,7 @@ export class UsuarioService {
       remove('token');
 
       this.alert('Espero que vuelvas. Hasta luego');
-      this.router.navigate(['/'], {transition:{name:'slideRight', duration:1000}});
+      this.router.navigate(['/login'], {transition:{name:'slideRight', duration:1000}});
   
     }
 
