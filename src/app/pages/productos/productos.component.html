@@ -1,26 +1,20 @@
-<ns-action-bar title="Productos">
-    <ActionItem *ngIf="!aparecer" ios.systemIcon="12" android.systemIcon="ic_menu_search" (tap)="aparecerBuscar(+1)"></ActionItem>
-    <ActionItem *ngIf="aparecer" ios.systemIcon="1" android.systemIcon="ic_menu_close_clear_cancel
-    " (tap)="aparecerBuscar(+1)"></ActionItem>
+<ns-action-bar title="Productos" [showBackButton]="false">
+    <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="aparecerBuscar(+1)">
+        <Label class="p-15" [text]="icoSearch" color="#f4f2ec"></Label>
+    </ActionItem>
+    <ActionItem *ngIf="aparecer" (tap)="aparecerBuscar(+1)" ios.position="left" android.position="actionBar">
+        <Label class="p-15" [text]="icoClose" color="#f4f2ec"></Label>
+    </ActionItem>
     <SearchBar class="searchbar" *ngIf="aparecer" col="1" id="searchBar" hint="Buscar producto..." (textChange)="buscarProducto($event)" textFieldHintColor="gray"></SearchBar>
 </ns-action-bar>
 
-<GridLayout rows="auto, auto,*" class="page" *ngIf="!isLoading">
+<GridLayout rows="auto,*" class="page">
 
-    <!-- <GridLayout class="busqueda-bar" row="0">
-        <GridLayout columns="40,*,40">
-            <Image *ngIf="!aparecer" col="0" src="~/assets/images/logo.png"></Image>
-            <Label *ngIf="aparecer" col="0" [text]="icoClose" class="ico" (tap)="aparecerBuscar(+1)"></Label>
-            <Label *ngIf="!aparecer" col="2" [text]="icoSearch" class="ico" (tap)="aparecerBuscar(+1)"></Label>
-            <Label *ngIf="!aparecer" col="1" text="Productos" class="titulo-bar"></Label>
-        </GridLayout>
-    </GridLayout> -->
-
-    <GridLayout *ngIf="_productosService.activarCarrito" row="1" class="card card-layout">
+    <GridLayout *ngIf="_productosService.activarCarrito" row="0" class="card card-layout">
         <ns-orden></ns-orden>
     </GridLayout>
 
-    <RadListView row="2" class="card" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
+    <RadListView row="1" class="card" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
 
         <ng-template let-producto="item">
             <StackLayout [nsRouterLink]="['/producto', producto._id]" pageTransition="slideTop">
@@ -29,8 +23,6 @@
                     <Image class="img-rounded" stretch="aspectFill" [src]="producto.img | imagen:'producto'"></Image>
                     <Label class="h3" [text]="producto.nombre" textWrap="true"></Label>
                     <Label class="h6" [text]="producto.categoria.descripcion" textWrap="true"></Label>
-                    <!-- <Label class="body" textWrap="true" [text]="producto.descripcion" textWrap="true"></Label> -->
-                    <!-- <Label class="h2 text-right text-danger" textWrap="true" text="${{producto.precioUni}}"></Label> -->
                 </StackLayout>
 
                 <StackLayout class="separador"></StackLayout>
@@ -40,6 +32,6 @@
 
     </RadListView>
 
-    <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+    <!-- <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator> -->
 
 </GridLayout>

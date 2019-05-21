@@ -30,7 +30,7 @@ export class ProductosComponent implements OnInit {
   constructor(public _utilService: UtilService, public _productosService: ProductoService, public routerExtensions:RouterExtensions) { 
 
     this.icoSearch = String.fromCharCode(0xe986);
-    this.icoClose = String.fromCharCode(0xe904);
+    this.icoClose = String.fromCharCode(0xea0f);
 
   }
 

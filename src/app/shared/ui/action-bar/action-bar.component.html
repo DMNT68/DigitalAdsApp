@@ -1,4 +1,4 @@
-<ActionBar [title]="title" icon="" class="action-bar" (loaded)="onLoadedActionBar()">
+<ActionBar [title]="title" icon="res://icon" class="action-bar" (loaded)="onLoadedActionBar()">
     <NavigationButton text="Atras" android.systemIcon="ic_menu_back" *ngIf="canGoBack" (tap)="onGoBack()"></NavigationButton>
     <ng-content></ng-content>
 </ActionBar>

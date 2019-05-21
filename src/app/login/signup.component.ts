@@ -19,9 +19,19 @@ import { RouterExtensions } from 'nativescript-angular/router';
 export class SignupComponent implements OnInit {
 
     registroForm: FormGroup;
+    iconNombre: string;
+    iconEmail: string;
+    iconTelefono: string;
+    iconPassword: string;
+   
 
   constructor(private page:Page, private router:RouterExtensions, private _usuarioService: UsuarioService) {
     this.page.actionBarHidden = true;
+    this.iconNombre = String.fromCharCode(0xe971);
+    this.iconEmail = String.fromCharCode(0xe908);
+    this.iconTelefono = String.fromCharCode(0xe942);
+    this.iconPassword = String.fromCharCode(0xe90b);
+
   }
 
   public sonIguales(campo1: string, campo2: string) {

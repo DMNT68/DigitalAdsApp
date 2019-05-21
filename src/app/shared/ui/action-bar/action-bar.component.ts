@@ -14,7 +14,7 @@ declare var android: any;
 export class ActionBarComponent implements OnInit {
 
   @Input() title: string;
-  @Input() showBackButton: boolean = true;
+  @Input() showBackButton = true;
   
   constructor(private page: Page, private router: RouterExtensions) { }
 

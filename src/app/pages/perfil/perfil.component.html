@@ -10,38 +10,38 @@
             </StackLayout>
 
             <GridLayout class="margen" row="1" rows="auto" columns="40, *, auto">
-                <Label class="ico text-primary" text="&#xe971;" row="0" col="0"></Label>
+                <Label class="ico text-primary" [text]="iconNombre" row="0" col="0"></Label>
                 <StackLayout row="0" col="1">
                     <Label class="h5" text="Nombre" textWrap="true"></Label>
                     <Label class="" [text]="usuario.nombre" textWrap="true"></Label>
                     <StackLayout class="hr-light margen-linea"></StackLayout>
                 </StackLayout>
-                <Label class="ico text-muted" text="&#xe910;" (tap)="modificar('Nombre', usuario)" row="0" col="2"></Label>
+                <Label class="ico text-muted" [text]="iconEditar" (tap)="modificar('Nombre', usuario)" row="0" col="2"></Label>
             </GridLayout>
 
             <GridLayout class="margen" row="2" rows="auto" columns="40, *, auto">
-                <Label class="ico text-primary" text="&#xe908;" row="0" col="0"></Label>
+                <Label class="ico text-primary" [text]="iconEmail" row="0" col="0"></Label>
                 <StackLayout row="0" col="1">
                     <Label class="h5" text="Correo Electrónico" textWrap="true"></Label>
                     <Label class="" [text]="usuario.email" textWrap="true"></Label>
                     <StackLayout class="hr-light margen-linea"></StackLayout>
                 </StackLayout>
-                <Label class="ico text-muted" text="&#xe910;" (tap)="modificar('Correo Electrónico', usuario)" row="0" col="2"></Label>
+                <Label class="ico text-muted" [text]="iconEditar" (tap)="modificar('Correo Electrónico', usuario)" row="0" col="2"></Label>
             </GridLayout>
 
             <GridLayout class="margen" row="3" rows="auto" columns="40, *, auto">
-                <Label class="ico text-primary" text="&#xe942;" row="0" col="0"></Label>
+                <Label class="ico text-primary" [text]="iconTelefono" row="0" col="0"></Label>
                 <StackLayout row="0" col="1">
                     <Label class="h5" text="Telefono" textWrap="true"></Label>
                     <Label class="" [text]="usuario.telefono" textWrap="true"></Label>
                     <StackLayout class="hr-light margen-linea"></StackLayout>
                 </StackLayout>
-                <Label class="ico text-muted" text="&#xe910;" (tap)="modificar('Telefono', usuario)" row="0" col="2"></Label>
+                <Label class="ico text-muted" [text]="iconEditar" (tap)="modificar('Telefono', usuario)" row="0" col="2"></Label>
             </GridLayout>
 
         </GridLayout>
 
-        <Button row="1" text="Logout" class="btn btn-forest" (tap)="salir()"></Button>
+        <Button row="1" text="Cerrar Sesión" class="btn btn-rounded-lg btn-active" (tap)="salir()"></Button>
 
     </GridLayout>
 

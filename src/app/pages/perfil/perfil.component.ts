@@ -18,9 +18,18 @@ export class PerfilComponent {
 
   usuario: Usuario;
   editar= false;
+	iconNombre: string;
+  iconEmail: string;
+  iconTelefono: string;
+  iconEditar:string;
+  
 
   constructor(public _usuarioService: UsuarioService) {
     this.usuario = this._usuarioService.usuario;
+    this.iconNombre = String.fromCharCode(0xe971);
+    this.iconEmail = String.fromCharCode(0xe908);
+    this.iconTelefono = String.fromCharCode(0xe942);
+    this.iconEditar = String.fromCharCode(0xe910);
   }
 
   modificar(texto:string, usuario:Usuario) {
@@ -28,8 +37,8 @@ export class PerfilComponent {
     if (texto==='Nombre') {
 
       prompt({
-        title: "Editar Perfil - Digital ADS",
-        message: `Vas editar ${texto}`,
+        title: `Editar Perfil - Digital ADS`,
+        message: `Editar ${texto}`,
         okButtonText: "Confirmar",
         cancelButtonText: "Cancelar",
         defaultText: `${usuario.nombre}`,
@@ -54,7 +63,7 @@ export class PerfilComponent {
 
       prompt({
         title: "Editar Perfil - Digital ADS",
-        message: `Vas editar ${texto}`,
+        message: `Editar ${texto}`,
         okButtonText: "Confirmar",
         cancelButtonText: "Cancelar",
         defaultText: `${usuario.email}`,
@@ -79,7 +88,7 @@ export class PerfilComponent {
       
       prompt({
         title: "Editar Perfil - Digital ADS",
-        message: `Vas editar ${texto}`,
+        message: `Editar ${texto}`,
         okButtonText: "Confirmar",
         cancelButtonText: "Cancelar",
         defaultText: `${usuario.telefono}`,
