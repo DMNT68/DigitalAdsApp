@@ -3,7 +3,7 @@
         <Label class="p-15" [text]="icoSearch" color="#f4f2ec"></Label>
     </ActionItem>
     <ActionItem *ngIf="aparecer" (tap)="aparecerBuscar(+1)" ios.position="left" android.position="actionBar">
-        <Label class="p-15" [text]="icoClose" color="#f4f2ec"></Label>
+        <Label class="p-15" text="Cerrar" color="#f4f2ec"></Label>
     </ActionItem>
     <SearchBar class="searchbar" *ngIf="aparecer" col="1" id="searchBar" hint="Buscar producto..." (textChange)="buscarProducto($event)" textFieldHintColor="gray"></SearchBar>
 </ns-action-bar>
@@ -18,6 +18,7 @@
 
         <ng-template let-producto="item">
             <StackLayout [nsRouterLink]="['/producto', producto._id]" pageTransition="slideTop">
+                <!-- <StackLayout (tap)="onProductoTap(producto._id)"> -->
 
                 <StackLayout class="card-layout">
                     <Image class="img-rounded" stretch="aspectFill" [src]="producto.img | imagen:'producto'"></Image>

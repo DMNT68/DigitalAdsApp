@@ -47,15 +47,9 @@ export class ProductosComponent implements OnInit {
     
   }
   
-  onProductoTap(productoId){
-    
-    this.routerExtensions.navigate(["producto/" + productoId, {
-      animated: true,
-      transition: {
-          name: "fade",
-          duration: 3000,
-          curve: "easeIn"
-      }
+  onProductoTap(id){
+    this.routerExtensions.navigate([`/producto/${id}` , {
+      transition:{name:'slideTop',duration:1000,curve:'linear'}
     }]);
   }
 

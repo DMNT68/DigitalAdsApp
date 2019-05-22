@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
 
 import { Producto } from '../../../shared/models/producto.model';
 import { ProductoService, UtilService } from '../../../shared/services/service.index';
-import { RouterExtensions } from 'nativescript-angular/router';
+import { RouterExtensions, PageRoute } from 'nativescript-angular/router';
 
 @Component({
   selector: 'ns-producto',
@@ -14,7 +14,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
   styleUrls:['../productos.component.css']
 
 })
-export class ProductoComponent {
+export class ProductoComponent implements OnInit {
 
   producto: Producto;
   precioFinal: number;
@@ -31,12 +31,22 @@ export class ProductoComponent {
   rotulos3D: boolean = false;
   rotulos: boolean = false;
 
-  constructor(public _utilService: UtilService ,public _productoService: ProductoService, private activRoute: ActivatedRoute,
-    private _routerExtensions: RouterExtensions) {
+  constructor(
+    public _utilService: UtilService, 
+    public _productoService: ProductoService, 
+    private activRoute: ActivatedRoute,
+    private pageRoute: PageRoute,
+    private _routerExtensions: RouterExtensions) {}
     
-    const id = this.activRoute.snapshot.params.id;
-    this.getProducto(id);
-  
+  ngOnInit() {
+    this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
+      activatedRoute.paramMap.subscribe(paramMap=>{
+        const id = paramMap.get('id');
+        this.getProducto(id);  
+      })
+    })
+      // const id = this.activRoute.snapshot.params.id;
+      // this.getProducto(id);    
   }
 
   getProducto(id: string) {
