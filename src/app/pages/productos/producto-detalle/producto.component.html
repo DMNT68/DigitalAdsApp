@@ -38,8 +38,10 @@
                 <Button text="Calcular" (tap)="variarPrecioRotulo3D()" class="btn btn-outline btn-rounded-lg btn-active"></Button>
             </StackLayout>
 
-            <Label class="h2 text-right text-danger" textWrap="true" text=" Precio Final: ${{precioFinal | number:'.2-2'}}"></Label>
-            <Button text="&#xe93a;" class="ico" (tap)="agregarCarrito()"></Button>
+            <StackLayout orientation="horizontal">
+                <Label class="h3 text-danger m-r-15" textWrap="true" text=" Precio Final: ${{precioFinal | number:'.2-2'}}"></Label>
+                <Button text="&#xe93a;" class="m-l-15 ico btn-primary btn-rounded-sm" width="50" (tap)="agregarCarrito()"></Button>
+            </StackLayout>
 
         </StackLayout>
 

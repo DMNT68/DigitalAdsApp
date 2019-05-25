@@ -9,22 +9,15 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import {NativeScriptHttpClientModule} from 'nativescript-angular/http-client';
 
-import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
-
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from "./login/signup.component";
 import { ServiceModule } from "./shared/services/service.module";
-import { ProductosComponent } from "./pages/productos/productos.component";
-import { ProductoComponent } from './pages/productos/producto-detalle/producto.component';
 import { PipesModule } from "./shared/pipes/pipes.module";
-import { TabsComponent } from './pages/tabs/tabs.component';
-import { PerfilComponent } from "./pages/perfil/perfil.component";
-import { CotizacionesComponent } from "./pages/cotizaciones/cotizaciones.component";
 import { OrdenComponent } from './pages/orden/orden.component';
-import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component';
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
     bootstrap: [
@@ -35,22 +28,16 @@ import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component'
         ReactiveFormsModule,
         NativeScriptFormsModule,
         NativeScriptHttpClientModule,
-        NativeScriptUIListViewModule,
         AppRoutingModule,
         ServiceModule,
-        PipesModule
+        PipesModule,
+        SharedModule
     ],
     declarations: [
         AppComponent,
         LoginComponent,
         SignupComponent,
-        ProductosComponent,
-        ProductoComponent,
-        TabsComponent,
-        PerfilComponent,
-        CotizacionesComponent,
-        OrdenComponent,
-        ActionBarComponent
+        OrdenComponent
     ],
     providers: [{ provide: LOCALE_ID, useValue: 'es-ES' }],
     schemas: [

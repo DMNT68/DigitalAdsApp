@@ -1,14 +1,14 @@
 <ns-action-bar title="Productos" [showBackButton]="false">
     <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="aparecerBuscar(+1)">
-        <Label class="p-15" [text]="icoSearch" color="#f4f2ec"></Label>
+        <Label class="p-15 searchbar" [text]="icoSearch"></Label>
     </ActionItem>
     <ActionItem *ngIf="aparecer" (tap)="aparecerBuscar(+1)" ios.position="left" android.position="actionBar">
-        <Label class="p-15" text="Cerrar" color="#f4f2ec"></Label>
+        <Label class="p-15 h5 searchbar" text="Cerrar"></Label>
     </ActionItem>
-    <SearchBar class="searchbar" *ngIf="aparecer" col="1" id="searchBar" hint="Buscar producto..." (textChange)="buscarProducto($event)" textFieldHintColor="gray"></SearchBar>
+    <SearchBar class="searchbar" *ngIf="aparecer" col="1" id="searchBar" hint="Buscar producto..." (textChange)="buscarProducto($event)"></SearchBar>
 </ns-action-bar>
 
-<GridLayout rows="auto,*" class="page">
+<GridLayout rows="auto,*" class="page" *ngIf="!isLoading">
 
     <GridLayout *ngIf="_productosService.activarCarrito" row="0" class="card card-layout">
         <ns-orden></ns-orden>
@@ -33,6 +33,6 @@
 
     </RadListView>
 
-    <!-- <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator> -->
+    <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 
 </GridLayout>
