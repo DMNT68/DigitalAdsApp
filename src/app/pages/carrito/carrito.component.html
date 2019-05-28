@@ -30,11 +30,11 @@
                         <Label class="item-name" text="Cantidad" class="item-name"></Label>
                         <Label col="1" text="( {{_cs.cantidades[i]}} )" class="item-quantity"></Label>
                     </GridLayout>
-                    <GridLayout columns="auto, *, auto, 60" *ngIf="orden.categoria.descripcion !== 'Impresiones Offset'">
+                    <GridLayout columns="auto, *, auto, 60" *ngIf="orden.categoria.descripcion == 'Rótulos' || orden.categoria.descripcion == 'Rótulos 3D'">
                         <Label class="item-name" text="Altura * Ancho" class="item-name"></Label>
                         <Label col="1" text="( {{_cs.alturas[i] | number:'.2-2'}} x {{_cs.anchos[i] | number:'.2-2'}} )m" class="item-quantity"></Label>
                     </GridLayout>
-                    <GridLayout columns="auto, *, auto, 60" *ngIf="orden.categoria.descripcion !== 'Impresiones Offset'">
+                    <GridLayout columns="auto, *, auto, 60" *ngIf="orden.categoria.descripcion == 'Rótulos 3D'">
                         <Label class="item-name" text="Letras" class="item-name"></Label>
                         <Label col="1" text="( {{_cs.nroLetras[i]}} )" class="item-quantity"></Label>
                     </GridLayout>
