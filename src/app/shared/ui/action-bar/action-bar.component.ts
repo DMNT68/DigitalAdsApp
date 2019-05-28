@@ -14,12 +14,15 @@ declare var android: any;
 export class ActionBarComponent implements OnInit {
 
   @Input() title: string;
+  @Input() class: string;
   @Input() showBackButton = true;
   
   constructor(private page: Page, private router: RouterExtensions) { }
 
   ngOnInit() {
   }
+
+
 
   get canGoBack(){
     return this.router.canGoBack() && this.showBackButton;

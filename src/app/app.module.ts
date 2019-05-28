@@ -10,14 +10,13 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import {NativeScriptHttpClientModule} from 'nativescript-angular/http-client';
 
 import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from "./login/signup.component";
 import { ServiceModule } from "./shared/services/service.module";
 import { PipesModule } from "./shared/pipes/pipes.module";
-import { OrdenComponent } from './pages/orden/orden.component';
 import { SharedModule } from "./shared/shared.module";
+
+import { AppComponent } from "./app.component";
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from "./login/signup.component";
 
 @NgModule({
     bootstrap: [
@@ -36,8 +35,8 @@ import { SharedModule } from "./shared/shared.module";
     declarations: [
         AppComponent,
         LoginComponent,
-        SignupComponent,
-        OrdenComponent
+        SignupComponent
+,
     ],
     providers: [{ provide: LOCALE_ID, useValue: 'es-ES' }],
     schemas: [

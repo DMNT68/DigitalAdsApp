@@ -1,9 +1,9 @@
-<ns-action-bar title="{{nombre}}"></ns-action-bar>
+<ns-action-bar title="{{nombre}}" class="action-bar"></ns-action-bar>
 
 <GridLayout rows="auto, *" class="page">
 
     <GridLayout *ngIf="_productoService.activarCarrito" row="0" class="card-layout">
-        <ns-orden></ns-orden>
+        <!-- <ns-orden></ns-orden> -->
     </GridLayout>
 
     <ScrollView row="1">
@@ -40,7 +40,8 @@
 
             <StackLayout orientation="horizontal">
                 <Label class="h3 text-danger m-r-15" textWrap="true" text=" Precio Final: ${{precioFinal | number:'.2-2'}}"></Label>
-                <Button text="&#xe93a;" class="m-l-15 ico btn-primary btn-rounded-sm" width="50" (tap)="agregarCarrito()"></Button>
+                <!-- <Button text="&#xe93a;" class="m-l-15 ico btn-primary btn-rounded-sm" width="50" (tap)="cs.agregarCarrito(producto)"></Button> -->
+                <Button text="&#xe93a;" class="m-l-15 ico btn-primary btn-rounded-sm" width="50" (tap)="cs.agregarCarrito(producto,cantidad,alto,ancho,nletras,precioFinal)"></Button>
             </StackLayout>
 
         </StackLayout>

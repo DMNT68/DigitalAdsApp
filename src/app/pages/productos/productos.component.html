@@ -1,20 +1,37 @@
-<ns-action-bar title="Productos" [showBackButton]="false">
+<ns-action-bar title="Productos" class="action-bar" [showBackButton]="false" (tap)="onTap()">
+
+    <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="onTap()">
+        <Label class="p-10" [text]="icoUp"></Label>
+    </ActionItem>
+
+    <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="goCarrito()">
+        <StackLayout orientation="horizontal">
+            <Label class="p-1" [text]="icoCarrito"></Label>
+            <StackLayout class="badge" *ngIf="cs.items.length > 0">
+                <Label [text]="cs.items.length" class="badge-text"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ActionItem>
+
     <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="aparecerBuscar(+1)">
-        <Label class="p-15 searchbar" [text]="icoSearch"></Label>
+        <Label class="p-15" [text]="icoSearch"></Label>
     </ActionItem>
+
     <ActionItem *ngIf="aparecer" (tap)="aparecerBuscar(+1)" ios.position="left" android.position="actionBar">
-        <Label class="p-15 h5 searchbar" text="Cerrar"></Label>
+        <Label class="p-15 iconos" text="Cerrar"></Label>
     </ActionItem>
-    <SearchBar class="searchbar" *ngIf="aparecer" col="1" id="searchBar" hint="Buscar producto..." (textChange)="buscarProducto($event)"></SearchBar>
+
+    <SearchBar class="searchbar" color="white" textFieldHintColor="white" *ngIf="aparecer" hint="Buscar producto..." (textChange)="buscarProducto($event)"></SearchBar>
+
 </ns-action-bar>
 
 <GridLayout rows="auto,*" class="page" *ngIf="!isLoading">
 
     <GridLayout *ngIf="_productosService.activarCarrito" row="0" class="card card-layout">
-        <ns-orden></ns-orden>
+        <!-- <ns-orden></ns-orden> -->
     </GridLayout>
 
-    <RadListView row="1" class="card" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
+    <RadListView #myRadListView row="1" class="card" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
 
         <ng-template let-producto="item">
             <StackLayout [nsRouterLink]="['/producto', producto._id]" pageTransition="slideTop">

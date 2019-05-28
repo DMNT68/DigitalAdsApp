@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { ListViewEventData } from 'nativescript-ui-listview';
 
@@ -8,7 +8,8 @@ import { Producto } from '../../shared/models/producto.model';
 
 import { TextField } from "tns-core-modules/ui/text-field";
 
-import { ProductoService, UtilService } from '../../shared/services/service.index';
+import { ProductoService, UtilService, CarritoService } from '../../shared/services/service.index';
+import { RadListViewComponent } from 'nativescript-ui-listview/angular';
 
 @Component({
   selector: 'ns-productos',
@@ -26,14 +27,23 @@ export class ProductosComponent implements OnInit {
   suma: number = 1;
   icoSearch: String = '';
   icoClose: String = '';
+  icoUp: String = '';
+  icoCarrito: String = '';
 
-  constructor(public _utilService: UtilService, public _productosService: ProductoService, public routerExtensions:RouterExtensions) { 
-
+  
+  
+  constructor(public _utilService: UtilService, 
+      public _productosService: ProductoService, 
+      public routerExtensions:RouterExtensions,
+      public cs: CarritoService) { 
+    
     this.icoSearch = String.fromCharCode(0xe986);
     this.icoClose = String.fromCharCode(0xea0f);
-
+    this.icoUp = String.fromCharCode(0xea41);
+    this.icoCarrito = String.fromCharCode(0xe93a);
+    
   }
-
+  
 
   ngOnInit(){
 
@@ -45,6 +55,11 @@ export class ProductosComponent implements OnInit {
       this.getProductos();
     }, 1000);
     
+  }
+  
+  @ViewChild('myRadListView') listViewComponent: RadListViewComponent;
+  public onTap() {
+    this.listViewComponent.listView.scrollToIndex(0, true);
   }
   
   onProductoTap(id){
@@ -107,6 +122,10 @@ export class ProductosComponent implements OnInit {
       this.textoBuscar='';
       return;
     }
+  }
+
+  goCarrito() {
+    this.cs.verCarrito();
   }
 
 }

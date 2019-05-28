@@ -128,3 +128,36 @@ THEME BUILDER
 .text-danger {
     color: #be2623
 }
+
+.badge {
+    margin: 0 0 0 0;
+    width: 20;
+    height: 20;
+    border-color: red;
+    border-width: 1;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.badge-text {
+    position: absolute;
+    top: -5px;
+    left: 18px;
+    font-size: 12;
+    font-weight: bold;
+    color: white;
+    vertical-align: center;
+    horizontal-align: center;
+}
+
+.vacio {
+    position: relative;
+    top: 30%;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: center;
+}
+
+.icon-5x {
+    font-size: 100px;
+}

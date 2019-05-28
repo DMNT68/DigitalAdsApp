@@ -3,6 +3,8 @@ import { Injectable } from "@angular/core";
 import { isIOS } from "tns-core-modules/platform";
 import * as utils from "tns-core-modules/utils/utils";
 import * as frame from "tns-core-modules/ui/frame";
+import { alert, confirm} from "tns-core-modules/ui/dialogs";
+
 
 @Injectable() 
 export class UtilService { 
@@ -17,14 +19,23 @@ export class UtilService {
         return formateado;
     }
 
-    public alert(message: string) {
+    public alert(message: string, title?:string) {
 
         return alert({
-            title: "DIGITAL ADS",
+            title: title || 'DIGITAL ADS',
             okButtonText: "OK",
             message: message
         });
         
+    }
+
+    public confirm(message: string, title?:string) {
+        return confirm({
+            title: title || 'DIGITAL ADS',
+            message: message,
+            okButtonText: "ok",
+            cancelButtonText: "Cancelar"
+        });
     }
 
     public cerrarTecladoTelefono() {

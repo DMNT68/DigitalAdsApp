@@ -1,0 +1,68 @@
+<ns-action-bar title="Lista de Pedidos" class="action-bar" [showBackButton]="false">
+    <ActionItem (tap)="back()">
+        <label [text]="iconClose" class="p-20 ico btn-active"></label>
+    </ActionItem>
+</ns-action-bar>
+
+<StackLayout class="vacio" *ngIf="_cs.items.length === 0">
+    <Label [text]="iconCarrito" class="icon-5x ico" textWrap="true"></Label>
+    <Label text="Su carrito esta vacío" class="p-t-10" textWrap="true"></Label>
+</StackLayout>
+
+<GridLayout rows="*, 150" class="main-container" *ngIf="_cs.items.length != 0">
+
+    <RadListView row="0" class="card" [items]="ordenes">
+
+        <ng-template let-orden="item" let-i="index">
+
+            <GridLayout rows="auto, auto, auto, auto" columns="60, *, 60" class="order-details p-t-20">
+
+                <Image class="img-circle imageList" [src]="orden.img | imagen:'producto'"></Image>
+
+                <Label col="1" class="order-taker" [text]="orden.nombre" textWrap="true"></Label>
+
+                <StackLayout row="1" col="1" colSpan="2" class="items">
+                    <GridLayout columns="auto, *, auto, 60">
+                        <Label class="item-name" text="Precio Unitario" class="item-name"></Label>
+                        <Label col="2" class="item-price" text=" $ {{orden.precioUni | number:'.2-2'}}"></Label>
+                    </GridLayout>
+                    <GridLayout columns="auto, *, auto, 60">
+                        <Label class="item-name" text="Cantidad" class="item-name"></Label>
+                        <Label col="1" text="( {{_cs.cantidades[i]}} )" class="item-quantity"></Label>
+                    </GridLayout>
+                    <GridLayout columns="auto, *, auto, 60" *ngIf="orden.categoria.descripcion !== 'Impresiones Offset'">
+                        <Label class="item-name" text="Altura * Ancho" class="item-name"></Label>
+                        <Label col="1" text="( {{_cs.alturas[i] | number:'.2-2'}} x {{_cs.anchos[i] | number:'.2-2'}} )m" class="item-quantity"></Label>
+                    </GridLayout>
+                    <GridLayout columns="auto, *, auto, 60" *ngIf="orden.categoria.descripcion !== 'Impresiones Offset'">
+                        <Label class="item-name" text="Letras" class="item-name"></Label>
+                        <Label col="1" text="( {{_cs.nroLetras[i]}} )" class="item-quantity"></Label>
+                    </GridLayout>
+                </StackLayout>
+
+                <StackLayout row="2" col="1" class="hr-light m-y-5"></StackLayout>
+
+                <GridLayout row="3" col="1" columns="*, auto" class="sub-total">
+                    <Label text="Total"></Label>
+                    <Label col="1" class="font-weight-bold" text="$ {{_cs.totales[i] | number:'.2-2'}}"></Label>
+                </GridLayout>
+
+                <Label col="2" [text]="iconBorrar" class="iconBorrar ico" (tap)="borrarItem(i)"></Label>
+
+            </GridLayout>
+        </ng-template>
+
+    </RadListView>
+
+    <GridLayout row="2" rows="*, auto" class="summary m-t-20">
+        <GridLayout rows="auto, auto" columns="*, auto" class="grand-total-container m-x-15">
+            <StackLayout colSpan="2" class="divider m-b-10 m-t-5"></StackLayout>
+            <Label row="1" text="Grand Total"></Label>
+            <Label row="1" col="1" text="$ {{_cs.total_carrito  | number:'.2-2'}} "></Label>
+        </GridLayout>
+        <GridLayout class="m-x-15 m-y-10  btn-container" row="1">
+            <Button text="Realizar Pedido" class="add-order" (tap)="enviarPedido()"></Button>
+        </GridLayout>
+    </GridLayout>
+
+</GridLayout>

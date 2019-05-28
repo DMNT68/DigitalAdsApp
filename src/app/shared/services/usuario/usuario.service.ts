@@ -29,7 +29,7 @@ export class UsuarioService {
 
   cargaLocalData() {
 
-      if ( getString('token')) {
+      if ( getString('token') ) {
         this.token = getString('token');
         this.usuario = JSON.parse( getString('usuario') );
       } else {

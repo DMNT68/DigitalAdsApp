@@ -38,10 +38,6 @@ export class ProductoService {
         return this.http.get(url).
         pipe(map((resp: any) => resp.productos));
     
-      }
-
-      agregarCarrito(){
-          this.activarCarrito=!this.activarCarrito;
-      }
+    }
 
 } 

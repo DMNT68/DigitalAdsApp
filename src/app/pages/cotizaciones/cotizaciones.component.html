@@ -1,7 +1,13 @@
-<ns-action-bar title="Cotizaciones"></ns-action-bar>
+<ns-action-bar title="Cotizaciones" class="action-bar" [showBackButton]="false"></ns-action-bar>
 <GridLayout>
 
-    <RadListView [items]="cotizaciones" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
+    <StackLayout class="vacio">
+        <Label [text]="iconCotizaciones" class="icon-5x ico" textWrap="true"></Label>
+        <Label text="No hay Cotizaciones" class="p-t-10" textWrap="true"></Label>
+    </StackLayout>
+
+
+    <!-- <RadListView [items]="cotizaciones" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
         <ng-template tkListItemTemplate let-cotizacion="item">
             <!-- 
             <StackLayout class="margenSeparacion" orientation="horizontal">
@@ -22,15 +28,15 @@
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
-            </StackLayout> -->
+            </StackLayout> 
 
-            <GridLayout class="music-genre skeleton" rows="*" columns="55,*">
+        <GridLayout class="music-genre skeleton" rows="*" columns="55,*">
                 <Label row="0" col="0" text=" " class="number number-skeleton"></Label>
                 <Label row="0" col="1" text=" " class="genre genre-skeleton"></Label>
-            </GridLayout>
+            </GridLayout> 
 
-        </ng-template>
+    </ng-template>
 
-    </RadListView>
+    </RadListView> -->
 
 </GridLayout>

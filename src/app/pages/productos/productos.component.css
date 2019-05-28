@@ -37,8 +37,11 @@
     
     .searchbar {
         font-size: 18;
-        text-field-hint-color: "white";
-        color: "#f4f2ec"
+    }
+    
+    .iconos {
+        font-size: 16;
+        color: #eae8dc;
     }
     
     .ico {

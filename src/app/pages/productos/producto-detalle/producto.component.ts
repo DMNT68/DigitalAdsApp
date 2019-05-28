@@ -3,7 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 
 
 import { Producto } from '../../../shared/models/producto.model';
-import { ProductoService, UtilService } from '../../../shared/services/service.index';
+import { ProductoService, UtilService, CarritoService } from '../../../shared/services/service.index';
 import { RouterExtensions, PageRoute } from 'nativescript-angular/router';
 
 @Component({
@@ -19,9 +19,9 @@ export class ProductoComponent implements OnInit {
   producto: Producto;
   precioFinal: number;
   cantidad: number = 1;
-  nletras: number;
-  alto: number;
-  ancho: number;
+  nletras: number=0;
+  alto: number=0;
+  ancho: number=0;
 
   categoria: string;
   img: string;
@@ -36,7 +36,8 @@ export class ProductoComponent implements OnInit {
     public _productoService: ProductoService, 
     private activRoute: ActivatedRoute,
     private pageRoute: PageRoute,
-    private _routerExtensions: RouterExtensions) {}
+    private _routerExtensions: RouterExtensions,
+    public cs:CarritoService) {}
     
   ngOnInit() {
     this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
@@ -78,8 +79,8 @@ export class ProductoComponent implements OnInit {
     if(this.precioFinal < +this.producto.precioUni && cantidad < 0){
       this.precioFinal = +this.producto.precioUni;
       this.cantidad = 1;
-      this.alto = 1;
-      this.nletras = 1;
+      this.alto = 0;
+      this.nletras = 0;
       this._utilService.alert("La cantidad debe ser igual o mayor a 1");
       return;
     }
@@ -109,6 +110,7 @@ export class ProductoComponent implements OnInit {
 
     let base: number = this.alto * this.ancho; 
     this.precioFinal = (+this.producto.precioUni * base) + (this.nletras*25);
+    
   }
 
   variarPrecioRotulo() {
@@ -124,7 +126,8 @@ export class ProductoComponent implements OnInit {
       this.precioFinal = +this.producto.precioUni;
       this.cantidad = 1;
       this.alto = 1;
-      this._utilService.alert("Ingresa los valor igual o mayor a 1");
+      this.ancho = 1;
+      this._utilService.alert("Ingresa valores mayor a 0");
       return;
     }
 
@@ -138,8 +141,5 @@ export class ProductoComponent implements OnInit {
     this.rotulos=false;
   }
 
-  agregarCarrito() {
-    this._productoService.agregarCarrito();
-  }
 
 }
