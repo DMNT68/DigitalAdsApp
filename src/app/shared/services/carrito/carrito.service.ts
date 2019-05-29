@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { RouterExtensions } from 'nativescript-angular/router';
 
 import {getString, setString, remove} from "tns-core-modules/application-settings";
+
 import { UsuarioService, UtilService } from '../service.index';
-import { RouterExtensions } from 'nativescript-angular/router';
+
+import { URL_SERVICIOS } from '~/app/config/config';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -53,6 +58,49 @@ export class CarritoService {
     this.guardarLocalData();
     this.actualizar_total();
     this._util.alert(`El producto "${itemParametro.nombre}" a sido agregado`);
+
+  }
+
+  realizarPedido() {
+
+    let parametros:any={};
+    let url = URL_SERVICIOS + '/orden';
+    
+    let header = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'token': this._us.token
+    });
+
+    let ids: string []=[];
+    let cantidad: number []=this.cantidades;
+    let altura: number []=this.alturas;
+    let ancho: number []=this.anchos;
+    let nroletras: number []=this.nroLetras;
+
+    for (const item of this.items) {
+      ids.push(item._id);
+    }
+        
+    parametros = {
+      items: ids.join(','),
+      cantidad: cantidad.join(','),
+      altura: altura.join(','),
+      ancho: ancho.join(','),
+      numeroLetras: nroletras.join(','),
+      total: this.total_carrito
+    }
+
+    return this.http.post(url,parametros,{headers: header})
+    .pipe(map(()=>{
+      this.items=[];
+      this.cantidades=[];
+      this.alturas=[];
+      this.anchos=[];
+      this.nroLetras=[];
+      this.totales=[];
+      this.actualizar_total();
+      this.guardarLocalData();
+    }));
 
   }
 

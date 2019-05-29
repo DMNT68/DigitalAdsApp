@@ -1,4 +1,4 @@
-<ns-action-bar title="Lista de Pedidos" class="action-bar" [showBackButton]="false">
+<ns-action-bar title="Lista de Pedidos ( {{ _cs.items.length}} )" class="action-bar" [showBackButton]="false">
     <ActionItem (tap)="back()">
         <label [text]="iconClose" class="p-20 ico btn-active"></label>
     </ActionItem>

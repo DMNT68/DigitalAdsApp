@@ -32,10 +32,18 @@ export class CarritoComponent implements OnInit {
     this._util.confirm('¿Desea enviar el pedido para ser revisado?','Enviar Pedido')
     .then((result)=>{
       if(result){
-        this._util.alert('Revisaremos tu pedido y nos pondremos en contacto contigo muy pronto.','Enviado Exitosamente')
-        .then(()=>{
-          this.back();
-        });
+
+        this._cs.realizarPedido().subscribe(
+          ()=>{
+          this._util.alert('Revisaremos tu pedido y nos pondremos en contacto contigo muy pronto.','Enviado Exitosamente')
+          .then(() => this.back());
+          },
+           error => {
+             console.log('error:::', error);
+            this._util.alert(error.message,'Error al enviar pedido');
+          }
+        );
+
       }
     })
   }

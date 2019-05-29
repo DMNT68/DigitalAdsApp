@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core"; 
 import { RouterExtensions } from 'nativescript-angular/router';
-import { HttpClient,HttpHeaders  } from "@angular/common/http";
+import { HttpClient,HttpHeaders } from "@angular/common/http";
 
 import { throwError } from "rxjs";
 import { map} from "rxjs/operators";
@@ -126,7 +126,6 @@ export class UsuarioService {
       if (usuario._id === this.usuario._id) {
         let usuarioDB: Usuario = resp.usuario;
         this.guardarLocaData(String(usuarioDB._id) , this.token , usuarioDB);
-        console.log('entra');
       }
       
       return true;

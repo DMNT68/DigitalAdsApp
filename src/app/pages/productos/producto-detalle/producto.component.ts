@@ -19,9 +19,9 @@ export class ProductoComponent implements OnInit {
   producto: Producto;
   precioFinal: number;
   cantidad: number = 1;
-  nletras: number=0;
-  alto: number=0;
-  ancho: number=0;
+  nletras: number;
+  alto: number;
+  ancho: number;
 
   categoria: string;
   img: string;
@@ -80,6 +80,7 @@ export class ProductoComponent implements OnInit {
       this.precioFinal = +this.producto.precioUni;
       this.cantidad = 1;
       this.alto = 0;
+      this.ancho = 0;
       this.nletras = 0;
       this._utilService.alert("La cantidad debe ser igual o mayor a 1");
       return;
@@ -104,6 +105,7 @@ export class ProductoComponent implements OnInit {
       this.cantidad = 1;
       this.alto = 1;
       this.nletras = 1;
+      this.ancho = 1;
       this._utilService.alert("Ingresa los valor igual o mayor a 1");
       return;
     }
@@ -122,11 +124,12 @@ export class ProductoComponent implements OnInit {
       return;
     }
 
-    if(this.precioFinal < +this.producto.precioUni && this.alto, this.ancho < 0){
+    if(this.precioFinal < +this.producto.precioUni && this.alto, this.ancho <= 0){
       this.precioFinal = +this.producto.precioUni;
       this.cantidad = 1;
       this.alto = 1;
       this.ancho = 1;
+      this.nletras = 0;
       this._utilService.alert("Ingresa valores mayor a 0");
       return;
     }
