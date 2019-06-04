@@ -19,17 +19,20 @@ export class ProductoComponent implements OnInit {
   producto: Producto;
   precioFinal: number;
   cantidad: number = 1;
-  nletras: number;
-  alto: number;
-  ancho: number;
+  nletras: number = 0;
+  alto: number = 0;
+  ancho: number = 0;
 
   categoria: string;
   img: string;
   nombre: string;
   descripcion: string;
+  activar:boolean=false;
 
   rotulos3D: boolean = false;
   rotulos: boolean = false;
+
+  iconCarrito: String = '';
 
   constructor(
     public _utilService: UtilService, 
@@ -40,12 +43,16 @@ export class ProductoComponent implements OnInit {
     public cs:CarritoService) {}
     
   ngOnInit() {
+    this.iconCarrito = String.fromCharCode(0xe93a);
+
     this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
       activatedRoute.paramMap.subscribe(paramMap=>{
         const id = paramMap.get('id');
         this.getProducto(id);  
-      })
-    })
+      });
+    });
+
+
       // const id = this.activRoute.snapshot.params.id;
       // this.getProducto(id);    
   }
@@ -75,7 +82,7 @@ export class ProductoComponent implements OnInit {
 
   variarPrecio(cantidad?: number){
 
-
+    
     if(this.precioFinal < +this.producto.precioUni && cantidad < 0){
       this.precioFinal = +this.producto.precioUni;
       this.cantidad = 1;
@@ -85,21 +92,23 @@ export class ProductoComponent implements OnInit {
       this._utilService.alert("La cantidad debe ser igual o mayor a 1");
       return;
     }
-
+    
     this.cantidad += cantidad; 
     this.precioFinal = +this.producto.precioUni * this.cantidad;
     
+    this.activar=true;
   }
 
   variarPrecioRotulo3D() {
 
+    
     this._utilService.cerrarTecladoTelefono();
-
+    
     if(!this.alto || !this.ancho || !this.nletras){
       this._utilService.alert("Ingresa los valores por favor");
       return;
     }
-
+    
     if(this.precioFinal < +this.producto.precioUni && this.alto, this.nletras, this.ancho < 0){
       this.precioFinal = +this.producto.precioUni;
       this.cantidad = 1;
@@ -109,21 +118,23 @@ export class ProductoComponent implements OnInit {
       this._utilService.alert("Ingresa los valor igual o mayor a 1");
       return;
     }
-
+    
     let base: number = this.alto * this.ancho; 
     this.precioFinal = (+this.producto.precioUni * base) + (this.nletras*25);
+    this.activar=true;
     
   }
 
   variarPrecioRotulo() {
 
+    
     this._utilService.cerrarTecladoTelefono();
 
     if(!this.alto || !this.ancho){
-     this._utilService.alert("Ingresa los valores por favor");
+      this._utilService.alert("Ingresa los valores por favor");
       return;
     }
-
+    
     if(this.precioFinal < +this.producto.precioUni && this.alto, this.ancho <= 0){
       this.precioFinal = +this.producto.precioUni;
       this.cantidad = 1;
@@ -133,16 +144,14 @@ export class ProductoComponent implements OnInit {
       this._utilService.alert("Ingresa valores mayor a 0");
       return;
     }
-
+    
     let base: number = this.alto * this.ancho; 
     this.precioFinal = +this.producto.precioUni * base;
+    this.activar=true;
   }
 
-  onBackButtonTap(): void {
-    this._routerExtensions.back();
-    this.rotulos3D=false;
-    this.rotulos=false;
+  agregarPedido(){
+    this.cs.agregarCarrito(this.producto,this.cantidad,this.alto,this.ancho,this.nletras,this.precioFinal)
   }
-
 
 }

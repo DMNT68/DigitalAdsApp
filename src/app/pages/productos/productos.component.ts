@@ -25,10 +25,11 @@ export class ProductosComponent implements OnInit {
   textoBuscar = '';
   aparecer = false;
   suma: number = 1;
-  icoSearch: String = '';
-  icoClose: String = '';
-  icoUp: String = '';
-  icoCarrito: String = '';
+  iconSearch: String;
+  iconClose: String;
+  iconUp: String;
+  iconCarrito: String;
+  iconProductos: String;
 
   
   
@@ -37,10 +38,11 @@ export class ProductosComponent implements OnInit {
       public routerExtensions:RouterExtensions,
       public cs: CarritoService) { 
     
-    this.icoSearch = String.fromCharCode(0xe986);
-    this.icoClose = String.fromCharCode(0xea0f);
-    this.icoUp = String.fromCharCode(0xea41);
-    this.icoCarrito = String.fromCharCode(0xe93a);
+    this.iconSearch = String.fromCharCode(0xe986);
+    this.iconClose = String.fromCharCode(0xea0f);
+    this.iconUp = String.fromCharCode(0xea41);
+    this.iconCarrito = String.fromCharCode(0xe93a);
+    this.iconProductos = String.fromCharCode(0xe900);
     
   }
   
@@ -58,7 +60,7 @@ export class ProductosComponent implements OnInit {
   }
   
   @ViewChild('myRadListView') listViewComponent: RadListViewComponent;
-  public onTap() {
+  public onTapUp() {
     this.listViewComponent.listView.scrollToIndex(0, true);
   }
   

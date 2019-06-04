@@ -17,7 +17,7 @@
 
 .btn-secondary {
     height: 40;
-    background-color: #018abe;
+    background-color: #F8F0EE;
     border-radius: 5;
     font-size: 14;
     font-weight: 600;
@@ -34,7 +34,7 @@ THEME BUILDER
 
 .action-bar {
     color: #ffffff;
-    background-color: #0e3746;
+    background-color: #2d3440;
 }
 
 .page {
@@ -46,11 +46,12 @@ THEME BUILDER
 }
 
 .img-circle {
-    border-radius: 40;
+    border-radius: 100%;
+    border-width: 1;
 }
 
 .img-rounded {
-    border-radius: 5;
+    border-radius: 7;
 }
 
 .body {
@@ -82,20 +83,20 @@ THEME BUILDER
 }
 
 .btn {
-    color: #0e3746;
+    color: #2d3440;
 }
 
 .btn-primary {
-    background-color: #0e3746;
-    border-color: #0e3746;
+    background-color: #2d3440;
+    border-color: #2d3440;
     color: #f4f2ec;
 }
 
 .btn-outline {
-    border-color: #0e3746;
+    border-color: #2d3440;
     background-color: transparent;
     border-width: 1;
-    color: #0e3746;
+    color: #2d3440;
 }
 
 .btn-rounded-sm {
@@ -110,6 +111,14 @@ THEME BUILDER
     font-size: 16;
 }
 
+.label-title {
+    font-family: serif;
+}
+
+.label-description {
+    height: 18
+}
+
 .input {
     font-size: 14;
 }
@@ -118,15 +127,8 @@ THEME BUILDER
     border-radius: 30;
 }
 
-.tab-view {
-    selected-tab-text-color: #be2623;
-    tab-text-color: #f4f2ec;
-    tab-background-color: #0e3743;
-    android-selected-tab-highlight-color: #be2623;
-}
-
 .text-danger {
-    color: #be2623
+    color: #ef424c
 }
 
 .badge {
@@ -136,7 +138,7 @@ THEME BUILDER
     border-color: red;
     border-width: 1;
     border-radius: 50%;
-    background-color: red;
+    background-color: #ef424c;
 }
 
 .badge-text {

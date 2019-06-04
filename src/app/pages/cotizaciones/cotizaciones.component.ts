@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
-import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 import { ListViewEventData } from 'nativescript-ui-listview';
 import { View } from 'tns-core-modules/ui/page/page';
 
-import { UtilService } from '../../shared/services/service.index';
+import { UtilService, CarritoService } from '../../shared/services/service.index';
+import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
   selector: 'ns-cotizaciones',
@@ -16,35 +16,42 @@ export class CotizacionesComponent {
 
     getLista:any;
     cargando:boolean=false;
-    cotizaciones: any[];
+    cotizaciones: any[]=[];
     iconCotizaciones: string;
-    
-  
+    iconIr:string;
+    iconRevisado:string;
+    iconNoRevisado:string;
 
-  constructor(private http: HttpClient, private _utilService: UtilService) {
+  constructor(private http: HttpClient, private router:RouterExtensions,private _utilService: UtilService, private _cs:CarritoService) {
     
   }
 
   ngOnInit(): void {
     this.iconCotizaciones = String.fromCharCode(0xe922);
-    this.cargar();
+    this.iconIr = String.fromCharCode(0xe907);
+    this.iconRevisado = String.fromCharCode(0xea52);
+    this.iconNoRevisado = String.fromCharCode(0xea53);
+    this.cargarOrdenes();
   }
 
-  cargar() {
+  irDetalle(id:string) { 
 
-    this.http.get('https://rickandmortyapi.com/api/character/')
-    .toPromise()
-    .then((response)=>{
-        
-        this.getLista = (<any>response).results;
-    }).catch(err=>console.log(err))
-    
+    this.router.navigate([`/detalles/${id}` , {
+      transition:{name:'slide',duration:1000}
+    }]);
+  
+  }
+  
+  cargarOrdenes() {
+    this._cs.cargarOrdenes().subscribe(ordenes=>{
+      this.cotizaciones = ordenes;
+    });
   }
   
   public onPullToRefreshInitiated(args: ListViewEventData) {
     
     setTimeout(() => {
-      this.cargar();
+      this.cargarOrdenes();
       
       const listView = args.object;
       listView.notifyPullToRefreshFinished();

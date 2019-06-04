@@ -1,22 +1,26 @@
 <ns-action-bar title="{{nombre}}" class="action-bar"></ns-action-bar>
 
-<GridLayout rows="auto, *" class="page">
+<ScrollView>
 
-    <GridLayout *ngIf="_productoService.activarCarrito" row="0" class="card-layout">
-        <!-- <ns-orden></ns-orden> -->
-    </GridLayout>
+    <GridLayout rows="*,auto" class="page p-y-5">
 
-    <ScrollView row="1">
+        <StackLayout row="0" class="card">
 
-        <StackLayout class="list-group card-layout">
+            <StackLayout class="card-layout">
+                <Image class="img-rounded" [src]="img | imagen:'producto'"></Image>
+            </StackLayout>
 
-            <Image class="img-rounded" [src]="img | imagen:'producto'"></Image>
-            <!-- <Label class="h3" [text]="nombre" textWrap="true"></Label> -->
-            <Label class="h4" [text]="categoria"></Label>
-            <Label class="body" textWrap="true" [text]="descripcion"></Label>
-            <Label class="h5" text="Aquí puedes cotizar el producto" textWrap="true"></Label>
+            <StackLayout class="card-layout-description-p">
+                <Label class="h4" [text]="categoria"></Label>
+                <!-- <Label class="h3" [text]="nombre" textWrap="true"></Label> -->
+                <Label class="body" textWrap="true" [text]="descripcion"></Label>
+            </StackLayout>
+        </StackLayout>
 
-            <StackLayout *ngIf="!rotulos && !rotulos3D">
+        <GridLayout row="1" rows="*, auto,*" class="card-cotizar">
+
+            <Label row="0" col="0" class="h5" text="Cotiza el producto"></Label>
+            <StackLayout row="1" *ngIf="!rotulos && !rotulos3D">
                 <Label class="h4" text="Cantidad:" textWrap="true"></Label>
                 <StackLayout orientation="horizontal">
                     <Button text="-" (tap)="variarPrecio(-1)" class="btn btn-cantidad btn-outline btn-rounded-lg btn-active"></Button>
@@ -25,27 +29,25 @@
                 </StackLayout>
             </StackLayout>
 
-            <StackLayout orientation="horizontal" *ngIf="rotulos">
+            <StackLayout row="1" orientation="horizontal" *ngIf="rotulos">
                 <TextField class="inputVariables" hint="Altura" keyboardType="number" [(ngModel)]="alto"></TextField>
                 <TextField class="inputVariables" hint="Ancho" keyboardType="number" [(ngModel)]="ancho"></TextField>
                 <Button text="Calcular" (tap)="variarPrecioRotulo()" class="btn btn-outline btn-rounded-lg btn-active"></Button>
             </StackLayout>
 
-            <StackLayout orientation="horizontal" *ngIf="rotulos3D">
+            <StackLayout row="1" orientation="horizontal" *ngIf="rotulos3D">
                 <TextField class="inputVariables" hint="Altura" keyboardType="number" [(ngModel)]="alto"></TextField>
                 <TextField class="inputVariables" hint="Ancho" keyboardType="number" [(ngModel)]="ancho"></TextField>
                 <TextField class="inputVariables" hint="Número de letras" keyboardType="number" [(ngModel)]="nletras"></TextField>
                 <Button text="Calcular" (tap)="variarPrecioRotulo3D()" class="btn btn-outline btn-rounded-lg btn-active"></Button>
             </StackLayout>
 
-            <StackLayout orientation="horizontal">
-                <Label class="h3 text-danger m-r-15" textWrap="true" text=" Precio Final: ${{precioFinal | number:'.2-2'}}"></Label>
-                <!-- <Button text="&#xe93a;" class="m-l-15 ico btn-primary btn-rounded-sm" width="50" (tap)="cs.agregarCarrito(producto)"></Button> -->
-                <Button text="&#xe93a;" class="m-l-15 ico btn-primary btn-rounded-sm" width="50" (tap)="cs.agregarCarrito(producto,cantidad,alto,ancho,nletras,precioFinal)"></Button>
-            </StackLayout>
+            <GridLayout row="2" columns="*,60">
+                <Label col="0" class="h3 text-danger m-r-15" textWrap="true" text=" Precio Final: ${{precioFinal | number:'.2-2'}}"></Label>
+                <Button col="1" [visibility]="activar || !rotulos && !rotulos3D ? 'visible' : 'collapse'" [text]="iconCarrito" class="m-15 ico btn-primary btn-rounded-sm" width="50" (tap)="agregarPedido()"></Button>
+            </GridLayout>
 
-        </StackLayout>
+        </GridLayout>
 
-    </ScrollView>
-
-</GridLayout>
+    </GridLayout>
+</ScrollView>

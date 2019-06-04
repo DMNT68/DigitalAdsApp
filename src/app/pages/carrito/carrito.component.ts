@@ -22,7 +22,7 @@ export class CarritoComponent implements OnInit {
 
     this.iconClose=String.fromCharCode(0xea0f);
     this.iconCarrito = String.fromCharCode(0xe93a);
-    this.iconBorrar = String.fromCharCode(0xe9ac);
+    this.iconBorrar = String.fromCharCode(0xe9ad);
 
     this.ordenes = this._cs.items;
 

@@ -1,4 +1,7 @@
-.ico {
-    font-family: 'IcoMoon-Free';
-    font-size: 20;
+.tab-view {
+    selected-tab-text-color: #ef424c;
+    tab-text-color: #F8F0EE;
+    tab-background-color: #2d3440;
+    android-selected-tab-highlight-color: #ef424c;
+    font-size: 25;
 }

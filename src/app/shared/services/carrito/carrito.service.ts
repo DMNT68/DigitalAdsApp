@@ -21,7 +21,7 @@ export class CarritoService {
   alturas:number []=[];
   anchos:number []=[];
   nroLetras:number []=[];
-  totales:number[]=[];
+  preciosFinales:number[]=[];
   total_carrito:number = 0;
 
   constructor(private http: HttpClient, private _util: UtilService, private _us:UsuarioService, private router: RouterExtensions) { 
@@ -30,18 +30,16 @@ export class CarritoService {
 
   }
 
-
   verCarrito() {
     if(this._us.token){
-      this.router.navigate(['/carrito'], {transition:{name:'slideTop', duration:1000}});
+      this.router.navigate(['/carrito'], {transition:{name:'slideTop', duration:300}});
     } else {
       this._us.logout();
     }
   }
 
-  agregarCarrito(itemParametro:any,cantidadesParametros:number,alturaParametro:number,anchoParametro:number,nroLetraParametro:number,totalParametro:number) {
-  // agregarCarrito(itemParametro:any) {
-
+  agregarCarrito(itemParametro:any, cantidadesParametros:number, alturaParametro:number, anchoParametro:number, nroLetraParametro:number, preciofinalParametro:number) {
+  
     for (const item of this.items) {
       if(item._id == itemParametro._id){
         this._util.alert(`El producto "${itemParametro.nombre}" ya se encuentra en el pedido`);
@@ -54,7 +52,7 @@ export class CarritoService {
     this.alturas.push(alturaParametro);
     this.anchos.push(anchoParametro);
     this.nroLetras.push(nroLetraParametro);
-    this.totales.push(totalParametro);
+    this.preciosFinales.push(preciofinalParametro);
     this.guardarLocalData();
     this.actualizar_total();
     this._util.alert(`El producto "${itemParametro.nombre}" a sido agregado`);
@@ -71,11 +69,12 @@ export class CarritoService {
       'token': this._us.token
     });
 
-    let ids: string []=[];
-    let cantidad: number []=this.cantidades;
-    let altura: number []=this.alturas;
-    let ancho: number []=this.anchos;
-    let nroletras: number []=this.nroLetras;
+    let ids: string [] = [];
+    let cantidad: number [] = this.cantidades;
+    let altura: number [] = this.alturas;
+    let ancho: number [] = this.anchos;
+    let nroletras: number [] = this.nroLetras;
+    let preciosFinales: number [] = this.preciosFinales;
 
     for (const item of this.items) {
       ids.push(item._id);
@@ -87,6 +86,7 @@ export class CarritoService {
       altura: altura.join(','),
       ancho: ancho.join(','),
       numeroLetras: nroletras.join(','),
+      precioFinal: preciosFinales.join(','),
       total: this.total_carrito
     }
 
@@ -97,11 +97,49 @@ export class CarritoService {
       this.alturas=[];
       this.anchos=[];
       this.nroLetras=[];
-      this.totales=[];
+      this.preciosFinales=[];
       this.actualizar_total();
       this.guardarLocalData();
     }));
 
+  }
+
+  cargarOrdenes() {
+
+    let url = URL_SERVICIOS + '/ordenesUsuario';
+    let header = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'token': this._us.token
+    });
+
+    return this.http.get(url,{headers:header})
+    .pipe(map((resp:any)=>{
+      return resp.ordenes;
+    }));
+  }
+
+  cargarOrdenDetalle(id:string) {
+
+    let url = URL_SERVICIOS + `/detalles/${id}`;
+    let header = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'token': this._us.token
+    });
+
+   return this.http.get(url,{headers:header});
+
+  }
+
+
+  borrarOrden(id:string) {
+
+    let url = URL_SERVICIOS + `/orden/${id}`;
+    let header = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'token': this._us.token
+    });
+
+    return this.http.delete(url,{headers:header});
   }
 
   removerItems(i:number) {
@@ -110,14 +148,14 @@ export class CarritoService {
     this.alturas.splice(i,1);
     this.anchos.splice(i,1);
     this.nroLetras.splice(i,1);
-    this.totales.splice(i,1);
+    this.preciosFinales.splice(i,1);
     this.actualizar_total();
     this.guardarLocalData();
   }
 
   actualizar_total(){
     this.total_carrito=0;
-    for (const t of this.totales) {
+    for (const t of this.preciosFinales) {
       this.total_carrito+=t;
     }
   }
@@ -128,7 +166,7 @@ export class CarritoService {
     setString('alturas',JSON.stringify(this.alturas));
     setString('anchos',JSON.stringify(this.anchos));
     setString('nroLetras',JSON.stringify(this.nroLetras));
-    setString('totales',JSON.stringify(this.totales));
+    setString('preciosFinales',JSON.stringify(this.preciosFinales));
   }
 
   cargarLocalData() {
@@ -139,7 +177,7 @@ export class CarritoService {
         this.alturas = JSON.parse(getString('alturas'));
         this.anchos = JSON.parse(getString('anchos'));
         this.nroLetras = JSON.parse(getString('nroLetras'));
-        this.totales = JSON.parse(getString('totales'));
+        this.preciosFinales = JSON.parse(getString('preciosFinales'));
       }
 
       resolve();

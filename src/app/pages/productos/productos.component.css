@@ -1,15 +1,49 @@
     .card {
-        background-color: #f4f2ec;
-        color: #4d4d4d;
-        margin: 10 10 0;
+        background-color: #f0f0f0;
+        margin: 5;
+        margin: 5;
+        margin-right: 10;
+        margin-left: 10;
+        border-radius: 7;
     }
     
     .card-layout {
-        padding: 15;
+        padding: 0;
     }
     
-    .card-layout .h1 {
+    .card-layout-description {
+        background-color: rgba(255, 255, 255, 0.555);
+        color: #2d3440;
+        vertical-align: bottom;
+        padding: 2;
+        padding-left: 10;
+        border-radius: 7;
+    }
+    
+    .card-layout-description-p {
         margin-bottom: 10;
+        padding: 10;
+    }
+    
+    .card-cotizar {
+        margin: 10;
+        padding: 10;
+        background-color: #F8F0EE;
+        border-radius: 7;
+    }
+    
+    .labe-title {
+        /* height: 25; */
+        font-size: 18;
+    }
+    
+    .labe-description {
+        font-size: 12;
+        height: 15;
+    }
+    
+    .img {
+        padding: 0;
     }
     
     .input-field {
@@ -30,25 +64,27 @@
         placeholder-color: #A8A8A8;
     }
     
-    .separador {
-        background-color: #eae8dc;
-        height: 10;
-    }
-    
     .searchbar {
         font-size: 18;
     }
     
     .iconos {
-        font-size: 16;
+        font-size: 18;
         color: #eae8dc;
     }
     
-    .ico {
-        font-family: 'IcoMoon-Free';
-        font-size: 28;
+    .icono-cart {
+        font-size: 18;
+        color: #28bfdb;
     }
     
     RadListView {
         margin-right: -2;
+    }
+    
+    .to-up {
+        text-align: center;
+        color: #0e3743;
+        background-color: #e4ecee;
+        width: 100;
     }

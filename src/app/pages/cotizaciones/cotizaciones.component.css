@@ -10,56 +10,57 @@
     margin-bottom: 10;
 }
 
-label {
-    margin-right: 5;
+.card {
+    background-color: #2d3440;
+    color: #28bfdb;
+    margin: 5;
+    margin-right: 10;
+    margin-left: 10;
+    border-radius: 5;
 }
 
-.music-genre {
-    padding: 34px 0;
-    border-bottom-width: 1px;
-    border-bottom-color: #d1d1d1;
+.card-layout {
+    padding: 5;
+    padding-left: 10;
 }
 
-.music-genre label {
-    font-size: 24px;
-    color: #1F1C0D;
-}
-
-.music-genre label.number {
+.text-icon {
+    vertical-align: center;
     text-align: center;
-    color: #fba0e3;
+    font-size: 30;
+    padding: 10;
 }
 
-.skeleton label {
-    background-color: #d1d1d1;
-    border-radius: 15px;
+.text-head {
+    vertical-align: center;
+    font-size: 14;
+    padding-right: 10;
+    color: #ef424c;
+    text-align: center
 }
 
-.number-skeleton,
-.genre-skeleton {
-    animation-name: skeletonShimmer;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+.text-desc {
+    vertical-align: center;
+    padding-top: 5;
+    padding-bottom: 5;
+    text-align: center;
+    font-size: 12;
+    color: #F8F0EE;
 }
 
-@keyframes skeletonShimmer {
-    0% {
-        background-color: #eeeeee;
-    }
-    50% {
-        background-color: #d1d1d1;
-    }
-    100% {
-        background-color: #eeeeee;
-    }
+.check {
+    color: rgb(36, 221, 36);
+    font-size: 16;
 }
 
-.number-skeleton {
-    width: 80px;
+.uncheck {
+    color: gray;
+    font-size: 16;
 }
 
-.genre-skeleton {
-    text-align: left;
-    margin-right: 25%;
+.text-index {
+    vertical-align: center;
+    text-align: center;
+    font-size: 20;
+    padding-left: 10;
 }

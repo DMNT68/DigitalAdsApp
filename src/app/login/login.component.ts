@@ -31,7 +31,7 @@ export class LoginComponent {
     
     let usuario = new Usuario(null,this.email,this.password);
     this._usuarioService.login(usuario)
-    .subscribe(() => this.router.navigate(['/'],{ clearHistory: true,transition:{name:'slide',duration:1000,curve:'linear'} }),
+    .subscribe(() => this.router.navigate(['/'],{ clearHistory: true,transition:{name:'slide',duration:300,curve:'linear'} }),
       error => {
         this._usuarioService.alert(error.error.error.message);
         console.log('error:',error);
@@ -45,7 +45,7 @@ export class LoginComponent {
     this.router.navigate(['/signup'], {
       transition:{
         name:'slideRight', 
-        duration:400, 
+        duration:300, 
         curve:'linear'
       }
     });

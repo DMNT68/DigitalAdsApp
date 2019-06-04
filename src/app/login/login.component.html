@@ -1,4 +1,4 @@
-<FlexboxLayout class="page">
+<!-- <FlexboxLayout class="page">
 
     <StackLayout class="form ico">
         <Image class="logo" src="~/assets/images/logo.png"></Image>
@@ -21,6 +21,24 @@
         <Button text="Ingresar a tu Cuenta &#xea13; " class="btn-primary btn-active ico" (tap)="ingresar()"></Button>
         <Button text=" &#xe904; Registrar una Cuenta" (tap)="irRegistrar()" class="btn-outline btn-rounded-lg btn-active ico"></Button>
 
+    </StackLayout>
+
+</FlexboxLayout> -->
+
+<FlexboxLayout>
+
+    <StackLayout class="form ico">
+
+        <Image src="~/assets/images/logo.png"></Image>
+
+        <TextField hint="{{iconEmail}} Correo Electronico" keyboardType="email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="email" class="input input-rounded"></TextField>
+        <TextField hint="{{iconPassword}} Contraseña" secure="true" [(ngModel)]="password" class="input input-rounded"></TextField>
+
+        <Button text="Ingresar a tu Cuenta &#xea13; " class="btn-primary btn-active ico" (tap)="ingresar()"></Button>
+        <StackLayout orientation="horizontal">
+            <Label text="¿No tienes una cuenta?" class="label"></Label>
+            <Label text=" Registrate" (tap)="irRegistrar()" class="p-l-12 label-login font-weight-bold"></Label>
+        </StackLayout>
     </StackLayout>
 
 </FlexboxLayout>

@@ -8,6 +8,7 @@
     margin-right: 20;
     flex-grow: 2;
     vertical-align: middle;
+    font-size: 18;
 }
 
 .img-profile {
@@ -16,6 +17,8 @@
     height: 150;
     width: 150;
     border-radius: 80;
+    border-color: #2d3440;
+    border-width: 2;
 }
 
 .margen {

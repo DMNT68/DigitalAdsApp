@@ -44,7 +44,7 @@
 
                 <GridLayout row="3" col="1" columns="*, auto" class="sub-total">
                     <Label text="Total"></Label>
-                    <Label col="1" class="font-weight-bold" text="$ {{_cs.totales[i] | number:'.2-2'}}"></Label>
+                    <Label col="1" class="font-weight-bold" text="$ {{_cs.preciosFinales[i] | number:'.2-2'}}"></Label>
                 </GridLayout>
 
                 <Label col="2" [text]="iconBorrar" class="iconBorrar ico" (tap)="borrarItem(i)"></Label>

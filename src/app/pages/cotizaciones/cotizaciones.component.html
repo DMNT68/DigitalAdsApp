@@ -1,42 +1,36 @@
 <ns-action-bar title="Cotizaciones" class="action-bar" [showBackButton]="false"></ns-action-bar>
-<GridLayout>
 
-    <StackLayout class="vacio">
-        <Label [text]="iconCotizaciones" class="icon-5x ico" textWrap="true"></Label>
-        <Label text="No hay Cotizaciones" class="p-t-10" textWrap="true"></Label>
-    </StackLayout>
+<StackLayout class="vacio" *ngIf="cotizaciones.length == 0">
+    <Label [text]="iconCotizaciones" class="icon-5x ico" textWrap="true"></Label>
+    <Label text="Sin Cotizaciones" class="p-t-10" textWrap="true"></Label>
+</StackLayout>
 
+<GridLayout rows="*" *ngIf="cotizaciones.length != 0">
 
-    <!-- <RadListView [items]="cotizaciones" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
-        <ng-template tkListItemTemplate let-cotizacion="item">
-            <!-- 
-            <StackLayout class="margenSeparacion" orientation="horizontal">
-                <Label class="imageList img-circle ico" [text]="cotizacion.img"></Label>
-                <StackLayout orientation="vertical">
-                    <StackLayout class="list-group" orientation="horizontal">
-                        <Label text="Numero de Productos:" textWrap="true"></Label>
-                        <Label [text]="cotizacion.productos"></Label>
-                    </StackLayout>
-                    <StackLayout class="list-group" orientation="horizontal">
-                        <Label text="Fecha:" textWrap="true"></Label>
-                        <Label [text]="cotizacion.fecha | date:'fullDate':'es-EC'"></Label>
-                    </StackLayout>
-                    <StackLayout class="list-group" orientation="vertical">
-                        <StackLayout class="list-group-item-text" orientation="horizontal">
-                            <Label text="Total:" textWrap="true"></Label>
-                            <Label [text]="cotizacion.total" class="h2 text-danger"></Label>
-                        </StackLayout>
-                    </StackLayout>
-                </StackLayout>
-            </StackLayout> 
+    <RadListView class="page p-t-5" [items]="cotizaciones" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
+        <ng-template tkListItemTemplate let-cotizacion="item" let-i="index">
 
-        <GridLayout class="music-genre skeleton" rows="*" columns="55,*">
-                <Label row="0" col="0" text=" " class="number number-skeleton"></Label>
-                <Label row="0" col="1" text=" " class="genre genre-skeleton"></Label>
-            </GridLayout> 
+            <GridLayout class="card" rows="auto" columns="30,*,40" [nsRouterLink]="['/detalles', cotizacion._id]" pageTransition="slide">
 
-    </ng-template>
+                <Label class="text-index" row="0" col="0" [text]="i+1" textWrap="true"></Label>
 
-    </RadListView> -->
+                <GridLayout row="0" col="1" class=" card-layout" rows="auto, *" columns="*,*, *">
+
+                    <Label class="text-head" row="0" col="0" text="Fecha:" textWrap="true"></Label>
+                    <Label class="text-head" row="0" col="1" text="Total:" textWrap="true"></Label>
+                    <Label class="text-head" row="0" col="2" text="Revisado:" textWrap="true"></Label>
+                    <Label class="text-desc" row="1" col="0" [text]="cotizacion.fechaCreacion | date:'mediumDate':'es'" textWrap="true"></Label>
+                    <Label class="text-desc" row="1" col="1" text="$ {{cotizacion.total | number:'.2-2'}}" textWrap="true"></Label>
+                    <Label class="text-desc check ico" row="1" col="2" *ngIf="cotizacion.atendido" [text]="iconRevisado" textWrap="true"></Label>
+                    <Label class="text-desc uncheck ico" row="1" col="2" *ngIf="!cotizacion.atendido" [text]="iconNoRevisado" textWrap="true"></Label>
+
+                </GridLayout>
+                <Label class="ico text-icon" row="0" col="2" [text]="iconIr" textWrap="true"></Label>
+
+            </GridLayout>
+
+        </ng-template>
+
+    </RadListView>
 
 </GridLayout>

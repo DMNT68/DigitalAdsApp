@@ -1,12 +1,8 @@
-<ns-action-bar title="Productos" class="action-bar" [showBackButton]="false" (tap)="onTap()">
-
-    <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="onTap()">
-        <Label class="p-10" [text]="icoUp"></Label>
-    </ActionItem>
+<ns-action-bar title="Productos" class="action-bar" [showBackButton]="false">
 
     <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="goCarrito()">
         <StackLayout orientation="horizontal">
-            <Label class="p-1" [text]="icoCarrito"></Label>
+            <Label class="p-1 icono-cart" [text]="iconCarrito"></Label>
             <StackLayout class="badge" *ngIf="cs.items.length > 0">
                 <Label [text]="cs.items.length" class="badge-text"></Label>
             </StackLayout>
@@ -14,7 +10,7 @@
     </ActionItem>
 
     <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="aparecerBuscar(+1)">
-        <Label class="p-15" [text]="icoSearch"></Label>
+        <Label class="p-15 iconos" [text]="iconSearch"></Label>
     </ActionItem>
 
     <ActionItem *ngIf="aparecer" (tap)="aparecerBuscar(+1)" ios.position="left" android.position="actionBar">
@@ -25,28 +21,34 @@
 
 </ns-action-bar>
 
-<GridLayout rows="auto,*" class="page" *ngIf="!isLoading">
+<StackLayout class="vacio" *ngIf="productos.length == 0">
+    <Label [text]="iconProductos" class="icon-5x" textWrap="true"></Label>
+    <Label text="Sin Productos" class="p-t-10" textWrap="true"></Label>
+</StackLayout>
 
-    <GridLayout *ngIf="_productosService.activarCarrito" row="0" class="card card-layout">
-        <!-- <ns-orden></ns-orden> -->
-    </GridLayout>
+<GridLayout rows="auto,*,auto" *ngIf="productos.length != 0">
 
-    <RadListView #myRadListView row="1" class="card" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
+    <RadListView #myRadListView row="1" class="page p-t-5" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
 
         <ng-template let-producto="item">
-            <StackLayout [nsRouterLink]="['/producto', producto._id]" pageTransition="slideTop">
+            <StackLayout [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
                 <!-- <StackLayout (tap)="onProductoTap(producto._id)"> -->
 
-                <StackLayout class="card-layout">
-                    <Image class="img-rounded" stretch="aspectFill" [src]="producto.img | imagen:'producto'"></Image>
-                    <Label class="h3" [text]="producto.nombre" textWrap="true"></Label>
-                    <Label class="h6" [text]="producto.categoria.descripcion" textWrap="true"></Label>
-                </StackLayout>
+                <GridLayout class="card">
+                    <StackLayout class="card-layout">
+                        <Image class="img img-rounded" [src]="producto.img | imagen:'producto'"></Image>
+                    </StackLayout>
 
-                <StackLayout class="separador"></StackLayout>
+                    <StackLayout class="card-layout-description">
+                        <Label class="labe-title font-weight-bold p-y-5" [text]="producto.nombre" textWrap="true"></Label>
+                        <Label class="labe-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
+                    </StackLayout>
+                </GridLayout>
 
             </StackLayout>
         </ng-template>
+
+        <!-- <Button class="btn to-up" [text]="icoUp" (tap)="onTapUp()"></Button> -->
 
     </RadListView>
 

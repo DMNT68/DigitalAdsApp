@@ -1,57 +1,42 @@
-.page {
+/* Estilo Login */
+
+FlexboxLayout {
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
+    background-size: cover;
+    background-image: url("~/assets/images/background.png");
 }
 
-.form {
-    margin-left: 30;
-    margin-right: 30;
-    flex-grow: 2;
-    vertical-align: middle;
+StackLayout {
+    width: 300;
+    padding: 10 16;
+    background-color: #f0f0f0;
+    border-radius: 5;
 }
 
-.logo {
-    margin-bottom: 12;
-    height: 90;
-    font-weight: bold;
+Image {
+    margin-bottom: 20;
+    height: 70;
 }
 
-.header {
-    horizontal-align: center;
-    font-size: 30;
-    font-weight: 400;
-    margin-bottom: 40;
-    text-align: center;
-    color: #D51A1A;
-}
-
-.input-field {
-    margin-bottom: 25;
-}
-
-.input {
-    placeholder-color: #A8A8A8;
-}
-
-.input:disabled {
-    background-color: white;
-    opacity: 0.5;
+Button,
+TextField {
+    margin-bottom: 10;
 }
 
 .btn-primary {
-    margin: 30 5 15 5;
+    background-color: #ef424c;
+    margin-left: 0;
+    margin-right: 0;
 }
 
-.login-label {
-    horizontal-align: center;
-    color: #A8A8A8;
-    font-size: 16;
+TextField {
+    placeholder-color: #2d3440;
+    color: black;
 }
 
-.sign-up-label {
-    margin-bottom: 20;
-}
-
-.bold {
-    color: #000000;
+.label {
+    text-align: center;
+    height: 18;
+    font-size: 12;
 }

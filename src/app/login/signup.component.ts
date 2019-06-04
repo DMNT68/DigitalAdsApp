@@ -13,7 +13,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
   providers: [UsuarioService],
   moduleId: module.id,
   templateUrl: `signup.component.html`,
-  styleUrls: ['login.component.css']
+  styleUrls: ['signup.component.css']
 
 })
 export class SignupComponent implements OnInit {
@@ -83,7 +83,7 @@ export class SignupComponent implements OnInit {
 
          this.router.navigate(['/login'], { clearHistory:true, transition:{
              name:'slideLeft', 
-             duration:500, 
+             duration:300, 
              curve:'linear'
             }
         });
@@ -101,7 +101,7 @@ export class SignupComponent implements OnInit {
   regresarLogin(){
     this.router.navigate(['/login'], { clearHistory:true, transition:{
         name:'slideLeft',
-        duration:400, 
+        duration:300, 
         curve:'linear'
       }
     });

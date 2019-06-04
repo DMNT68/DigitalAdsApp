@@ -7,6 +7,7 @@ import { CotizacionesComponent } from "./cotizaciones/cotizaciones.component";
 import { ProductosComponent } from "./productos/productos.component";
 import { TabsComponent } from "./tabs/tabs.component";
 import { CarritoComponent } from '../pages/carrito/carrito.component';
+import { OrdenesDetalleComponent } from "./cotizaciones/ordenes-detalle/ordenes-detalle.component";
 
 const routes: Routes = [
     {path:'tabs', component: TabsComponent, children:[
@@ -15,6 +16,7 @@ const routes: Routes = [
         { path: "perfil", component: PerfilComponent, outlet:'perfilTab'}       
     ] 
     },
+    {path: "detalles/:id", component: OrdenesDetalleComponent},
     {path: "producto/:id", component: ProductoComponent},
     {path: "carrito", component: CarritoComponent},
     {path: '', redirectTo:'tabs', pathMatch:'full'}
