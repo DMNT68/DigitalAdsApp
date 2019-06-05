@@ -38,21 +38,31 @@
                 </StackLayout>
 
                 <StackLayout row="2" *ngIf="rotulos">
-                    <Label text="Altura"></Label>
-                    <TextField class="inputVariables input" keyboardType="number" returnKeyType="next" required [(ngModel)]="alto"></TextField>
-                    <Label text="Ancho"></Label>
-                    <TextField class="inputVariables" hint="Ancho" keyboardType="number" returnKeyType="done" required [(ngModel)]="ancho"></TextField>
-                    <Button text="Calcular" (tap)="variarPrecioRotulo()" class="btn btn-outline btn-rounded-lg btn-active"></Button>
+                    <Label text="Altura" [ngClass]="{invalid:!alturaCtrl.valid && alturaCtrl.touched}"></Label>
+                    <TextField hint="Altura(metro)" class="inputVariables input" keyboardType="number" returnKeyType="next" required ngModel #alturaCtrl="ngModel"></TextField>
+                    <Label text="Igresar la altura" class=" h6 text-danger" *ngIf="!alturaCtrl.valid && alturaCtrl.touched"></Label>
+
+                    <Label text="Ancho" [ngClass]="{invalid:!anchoCtrl.valid && anchoCtrl.touched}"></Label>
+                    <TextField hint="Ancho(metro)" class="inputVariables" keyboardType="number" returnKeyType="done" required ngModel #anchoCtrl="ngModel"></TextField>
+                    <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!anchoCtrl.valid && anchoCtrl.touched"></Label>
+
+                    <Button text="Calcular" (tap)="variarPrecioRotulo(alturaCtrl.value, anchoCtrl.value)" [isEnabled]="alturaCtrl.valid && anchoCtrl.valid" class="btn btn-outline btn-rounded-lg btn-active"></Button>
                 </StackLayout>
 
                 <StackLayout row="2" *ngIf="rotulos3D">
-                    <Label text="Altura"></Label>
-                    <TextField class="inputVariables" keyboardType="number" returnKeyType="next" required [(ngModel)]="alto"></TextField>
-                    <Label text="Ancho"></Label>
-                    <TextField class="inputVariables" keyboardType="number" returnKeyType="next" required [(ngModel)]="ancho"></TextField>
-                    <Label text="Número de letras"></Label>
-                    <TextField class="inputVariables" keyboardType="number" returnKeyType="done" required [(ngModel)]="nletras"></TextField>
-                    <Button text="Calcular" (tap)="variarPrecioRotulo3D()" class="btn btn-outline btn-rounded-lg btn-active"></Button>
+                    <Label text="Altura" [ngClass]="{invalid:!alturaCtrl.valid && alturaCtrl.touched}"></Label>
+                    <TextField hint="Altura(metro)" class="inputVariables input" keyboardType="number" returnKeyType="next" required ngModel #alturaCtrl="ngModel"></TextField>
+                    <Label text="Igresar la altura" class=" h6 text-danger" *ngIf="!alturaCtrl.valid && alturaCtrl.touched"></Label>
+
+                    <Label text="Ancho" [ngClass]="{invalid:!anchoCtrl.valid && anchoCtrl.touched}"></Label>
+                    <TextField hint="Ancho(metro)" class="inputVariables" keyboardType="number" returnKeyType="next" required ngModel #anchoCtrl="ngModel"></TextField>
+                    <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!anchoCtrl.valid && anchoCtrl.touched"></Label>
+
+                    <Label text="Número de letras" [ngClass]="{invalid:!nLetrasCtrl.valid && nLetrasCtrl.touched}"></Label>
+                    <TextField hint="Letras" class="inputVariables" keyboardType="number" returnKeyType="done" required ngModel #nLetrasCtrl="ngModel"></TextField>
+                    <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!nLetrasCtrl.valid && nLetrasCtrl.touched"></Label>
+
+                    <Button text="Calcular" (tap)="variarPrecioRotulo3D(alturaCtrl.value, anchoCtrl.value, nLetrasCtrl.value)" [isEnabled]="alturaCtrl.valid && anchoCtrl.valid && nLetrasCtrl.valid" class="btn btn-outline btn-rounded-lg btn-active"></Button>
                 </StackLayout>
 
             </GridLayout>
@@ -61,7 +71,7 @@
                 <Label row="0" text="Costo"></Label>
                 <StackLayout row="1" class="hr-light"></StackLayout>
                 <Label col="0" row="2" class="h3 text-danger text-center m-y-10" textWrap="true" text="${{precioFinal | number:'.2-2'}}"></Label>
-                <Button col="0" row="3" [visibility]="activar || !rotulos && !rotulos3D ? 'visible' : 'collapse'" [text]="iconCarrito" class="m-15 btn ico icon-carrito btn-active" width="50" (tap)="agregarPedido()"></Button>
+                <Button col="0" row="3" [isEnabled]="activar || !rotulos && !rotulos3D" [text]="iconCarrito" class="m-15 btn ico icon-carrito btn-active" width="50" (tap)="agregarPedido()"></Button>
             </GridLayout>
         </GridLayout>
 

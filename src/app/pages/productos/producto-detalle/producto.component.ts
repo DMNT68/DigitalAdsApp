@@ -103,17 +103,17 @@ export class ProductoComponent implements OnInit {
     this.activar=true;
   }
 
-  variarPrecioRotulo3D() {
+  variarPrecioRotulo3D(altura:number, ancho:number, nletras:number) {
 
     
     this._utilService.cerrarTecladoTelefono();
     
-    if(!this.alto || !this.ancho || !this.nletras){
+    if(!altura || !ancho || !nletras){
       this._utilService.alert("Ingresa los valores por favor");
       return;
     }
     
-    if(this.precioFinal < +this.producto.precioUni && this.alto, this.nletras, this.ancho < 0){
+    if(this.precioFinal < +this.producto.precioUni && altura, nletras, ancho < 0){
       this.precioFinal = +this.producto.precioUni;
       this.cantidad = 1;
       this.alto = 1;
@@ -122,6 +122,10 @@ export class ProductoComponent implements OnInit {
       this._utilService.alert("Ingresa los valor igual o mayor a 1");
       return;
     }
+
+    this.alto=altura;
+    this.ancho=ancho;
+    this.nletras=nletras;
     
     let base: number = this.alto * this.ancho; 
     this.precioFinal = (+this.producto.precioUni * base) + (this.nletras*25);
@@ -129,17 +133,17 @@ export class ProductoComponent implements OnInit {
     
   }
 
-  variarPrecioRotulo() {
+  variarPrecioRotulo(altura:number, ancho:number) {
 
     
     this._utilService.cerrarTecladoTelefono();
 
-    if(!this.alto || !this.ancho){
+    if(!altura || !ancho){
       this._utilService.alert("Ingresa los valores por favor");
       return;
     }
     
-    if(this.precioFinal < +this.producto.precioUni && this.alto, this.ancho <= 0){
+    if(this.precioFinal < +this.producto.precioUni && altura, ancho <= 0){
       this.precioFinal = +this.producto.precioUni;
       this.cantidad = 1;
       this.alto = 1;
@@ -148,6 +152,9 @@ export class ProductoComponent implements OnInit {
       this._utilService.alert("Ingresa valores mayor a 0");
       return;
     }
+
+    this.alto=altura;
+    this.ancho=ancho;
     
     let base: number = this.alto * this.ancho; 
     this.precioFinal = +this.producto.precioUni * base;
