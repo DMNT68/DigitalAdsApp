@@ -28,7 +28,7 @@
 
 <GridLayout rows="auto,*,auto" *ngIf="productos.length != 0">
 
-    <RadListView #myRadListView row="1" class="page p-t-5" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
+    <RadListView #myRadListView row="1" class="page p-t-5" [items]="productos | filtro:textoBuscar" selectionBehavior="Press" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
 
         <ng-template let-producto="item">
             <StackLayout [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
@@ -48,10 +48,9 @@
             </StackLayout>
         </ng-template>
 
-        <!-- <Button class="btn to-up" [text]="icoUp" (tap)="onTapUp()"></Button> -->
+        <ng-template tkListViewFooter>
+            <Label class="ico footer btn btn-active" [text]="iconUp" (tap)="onTapUp()"></Label>
+        </ng-template>
 
     </RadListView>
-
-    <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
-
 </GridLayout>

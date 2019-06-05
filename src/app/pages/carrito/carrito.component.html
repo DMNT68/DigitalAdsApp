@@ -13,6 +13,8 @@
 
     <RadListView row="0" class="card" [items]="ordenes">
 
+        <ListViewLinearLayout tkListViewLayout itemDeleteAnimation="Slide"></ListViewLinearLayout>
+
         <ng-template let-orden="item" let-i="index">
 
             <GridLayout rows="auto, auto, auto, auto" columns="60, *, 60" class="order-details p-t-20">
@@ -60,8 +62,8 @@
             <Label row="1" text="Grand Total"></Label>
             <Label row="1" col="1" text="$ {{_cs.total_carrito  | number:'.2-2'}} "></Label>
         </GridLayout>
-        <GridLayout class="m-x-15 m-y-10  btn-container" row="1">
-            <Button text="Realizar Pedido" class="add-order" (tap)="enviarPedido()"></Button>
+        <GridLayout class="m-x-15 m-y-10 btn-container" row="1">
+            <Button text="Realizar Pedido" class="btn btn-active add-order" (tap)="enviarPedido()"></Button>
         </GridLayout>
     </GridLayout>
 

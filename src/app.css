@@ -39,6 +39,7 @@ THEME BUILDER
 
 .page {
     background-color: #eae8dc;
+    /* background-image: url("~/assets/images/background.png"); */
 }
 
 .activity-indicator {

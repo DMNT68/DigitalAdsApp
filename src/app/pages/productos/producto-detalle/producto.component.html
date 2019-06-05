@@ -2,9 +2,10 @@
 
 <ScrollView>
 
-    <GridLayout rows="*,auto" class="page p-y-5">
 
-        <StackLayout row="0" class="card">
+    <GridLayout rows="*,*" columns="*" class="page p-y-5">
+
+        <StackLayout row="0" col="0" class="card">
 
             <StackLayout class="card-layout">
                 <Image class="img-rounded" [src]="img | imagen:'producto'"></Image>
@@ -12,41 +13,56 @@
 
             <StackLayout class="card-layout-description-p">
                 <Label class="h4" [text]="categoria"></Label>
-                <!-- <Label class="h3" [text]="nombre" textWrap="true"></Label> -->
+                <StackLayout class="hr-light m-b-12"></StackLayout>
                 <Label class="body" textWrap="true" [text]="descripcion"></Label>
             </StackLayout>
         </StackLayout>
 
-        <GridLayout row="1" rows="*, auto,*" class="card-cotizar">
 
-            <Label row="0" col="0" class="h5" text="Cotiza el producto"></Label>
-            <StackLayout row="1" *ngIf="!rotulos && !rotulos3D">
-                <Label class="h4" text="Cantidad:" textWrap="true"></Label>
-                <StackLayout orientation="horizontal">
-                    <Button text="-" (tap)="variarPrecio(-1)" class="btn btn-cantidad btn-outline btn-rounded-lg btn-active"></Button>
-                    <Label class="input-cantidad" [text]="cantidad"></Label>
-                    <Button text="+" (tap)="variarPrecio(+1)" class="btn btn-cantidad btn-outline btn-rounded-lg btn-active"></Button>
+        <GridLayout row="1" col="0" rows="*" columns="*,*">
+            <GridLayout row="0" col="0" rows="*,*, auto" class="card-cotizar">
+
+                <Label row="0" col="0" class="h5" text="Cotiza el producto"></Label>
+                <StackLayout row="1" class="hr-light m-b-12"></StackLayout>
+
+                <StackLayout row="2" *ngIf="!rotulos && !rotulos3D">
+
+                    <Label class="h4" text="Cantidad:" textWrap="true"></Label>
+
+                    <GridLayout class="m-y-12" columns="50,40,50">
+                        <Button col="0" [text]="iconMenos" class="btn icon-cantidad ico btn-active" (tap)="variarPrecio(-1)"></Button>
+                        <Label col="1" class="input-cantidad" [text]="cantidad"></Label>
+                        <Button col="2" [text]="iconMas" class="btn icon-cantidad ico btn-active" (tap)="variarPrecio(+1)"></Button>
+                    </GridLayout>
+
                 </StackLayout>
-            </StackLayout>
 
-            <StackLayout row="1" orientation="horizontal" *ngIf="rotulos">
-                <TextField class="inputVariables" hint="Altura" keyboardType="number" [(ngModel)]="alto"></TextField>
-                <TextField class="inputVariables" hint="Ancho" keyboardType="number" [(ngModel)]="ancho"></TextField>
-                <Button text="Calcular" (tap)="variarPrecioRotulo()" class="btn btn-outline btn-rounded-lg btn-active"></Button>
-            </StackLayout>
+                <StackLayout row="2" *ngIf="rotulos">
+                    <Label text="Altura"></Label>
+                    <TextField class="inputVariables input" keyboardType="number" returnKeyType="next" required [(ngModel)]="alto"></TextField>
+                    <Label text="Ancho"></Label>
+                    <TextField class="inputVariables" hint="Ancho" keyboardType="number" returnKeyType="done" required [(ngModel)]="ancho"></TextField>
+                    <Button text="Calcular" (tap)="variarPrecioRotulo()" class="btn btn-outline btn-rounded-lg btn-active"></Button>
+                </StackLayout>
 
-            <StackLayout row="1" orientation="horizontal" *ngIf="rotulos3D">
-                <TextField class="inputVariables" hint="Altura" keyboardType="number" [(ngModel)]="alto"></TextField>
-                <TextField class="inputVariables" hint="Ancho" keyboardType="number" [(ngModel)]="ancho"></TextField>
-                <TextField class="inputVariables" hint="Número de letras" keyboardType="number" [(ngModel)]="nletras"></TextField>
-                <Button text="Calcular" (tap)="variarPrecioRotulo3D()" class="btn btn-outline btn-rounded-lg btn-active"></Button>
-            </StackLayout>
+                <StackLayout row="2" *ngIf="rotulos3D">
+                    <Label text="Altura"></Label>
+                    <TextField class="inputVariables" keyboardType="number" returnKeyType="next" required [(ngModel)]="alto"></TextField>
+                    <Label text="Ancho"></Label>
+                    <TextField class="inputVariables" keyboardType="number" returnKeyType="next" required [(ngModel)]="ancho"></TextField>
+                    <Label text="Número de letras"></Label>
+                    <TextField class="inputVariables" keyboardType="number" returnKeyType="done" required [(ngModel)]="nletras"></TextField>
+                    <Button text="Calcular" (tap)="variarPrecioRotulo3D()" class="btn btn-outline btn-rounded-lg btn-active"></Button>
+                </StackLayout>
 
-            <GridLayout row="2" columns="*,60">
-                <Label col="0" class="h3 text-danger m-r-15" textWrap="true" text=" Precio Final: ${{precioFinal | number:'.2-2'}}"></Label>
-                <Button col="1" [visibility]="activar || !rotulos && !rotulos3D ? 'visible' : 'collapse'" [text]="iconCarrito" class="m-15 ico btn-primary btn-rounded-sm" width="50" (tap)="agregarPedido()"></Button>
             </GridLayout>
 
+            <GridLayout row="1" col="1" rows="*,*,*,*" columns="*" class="card-cotizar">
+                <Label row="0" text="Costo"></Label>
+                <StackLayout row="1" class="hr-light"></StackLayout>
+                <Label col="0" row="2" class="h3 text-danger text-center m-y-10" textWrap="true" text="${{precioFinal | number:'.2-2'}}"></Label>
+                <Button col="0" row="3" [visibility]="activar || !rotulos && !rotulos3D ? 'visible' : 'collapse'" [text]="iconCarrito" class="m-15 btn ico icon-carrito btn-active" width="50" (tap)="agregarPedido()"></Button>
+            </GridLayout>
         </GridLayout>
 
     </GridLayout>

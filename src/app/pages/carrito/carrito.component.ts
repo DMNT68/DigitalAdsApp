@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { CarritoService, UtilService } from '~/app/shared/services/service.index';
 
+import {ListViewItemAnimation} from "nativescript-ui-listview";
+
 @Component({
   selector: 'ns-carrito',
   templateUrl: './carrito.component.html',
@@ -15,6 +17,8 @@ export class CarritoComponent implements OnInit {
   iconBorrar: String;
 
   ordenes:any []=[];
+
+  private _itemDeleteAnimation: ListViewItemAnimation;
 
   constructor(private router: RouterExtensions, private _util: UtilService, public _cs: CarritoService) { }
 

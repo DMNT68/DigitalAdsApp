@@ -33,6 +33,8 @@ export class ProductoComponent implements OnInit {
   rotulos: boolean = false;
 
   iconCarrito: String = '';
+  iconMas: String = '';
+  iconMenos: String = '';
 
   constructor(
     public _utilService: UtilService, 
@@ -44,6 +46,8 @@ export class ProductoComponent implements OnInit {
     
   ngOnInit() {
     this.iconCarrito = String.fromCharCode(0xe93a);
+    this.iconMas = String.fromCharCode(0xea0a);
+    this.iconMenos = String.fromCharCode(0xea0b);
 
     this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
       activatedRoute.paramMap.subscribe(paramMap=>{

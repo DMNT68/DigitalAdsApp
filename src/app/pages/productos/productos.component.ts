@@ -30,8 +30,6 @@ export class ProductosComponent implements OnInit {
   iconUp: String;
   iconCarrito: String;
   iconProductos: String;
-
-  
   
   constructor(public _utilService: UtilService, 
       public _productosService: ProductoService, 
