@@ -18,6 +18,8 @@ export class UsuarioService {
   usuario: Usuario;
   token: string;
 
+  processing = false;
+
   constructor(private router: RouterExtensions , private http:HttpClient) { 
       this.cargaLocalData();
   } 
@@ -51,20 +53,26 @@ export class UsuarioService {
 
   login (usuario: Usuario) {
 
-      let url=URL_SERVICIOS + '/login';
+    this.processing = true;
+    
+    let url=URL_SERVICIOS + '/login';
 
-      if(!usuario.email || !usuario.password) {
-          this.alert("Ingresa tu datos por favor.");
-          return throwError("Ingresa tu datos por favor.");
-      }
+    if(!usuario.email || !usuario.password) {
+        this.alert("Ingresa tu datos por favor.");
+        this.processing=false;
+        return throwError("Ingresa tu datos por favor.");
+    }
 
-      return this.http.post(url,usuario)
-      .pipe(map((resp:any)=>{
+    return this.http.post(url,usuario)
+    .pipe(map((resp:any)=>{
 
-          this.guardarLocaData(String(resp._id) , String(resp.token) , resp.usuario);
-          return true;
+        this.guardarLocaData(String(resp._id) , String(resp.token) , resp.usuario);
+        setTimeout(() => {
+          this.processing=false;
+        }, 1000);
+        return true;
 
-      }));
+    }));
 
   }
 

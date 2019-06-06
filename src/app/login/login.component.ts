@@ -20,7 +20,7 @@ export class LoginComponent {
   iconEmail: string= '';
   iconPassword: string = '';
 
-  constructor(private page:Page , private router:RouterExtensions, private _usuarioService:UsuarioService) {
+  constructor(private page:Page , private router:RouterExtensions, public _usuarioService:UsuarioService) {
     this.page.actionBarHidden = true;
     this.iconEmail = String.fromCharCode(0xe908);
     this.iconPassword = String.fromCharCode(0xe906);

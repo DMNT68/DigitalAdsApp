@@ -34,10 +34,13 @@
         <TextField hint="{{iconEmail}} Correo Electronico" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" [(ngModel)]="email" class="input input-rounded" required></TextField>
         <TextField hint="{{iconPassword}} Contraseña" secure="true" returnKeyType="done" [(ngModel)]="password" class="input input-rounded" required></TextField>
 
-        <Button text="Ingresar a tu Cuenta &#xea13; " class="btn-primary btn-active ico" (tap)="ingresar()"></Button>
+        <Button text="Ingresar a tu Cuenta &#xea13; " [isEnabled]="!_usuarioService.processing" class="btn-primary btn-active ico" (tap)="ingresar()"></Button>
+
+        <ActivityIndicator class="activity-indicator" [busy]="_usuarioService.processing" [visibility]="_usuarioService.processing ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+
         <StackLayout orientation="horizontal">
             <Label text="¿No tienes una cuenta?" class="label"></Label>
-            <Label text=" Registrate" (tap)="irRegistrar()" class="p-l-12 label-login font-weight-bold"></Label>
+            <Label text="Registrate" (tap)="irRegistrar()" class="p-l-5 label-login font-weight-bold" [isEnabled]="!_usuarioService.processing"></Label>
         </StackLayout>
     </StackLayout>
 
