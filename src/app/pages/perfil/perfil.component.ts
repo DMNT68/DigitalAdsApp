@@ -109,7 +109,7 @@ export class PerfilComponent {
       inputType: inputType.number
     }).then((result) => {
 
-      if(result.result){
+      if(result.result && result.text.length <= 10){
           usuario.telefono = result.text;
           this._usuarioService.actualizarUsuario(usuario)
           .subscribe(()=>{
@@ -119,7 +119,10 @@ export class PerfilComponent {
               this._usuarioService.alert(`No se pudo modificar. Error: ${error}`);
             }
           ); 
-      } else return;
+      } else {
+        this._usuarioService.alert('No se pudo realizar la petición');
+        return
+      }
     });
   }
 

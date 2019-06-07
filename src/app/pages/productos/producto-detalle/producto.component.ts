@@ -36,6 +36,9 @@ export class ProductoComponent implements OnInit {
   iconMas: String = '';
   iconMenos: String = '';
 
+  aparecer:boolean = true;
+  isLoading = false;
+
   constructor(
     public _utilService: UtilService, 
     public _productoService: ProductoService, 
@@ -62,6 +65,7 @@ export class ProductoComponent implements OnInit {
   }
 
   getProducto(id: string) {
+    this.isLoading = true;
     this._productoService.cargarProducto(id)
     .subscribe(producto =>{ 
       
@@ -78,6 +82,10 @@ export class ProductoComponent implements OnInit {
       if (this.categoria === 'Rótulos') {
         this.rotulos = true;
       }
+      
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 1000);
 
       console.log('categoria', this.categoria);
       
@@ -97,6 +105,8 @@ export class ProductoComponent implements OnInit {
       return;
     }
     
+    this.animation();
+
     this.cantidad += cantidad; 
     this.precioFinal = +this.producto.precioUni * this.cantidad;
     
@@ -129,6 +139,7 @@ export class ProductoComponent implements OnInit {
     
     let base: number = this.alto * this.ancho; 
     this.precioFinal = (+this.producto.precioUni * base) + (this.nletras*25);
+    this.animation();
     this.activar=true;
     
   }
@@ -158,11 +169,19 @@ export class ProductoComponent implements OnInit {
     
     let base: number = this.alto * this.ancho; 
     this.precioFinal = +this.producto.precioUni * base;
+    this.animation();
     this.activar=true;
   }
 
   agregarPedido(){
     this.cs.agregarCarrito(this.producto,this.cantidad,this.alto,this.ancho,this.nletras,this.precioFinal)
+  }
+
+  animation(){
+    this.aparecer = false;
+    setTimeout(() => {
+      this.aparecer = true;
+    }, 1);
   }
 
 }

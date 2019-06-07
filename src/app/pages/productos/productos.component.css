@@ -33,16 +33,6 @@
         vertical-align: center;
     }
     
-    .labe-title {
-        /* height: 25; */
-        font-size: 18;
-    }
-    
-    .labe-description {
-        font-size: 12;
-        height: 15;
-    }
-    
     .img {
         padding: 0;
     }
@@ -109,4 +99,36 @@
         text-align: center;
         color: #0e3743;
         font-size: 18;
+    }
+    
+    .animate-transition-slide {
+        animation-name: slide-rigth-x;
+        animation-iteration-count: 1;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes slide-rigth-x {
+        from {
+            transform: translateX(40);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+    
+    .animate-transition-up {
+        animation-name: up;
+        animation-iteration-count: 1;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes up {
+        from {
+            transform: translateY(5);
+        }
+        to {
+            transform: translateY(0);
+        }
     }

@@ -17,7 +17,7 @@
         <Label class="p-15 iconos" text="Cerrar"></Label>
     </ActionItem>
 
-    <SearchBar class="searchbar" color="white" textFieldHintColor="white" *ngIf="aparecer" hint="Buscar producto..." (textChange)="buscarProducto($event)"></SearchBar>
+    <SearchBar class="searchbar animate-transition-slide" color="white" textFieldHintColor="white" *ngIf="aparecer" hint="Buscar producto..." (textChange)="buscarProducto($event)"></SearchBar>
 
 </ns-action-bar>
 
@@ -26,7 +26,7 @@
     <Label text="Sin Productos" class="p-t-10" textWrap="true"></Label>
 </StackLayout>
 
-<GridLayout rows="auto,*,auto" *ngIf="productos.length != 0">
+<GridLayout rows="auto,*,auto" class="visible" *ngIf="productos.length != 0">
 
     <RadListView #myRadListView row="1" class="page p-t-5" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
 
@@ -40,8 +40,8 @@
                     </StackLayout>
 
                     <StackLayout class="card-layout-description">
-                        <Label class="labe-title font-weight-bold p-y-5" [text]="producto.nombre" textWrap="true"></Label>
-                        <Label class="labe-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
+                        <Label class="label-title p-y-5" [text]="producto.nombre" textWrap="true"></Label>
+                        <Label class="label-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
                     </StackLayout>
                 </GridLayout>
 

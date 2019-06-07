@@ -3,6 +3,8 @@
 <StackLayout class="vacio" *ngIf="cotizaciones.length == 0">
     <Label [text]="iconCotizaciones" class="icon-5x ico" textWrap="true"></Label>
     <Label text="Sin Cotizaciones" class="p-t-10" textWrap="true"></Label>
+    <Label text="Recargar..." class="label-recargar m-t-10" (tap)="cargarOrdenes()"></Label>
+
 </StackLayout>
 
 <GridLayout rows="*" *ngIf="cotizaciones.length != 0">

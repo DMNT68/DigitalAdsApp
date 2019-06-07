@@ -112,12 +112,20 @@ THEME BUILDER
     font-size: 16;
 }
 
+.label-recargar {
+    font-size: 12;
+    height: 18;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 .label-title {
-    font-family: serif;
+    font-size: 18;
+    font-weight: bold;
 }
 
 .label-description {
-    height: 18
+    font-size: 12;
+    height: 15;
 }
 
 .input {
@@ -168,4 +176,19 @@ THEME BUILDER
 .invalid {
     color: #ef424c;
     border-bottom-color: #ef424c;
+}
+
+.visible {
+    animation-name: show;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

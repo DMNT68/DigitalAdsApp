@@ -3,7 +3,7 @@
 <ScrollView>
 
 
-    <GridLayout rows="*,*" columns="*" class="page p-y-5">
+    <GridLayout rows="*,*" columns="*" class="page p-y-5 visible" *ngIf="!isLoading">
 
         <StackLayout row="0" col="0" class="card">
 
@@ -12,7 +12,7 @@
             </StackLayout>
 
             <StackLayout class="card-layout-description-p">
-                <Label class="h4" [text]="categoria"></Label>
+                <Label class="h4 label-title" [text]="categoria"></Label>
                 <StackLayout class="hr-light m-b-12"></StackLayout>
                 <Label class="body" textWrap="true" [text]="descripcion"></Label>
             </StackLayout>
@@ -31,7 +31,7 @@
 
                     <GridLayout class="m-y-12" columns="50,40,50">
                         <Button col="0" [text]="iconMenos" class="btn icon-cantidad ico btn-active" (tap)="variarPrecio(-1)"></Button>
-                        <Label col="1" class="input-cantidad p-t-10" [text]="cantidad"></Label>
+                        <Label col="1" class="input-cantidad p-t-10 animate-transition-up" [text]="cantidad"></Label>
                         <Button col="2" [text]="iconMas" class="btn icon-cantidad ico btn-active" (tap)="variarPrecio(+1)"></Button>
                     </GridLayout>
 
@@ -70,10 +70,11 @@
             <GridLayout row="1" col="1" rows="*,*,*,*" columns="*" class="card-cotizar">
                 <Label row="0" text="Costo"></Label>
                 <StackLayout row="1" class="hr-light"></StackLayout>
-                <Label col="0" row="2" class="h3 text-danger text-center m-y-10" textWrap="true" text="${{precioFinal | number:'.2-2'}}"></Label>
+                <Label *ngIf="aparecer" col="0" row="2" class="h3 text-danger text-center animate-transition-up m-y-10" textWrap="true" text="${{precioFinal | number:'.2-2'}}"></Label>
                 <Button col="0" row="3" [isEnabled]="activar || !rotulos && !rotulos3D" [text]="iconCarrito" class="m-15 btn ico icon-carrito btn-active" width="50" (tap)="agregarPedido()"></Button>
             </GridLayout>
         </GridLayout>
 
     </GridLayout>
+    <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 </ScrollView>

@@ -1,7 +1,7 @@
 <ns-action-bar title="Detalle" class="action-bar">
 </ns-action-bar>
 
-<GridLayout rows="auto,*, 150" class="main-container">
+<GridLayout rows="auto,*, 150" class="main-container visible" *ngIf="!isLoading">
 
     <GridLayout row="0" rows="*">
         <GridLayout rows="auto, auto" columns="auto, auto" class="date-container m-t-15 m-b-15">
@@ -65,4 +65,6 @@
         </GridLayout>
     </GridLayout>
 
+
 </GridLayout>
+<ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>

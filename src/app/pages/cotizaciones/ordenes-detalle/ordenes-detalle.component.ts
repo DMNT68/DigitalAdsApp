@@ -13,6 +13,8 @@ export class OrdenesDetalleComponent implements OnInit {
   detalles:any[]=[];
   orden:any={}
 
+  isLoading = false;
+
   constructor( private pageRoute: PageRoute,
     private _routerExtensions: RouterExtensions,
     public cs:CarritoService,
@@ -31,7 +33,11 @@ export class OrdenesDetalleComponent implements OnInit {
   }
 
   getOrdenDetalle(id:string){
+    this.isLoading = true;
     this.cs.cargarOrdenDetalle(id).subscribe((resp:any)=>{
+    setTimeout(() => {
+        this.isLoading = false;
+      }, 1000);
       this.orden=resp.orden;
       this.detalles=resp.detalles;
     });
