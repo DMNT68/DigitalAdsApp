@@ -5,6 +5,15 @@
     flex-direction: column;
 }
 
+.card {
+    background-color: #f0f0f0;
+    margin-top: 10;
+    margin-top: 10;
+    margin-right: 10;
+    margin-left: 10;
+    border-radius: 7;
+}
+
 .form {
     margin-left: 30;
     margin-right: 30;
@@ -13,23 +22,22 @@
 }
 
 .logo {
-    margin-bottom: 12;
-    height: 90;
-    font-weight: bold;
+    margin-bottom: 10;
+    height: 70;
+    width: 70;
 }
 
 .header {
     horizontal-align: center;
-    font-size: 30;
-    font-weight: 400;
-    margin-bottom: 40;
+    font-size: 24;
+    font-weight: bold;
+    margin-bottom: 10;
     text-align: center;
     color: #D51A1A;
-    height: 36;
 }
 
 .input-field {
-    margin-bottom: 25;
+    margin-bottom: 15;
 }
 
 .input {
@@ -37,13 +45,8 @@
     height: 20;
 }
 
-.input:disabled {
-    background-color: white;
-    opacity: 0.5;
-}
-
 .btn-primary {
-    margin: 30 5 15 5;
+    margin-top: 10
 }
 
 .login-label {
@@ -63,4 +66,20 @@
 .label-signup {
     height: 18;
     font-size: 15;
+}
+
+.container-bottom {
+    vertical-align: bottom;
+    margin-top: 10;
+    margin-bottom: 10;
+    margin-left: 30;
+    margin-right: 30;
+}
+
+.container-top {
+    vertical-align: top;
+    margin-top: 10;
+    margin-bottom: 20;
+    margin-left: 20;
+    margin-right: 20;
 }

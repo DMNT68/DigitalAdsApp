@@ -1,10 +1,16 @@
 <FlexboxLayout class="page">
 
-    <StackLayout class="form ico">
-        <Image class="logo" src="~/assets/images/logo.png"></Image>
-        <Label class="header" text="Digital Ads"></Label>
+    <StackLayout class="card">
+
+        <StackLayout class="container-top">
+            <Image class="logo" src="~/assets/images/logo.png"></Image>
+            <Label class="header" text="Digital Ads"></Label>
+            <Label text="" class="hr-light"></Label>
+
+        </StackLayout>
+
         <StackLayout [formGroup]="registroForm">
-            <ScrollView height="250">
+            <ScrollView class="form ico " height="280">
                 <GridLayout rows="auto auto auto auto,auto">
 
                     <StackLayout row="0" class="input-field" [ngClass]="{invalid:registroForm.controls['nombre'].errors?.minlength}">
@@ -13,7 +19,6 @@
                         <StackLayout class="hr-light"></StackLayout>
                         <!-- <Label text="Es necesario el nombre" class="text-danger h6" *ngIf="registroForm.controls['nombre'].errors?.required"></Label> -->
                         <Label text="Por lo menos tres caracteres" class="text-danger h6" *ngIf="registroForm.controls['nombre'].errors?.minlength"></Label>
-
                     </StackLayout>
 
                     <StackLayout row="1" class="input-field" [ngClass]="{invalid:registroForm.controls['email'].errors?.email}">
@@ -28,7 +33,6 @@
                         <Label text="{{iconTelefono}}  Número telefónico" class="label-signup font-weight-bold m-b-5"></Label>
                         <TextField class="input" maxLength="10" keyboardType="number" formControlName="telefono"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
-                        <!-- <Label text="Es necesario el telefono" class="text-danger h6" *ngIf="registroForm.controls['telefono'].errors?.required"></Label> -->
                         <Label text="No es un número valido" class="text-danger h6" *ngIf="registroForm.controls['telefono'].errors?.minlength || registroForm.controls['telefono'].errors?.maxlength"></Label>
                     </StackLayout>
 
@@ -36,7 +40,6 @@
                         <Label text="{{iconPassword}}  Contraseña" class="label-signup font-weight-bold m-b-5"></Label>
                         <TextField class="input" secure="true" formControlName="password"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
-                        <!-- <Label text="Es necesario la contraseña" class="text-danger h6" *ngIf="registroForm.controls['password'].errors?.required"></Label> -->
                         <Label text="Por lo menos 6 caracteres" class="text-danger h6" *ngIf="registroForm.controls['password'].errors?.minlength"></Label>
                     </StackLayout>
 
@@ -44,15 +47,16 @@
                         <Label text="{{iconPassword}}  Confirmar Contraseña" class="label-signup font-weight-bold m-b-5"></Label>
                         <TextField class="input" secure="true" formControlName="password2"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
-                        <!-- <Label text="Es necesario confirmar contraseña" class="text-danger h6" *ngIf="registroForm.controls['password2'].errors?.required"></Label> -->
                         <Label text="Las contraseñas no coinciden" class="text-danger h6" *ngIf="registroForm.errors?.sonIguales && !registroForm.pristine"></Label>
                     </StackLayout>
 
                 </GridLayout>
             </ScrollView>
 
-            <Button [isEnabled]="registroForm.valid" text="Registrar &#xe909;" class="ico btn btn-primary btn-active" (tap)="signup()"></Button>
-            <Button text="Regresar &#xe907;" textwrap="true" (tap)="regresarLogin()" class="p-15 ico btn-outline btn-rounded-lg btn-active"></Button>
+            <StackLayout class="container-bottom">
+                <Button [isEnabled]="registroForm.valid" text="Registrar &#xe909;" class="ico btn btn-primary btn-active" (tap)="signup()"></Button>
+                <Button text="Regresar &#xe907;" textwrap="true" (tap)="regresarLogin()" class="ico btn-outline btn-rounded-lg btn-active"></Button>
+            </StackLayout>
 
         </StackLayout>
     </StackLayout>

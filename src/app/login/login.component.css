@@ -40,3 +40,14 @@ TextField {
     height: 18;
     font-size: 12;
 }
+
+.label-login {
+    font-weight: bold;
+    margin-left: 5;
+}
+
+.container-bottom-login {
+    margin-left: 10;
+    vertical-align: bottom;
+    text-align: center;
+}

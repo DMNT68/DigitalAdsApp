@@ -10,6 +10,8 @@ import { Page } from 'tns-core-modules/ui/page';
   styleUrls:['tabs.component.css']
 })
 export class TabsComponent implements OnInit {
+  
+  isLoading= false;
 
   constructor(
     private router: RouterExtensions,
@@ -18,7 +20,11 @@ export class TabsComponent implements OnInit {
   ){}
 
   ngOnInit(){
-
+    this.loadTabRoutes();
+    this.page.actionBarHidden = true;
+  }
+        
+  private loadTabRoutes() {
     this.router.navigate(
       [
         {
@@ -33,11 +39,6 @@ export class TabsComponent implements OnInit {
         relativeTo: this.active
       }
     );
-
-    this.page.actionBarHidden = true;
-
   }
-        
-
 
 }

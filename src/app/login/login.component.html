@@ -38,9 +38,9 @@
 
         <ActivityIndicator class="activity-indicator" [busy]="_usuarioService.processing" [visibility]="_usuarioService.processing ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 
-        <StackLayout orientation="horizontal">
+        <StackLayout orientation="horizontal" class="container-bottom-login">
             <Label text="¿No tienes una cuenta?" class="label"></Label>
-            <Label text="Registrate" (tap)="irRegistrar()" class="p-l-5 label-login font-weight-bold" [isEnabled]="!_usuarioService.processing"></Label>
+            <Label text="Registrate" (tap)="irRegistrar()" class=" label-login" [isEnabled]="!_usuarioService.processing"></Label>
         </StackLayout>
     </StackLayout>
 

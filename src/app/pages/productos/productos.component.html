@@ -23,7 +23,8 @@
 
 <StackLayout class="vacio" *ngIf="productos.length == 0">
     <Label [text]="iconProductos" class="icon-5x" textWrap="true"></Label>
-    <Label text="Sin Productos" class="p-t-10" textWrap="true"></Label>
+    <Label text="Productos" class="p-t-10" textWrap="true"></Label>
+    <ActivityIndicator class="activity-indicator" [busy]="productos.length == 0" [visibility]="productos.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 </StackLayout>
 
 <GridLayout rows="auto,*,auto" class="visible" *ngIf="productos.length != 0">
