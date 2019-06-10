@@ -1,17 +1,16 @@
 <FlexboxLayout class="page">
 
-    <StackLayout class="card">
+    <StackLayout class="form">
 
-        <StackLayout class="container-top">
+        <StackLayout class="container-top card">
             <Image class="logo" src="~/assets/images/logo.png"></Image>
             <Label class="header" text="Digital Ads"></Label>
             <Label text="" class="hr-light"></Label>
-
         </StackLayout>
 
         <StackLayout [formGroup]="registroForm">
-            <ScrollView class="form ico " height="280">
-                <GridLayout rows="auto auto auto auto,auto">
+            <ScrollView class="ico card" height="280">
+                <GridLayout class="m-y-10 m-x-20" rows="auto auto auto auto,auto">
 
                     <StackLayout row="0" class="input-field" [ngClass]="{invalid:registroForm.controls['nombre'].errors?.minlength}">
                         <Label text="{{iconNombre}}  Nombre y Apellido" class="label-signup font-weight-bold m-b-5"></Label>
@@ -53,9 +52,9 @@
                 </GridLayout>
             </ScrollView>
 
-            <StackLayout class="container-bottom">
+            <StackLayout class="container-bottom card">
                 <Button [isEnabled]="registroForm.valid" text="Registrar &#xe909;" class="ico btn btn-primary btn-active" (tap)="signup()"></Button>
-                <Button text="Regresar &#xe907;" textwrap="true" (tap)="regresarLogin()" class="ico btn-outline btn-rounded-lg btn-active"></Button>
+                <Label text="¿Ya tienes una cuenta? Regresar" textwrap="true" (tap)="regresarLogin()" class="text-center"></Label>
             </StackLayout>
 
         </StackLayout>

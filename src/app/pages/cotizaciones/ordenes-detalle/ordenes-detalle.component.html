@@ -30,13 +30,13 @@
                         <Label class="item-name" text="Cantidad" class="item-name"></Label>
                         <Label col="1" text="( {{detalles.cantidad}} )" class="item-quantity"></Label>
                     </GridLayout>
-                    <!-- <GridLayout columns="auto, *, auto, 60" *ngIf="detalles.producto.categoria.descripcion == 'Rótulos' || detalles.producto.categoria.descripcion == 'Rótulos 3D'"> -->
-                    <GridLayout columns="auto, *, auto, 30">
+                    <GridLayout columns="auto, *, auto, 60" *ngIf="detalles.altura == 0 || detalles.numeroLetras == 0">
+                        <!-- <GridLayout columns="auto, *, auto, 30"> -->
                         <Label class="item-name" text="Altura * Ancho" class="item-name"></Label>
                         <Label col="1" text="( {{detalles.altura| number:'.2-2'}} x {{detalles.ancho | number:'.2-2'}} )m" class="item-quantity"></Label>
                     </GridLayout>
-                    <!-- <GridLayout columns="auto, *, auto, 60" *ngIf="detalles.producto.categoria.descripcion == 'Rótulos 3D'"> -->
-                    <GridLayout columns="auto, *, auto, 30">
+                    <GridLayout columns="auto, *, auto, 60" *ngIf="detalles.altura == 0 || detalles.numeroLetras == 0">
+                        <!-- <GridLayout columns="auto, *, auto, 30"> -->
                         <Label class="item-name" text="Letras" class="item-name"></Label>
                         <Label col="1" text="( {{detalles.numeroLetras}} )" class="item-quantity"></Label>
                     </GridLayout>
