@@ -25,14 +25,14 @@
                         <TextField class="input" max="10" keyboardType="email" autocorrect="false" autocapitalizationType="none" formControlName="email"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
                         <!-- <Label text="Es necesario el email" class="text-danger h6" *ngIf="registroForm.controls['email'].errors?.required"></Label> -->
-                        <Label text="No es un email válido" class="text-danger h6" *ngIf="registroForm.controls['email'].errors?.email"></Label>
+                        <Label text="No es un e-mail válido" class="text-danger h6" *ngIf="registroForm.controls['email'].errors?.email"></Label>
                     </StackLayout>
 
                     <StackLayout row="2" class="input-field" [ngClass]="{invalid:registroForm.controls['telefono'].errors?.minlength || registroForm.controls['telefono'].errors?.maxlength}">
                         <Label text="{{iconTelefono}}  Número telefónico" class="label-signup font-weight-bold m-b-5"></Label>
                         <TextField class="input" maxLength="10" keyboardType="number" formControlName="telefono"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
-                        <Label text="No es un número valido" class="text-danger h6" *ngIf="registroForm.controls['telefono'].errors?.minlength || registroForm.controls['telefono'].errors?.maxlength"></Label>
+                        <Label text="No es un número válido" class="text-danger h6" *ngIf="registroForm.controls['telefono'].errors?.minlength || registroForm.controls['telefono'].errors?.maxlength"></Label>
                     </StackLayout>
 
                     <StackLayout row="3" class="input-field" [ngClass]="{invalid:registroForm.controls['password'].errors?.minlength}">
@@ -54,7 +54,7 @@
 
             <StackLayout class="container-bottom card">
                 <Button [isEnabled]="registroForm.valid" text="Registrar &#xe909;" class="ico btn btn-primary btn-active" (tap)="signup()"></Button>
-                <Label text="¿Ya tienes una cuenta? Regresar" textwrap="true" (tap)="regresarLogin()" class="h4 text-center"></Label>
+                <Label text="¿Yá tienes una cuenta? Regresar" textwrap="true" (tap)="regresarLogin()" class="h4 text-center"></Label>
             </StackLayout>
 
         </StackLayout>

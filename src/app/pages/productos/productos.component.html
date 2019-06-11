@@ -2,7 +2,7 @@
 
     <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="goCarrito()">
         <StackLayout orientation="horizontal">
-            <Label class="p-1 icono-cart" [text]="iconCarrito"></Label>
+            <Label class="p-1 ico icono-cart" [text]="iconCarrito"></Label>
             <StackLayout class="badge" *ngIf="cs.items.length > 0">
                 <Label [text]="cs.items.length" class="badge-text"></Label>
             </StackLayout>
@@ -10,11 +10,11 @@
     </ActionItem>
 
     <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="aparecerBuscar(+1)">
-        <Label class="p-15 iconos" [text]="iconSearch"></Label>
+        <Label class="p-15 ico iconos" [text]="iconSearch"></Label>
     </ActionItem>
 
     <ActionItem *ngIf="aparecer" (tap)="aparecerBuscar(+1)" ios.position="right">
-        <Label class="p-15 iconos" text="Cerrar"></Label>
+        <Label class="p-15 ico iconos" text="Cerrar"></Label>
     </ActionItem>
 
     <SearchBar class="searchbar animate-transition-slide" color="white" textFieldHintColor="white" *ngIf="aparecer" hint="Buscar producto..." (textChange)="buscarProducto($event)"></SearchBar>
@@ -22,7 +22,7 @@
 </ns-action-bar>
 
 <StackLayout class="vacio" *ngIf="productos.length == 0">
-    <Label [text]="iconProductos" class="icon-5x" textWrap="true"></Label>
+    <Label [text]="iconProductos" class="ico icon-5x" textWrap="true"></Label>
     <Label text="Productos" class="p-t-10" textWrap="true"></Label>
     <ActivityIndicator class="activity-indicator" [busy]="productos.length == 0" [visibility]="productos.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 </StackLayout>
