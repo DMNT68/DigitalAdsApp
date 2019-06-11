@@ -34,6 +34,7 @@ export class LoginComponent {
     .subscribe(() => this.router.navigate(['/'],{ clearHistory: true,transition:{name:'slide',duration:300,curve:'linear'} }),
       error => {
         this._usuarioService.alert(error.error.error.message);
+        this._usuarioService.processing = false;
         console.log('error:',error);
       }
     );

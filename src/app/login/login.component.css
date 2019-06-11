@@ -47,7 +47,6 @@ TextField {
 }
 
 .container-bottom-login {
-    margin-left: 10;
-    vertical-align: bottom;
+    margin-top: 5;
     text-align: center;
 }

@@ -11,10 +11,10 @@
 
         <ActivityIndicator class="activity-indicator" [busy]="_usuarioService.processing" [visibility]="_usuarioService.processing ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 
-        <StackLayout orientation="horizontal" class="container-bottom-login">
-            <Label text="¿No tienes una cuenta?" class="label"></Label>
-            <Label text="Registrate" (tap)="irRegistrar()" class=" label-login" [isEnabled]="!_usuarioService.processing"></Label>
+        <StackLayout class="container-bottom-login">
+            <Label text="¿No tienes una cuenta? Registrate" (tap)="irRegistrar()" class=" h4 label" [isEnabled]="!_usuarioService.processing"></Label>
         </StackLayout>
+
     </StackLayout>
 
 </FlexboxLayout>
