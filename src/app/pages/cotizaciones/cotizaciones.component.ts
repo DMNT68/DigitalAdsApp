@@ -27,10 +27,10 @@ export class CotizacionesComponent {
   }
 
   ngOnInit(): void {
-    this.iconCotizaciones = String.fromCharCode(0xe922);
-    this.iconIr = String.fromCharCode(0xe907);
-    this.iconRevisado = String.fromCharCode(0xea52);
-    this.iconNoRevisado = String.fromCharCode(0xea53);
+    this.iconCotizaciones = this._utilService.iconListNumbered;
+    this.iconIr = this._utilService.iconArrowRight;
+    this.iconRevisado = this._utilService.iconCheckBox;
+    this.iconNoRevisado = this._utilService.iconcheckBoxOutlineBlank;
     this.cargarOrdenes();
   }
 

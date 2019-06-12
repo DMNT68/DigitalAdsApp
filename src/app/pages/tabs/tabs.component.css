@@ -1,7 +1,6 @@
 .tab-view {
     selected-tab-text-color: #ef424c;
-    tab-text-color: #F8F0EE;
-    tab-background-color: #2d3440;
+    tab-text-color: #2d3440;
+    tab-background-color: #ffffff;
     android-selected-tab-highlight-color: #ef424c;
-    font-size: 25;
 }

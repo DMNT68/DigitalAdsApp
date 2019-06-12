@@ -4,8 +4,12 @@
     font icons - IconMoon
 */
 
+* {
+    font-family: 'Roboto', 'Roboto';
+}
+
 .ico {
-    font-family: 'IcoMoon-Free';
+    font-family: 'IcoMoon-Free', 'icomoon';
 }
 
 .btn-primary {
@@ -38,7 +42,7 @@ THEME BUILDER
 }
 
 .page {
-    background-color: #eae8dc;
+    background-color: #f8f0ee;
     /* background-image: url("~/assets/images/background.png"); */
 }
 
@@ -167,6 +171,14 @@ THEME BUILDER
     font-size: 20px;
     text-align: center;
     vertical-align: center;
+}
+
+.icon-2x {
+    font-size: 24;
+}
+
+.icon-3x {
+    font-size: 30;
 }
 
 .icon-5x {

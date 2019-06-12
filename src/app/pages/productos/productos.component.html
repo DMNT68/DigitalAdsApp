@@ -10,7 +10,7 @@
     </ActionItem>
 
     <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="aparecerBuscar(+1)">
-        <Label class="p-15 ico iconos" [text]="iconSearch"></Label>
+        <Label class="p-15 ico icon-2x" [text]="iconSearch"></Label>
     </ActionItem>
 
     <ActionItem *ngIf="aparecer" (tap)="aparecerBuscar(+1)" ios.position="right">

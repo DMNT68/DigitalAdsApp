@@ -8,11 +8,13 @@
 
 .main-container {
     background-color: #ffffff;
+    border-radius: 8;
+    margin: 10 10 10 10;
 }
 
 .order-taker {
     font-size: 18;
-    color: #0e3746;
+    color: #2d3440;
     font-weight: bold;
     ;
 }
@@ -95,4 +97,10 @@ Button {
     margin-top: 2;
     text-align: center;
     color: rgb(247, 77, 77);
+}
+
+.iconDelete {
+    font-size: 24;
+    width: 40;
+    margin-right: 20;
 }

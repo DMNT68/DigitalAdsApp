@@ -1,14 +1,15 @@
-.page {
-    align-items: center;
-    flex-direction: column;
-}
-
 .form {
     margin-left: 20;
     margin-right: 20;
     flex-grow: 2;
     vertical-align: middle;
     font-size: 18;
+}
+
+.card {
+    background-color: #ffffff;
+    margin: 5 10 5 10;
+    border-radius: 7;
 }
 
 .img-profile {

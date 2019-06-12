@@ -4,8 +4,8 @@
 
         <Image src="~/assets/images/logo.png"></Image>
 
-        <TextField hint="{{iconEmail}} Correo Electrónico" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" [(ngModel)]="email" class="input input-rounded" required></TextField>
-        <TextField hint="{{iconPassword}} Contraseña" secure="true" returnKeyType="done" [(ngModel)]="password" class="input input-rounded" required></TextField>
+        <TextField hint="{{iconEmail}} Correo Electrónico" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" [(ngModel)]="email" class="input input-rounded ico" required></TextField>
+        <TextField hint="{{iconPassword}} Contraseña" secure="true" returnKeyType="done" [(ngModel)]="password" class="ico input input-rounded" required></TextField>
 
         <Button text="Ingresar a tu Cuenta &#xea13; " [isEnabled]="!_usuarioService.processing" class="btn-primary btn-active ico" (tap)="ingresar()"></Button>
 

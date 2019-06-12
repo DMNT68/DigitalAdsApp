@@ -36,11 +36,11 @@ export class ProductosComponent implements OnInit {
       public routerExtensions:RouterExtensions,
       public cs: CarritoService) { 
     
-    this.iconSearch = String.fromCharCode(0xe986);
-    this.iconClose = String.fromCharCode(0xea0f);
-    this.iconUp = String.fromCharCode(0xea41);
-    this.iconCarrito = String.fromCharCode(0xe93a);
-    this.iconProductos = String.fromCharCode(0xe900);
+    this.iconSearch = this._utilService.iconSearch;
+    this.iconClose = this._utilService.iconClose;
+    this.iconUp = this._utilService.iconTop;
+    this.iconCarrito = this._utilService.iconCart;
+    this.iconProductos = this._utilService.iconHome;
     
   }
   

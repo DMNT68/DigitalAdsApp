@@ -48,9 +48,9 @@ export class ProductoComponent implements OnInit {
     public cs:CarritoService) {}
     
   ngOnInit() {
-    this.iconCarrito = String.fromCharCode(0xe93a);
-    this.iconMas = String.fromCharCode(0xea0a);
-    this.iconMenos = String.fromCharCode(0xea0b);
+    this.iconCarrito = this._utilService.iconCarritoAdd;
+    this.iconMas = this._utilService.iconAdd;
+    this.iconMenos = this._utilService.iconRemove;
 
     this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
       activatedRoute.paramMap.subscribe(paramMap=>{

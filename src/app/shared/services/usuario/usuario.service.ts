@@ -84,7 +84,6 @@ export class UsuarioService {
       remove('usuario');
       remove('token');
 
-      this.alert('Espero que vuelvas. Hasta luego');
       this.router.navigate(['/login'], {transition:{name:'slideRight', duration:300}});
   
     }
@@ -101,13 +100,6 @@ export class UsuarioService {
       return this.http.post(url,usuario);
 
   }
-
-  // private createRequestOptions() {
-  //     let headers = new HttpHeaders({
-  //         "Content-Type": "application/x-www-form-urlencoded"
-  //     });
-  //     return headers;
-  // }
 
   public alert(message: string) {
 

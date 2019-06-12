@@ -36,7 +36,8 @@ export class TabsComponent implements OnInit {
         }
       ],
       {
-        relativeTo: this.active
+        relativeTo: this.active,
+        transition:{name:'fade',duration:300,curve:'linear'} 
       }
     );
   }

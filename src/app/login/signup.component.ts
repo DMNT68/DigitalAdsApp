@@ -4,7 +4,7 @@ import { FormGroup,FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Page } from 'tns-core-modules/ui/page/page';
 
 import { alert, prompt } from "tns-core-modules/ui/dialogs";
-import { UsuarioService } from '../shared/services/service.index';
+import { UsuarioService, UtilService } from '../shared/services/service.index';
 import { Usuario } from '../shared/models/usuario.model';
 import { RouterExtensions } from 'nativescript-angular/router';
 
@@ -25,13 +25,12 @@ export class SignupComponent implements OnInit {
     iconPassword: string;
    
 
-  constructor(private page:Page, private router:RouterExtensions, private _usuarioService: UsuarioService) {
+  constructor(private page:Page, private router:RouterExtensions, private _usuarioService: UsuarioService, private _util:UtilService) {
     this.page.actionBarHidden = true;
-    this.iconNombre = String.fromCharCode(0xe971);
-    this.iconEmail = String.fromCharCode(0xe908);
-    this.iconTelefono = String.fromCharCode(0xe942);
-    this.iconPassword = String.fromCharCode(0xe90b);
-
+    this.iconNombre = this._util.iconNombre;
+    this.iconEmail = this._util.iconEmail;
+    this.iconTelefono = this._util.iconTelefono
+    this.iconPassword = this._util.iconPassword;
   }
 
   public sonIguales(campo1: string, campo2: string) {

@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page/page';
-import { UsuarioService} from '../shared/services/service.index';
+import { UsuarioService, UtilService} from '../shared/services/service.index';
 import { Usuario } from '../shared/models/usuario.model';
 import { RouterExtensions } from 'nativescript-angular/router';
 
@@ -20,10 +20,10 @@ export class LoginComponent {
   iconEmail: string= '';
   iconPassword: string = '';
 
-  constructor(private page:Page , private router:RouterExtensions, public _usuarioService:UsuarioService) {
+  constructor(private page:Page , private router:RouterExtensions, public _usuarioService:UsuarioService, private _util:UtilService) {
     this.page.actionBarHidden = true;
-    this.iconEmail = String.fromCharCode(0xe908);
-    this.iconPassword = String.fromCharCode(0xe906);
+    this.iconEmail = this._util.iconEmail;
+    this.iconPassword = this._util.iconPassword;
     
   }
 

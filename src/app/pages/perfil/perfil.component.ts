@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 
 import {prompt, inputType } from "tns-core-modules/ui/dialogs";
 
-
-
-import { UsuarioService } from '../../shared/services/service.index';
+import { UsuarioService, UtilService } from '../../shared/services/service.index';
 import { Usuario } from '../../shared/models/usuario.model';
 
 @Component({
@@ -24,12 +22,12 @@ export class PerfilComponent {
   iconEditar:string;
   
 
-  constructor(public _usuarioService: UsuarioService) {
+  constructor(public _usuarioService: UsuarioService, private _util: UtilService) {
     this.usuario = this._usuarioService.usuario;
-    this.iconNombre = String.fromCharCode(0xe971);
-    this.iconEmail = String.fromCharCode(0xe908);
-    this.iconTelefono = String.fromCharCode(0xe942);
-    this.iconEditar = String.fromCharCode(0xe910);
+    this.iconNombre = this._util.iconNombre;
+    this.iconEmail = this._util.iconEmail ;
+    this.iconTelefono = this._util.iconTelefono;
+    this.iconEditar = this._util.iconModeEdit;
   }
 
   modificar(texto:string, usuario:Usuario) {
@@ -116,13 +114,15 @@ export class PerfilComponent {
               this._usuarioService.alert(`El ${texto} ha sido modificado`);
             },error => {
               console.log('error:',error); 
-              this._usuarioService.alert(`No se pudo modificar. Error: ${error}`);
+              this._usuarioService.alert(`!No se pudo modificar. Error: ${error}`);
             }
           ); 
       } else {
-        this._usuarioService.alert('No se pudo realizar la petición');
-        return
+        this._usuarioService.alert('!No se pudo realizar la petición. El número que ingreso no es válido');
+        return;
       }
+    }, ()=>{
+      return;
     });
   }
 

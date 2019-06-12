@@ -15,6 +15,8 @@ export class OrdenesDetalleComponent implements OnInit {
 
   isLoading = false;
 
+  iconDelete: string;
+
   constructor( private pageRoute: PageRoute,
     private _routerExtensions: RouterExtensions,
     public cs:CarritoService,
@@ -29,6 +31,8 @@ export class OrdenesDetalleComponent implements OnInit {
         this.getOrdenDetalle(id);  
       });
     });
+
+    this.iconDelete = this._util.iconDelete;
 
   }
 

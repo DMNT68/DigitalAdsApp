@@ -24,9 +24,9 @@ export class CarritoComponent implements OnInit {
 
   ngOnInit() {
 
-    this.iconClose=String.fromCharCode(0xea0f);
-    this.iconCarrito = String.fromCharCode(0xe93a);
-    this.iconBorrar = String.fromCharCode(0xe9ad);
+    this.iconClose = this._util.iconClose;
+    this.iconCarrito = this._util.iconCart;
+    this.iconBorrar = this._util.iconDelete;
 
     this.ordenes = this._cs.items;
 
