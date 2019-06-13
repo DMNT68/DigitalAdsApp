@@ -51,7 +51,7 @@
                         <Label col="1" class="font-weight-bold" text="$ {{_cs.preciosFinales[i] | number:'.2-2'}}"></Label>
                     </GridLayout>
 
-                    <Label col="2" [text]="iconBorrar" class="iconBorrar ico icon-2x" (tap)="borrarItem(i)"></Label>
+                    <Button col="2" [text]="iconBorrar" class="btn btn-flat btn-active iconBorrar ico" (tap)="borrarItem(i)"></Button>
 
                 </GridLayout>
             </ng-template>

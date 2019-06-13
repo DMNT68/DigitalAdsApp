@@ -53,8 +53,8 @@
             </ScrollView>
 
             <StackLayout class="container-bottom card">
-                <Button [isEnabled]="registroForm.valid" text="Registrar &#xe909;" class="ico btn btn-primary btn-active" (tap)="signup()"></Button>
-                <Label text="¿Yá tienes una cuenta? Regresar" textwrap="true" (tap)="regresarLogin()" class="h5 text-center"></Label>
+                <Button [isEnabled]="registroForm.valid" text="Registrar cuenta" class="ico btn btn-primary btn-active" (tap)="signup()"></Button>
+                <Button text="¿Yá tienes una Cuenta? Regresar" (tap)="regresarLogin()" class="btn btn-flat btn-active btn-small"></Button>
             </StackLayout>
 
         </StackLayout>

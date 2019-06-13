@@ -77,13 +77,11 @@ Button {
 }
 
 .date-container {
-    opacity: 0.8;
     font-weight: bold;
-    font-size: 18;
+    font-size: 16;
     color: #4A535D;
     letter-spacing: 0.03;
-    margin-right: 30;
-    margin-left: 30;
+    margin: 15 30 15 30
 }
 
 .divider {
@@ -102,5 +100,4 @@ Button {
 .iconDelete {
     font-size: 24;
     width: 40;
-    margin-right: 20;
 }

@@ -74,9 +74,14 @@
         color: #eae8dc;
     }
     
-    .icono-cart {
+    .icon-search-color {
+        color: #eae8dc;
+    }
+    
+    .icono-cart-color {
         font-size: 24;
         color: #28bfdb;
+        padding-right: -2;
     }
     
     .icon-cart-add {

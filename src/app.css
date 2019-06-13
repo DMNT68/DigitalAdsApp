@@ -31,6 +31,25 @@
     opacity: 0.5;
 }
 
+.btn-flat {
+    background: transparent;
+    border-color: transparent;
+    border-width: 1;
+    padding: 1;
+}
+
+.btn-text {
+    font-size: 14;
+    font-weight: bold;
+}
+
+.btn-small {
+    font-size: 10;
+    font-weight: bold;
+    height: 20;
+    padding: 1;
+}
+
 
 /**
 THEME BUILDER
@@ -42,8 +61,19 @@ THEME BUILDER
 }
 
 .page {
-    background-color: #f8f0ee;
+    /* background-color: #f8f0ee; */
     /* background-image: url("~/assets/images/background.png"); */
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ef424c+0,2989d8+50,207cca+51,2d3440+100 */
+    background: #ef424c;
+    /* Old browsers */
+    background: -moz-linear-gradient(45deg, #ef424c 0%, #2989d8 50%, #207cca 51%, #2d3440 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #ef424c 0%, #2989d8 50%, #207cca 51%, #2d3440 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #ef424c 0%, #2989d8 50%, #207cca 51%, #2d3440 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ef424c', endColorstr='#2d3440', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
 }
 
 .activity-indicator {
@@ -52,7 +82,8 @@ THEME BUILDER
 
 .img-circle {
     border-radius: 100%;
-    border-width: 1;
+    border-width: 2;
+    border-color: #D8D8D8;
 }
 
 .img-rounded {
@@ -145,7 +176,7 @@ THEME BUILDER
 }
 
 .badge {
-    margin: 0 0 0 0;
+    margin: 0;
     width: 20;
     height: 20;
     border-color: red;
@@ -175,6 +206,7 @@ THEME BUILDER
 
 .icon-2x {
     font-size: 24;
+    width: 40;
 }
 
 .icon-3x {

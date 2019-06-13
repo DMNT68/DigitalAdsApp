@@ -4,7 +4,7 @@ FlexboxLayout {
     justify-content: center;
     align-items: center;
     background-size: cover;
-    background-image: url("~/assets/images/background.png");
+    /* background-image: url("~/assets/images/background.png"); */
 }
 
 StackLayout {
@@ -47,6 +47,7 @@ TextField {
 }
 
 .container-bottom-login {
-    margin-top: 5;
+    margin-top: 1;
+    padding: 1;
     text-align: center;
 }

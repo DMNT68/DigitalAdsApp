@@ -6,7 +6,7 @@
         <GridLayout row="0" rows="auto , auto, auto, auto" class="form">
 
             <StackLayout row="0">
-                <Image class="img-profile" [src]="usuario.img | imagen"></Image>
+                <Image class="img-profile img-circle" [src]="usuario.img | imagen"></Image>
             </StackLayout>
 
             <GridLayout class="margen" row="1" rows="auto" columns="40, *, auto">
@@ -41,7 +41,7 @@
 
         </GridLayout>
 
-        <Button row="1" text="Cerrar Sesión" class="btn btn-rounded-lg btn-active" (tap)="salir()"></Button>
+        <Button row="1" text="Cerrar Sesión" class="btn btn-flat btn-text btn-active" (tap)="salir()"></Button>
 
     </GridLayout>
 

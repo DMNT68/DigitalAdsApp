@@ -1,4 +1,4 @@
-<FlexboxLayout>
+<FlexboxLayout class="page">
 
     <StackLayout class="form ico">
 
@@ -7,12 +7,12 @@
         <TextField hint="{{iconEmail}} Correo Electrónico" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" [(ngModel)]="email" class="input input-rounded ico" required></TextField>
         <TextField hint="{{iconPassword}} Contraseña" secure="true" returnKeyType="done" [(ngModel)]="password" class="ico input input-rounded" required></TextField>
 
-        <Button text="Ingresar a tu Cuenta &#xea13; " [isEnabled]="!_usuarioService.processing" class="btn-primary btn-active ico" (tap)="ingresar()"></Button>
+        <Button text="Ingresar a tu Cuenta" [isEnabled]="!_usuarioService.processing" class="btn-primary btn-active ico" (tap)="ingresar()"></Button>
 
         <ActivityIndicator class="activity-indicator" [busy]="_usuarioService.processing" [visibility]="_usuarioService.processing ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 
         <StackLayout class="container-bottom-login">
-            <Label text="¿Nó tienes una cuenta? Regístrate" (tap)="irRegistrar()" class=" h4 label" [isEnabled]="!_usuarioService.processing"></Label>
+            <Button text="¿Nó tienes una cuenta? Regístrate" (tap)="irRegistrar()" class="btn btn-flat btn-active btn-small" [isEnabled]="!_usuarioService.processing"></Button>
         </StackLayout>
 
     </StackLayout>

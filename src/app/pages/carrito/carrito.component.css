@@ -2,8 +2,8 @@
 
 .imageList {
     margin-bottom: 15;
-    height: 36;
-    width: 36;
+    height: 40;
+    width: 40;
 }
 
 .main-container {
@@ -83,7 +83,10 @@ Button {
 }
 
 .iconBorrar {
-    margin-top: 2;
+    height: 40;
+    margin: 0 0 15 0;
+    padding: 0%;
+    font-size: 24;
     text-align: center;
     color: rgb(247, 77, 77);
 }
