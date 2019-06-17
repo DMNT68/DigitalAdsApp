@@ -33,6 +33,7 @@
                         <TextField class="input" maxLength="10" keyboardType="number" returnKeyType="next" formControlName="telefono"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
                         <Label text="No es un número válido" class="text-danger h6" *ngIf="registroForm.controls['telefono'].errors?.minlength || registroForm.controls['telefono'].errors?.maxlength"></Label>
+                        <Label text="Ingrese solo números" class="text-danger h6" *ngIf="registroForm.controls['telefono'].errors?.pattern || registroForm.controls['telefono'].errors?.maxlength"></Label>
                     </StackLayout>
 
                     <StackLayout row="3" class="input-field" [ngClass]="{invalid:registroForm.controls['password'].errors?.minlength}">

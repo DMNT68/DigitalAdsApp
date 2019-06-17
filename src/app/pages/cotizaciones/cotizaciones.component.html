@@ -3,8 +3,8 @@
 <StackLayout class="vacio" *ngIf="cotizaciones.length == 0">
     <Label [text]="iconCotizaciones" class="icon-5x ico" textWrap="true"></Label>
     <Label text="Sin Cotizaciones" class="p-t-10" textWrap="true"></Label>
-    <Label text="Recargar..." class="label-recargar m-t-10" (tap)="cargarOrdenes()"></Label>
-
+    <Button [visibility]="!isLoading ? 'visible' : 'collapse'" text="Recargar... {{iconRefresh}}" class="ico btn btn-flat btn-active label-recargar m-t-10" (tap)="recargar()"></Button>
+    <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="cotizaciones.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 </StackLayout>
 
 <GridLayout rows="*" *ngIf="cotizaciones.length != 0">

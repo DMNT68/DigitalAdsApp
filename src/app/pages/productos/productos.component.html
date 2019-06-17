@@ -1,7 +1,7 @@
 <ns-action-bar title="Productos" class="action-bar" [showBackButton]="false">
 
     <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="goCarrito()">
-        <StackLayout orientation="horizontal">
+        <StackLayout orientation="horizontal" [isEnable]="productos.length == 0">
             <Label class="ico icono-cart-color" [text]="iconCarrito"></Label>
             <StackLayout class="badge" *ngIf="cs.items.length > 0">
                 <Label [text]="cs.items.length" class="badge-text"></Label>
@@ -10,7 +10,7 @@
     </ActionItem>
 
     <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="aparecerBuscar(+1)">
-        <Button class="btn btn-flat btn-active action-item icon-search-color ico icon-2x" [text]="iconSearch"></Button>
+        <Button class="btn btn-flat btn-active action-item icon-search-color ico icon-2x" [text]="iconSearch" [isEnable]="productos.length == 0"></Button>
     </ActionItem>
 
     <ActionItem *ngIf="aparecer" (tap)="aparecerBuscar(+1)" ios.position="right">

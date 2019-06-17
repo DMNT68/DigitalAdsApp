@@ -21,16 +21,20 @@ export class CotizacionesComponent {
     iconIr:string;
     iconRevisado:string;
     iconNoRevisado:string;
+    iconRefresh:string;
+    isLoading = false;
 
   constructor(private http: HttpClient, private router:RouterExtensions,private _utilService: UtilService, private _cs:CarritoService) {
     
   }
 
   ngOnInit(): void {
+    console.log('componente Cotizaciones');
     this.iconCotizaciones = this._utilService.iconListNumbered;
     this.iconIr = this._utilService.iconArrowRight;
     this.iconRevisado = this._utilService.iconCheckBox;
     this.iconNoRevisado = this._utilService.iconcheckBoxOutlineBlank;
+    this.iconRefresh = this._utilService.iconRefresh;
     this.cargarOrdenes();
   }
 
@@ -67,6 +71,14 @@ export class CotizacionesComponent {
         .catch((e) => {
             console.log(e.message);
         });
+  }
+
+  recargar() {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = false;
+      this.cargarOrdenes();
+    }, 500);
   }
 
 }

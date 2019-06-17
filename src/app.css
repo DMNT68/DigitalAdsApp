@@ -1,5 +1,8 @@
 @import '~nativescript-theme-core/css/core.light.css';
 
+/* margin:t r b l  */
+
+
 /*
     font icons - IconMoon
 */
@@ -150,7 +153,7 @@ THEME BUILDER
 .label-recargar {
     font-size: 12;
     height: 18;
-    font-family: 'Courier New', Courier, monospace;
+    width: 100;
 }
 
 .label-title {

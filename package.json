@@ -1,6 +1,6 @@
 {
     "nativescript": {
-        "id": "org.nativescript.DigitalAds",
+        "id": "com.digitalads.developer",
         "tns-ios": {
             "version": "5.1.1"
         },

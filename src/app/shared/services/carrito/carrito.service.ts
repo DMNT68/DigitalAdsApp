@@ -25,9 +25,9 @@ export class CarritoService {
   total_carrito:number = 0;
 
   constructor(private http: HttpClient, private _util: UtilService, private _us:UsuarioService, private router: RouterExtensions) { 
+   console.log('Cotizaciones');
     this.cargarLocalData();
     this.actualizar_total();
-
   }
 
   verCarrito() {
