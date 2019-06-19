@@ -7,7 +7,7 @@
         <TextField hint="{{iconEmail}} Correo Electrónico" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" [(ngModel)]="email" class="input input-rounded ico" required></TextField>
         <TextField hint="{{iconPassword}} Contraseña" secure="true" returnKeyType="done" [(ngModel)]="password" class="ico input input-rounded" required></TextField>
 
-        <Button text="Ingresar a tu Cuenta" [isEnabled]="!_usuarioService.processing" class="btn-primary btn-active ico" (tap)="ingresar()"></Button>
+        <Button text="Ingresar a tu Cuenta" [isEnabled]="!_usuarioService.processing" class="btn-primary btn-active" (tap)="ingresar()"></Button>
 
         <ActivityIndicator class="activity-indicator" [busy]="_usuarioService.processing" [visibility]="_usuarioService.processing ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 

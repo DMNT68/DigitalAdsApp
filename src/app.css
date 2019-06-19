@@ -4,7 +4,7 @@
 
 
 /*
-    font icons - IconMoon
+    fonts
 */
 
 * {
@@ -13,44 +13,6 @@
 
 .ico {
     font-family: 'IcoMoon-Free', 'icomoon';
-}
-
-.btn-primary {
-    height: 50;
-    border-radius: 5;
-    font-size: 14;
-    font-weight: 600;
-}
-
-.btn-secondary {
-    height: 40;
-    background-color: #F8F0EE;
-    border-radius: 5;
-    font-size: 14;
-    font-weight: 600;
-}
-
-.btn-primary:disabled {
-    opacity: 0.5;
-}
-
-.btn-flat {
-    background: transparent;
-    border-color: transparent;
-    border-width: 1;
-    padding: 1;
-}
-
-.btn-text {
-    font-size: 14;
-    font-weight: bold;
-}
-
-.btn-small {
-    font-size: 10;
-    font-weight: bold;
-    height: 20;
-    padding: 1;
 }
 
 
@@ -129,6 +91,32 @@ THEME BUILDER
     background-color: #2d3440;
     border-color: #2d3440;
     color: #f4f2ec;
+}
+
+.btn-primary {
+    height: 50;
+    border-radius: 5;
+    font-size: 14;
+    font-weight: 600;
+}
+
+.btn-flat {
+    background: transparent;
+    border-color: transparent;
+    border-width: 0;
+    padding: 1;
+}
+
+.btn-text {
+    font-size: 14;
+    font-weight: bold;
+}
+
+.btn-small {
+    font-size: 10;
+    font-weight: bold;
+    height: 20;
+    padding: 1;
 }
 
 .btn-outline {

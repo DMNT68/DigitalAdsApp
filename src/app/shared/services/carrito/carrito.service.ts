@@ -98,9 +98,11 @@ export class CarritoService {
       this.anchos=[];
       this.nroLetras=[];
       this.preciosFinales=[];
+      this.cargarOrdenes();
       this.actualizar_total();
       this.guardarLocalData();
     }));
+
 
   }
 

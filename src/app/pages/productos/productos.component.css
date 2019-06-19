@@ -49,7 +49,7 @@
     
     .icon-cantidad {
         color: #F8F0EE;
-        border-radius: 80%;
+        border-radius: 100%;
         background-color: #ef424c;
         width: 50;
         height: 50;
@@ -67,6 +67,10 @@
     
     .searchbar {
         font-size: 18;
+        border-radius: 8;
+        color: #2d3440;
+        text-field-background-color: white;
+        text-field-hint-color: #2d3440;
     }
     
     .iconos {
@@ -76,6 +80,9 @@
     
     .icon-search-color {
         color: #eae8dc;
+        border-radius: 100%;
+        border-color: transparent;
+        border-width: 1;
     }
     
     .icono-cart-color {
@@ -90,6 +97,7 @@
         border-top-right-radius: 10;
         background-color: #0e3743;
         color: #F8F0EE;
+        width: 50;
     }
     
     RadListView {
