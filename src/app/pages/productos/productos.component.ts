@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChildren} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { ListViewEventData } from 'nativescript-ui-listview';
 
@@ -10,6 +10,7 @@ import { TextField } from "tns-core-modules/ui/text-field";
 
 import { ProductoService, UtilService, CarritoService } from '../../shared/services/service.index';
 import { RadListViewComponent } from 'nativescript-ui-listview/angular';
+
 
 
 @Component({
@@ -57,8 +58,9 @@ export class ProductosComponent implements OnInit {
     }, 1000);
     
   }
+
   
-  @ViewChildren('myRadListView') listViewComponent: RadListViewComponent;
+  @ViewChild('myRadListView') listViewComponent: RadListViewComponent;
   public onTapUp() {
     this.listViewComponent.listView.scrollToIndex(0, true);
   }
