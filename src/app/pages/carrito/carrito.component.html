@@ -1,6 +1,6 @@
 <ns-action-bar title="Lista de Pedidos ( {{ _cs.items.length}} )" class="action-bar" [showBackButton]="false">
-    <ActionItem (tap)="back()" ios.position="right">
-        <Button [text]="iconClose" class="ico icon-close btn btn-outline btn-active"></Button>
+    <ActionItem (tap)="back()" ios.position="right" class="m-5">
+        <Button [text]="iconClose" class="ico icon-close btn btn-flat btn-active"></Button>
     </ActionItem>
 </ns-action-bar>
 
@@ -64,8 +64,8 @@
                 <Label row="1" text="Grand Total"></Label>
                 <Label row="1" col="1" text="$ {{_cs.total_carrito  | number:'.2-2'}} "></Label>
             </GridLayout>
-            <GridLayout class="m-x-15 m-y-10 btn-container" row="1">
-                <Button text="Realizar Pedido" class="btn btn-active add-order" (tap)="enviarPedido()"></Button>
+            <GridLayout class="m-x-15 m-y-10 btn-container " row="1">
+                <Button text="Realizar Pedido" class="btn btn-active btn-flat" (tap)="enviarPedido()"></Button>
             </GridLayout>
         </GridLayout>
 

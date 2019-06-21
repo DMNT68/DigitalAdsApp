@@ -1,4 +1,5 @@
 @import '~nativescript-theme-core/css/core.light.css';
+@import './assets/css/custom.css';
 
 /* margin:t r b l  */
 
@@ -20,11 +21,6 @@
 THEME BUILDER
 */
 
-.action-bar {
-    color: #ffffff;
-    background-color: #2d3440;
-}
-
 .page {
     /* background-color: #f8f0ee; */
     /* background-image: url("~/assets/images/background.png"); */
@@ -41,70 +37,18 @@ THEME BUILDER
     /* IE6-9 fallback on horizontal gradient */
 }
 
-.activity-indicator {
-    color: #021820;
-}
-
 .img-circle {
     border-radius: 100%;
     border-width: 2;
     border-color: #D8D8D8;
 }
 
-.img-rounded {
-    border-radius: 7;
-}
-
-.body {
-    font-size: 13;
-}
-
-.h1 {
-    font-size: 36;
-}
-
-.h2 {
-    font-size: 30;
-}
-
-.h3 {
-    font-size: 24;
-}
-
-.h4 {
-    font-size: 18;
-}
-
-.h5 {
-    font-size: 14;
-}
-
-.h6 {
-    font-size: 12;
-}
-
-.btn {
-    color: #2d3440;
-}
-
-.btn-primary {
-    background-color: #2d3440;
-    border-color: #2d3440;
-    color: #f4f2ec;
-}
-
-.btn-primary {
-    height: 50;
-    border-radius: 5;
-    font-size: 14;
-    font-weight: 600;
-}
-
 .btn-flat {
-    background: transparent;
+    background-color: transparent;
     border-color: transparent;
-    border-width: 0;
+    border-width: 1;
     padding: 1;
+    z-index: 0;
 }
 
 .btn-text {
@@ -117,25 +61,6 @@ THEME BUILDER
     font-weight: bold;
     height: 20;
     padding: 1;
-}
-
-.btn-outline {
-    border-color: #2d3440;
-    background-color: transparent;
-    border-width: 1;
-    color: #2d3440;
-}
-
-.btn-rounded-sm {
-    border-radius: 4;
-}
-
-.btn-rounded-lg {
-    border-radius: 20;
-}
-
-.label {
-    font-size: 16;
 }
 
 .label-recargar {
@@ -152,18 +77,6 @@ THEME BUILDER
 .label-description {
     font-size: 12;
     height: 15;
-}
-
-.input {
-    font-size: 14;
-}
-
-.input-rounded {
-    border-radius: 30;
-}
-
-.text-danger {
-    color: #ef424c
 }
 
 .badge {

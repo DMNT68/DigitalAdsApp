@@ -28,7 +28,16 @@
     vertical-align: center;
     text-align: center;
     font-size: 30;
-    padding: 10;
+    padding: 10 20 10 10;
+    color: #28bfdb;
+}
+
+.text-index {
+    vertical-align: center;
+    text-align: center;
+    font-size: 20;
+    padding-left: 10;
+    color: #28bfdb;
 }
 
 .text-head {
@@ -56,11 +65,4 @@
 .uncheck {
     color: gray;
     font-size: 16;
-}
-
-.text-index {
-    vertical-align: center;
-    text-align: center;
-    font-size: 20;
-    padding-left: 10;
 }
