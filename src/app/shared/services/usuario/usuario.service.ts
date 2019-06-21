@@ -84,7 +84,7 @@ export class UsuarioService {
       remove('usuario');
       remove('token');
 
-      this.router.navigate(['/login'], {transition:{name:'slideRight', duration:300}});
+      this.router.navigate(['/login'], {clearHistory:true ,transition:{name:'slideRight', duration:300}});
   
     }
 

@@ -62,7 +62,7 @@
                     <TextField hint="Letras" class="inputVariables" keyboardType="number" returnKeyType="done" required ngModel #nLetrasCtrl="ngModel"></TextField>
                     <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!nLetrasCtrl.valid && nLetrasCtrl.touched"></Label>
 
-                    <Button text="Calcular" (tap)="variarPrecioRotulo3D(alturaCtrl.value, anchoCtrl.value, nLetrasCtrl.value)" [isEnabled]="alturaCtrl.valid && anchoCtrl.valid && nLetrasCtrl.valid" class="btn btn-outline btn-rounded-lg btn-active"></Button>
+                    <Button text="Calcular" (tap)="variarPrecioRotulo3D(alturaCtrl.value, anchoCtrl.value, nLetrasCtrl.value)" [isEnabled]="alturaCtrl.valid && anchoCtrl.valid && nLetrasCtrl.valid" class="btn btn-primary btn-rounded-lg btn-active"></Button>
                 </StackLayout>
 
             </GridLayout>

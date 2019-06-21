@@ -117,10 +117,7 @@ export class PerfilComponent {
               this._usuarioService.alert(`!No se pudo modificar. Error: ${error}`);
             }
           ); 
-      } else {
-        this._usuarioService.alert('!No se pudo realizar la petición. El número que ingreso no es válido');
-        return;
-      }
+      } else return;
     }, ()=>{
       return;
     });

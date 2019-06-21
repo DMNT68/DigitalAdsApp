@@ -156,15 +156,15 @@
 }
 
 .btn[isEnabled=false] {
-    background-color: #2d3440;
+    background-color: #a2a2a2b9;
 }
 
 .btn[isEnabled=false] {
-    border-color: #2d3440;
+    border-color: #a2a2a2b9;
 }
 
 .btn[isEnabled=false] {
-    color: #a2a2a2;
+    color: #2d34408f;
 }
 
 .btn-rounded-sm {
