@@ -12,7 +12,7 @@
         <ActivityIndicator class="activity-indicator" [busy]="_usuarioService.processing" [visibility]="_usuarioService.processing ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 
         <StackLayout class="container-bottom-login">
-            <Button text="¿Nó tienes una cuenta? Regístrate" (tap)="irRegistrar()" class="btn btn-flat btn-active btn-small" [isEnabled]="!_usuarioService.processing"></Button>
+            <Button text="¿Nó tienes una cuenta? Crea una" (tap)="irRegistrar()" class="btn btn-flat btn-active btn-small" [isEnabled]="!_usuarioService.processing"></Button>
         </StackLayout>
 
     </StackLayout>

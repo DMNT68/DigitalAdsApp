@@ -48,7 +48,7 @@ export class OrdenesDetalleComponent implements OnInit {
   }
 
   borrarOrden(id:string) {
-    this._util.confirm('¿Quieres Elminar la orden?','Eliminar Orde').then((res)=>{
+    this._util.confirm('¿Quieres eliminar la orden?','Eliminar Orden').then((res)=>{
       if(res){
         this.cs.borrarOrden(id).subscribe(()=>{
           this._util.alert('La orden se ha eliminado').then(()=>{

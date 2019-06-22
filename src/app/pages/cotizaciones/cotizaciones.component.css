@@ -13,9 +13,7 @@
 .card {
     background-color: #2d3440;
     color: #28bfdb;
-    margin: 5;
-    margin-right: 10;
-    margin-left: 10;
+    margin: 5 10 5 10;
     border-radius: 5;
 }
 

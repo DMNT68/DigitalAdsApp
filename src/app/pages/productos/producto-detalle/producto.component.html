@@ -46,7 +46,7 @@
                     <TextField hint="Ancho(metro)" class="inputVariables" keyboardType="number" returnKeyType="done" required ngModel #anchoCtrl="ngModel"></TextField>
                     <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!anchoCtrl.valid && anchoCtrl.touched"></Label>
 
-                    <Button text="Calcular" (tap)="variarPrecioRotulo(alturaCtrl.value, anchoCtrl.value)" [isEnabled]="alturaCtrl.valid && anchoCtrl.valid" class="btn btn-outline btn-rounded-lg btn-active"></Button>
+                    <Button text="Calcular" (tap)="variarPrecioRotulo(alturaCtrl.value, anchoCtrl.value)" [isEnabled]="alturaCtrl.valid && anchoCtrl.valid" class="btn btn-primary btn-rounded-lg btn-active"></Button>
                 </StackLayout>
 
                 <StackLayout row="2" *ngIf="rotulos3D">
