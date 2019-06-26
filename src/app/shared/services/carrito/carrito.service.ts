@@ -9,6 +9,7 @@ import { UsuarioService, UtilService } from '../service.index';
 
 import { URL_SERVICIOS } from '~/app/config/config';
 import { map } from 'rxjs/operators';
+import { Producto } from '../../models/producto.model';
 
 
 @Injectable({
@@ -16,47 +17,20 @@ import { map } from 'rxjs/operators';
 })
 export class CarritoService {
 
-  items:any [] = [];
-  cantidades:any []=[];
+  items: Producto [] = [];
+  cantidades:number []=[];
   alturas:number []=[];
   anchos:number []=[];
   nroLetras:number []=[];
   preciosFinales:number[]=[];
   total_carrito:number = 0;
 
+  pedidos:any[]=[];
+  i:number;
+
   constructor(private http: HttpClient, private _util: UtilService, private _us:UsuarioService, private router: RouterExtensions) { 
-   console.log('Cotizaciones');
     this.cargarLocalData();
     this.actualizar_total();
-  }
-
-  verCarrito() {
-    if(this._us.token){
-      this.router.navigate(['/carrito'], {transition:{name:'slideTop', duration:300}});
-    } else {
-      this._us.logout();
-    }
-  }
-
-  agregarCarrito(itemParametro:any, cantidadesParametros:number, alturaParametro:number, anchoParametro:number, nroLetraParametro:number, preciofinalParametro:number) {
-  
-    for (const item of this.items) {
-      if(item._id == itemParametro._id){
-        this._util.alert(`El producto "${itemParametro.nombre}" ya se encuentra en el pedido`);
-        return;
-      }
-    }
-
-    this.items.push(itemParametro);
-    this.cantidades.push(cantidadesParametros);
-    this.alturas.push(alturaParametro);
-    this.anchos.push(anchoParametro);
-    this.nroLetras.push(nroLetraParametro);
-    this.preciosFinales.push(preciofinalParametro);
-    this.guardarLocalData();
-    this.actualizar_total();
-    this._util.alert(`El producto "${itemParametro.nombre}" a sido agregado`);
-
   }
 
   realizarPedido() {
@@ -91,18 +65,18 @@ export class CarritoService {
     }
 
     return this.http.post(url,parametros,{headers: header})
-    .pipe(map(()=>{
+    .pipe(map((resp:any)=>{
       this.items=[];
       this.cantidades=[];
       this.alturas=[];
       this.anchos=[];
       this.nroLetras=[];
       this.preciosFinales=[];
+      this.pedidos.push(resp.nuevaOrden);
       this.cargarOrdenes();
       this.actualizar_total();
       this.guardarLocalData();
     }));
-
 
   }
 
@@ -116,7 +90,8 @@ export class CarritoService {
 
     return this.http.get(url,{headers:header})
     .pipe(map((resp:any)=>{
-      return resp.ordenes;
+      this.pedidos = resp.ordenes;
+      return this.pedidos;
     }));
   }
 
@@ -141,7 +116,45 @@ export class CarritoService {
       'token': this._us.token
     });
 
-    return this.http.delete(url,{headers:header});
+    return this.http.delete(url,{headers:header}).pipe(map((resp:any)=>{
+      this.pedidos.splice(this.i,1);
+      this.cargarOrdenes();
+    }));
+  }
+
+  
+  
+  /** 
+   * Metodos para carrito
+   */
+
+  verCarrito() {
+    if(this._us.token){
+      this.router.navigate(['/carrito'], {transition:{name:'slideTop', duration:300}});
+    } else {
+      this._us.logout();
+    }
+  }
+
+  agregarCarrito(itemParametro:Producto, cantidadesParametros:number, alturaParametro:number, anchoParametro:number, nroLetraParametro:number, preciofinalParametro:number) {
+  
+    for (const item of this.items) {
+      if(item._id == itemParametro._id){
+        this._util.alert(`El producto "${itemParametro.nombre}" ya se encuentra en el pedido`);
+        return;
+      }
+    }
+
+    this.items.push(itemParametro);
+    this.cantidades.push(cantidadesParametros);
+    this.alturas.push(alturaParametro);
+    this.anchos.push(anchoParametro);
+    this.nroLetras.push(nroLetraParametro);
+    this.preciosFinales.push(preciofinalParametro);
+    this.guardarLocalData();
+    this.actualizar_total();
+    this._util.alert(`El producto "${itemParametro.nombre}" a sido agregado`);
+
   }
 
   removerItems(i:number) {
@@ -172,7 +185,9 @@ export class CarritoService {
   }
 
   cargarLocalData() {
+
     let promesa = new Promise((resolve, reject)=>{
+
       if( getString('items') ){
         this.items = JSON.parse(getString('items'));
         this.cantidades = JSON.parse(getString('cantidades'));
@@ -184,8 +199,10 @@ export class CarritoService {
 
       resolve();
 
-    })
+    });
 
     return promesa;
+
   }
+
 }

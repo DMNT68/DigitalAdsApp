@@ -23,13 +23,14 @@ export class ProductoService {
         }));
     }
 
-    cargarProducto(id: string){
+    cargarProducto(id: string) {
+
         let url = URL_SERVICIOS + '/producto/' + id;
         return this.http.get(url)
         .pipe(map((resp:any)=> {
-            console.log(resp.producto.nombre);
             return resp.producto
         }));
+        
     }
 
     buscarProductos(termino: string) {

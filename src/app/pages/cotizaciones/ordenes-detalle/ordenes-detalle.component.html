@@ -1,10 +1,11 @@
 <ns-action-bar title="Detalle" class="action-bar">
-    <ActionItem *ngIf="!isLoading" (tap)="borrarOrden(orden._id)">
+    <ActionItem *ngIf="!isLoading" (tap)="borrarOrden(orden._id)" ios.position="right">
         <Button class="ico btn btn-flat btn-active iconDelete action-item" [text]="iconDelete"></Button>
     </ActionItem>
 </ns-action-bar>
 
 <GridLayout class="page">
+
     <GridLayout rows="auto,*, 80" class="main-container visible" *ngIf="!isLoading">
 
         <GridLayout row="0" rows="*">
@@ -64,12 +65,11 @@
                 <Label row="1" text="Grand Total"></Label>
                 <Label row="1" col="1" text="$ {{orden.total  | number:'.2-2'}} "></Label>
             </GridLayout>
-            <!-- <GridLayout class="m-x-15 m-y-10  btn-container" row="1">
-                <Button text="Eliminar Pedido" class="add-order btn btn-active" (tap)="borrarOrden(orden._id)"></Button>
-            </GridLayout> -->
         </GridLayout>
 
 
     </GridLayout>
+
     <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+
 </GridLayout>

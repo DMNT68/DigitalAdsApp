@@ -59,8 +59,9 @@ export class ProductosComponent implements OnInit {
     
   }
 
+
+  @ViewChild('myRadListView', { static:false }) listViewComponent: RadListViewComponent;
   
-  @ViewChild('myRadListView') listViewComponent: RadListViewComponent;
   public onTapUp() {
     this.listViewComponent.listView.scrollToIndex(0, true);
   }

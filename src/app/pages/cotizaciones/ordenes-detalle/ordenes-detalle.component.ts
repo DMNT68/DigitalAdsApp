@@ -27,6 +27,7 @@ export class OrdenesDetalleComponent implements OnInit {
 
     this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
       activatedRoute.paramMap.subscribe(paramMap=>{
+        console.log(paramMap);
         const id = paramMap.get('id');
         this.getOrdenDetalle(id);  
       });

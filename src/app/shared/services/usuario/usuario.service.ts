@@ -48,7 +48,7 @@ export class UsuarioService {
       setString('usuario',JSON.stringify(usuario));
       this.usuario = usuario;
       this.token = token;
-      // console.log('guardar',this.token);
+
   }
 
   login (usuario: Usuario) {
@@ -78,11 +78,12 @@ export class UsuarioService {
 
   logout() {
 
-      this.usuario = null;
-      this.token = '';
+      // this.usuario = null;
+      // this.token = '';
   
       remove('usuario');
       remove('token');
+      remove('id');
 
       this.router.navigate(['/login'], {clearHistory:true ,transition:{name:'slideRight', duration:300}});
   

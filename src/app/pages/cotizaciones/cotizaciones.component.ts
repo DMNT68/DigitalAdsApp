@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
 import { ListViewEventData } from 'nativescript-ui-listview';
 import { View } from 'tns-core-modules/ui/page/page';
 
-import { UtilService, CarritoService } from '../../shared/services/service.index';
+import { UtilService, CarritoService, UsuarioService } from '../../shared/services/service.index';
 import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
@@ -24,12 +23,14 @@ export class CotizacionesComponent {
     iconRefresh:string;
     isLoading = false;
 
-  constructor(private http: HttpClient, private router:RouterExtensions,private _utilService: UtilService, private _cs:CarritoService) {
+  constructor(private _us: UsuarioService,
+              private router:RouterExtensions,
+              private _utilService: UtilService, 
+              private _cs:CarritoService) {
     
   }
 
   ngOnInit(): void {
-    console.log('componente Cotizaciones');
     this.iconCotizaciones = this._utilService.iconListNumbered;
     this.iconIr = this._utilService.iconArrowRight;
     this.iconRevisado = this._utilService.iconCheckBox;
@@ -38,12 +39,8 @@ export class CotizacionesComponent {
     this.cargarOrdenes();
   }
 
-  irDetalle(id:string) { 
-
-    this.router.navigate([`/detalles/${id}` , {
-      transition:{name:'slide',duration:1000}
-    }]);
-  
+  obtenerPosicionArreglo(i:number) { 
+    this._cs.i=i;
   }
   
   cargarOrdenes() {
