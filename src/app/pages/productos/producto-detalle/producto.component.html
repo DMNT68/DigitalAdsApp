@@ -5,7 +5,7 @@
 
     <GridLayout rows="*,*" columns="*" class="page p-y-5 visible" *ngIf="!isLoading">
 
-        <StackLayout row="0" col="0" class="card">
+        <StackLayout row="0" col="0" class="card elevation" androidElevation="6">
 
             <StackLayout class="card-layout">
                 <Image class="img-rounded" [src]="img | imagen:'producto'"></Image>
@@ -20,7 +20,7 @@
 
 
         <GridLayout row="1" col="0" rows="*" columns="*,*">
-            <GridLayout row="0" col="0" rows="*,*, auto" class="card-cotizar">
+            <GridLayout row="0" col="0" rows="*,*, auto" class="card-cotizar elevation" androidElevation="4">
 
                 <Label row="0" col="0" class="h5" text="Cotiza el producto"></Label>
                 <StackLayout row="1" class="hr-light m-b-12"></StackLayout>
@@ -67,7 +67,7 @@
 
             </GridLayout>
 
-            <GridLayout row="1" col="1" rows="*,*,*,*,*,*" columns="*" class="card-cotizar">
+            <GridLayout row="1" col="1" rows="*,*,*,*,*,*" columns="*" class="card-cotizar elevation" androidElevation="6">
                 <Label row="0" text="Costo"></Label>
                 <StackLayout row="1" class="hr-light"></StackLayout>
                 <Label *ngIf="aparecer" col="0" row="2" class="h3 text-danger text-center animate-transition-up m-y-10" textWrap="true" text="${{precioFinal | number:'.2-2'}}"></Label>

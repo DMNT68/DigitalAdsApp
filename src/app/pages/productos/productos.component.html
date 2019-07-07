@@ -34,7 +34,7 @@
         <ng-template tkListItemTemplate let-producto="item">
             <StackLayout [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
 
-                <GridLayout class="card">
+                <GridLayout class="card elevation" androidElevation="4">
                     <StackLayout class="card-layout">
                         <Image class="img img-rounded" [src]="producto.img | imagen:'producto'"></Image>
                     </StackLayout>

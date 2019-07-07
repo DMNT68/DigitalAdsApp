@@ -2,14 +2,14 @@
 
     <StackLayout class="form">
 
-        <StackLayout class="container-top card">
+        <StackLayout class="container-top card elevation" androidElevation="4">
             <Image class="logo" src="~/assets/images/logo.png"></Image>
             <Label class="header" text="Se Cliente de Digital Ads"></Label>
             <Label text="" class="hr-light"></Label>
         </StackLayout>
 
         <StackLayout [formGroup]="registroForm">
-            <ScrollView class="ico card" height="280">
+            <ScrollView class="ico card elevation" androidElevation="4" height="280">
                 <GridLayout class="m-y-10 m-x-20" rows="auto auto auto auto,auto">
 
                     <StackLayout row="0" class="input-field" [ngClass]="{invalid:registroForm.controls['nombre'].errors?.minlength}">
@@ -53,7 +53,7 @@
                 </GridLayout>
             </ScrollView>
 
-            <StackLayout class="container-bottom card">
+            <StackLayout class="container-bottom card elevation" androidElevation="4">
                 <Button [isEnabled]="registroForm.valid" text="Registrar cuenta" class="ico btn btn-primary btn-active" (tap)="signup()"></Button>
                 <Button text="¿Yá tienes una Cuenta? Regresar" (tap)="regresarLogin()" class="btn btn-flat btn-active btn-small"></Button>
             </StackLayout>

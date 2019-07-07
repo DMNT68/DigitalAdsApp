@@ -11,7 +11,7 @@
         <Label text="Su carrito esta vacío" class="p-t-10" textWrap="true"></Label>
     </StackLayout>
 
-    <GridLayout rows="*, 150" class="main-container" *ngIf="_cs.items.length != 0">
+    <GridLayout rows="*, 150" class="main-container elevation" androidElevation="4" *ngIf="_cs.items.length != 0">
 
         <RadListView row="0" class="card" [items]="ordenes">
 
