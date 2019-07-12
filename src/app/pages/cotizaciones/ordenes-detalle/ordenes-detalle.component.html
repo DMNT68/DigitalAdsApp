@@ -50,7 +50,7 @@
                     <StackLayout row="2" col="1" class="hr-light m-y-5"></StackLayout>
 
                     <GridLayout row="3" col="1" columns="*, auto" class="sub-total">
-                        <Label text="Total"></Label>
+                        <Label text="SubTotal"></Label>
                         <Label col="1" class="font-weight-bold" text="$ {{detalles.precioFinal | number:'.2-2'}}"></Label>
                     </GridLayout>
 
@@ -62,7 +62,7 @@
         <GridLayout row="2" rows="*" class="summary m-t-20">
             <GridLayout rows="auto, auto" columns="*, auto" class="grand-total-container m-x-15">
                 <StackLayout colSpan="2" class="divider m-b-10 m-t-5"></StackLayout>
-                <Label row="1" text="Grand Total"></Label>
+                <Label row="1" text="Total"></Label>
                 <Label row="1" col="1" text="$ {{orden.total  | number:'.2-2'}} "></Label>
             </GridLayout>
         </GridLayout>

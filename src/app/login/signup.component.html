@@ -24,8 +24,7 @@
                         <Label text="{{iconEmail}}  Correo Electrónico" class="label-signup ico font-weight-bold m-b-5"></Label>
                         <TextField class="input" max="10" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" formControlName="email"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
-                        <!-- <Label text="Es necesario el email" class="text-danger h6" *ngIf="registroForm.controls['email'].errors?.required"></Label> -->
-                        <Label text="No es un e-mail válido" class="text-danger h6" *ngIf="registroForm.controls['email'].errors?.email"></Label>
+                        <Label text="No es un e-mail válido" class="text-danger h6" *ngIf="registroForm.controls['email'].errors?.pattern"></Label>
                     </StackLayout>
 
                     <StackLayout row="2" class="input-field" [ngClass]="{invalid:registroForm.controls['telefono'].errors?.minlength || registroForm.controls['telefono'].errors?.maxlength}">
