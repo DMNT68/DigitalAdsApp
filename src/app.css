@@ -4,9 +4,7 @@
 /* margin:t r b l  */
 
 
-/*
-    fonts
-*/
+/*fonts*/
 
 * {
     font-family: 'Roboto', 'Roboto';
@@ -16,14 +14,9 @@
     font-family: 'IcoMoon-Free', 'icomoon';
 }
 
-
-/**
-THEME BUILDER
-*/
-
 .page {
-    /* background-color: #f8f0ee; */
     background-image: url("~/assets/images/background.png");
+    /* background-color: #f8f0ee; */
     /* uso de gradientes de colorzilla */
     /* background: #ef424c;
     background: -moz-linear-gradient(45deg, #ef424c 0%, #2989d8 50%, #207cca 51%, #2d3440 100%);
@@ -50,6 +43,7 @@ THEME BUILDER
 .btn-text {
     font-size: 14;
     font-weight: bold;
+    color: #ef424c
 }
 
 .btn-small {
@@ -102,6 +96,10 @@ THEME BUILDER
     font-size: 20px;
     text-align: center;
     vertical-align: center;
+}
+
+.icon-1x {
+    font-size: 20;
 }
 
 .icon-2x {

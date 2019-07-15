@@ -21,36 +21,40 @@
 
 </ns-action-bar>
 
-<StackLayout class="vacio" *ngIf="productos.length == 0">
-    <Label [text]="iconProductos" class="ico icon-5x" textWrap="true"></Label>
-    <Label text="Productos" class="p-t-10" textWrap="true"></Label>
-    <ActivityIndicator class="activity-indicator" [busy]="productos.length == 0" [visibility]="productos.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
-</StackLayout>
+<GridLayout class="page">
 
-<GridLayout rows="auto,*,auto" class="visible" *ngIf="productos.length != 0">
+    <StackLayout class="vacio" *ngIf="productos.length == 0">
+        <Label [text]="iconProductos" class="ico icon-5x" textWrap="true"></Label>
+        <Label text="Productos" class="p-t-10" textWrap="true"></Label>
+        <ActivityIndicator class="activity-indicator" [busy]="productos.length == 0" [visibility]="productos.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+    </StackLayout>
 
-    <RadListView #myRadListView row="1" class="page p-t-5" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
+    <GridLayout rows="auto,*,auto" class="visible" *ngIf="productos.length != 0">
 
-        <ng-template tkListItemTemplate let-producto="item">
-            <StackLayout [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
+        <RadListView #myRadListView row="1" class="p-t-5" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
 
-                <GridLayout class="card elevation" androidElevation="4">
-                    <StackLayout class="card-layout">
-                        <Image class="img img-rounded" [src]="producto.img | imagen:'producto'"></Image>
-                    </StackLayout>
+            <ng-template tkListItemTemplate let-producto="item">
+                <StackLayout [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
 
-                    <StackLayout class="card-layout-description">
-                        <Label class="label-title p-y-5" [text]="producto.nombre" textWrap="true"></Label>
-                        <Label class="label-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
-                    </StackLayout>
-                </GridLayout>
+                    <GridLayout class="card elevation" androidElevation="4">
+                        <StackLayout class="card-layout">
+                            <Image class="img img-rounded" [src]="producto.img | imagen:'producto'"></Image>
+                        </StackLayout>
 
-            </StackLayout>
-        </ng-template>
+                        <StackLayout class="card-layout-description">
+                            <Label class="label-title p-y-5" [text]="producto.nombre" textWrap="true"></Label>
+                            <Label class="label-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
+                        </StackLayout>
+                    </GridLayout>
 
-        <ng-template tkListViewFooter>
-            <Label class="ico footer btn btn-active" [text]="iconUp" (tap)="onTapUp()"></Label>
-        </ng-template>
+                </StackLayout>
+            </ng-template>
 
-    </RadListView>
+            <ng-template tkListViewFooter>
+                <Label class="ico footer btn btn-active" [text]="iconUp" (tap)="onTapUp()"></Label>
+            </ng-template>
+
+        </RadListView>
+    </GridLayout>
+
 </GridLayout>

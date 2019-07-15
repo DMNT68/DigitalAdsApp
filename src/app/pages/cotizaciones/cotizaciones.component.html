@@ -1,39 +1,44 @@
 <ns-action-bar title="Cotizaciones" class="action-bar" [showBackButton]="false"></ns-action-bar>
 
-<StackLayout class="vacio" *ngIf="cotizaciones.length == 0">
-    <Label [text]="iconCotizaciones" class="icon-5x ico" textWrap="true"></Label>
-    <Label text="Sin Cotizaciones" class="p-t-10" textWrap="true"></Label>
-    <Button [visibility]="!isLoading ? 'visible' : 'collapse'" text="Recargar... {{iconRefresh}}" class="ico btn btn-flat btn-active label-recargar m-t-10" (tap)="recargar()"></Button>
-    <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="cotizaciones.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
-</StackLayout>
+<GridLayout class="page">
 
-<GridLayout rows="*" *ngIf="cotizaciones.length != 0" class="page">
+    <StackLayout class="vacio" *ngIf="cotizaciones.length == 0">
+        <Label [text]="iconCotizaciones" class="txt-white icon-5x ico" textWrap="true"></Label>
+        <Label text="Sin Cotizaciones" class="txt-white p-t-10" textWrap="true"></Label>
+        <Button [visibility]="!isLoading ? 'visible' : 'collapse'" text="Recargar... {{iconRefresh}}" class="ico btn btn-flat btn-active label-recargar m-t-10" (tap)="recargar()"></Button>
+        <ActivityIndicator class="activity-indicator-white" [busy]="isLoading" [visibility]="cotizaciones.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+    </StackLayout>
 
-    <RadListView class="m-y-5" [items]="cotizaciones" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
-        <ng-template tkListItemTemplate let-cotizacion="item" let-i="index">
 
-            <!-- <GridLayout class="card" rows="auto" columns="30,*,40" (tap)="irDetalle(cotizacion._id,i)"z> -->
-            <GridLayout class="card elevation p-2" androidElevation="4" rows="auto" columns="30,*,40" (tap)="obtenerPosicionArreglo(i)" [nsRouterLink]="['/detalles', cotizacion._id]" pageTransition="slide">
+    <GridLayout rows="*" *ngIf="cotizaciones.length != 0">
 
-                <Label class="text-index" row="0" col="0" [text]="i+1" textWrap="true"></Label>
+        <RadListView class="m-y-5" [items]="cotizaciones" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
+            <ng-template tkListItemTemplate let-cotizacion="item" let-i="index">
 
-                <GridLayout row="0" col="1" class=" card-layout" rows="auto, *" columns="*,*, *">
+                <!-- <GridLayout class="card" rows="auto" columns="30,*,40" (tap)="irDetalle(cotizacion._id,i)"z> -->
+                <GridLayout class="card elevation p-2" androidElevation="4" rows="auto" columns="30,*,40" (tap)="obtenerPosicionArreglo(i)" [nsRouterLink]="['/detalles', cotizacion._id]" pageTransition="slide">
 
-                    <Label class="text-head" row="0" col="0" text="Fecha:" textWrap="true"></Label>
-                    <Label class="text-head" row="0" col="1" text="Total:" textWrap="true"></Label>
-                    <Label class="text-head" row="0" col="2" text="Revisado:" textWrap="true"></Label>
-                    <Label class="text-desc" row="1" col="0" [text]="cotizacion.fechaCreacion | date:'mediumDate':'es'" textWrap="true"></Label>
-                    <Label class="text-desc" row="1" col="1" text="$ {{cotizacion.total | number:'.2-2'}}" textWrap="true"></Label>
-                    <Label class="text-desc check ico" row="1" col="2" *ngIf="cotizacion.atendido" [text]="iconRevisado" textWrap="true"></Label>
-                    <Label class="text-desc uncheck ico" row="1" col="2" *ngIf="!cotizacion.atendido" [text]="iconNoRevisado" textWrap="true"></Label>
+                    <Label class="text-index" row="0" col="0" [text]="i+1" textWrap="true"></Label>
+
+                    <GridLayout row="0" col="1" class=" card-layout" rows="auto, *" columns="*,*, *">
+
+                        <Label class="text-head" row="0" col="0" text="Fecha:" textWrap="true"></Label>
+                        <Label class="text-head" row="0" col="1" text="Total:" textWrap="true"></Label>
+                        <Label class="text-head" row="0" col="2" text="Revisado:" textWrap="true"></Label>
+                        <Label class="text-desc" row="1" col="0" [text]="cotizacion.fechaCreacion | date:'mediumDate':'es'" textWrap="true"></Label>
+                        <Label class="text-desc" row="1" col="1" text="$ {{cotizacion.total | number:'.2-2'}}" textWrap="true"></Label>
+                        <Label class="text-desc check ico" row="1" col="2" *ngIf="cotizacion.atendido" [text]="iconRevisado" textWrap="true"></Label>
+                        <Label class="text-desc uncheck ico" row="1" col="2" *ngIf="!cotizacion.atendido" [text]="iconNoRevisado" textWrap="true"></Label>
+
+                    </GridLayout>
+                    <Label class="ico text-icon" row="0" col="2" [text]="iconIr" textWrap="true"></Label>
 
                 </GridLayout>
-                <Label class="ico text-icon" row="0" col="2" [text]="iconIr" textWrap="true"></Label>
 
-            </GridLayout>
+            </ng-template>
 
-        </ng-template>
+        </RadListView>
 
-    </RadListView>
+    </GridLayout>
 
 </GridLayout>

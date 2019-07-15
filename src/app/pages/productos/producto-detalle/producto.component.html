@@ -1,9 +1,9 @@
 <ns-action-bar title="{{nombre}}" class="action-bar"></ns-action-bar>
 
-<ScrollView>
+<ScrollView class="page">
 
 
-    <GridLayout rows="*,*" columns="*" class="page p-y-5 visible" *ngIf="!isLoading">
+    <GridLayout rows="*,*" columns="*" class="p-y-5 visible" *ngIf="!isLoading">
 
         <StackLayout row="0" col="0" class="card elevation" androidElevation="6">
 
@@ -78,5 +78,7 @@
         </GridLayout>
 
     </GridLayout>
+
     <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+
 </ScrollView>

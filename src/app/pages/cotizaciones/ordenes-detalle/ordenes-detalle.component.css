@@ -79,9 +79,10 @@ Button {
 .date-container {
     font-weight: bold;
     font-size: 16;
+    horizontal-align: center;
     color: #4A535D;
     letter-spacing: 0.03;
-    margin: 15 30 15 30
+    margin: 15 30 15 30;
 }
 
 .divider {
