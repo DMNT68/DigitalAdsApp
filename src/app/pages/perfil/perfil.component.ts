@@ -143,7 +143,8 @@ export class PerfilComponent {
     .then(() => context.present())
     .then((selection) => {
         selection.forEach((selected) => {
-          this.imagenSubir = selected._android;
+          // this.imagenSubir = selected._android;
+          this.imagenSubir = selected;
           this.cambiarImagen();
           console.log('selected:', selected);
       });
