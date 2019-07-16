@@ -7,10 +7,11 @@ import { map} from "rxjs/operators";
 
 import {getString, setString, remove} from "tns-core-modules/application-settings";
 
-import {UtilService} from "../service.index"
 
 import { Usuario } from '../../models/usuario.model';
 import { URL_SERVICIOS } from '../../../config/config';
+import { SubirArchivoService } from '../subirArchivo/subir-archivo.service';
+
 
 @Injectable() 
 export class UsuarioService { 
@@ -20,7 +21,7 @@ export class UsuarioService {
 
   processing = false;
 
-  constructor(private router: RouterExtensions , private http:HttpClient) { 
+  constructor(private router: RouterExtensions , private http:HttpClient, private _sas:SubirArchivoService) { 
       this.cargaLocalData();
   } 
 
@@ -102,10 +103,10 @@ export class UsuarioService {
 
   }
 
-  public alert(message: string) {
+  public alert(message: string, title?:string) {
 
     return alert({
-        title: "DIGITAL ADS",
+        title: title || 'DIGITAL ADS',
         okButtonText: "OK",
         message: message
     });
@@ -133,6 +134,20 @@ export class UsuarioService {
 
     }));
 
+  }
+
+  cambiarImagen(archivo: File , id: string) {
+
+    this._sas.subirArhivo(archivo, 'usuarios', id)
+    .then((resp: any) => {
+      this.usuario.img = resp.usuario.img;
+      this.alert('Imagen Actualizada');
+      this.guardarLocaData(id, this.token, this.usuario);
+    })
+    .catch(resp => {
+      this.alert(resp.err.message,'Error al actualizar imagen');
+    });
+    
   }
 
 } 

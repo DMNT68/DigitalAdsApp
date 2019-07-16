@@ -2,7 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule} from '@angular/common';
 import { HttpClientModule} from '@angular/common/http';
 
-import { UsuarioService, ProductoService, LoginGuard, UtilService, CarritoService} from './service.index';
+import {
+        UsuarioService, 
+        ProductoService, 
+        LoginGuard, 
+        UtilService, 
+        CarritoService, 
+        SubirArchivoService
+      } from './service.index';
 
 
 
@@ -17,7 +24,8 @@ import { UsuarioService, ProductoService, LoginGuard, UtilService, CarritoServic
     ProductoService,
     LoginGuard,
     UtilService,
-    CarritoService
+    CarritoService,
+    SubirArchivoService
   ]
 })
 export class ServiceModule { }

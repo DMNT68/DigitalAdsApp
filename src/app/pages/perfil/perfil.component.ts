@@ -5,6 +5,8 @@ import {prompt, inputType } from "tns-core-modules/ui/dialogs";
 import { UsuarioService, UtilService } from '../../shared/services/service.index';
 import { Usuario } from '../../shared/models/usuario.model';
 
+import * as imagepicker from "nativescript-imagepicker";
+
 @Component({
   selector: 'ns-perfil',
   moduleId:module.id,
@@ -15,11 +17,14 @@ import { Usuario } from '../../shared/models/usuario.model';
 export class PerfilComponent {
 
   usuario: Usuario;
+  img:any;
   editar= false;
 	iconNombre: string;
   iconEmail: string;
   iconTelefono: string;
   iconEditar:string;
+  imagenSubir: File;
+  imagenTemp: string;
   
 
   constructor(public _usuarioService: UsuarioService, private _util: UtilService) {
@@ -123,7 +128,37 @@ export class PerfilComponent {
     });
   }
 
+
+  public onSelectSingleTap() {
+    let context = imagepicker.create({
+        mode: "single"
+    });
+    this.startSelection(context);
+  }
+
+  private startSelection(context) {
+    
+    context
+    .authorize()
+    .then(() => context.present())
+    .then((selection) => {
+        selection.forEach((selected) => {
+          this.imagenSubir = selected._android;
+          this.cambiarImagen();
+          console.log('selected:', selected);
+      });
+      
+    }).catch(function (e) {
+        console.log(e);
+    });
+  }
+
+  cambiarImagen() {
+    this._usuarioService.cambiarImagen(this.imagenSubir, this.usuario._id);
+  }
+
   salir(){
     this._usuarioService.logout();
   }
+
 }
