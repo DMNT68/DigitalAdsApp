@@ -30,6 +30,7 @@ export class PerfilComponent {
 
   constructor(public _usuarioService: UsuarioService, private _util: UtilService) {
     this.usuario = this._usuarioService.usuario;
+    // Iconos
     this.iconNombre = this._util.iconNombre;
     this.iconEmail = this._util.iconEmail ;
     this.iconTelefono = this._util.iconTelefono;

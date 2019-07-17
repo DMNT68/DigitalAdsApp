@@ -86,10 +86,9 @@ export class ProductoComponent implements OnInit {
       setTimeout(() => {
         this.isLoading = false;
       }, 1000);
-
-      console.log('categoria', this.categoria);
       
     });
+    
   }
 
   variarPrecio(cantidad?: number){

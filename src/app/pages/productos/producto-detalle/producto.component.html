@@ -3,7 +3,7 @@
 <ScrollView class="page">
 
 
-    <GridLayout rows="*,*" columns="*" class="p-y-5 centrado-vertical" *ngIf="!isLoading">
+    <GridLayout rows="*,*" columns="*" class="p-y-5 centrado-vertical visible" *ngIf="!isLoading">
 
         <StackLayout row="0" col="0" class="card elevation" androidElevation="6">
 
@@ -70,10 +70,10 @@
             <GridLayout row="1" col="1" rows="*,*,*,*,*,*" columns="*" class="card-cotizar elevation" androidElevation="6">
                 <Label row="0" text="Costo"></Label>
                 <StackLayout row="1" class="hr-light"></StackLayout>
-                <Label *ngIf="aparecer" col="0" row="2" class=" m-y-12h3 text-danger text-center animate-transition-up" textWrap="true" text="${{precioFinal | number:'.2-2'}}"></Label>
+                <Label *ngIf="aparecer" col="0" row="2" class=" m-y-11 h3 text-danger text-center animate-transition-up" textWrap="true" text="${{precioFinal | number:'.2-2'}}"></Label>
                 <Label row="3" text="Realizar Pedido:"></Label>
                 <StackLayout row="4" class="hr-light"></StackLayout>
-                <Button col="0" row="5" [isEnabled]="activar || !rotulos && !rotulos3D" [text]="iconCarrito" class=" m-y-12 btn ico icon-cart-add icon-2x btn-active" width="50" (tap)="agregarPedido()"></Button>
+                <Button col="0" row="5" [isEnabled]="activar || !rotulos && !rotulos3D" [text]="iconCarrito" class=" m-y-11 btn ico icon-cart-add icon-2x btn-active" width="50" (tap)="agregarPedido()"></Button>
             </GridLayout>
         </GridLayout>
 

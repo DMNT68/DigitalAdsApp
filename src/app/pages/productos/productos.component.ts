@@ -48,8 +48,6 @@ export class ProductosComponent implements OnInit {
   
 
   ngOnInit(){
-
-    console.log('Accediste al componente de productos');
     
     this.isLoading = true;
     setTimeout(() => {

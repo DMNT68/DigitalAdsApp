@@ -138,7 +138,7 @@
 
 .visible {
     animation-name: show;
-    animation-duration: 1s;
+    animation-duration: 0.7s;
     animation-fill-mode: forwards;
 }
 
