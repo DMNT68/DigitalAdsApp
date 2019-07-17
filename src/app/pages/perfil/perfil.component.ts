@@ -6,6 +6,7 @@ import { UsuarioService, UtilService } from '../../shared/services/service.index
 import { Usuario } from '../../shared/models/usuario.model';
 
 import * as imagepicker from "nativescript-imagepicker";
+import { ios } from 'tns-core-modules/application/application';
 
 @Component({
   selector: 'ns-perfil',
@@ -143,10 +144,22 @@ export class PerfilComponent {
     .then(() => context.present())
     .then((selection) => {
         selection.forEach((selected) => {
-          // this.imagenSubir = selected._android;
+
+          if (ios) {
+
+          this.imagenSubir = selected._ios;
           this.imagenSubir = selected;
           this.cambiarImagen();
           console.log('selected:', selected);
+
+          } else {
+
+            this.imagenSubir = selected._android;
+            this.imagenSubir = selected;
+            this.cambiarImagen();
+            console.log('selected:', selected);
+          }
+
       });
       
     }).catch(function (e) {

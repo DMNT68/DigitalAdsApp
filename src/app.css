@@ -30,6 +30,10 @@
     vertical-align: center;
 }
 
+.centrado-horizontal {
+    horizontal-vertical: center;
+}
+
 .img-circle {
     border-radius: 100%;
     border-width: 2;
