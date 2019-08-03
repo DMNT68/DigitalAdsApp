@@ -1,15 +1,12 @@
-<TabView class="tab-view ico" androidTabsPosition="bottom">
+<TabView class="tab-view" androidTabsPosition="bottom">
 
-    <StackLayout class="ico" *tabItem="{title: 'Productos', iconSource:'res://home'}">
-        <page-router-outlet name="productosTab"></page-router-outlet>
-    </StackLayout>
 
-    <StackLayout *tabItem="{title: 'Cotizaciones',iconSource:'res://cot'}">
-        <page-router-outlet name="cotizacionesTab"></page-router-outlet>
-    </StackLayout>
+    <page-router-outlet *tabItem="{title: 'Productos', iconSource:'res://home'}" name="productosTab"></page-router-outlet>
 
-    <StackLayout *tabItem="{title: 'Perfil',iconSource:'res://account'}">
-        <page-router-outlet name="perfilTab"></page-router-outlet>
-    </StackLayout>
+
+    <page-router-outlet *tabItem="{title: 'Cotizaciones',iconSource:'res://cot'}" name="cotizacionesTab"></page-router-outlet>
+
+
+    <page-router-outlet *tabItem="{title: 'Perfil',iconSource:'res://account'}" name="perfilTab"></page-router-outlet>
 
 </TabView>
