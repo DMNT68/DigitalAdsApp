@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import {prompt, inputType } from "tns-core-modules/ui/dialogs";
 
-import { UsuarioService, UtilService } from '../../shared/services/service.index';
+import { UsuarioService, UtilService, CarritoService } from '../../shared/services/service.index';
 import { Usuario } from '../../shared/models/usuario.model';
 
 import * as imagepicker from "nativescript-imagepicker";
@@ -28,7 +28,7 @@ export class PerfilComponent {
   imagenTemp: string;
   
 
-  constructor(public _usuarioService: UsuarioService, private _util: UtilService) {
+  constructor(public _usuarioService: UsuarioService, private _util: UtilService, private _cs: CarritoService) {
     this.usuario = this._usuarioService.usuario;
     // Iconos
     this.iconNombre = this._util.iconNombre;
@@ -172,7 +172,8 @@ export class PerfilComponent {
     this._usuarioService.cambiarImagen(this.imagenSubir, this.usuario._id);
   }
 
-  salir(){
+  salir() {
+    this._cs.vaciarCarrito();
     this._usuarioService.logout();
   }
 

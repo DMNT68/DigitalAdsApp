@@ -11,6 +11,7 @@ import {getString, setString, remove} from "tns-core-modules/application-setting
 import { Usuario } from '../../models/usuario.model';
 import { URL_SERVICIOS } from '../../../config/config';
 import { SubirArchivoService } from '../subirArchivo/subir-archivo.service';
+import { CarritoService } from "../carrito/carrito.service";
 
 
 @Injectable() 
@@ -79,8 +80,8 @@ export class UsuarioService {
 
   logout() {
 
-      // this.usuario = null;
-      // this.token = '';
+      this.usuario = null;
+      this.token = '';
   
       remove('usuario');
       remove('token');

@@ -5,11 +5,11 @@ import { RouterExtensions } from 'nativescript-angular/router';
 
 import {getString, setString, remove} from "tns-core-modules/application-settings";
 
-import { UsuarioService, UtilService } from '../service.index';
-
 import { URL_SERVICIOS } from '~/app/config/config';
 import { map } from 'rxjs/operators';
 import { Producto } from '../../models/producto.model';
+import { UtilService } from '../util/util.service';
+import { UsuarioService } from '../usuario/usuario.service';
 
 
 @Injectable({
@@ -28,9 +28,15 @@ export class CarritoService {
   pedidos:any[]=[];
   i:number;
 
-  constructor(private http: HttpClient, private _util: UtilService, private _us:UsuarioService, private router: RouterExtensions) { 
+  constructor(
+    private http: HttpClient, 
+    public _us: UsuarioService, 
+    public _util: UtilService, 
+    private router: RouterExtensions) { 
+
     this.cargarLocalData();
     this.actualizar_total();
+
   }
 
   realizarPedido() {
@@ -168,11 +174,35 @@ export class CarritoService {
     this.guardarLocalData();
   }
 
+  vaciarCarrito() {
+    this.items=[];
+    this.cantidades=[];
+    this.alturas=[];
+    this.anchos=[];
+    this.nroLetras=[];
+    this.preciosFinales=[];
+    this.actualizar_total();
+    this.guardarLocalData();
+    this.removed();
+    
+
+  }
+
   actualizar_total(){
     this.total_carrito=0;
     for (const t of this.preciosFinales) {
       this.total_carrito+=t;
     }
+  }
+
+  private removed() {
+    remove('items');
+    remove('cantidades');
+    remove('alturas');
+    remove('anchos');
+    remove('nroLetras');
+    remove('preciosFinales');
+
   }
 
   private guardarLocalData() {
