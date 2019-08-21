@@ -35,7 +35,6 @@ export class LoginComponent {
       error => {
         this._usuarioService.alert(error.error.error.message);
         this._usuarioService.processing = false;
-        console.log('error:',error);
       }
     );
     

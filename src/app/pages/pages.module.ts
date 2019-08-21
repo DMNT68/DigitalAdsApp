@@ -12,7 +12,7 @@ import { ProductoComponent } from './productos/producto-detalle/producto.compone
 import { ProductosComponent } from './productos/productos.component';
 import { CotizacionesComponent } from './cotizaciones/cotizaciones.component';
 import { PerfilComponent } from './perfil/perfil.component';
-import { TabsComponent } from './tabs/tabs.component';
+import { TabsNavComponent } from './tabs-nav/tabs-nav.component';
 import { OrdenesDetalleComponent } from './cotizaciones/ordenes-detalle/ordenes-detalle.component';
 import { CarritoComponent } from './carrito/carrito.component';
 
@@ -22,7 +22,7 @@ import { CarritoComponent } from './carrito/carrito.component';
         ProductosComponent,
         CotizacionesComponent,
         PerfilComponent,
-        TabsComponent,
+        TabsNavComponent,
         OrdenesDetalleComponent,
         CarritoComponent
     ],

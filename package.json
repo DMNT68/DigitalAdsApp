@@ -2,10 +2,10 @@
     "nativescript": {
         "id": "com.digitalads.digitalads",
         "tns-ios": {
-            "version": "5.1.1"
+            "version": "6.0.1"
         },
         "tns-android": {
-            "version": "5.4.0"
+            "version": "6.0.0"
         }
     },
     "description": "Aplicación de Cotización para la empresa Digital ads ",
@@ -24,19 +24,18 @@
         "nativescript-angular": "^8.0.1",
         "nativescript-imagepicker": "^6.2.0",
         "nativescript-theme-core": "~1.0.4",
-        "nativescript-ui-listview": "^6.1.0",
+        "nativescript-ui-listview": "7.0.0",
         "reflect-metadata": "~0.1.12",
         "rxjs": "^6.3.3",
-        "tns-core-modules": "^5.4.2",
-        "typescript": "~3.4.5",
+        "tns-core-modules": "6.0.1",
         "zone.js": "^0.8.4"
     },
     "devDependencies": {
         "@angular/compiler-cli": "8.0.0",
         "@nativescript/schematics": "^0.5.2",
         "@ngtools/webpack": "8.0.0",
-        "nativescript-dev-typescript": "^0.10.0",
-        "nativescript-dev-webpack": "^0.24.1"
+        "nativescript-dev-webpack": "1.0.1",
+        "typescript": "3.4.5"
     },
     "gitHead": "9b6565a4513375a33a59c44262dfc1d818a8205e",
     "readme": "NativeScript Application",

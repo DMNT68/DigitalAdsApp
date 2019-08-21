@@ -5,12 +5,12 @@ import { Page } from 'tns-core-modules/ui/page';
 import { UsuarioService } from '~/app/shared/services/service.index';
 
 @Component({
-  selector: 'Tabs',
+  selector: 'Tabs-nav',
   moduleId: module.id,
-  templateUrl: `tabs.component.html`,
-  styleUrls:['tabs.component.css']
+  templateUrl: `tabs-nav.component.html`,
+  styleUrls:['tabs-nav.component.css']
 })
-export class TabsComponent implements OnInit {
+export class TabsNavComponent implements OnInit {
   
   isLoading= false;
 
