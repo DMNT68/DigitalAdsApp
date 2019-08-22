@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ListViewEventData } from 'nativescript-ui-listview';
 import { View } from 'tns-core-modules/ui/page/page';
 
@@ -11,7 +11,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
   templateUrl: `cotizaciones.component.html`,
   styleUrls: ['cotizaciones.component.css']
 })
-export class CotizacionesComponent {
+export class CotizacionesComponent implements OnInit{
 
     getLista:any;
     cargando:boolean=false;
@@ -22,6 +22,8 @@ export class CotizacionesComponent {
     iconNoRevisado:string;
     iconRefresh:string;
     isLoading = false;
+
+  
 
   constructor(private _us: UsuarioService,
               private router:RouterExtensions,

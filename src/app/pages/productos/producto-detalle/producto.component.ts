@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
 
 import { Producto } from '../../../shared/models/producto.model';
 import { ProductoService, UtilService, CarritoService } from '../../../shared/services/service.index';
 import { RouterExtensions, PageRoute } from 'nativescript-angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ns-producto',
@@ -14,7 +15,7 @@ import { RouterExtensions, PageRoute } from 'nativescript-angular/router';
   styleUrls:['../productos.component.css']
 
 })
-export class ProductoComponent implements OnInit {
+export class ProductoComponent implements OnInit, OnDestroy {
 
   producto: Producto;
   precioFinal: number;
@@ -22,6 +23,8 @@ export class ProductoComponent implements OnInit {
   nletras: number = 0;
   alto: number = 0;
   ancho: number = 0;
+
+  productoSubscription: Subscription;
 
   categoria: string;
   img: string;
@@ -52,16 +55,18 @@ export class ProductoComponent implements OnInit {
     this.iconMas = this._utilService.iconAdd;
     this.iconMenos = this._utilService.iconRemove;
 
-    this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
+    this.productoSubscription = this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
       activatedRoute.paramMap.subscribe(paramMap=>{
         const id = paramMap.get('id');
         this.getProducto(id);  
       });
     });
-
-
       // const id = this.activRoute.snapshot.params.id;
       // this.getProducto(id);    
+  }
+
+  ngOnDestroy() {
+    this.productoSubscription.unsubscribe();
   }
 
   getProducto(id: string) {

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PageRoute, RouterExtensions } from 'nativescript-angular/router';
 import { CarritoService, UsuarioService, UtilService } from '../../../shared/services/service.index';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ns-ordenes-detalle',
@@ -8,7 +9,7 @@ import { CarritoService, UsuarioService, UtilService } from '../../../shared/ser
   styleUrls: ['./ordenes-detalle.component.css'],
   moduleId: module.id,
 })
-export class OrdenesDetalleComponent implements OnInit {
+export class OrdenesDetalleComponent implements OnInit, OnDestroy {
 
   detalles:any[]=[];
   orden:any={}
@@ -16,6 +17,8 @@ export class OrdenesDetalleComponent implements OnInit {
   isLoading = false;
 
   iconDelete: string;
+
+  detalleSubcription: Subscription;
 
   constructor( private pageRoute: PageRoute,
     private _routerExtensions: RouterExtensions,
@@ -25,7 +28,7 @@ export class OrdenesDetalleComponent implements OnInit {
 
   ngOnInit() {
 
-    this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
+    this.detalleSubcription = this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
       activatedRoute.paramMap.subscribe(paramMap=>{
         const id = paramMap.get('id');
         this.getOrdenDetalle(id);  
@@ -34,6 +37,10 @@ export class OrdenesDetalleComponent implements OnInit {
 
     this.iconDelete = this._util.iconDelete;
 
+  }
+
+  ngOnDestroy(){
+    this.detalleSubcription.unsubscribe();
   }
 
   getOrdenDetalle(id:string){
