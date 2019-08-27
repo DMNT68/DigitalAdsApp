@@ -9,11 +9,11 @@
         </StackLayout>
     </ActionItem>
 
-    <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="aparecerBuscar(+1)">
+    <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="aparecerBuscar()">
         <Button class="btn btn-flat btn-active icon-search-color ico icon-2x" [text]="iconSearch" [isEnable]="productos.length == 0"></Button>
     </ActionItem>
 
-    <ActionItem *ngIf="aparecer" (tap)="aparecerBuscar(+1)" ios.position="right">
+    <ActionItem *ngIf="aparecer" (tap)="aparecerBuscar()" ios.position="right">
         <Button class="btn btn-flat btn-active action-item iconos ico" text="cerrar"></Button>
     </ActionItem>
 

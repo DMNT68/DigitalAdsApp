@@ -26,7 +26,6 @@ export class ProductosComponent implements OnInit {
   productos: Producto[] = [];
   textoBuscar = '';
   aparecer = false;
-  suma: number = 1;
   iconSearch: String;
   iconClose: String;
   iconUp: String;
@@ -38,16 +37,16 @@ export class ProductosComponent implements OnInit {
       public routerExtensions:RouterExtensions,
       public cs: CarritoService) { 
     
+  }
+  
+
+  ngOnInit(): void {
+
     this.iconSearch = this._utilService.iconSearch;
     this.iconClose = this._utilService.iconClose;
     this.iconUp = this._utilService.iconTop;
     this.iconCarrito = this._utilService.iconCart;
     this.iconProductos = this._utilService.iconHome;
-    
-  }
-  
-
-  ngOnInit(){
     
     this.isLoading = true;
     setTimeout(() => {
@@ -108,22 +107,18 @@ export class ProductosComponent implements OnInit {
   }
 
   
-  aparecerBuscar(valor:number) {
+  aparecerBuscar() {
 
-    this._utilService.cerrarTecladoTelefono();
-
-    this.suma += valor;
-    let residuo= 0;
-    residuo = this.suma % 2;
-    
-    if (residuo === 0) {
+    if (!this.aparecer) {
       this.aparecer=true;
       return;
     } else {
       this.aparecer = false;
       this.textoBuscar='';
+      this._utilService.cerrarTecladoTelefono();
       return;
     }
+
   }
 
   goCarrito() {

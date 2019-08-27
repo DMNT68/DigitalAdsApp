@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import {prompt, inputType } from "tns-core-modules/ui/dialogs";
 
@@ -15,7 +15,7 @@ import { ios } from 'tns-core-modules/application/application';
   templateUrl: `perfil.component.html`,
   styleUrls:['perfil.component.css']
 })
-export class PerfilComponent {
+export class PerfilComponent implements OnInit{
 
   usuario: Usuario;
   img:any;
@@ -29,12 +29,18 @@ export class PerfilComponent {
   
 
   constructor(public _usuarioService: UsuarioService, private _util: UtilService, private _cs: CarritoService) {
+
+  }
+
+  ngOnInit(): void {
+
     this.usuario = this._usuarioService.usuario;
     // Iconos
     this.iconNombre = this._util.iconNombre;
     this.iconEmail = this._util.iconEmail ;
     this.iconTelefono = this._util.iconTelefono;
     this.iconEditar = this._util.iconModeEdit;
+
   }
 
   modificar(texto:string, usuario:Usuario) {

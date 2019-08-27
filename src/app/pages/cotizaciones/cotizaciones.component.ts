@@ -33,12 +33,14 @@ export class CotizacionesComponent implements OnInit{
   }
 
   ngOnInit(): void {
+
     this.iconCotizaciones = this._utilService.iconListNumbered;
     this.iconIr = this._utilService.iconArrowRight;
     this.iconRevisado = this._utilService.iconCheckBox;
     this.iconNoRevisado = this._utilService.iconcheckBoxOutlineBlank;
     this.iconRefresh = this._utilService.iconRefresh;
     this.cargarOrdenes();
+    
   }
 
   obtenerPosicionArreglo(i:number) { 
