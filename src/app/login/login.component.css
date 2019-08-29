@@ -4,7 +4,7 @@ FlexboxLayout {
     justify-content: center;
     align-items: center;
     background-size: cover;
-    /* background-image: url("~/assets/images/background.png"); */
+    background-image: url("~/assets/images/background.png");
 }
 
 StackLayout {
@@ -38,6 +38,10 @@ TextField {
 TextField {
     placeholder-color: #2d3440;
     /* color: black; */
+}
+
+.ico{
+    font-size: 20;
 }
 
 .label {
