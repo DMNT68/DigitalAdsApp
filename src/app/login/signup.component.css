@@ -58,30 +58,20 @@ FlexboxLayout {
     margin-bottom: 15;
 }
 
-.input {
-    placeholder-color: #A8A8A8;
-    height: 20;
-}
-
 .btn-primary {
-    margin-top: 10
-}
-
-.login-label {
-    horizontal-align: center;
-    color: #A8A8A8;
-    font-size: 16;
-}
-
-.sign-up-label {
-    margin-bottom: 20;
-}
-
-.bold {
-    color: #000000;
+    margin-top: 10;
 }
 
 .label-signup {
     height: 18;
     font-size: 15;
+    font-weight: bold;
+    color: darkslateblue;
+    margin-bottom: 5;
+}
+
+TextField {
+    font-size: 18;
+    horizontal-align: right;
+    width: 95%;
 }

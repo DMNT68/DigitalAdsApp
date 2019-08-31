@@ -37,11 +37,17 @@ TextField {
 
 TextField {
     placeholder-color: #2d3440;
+    vertical-align: center;
     /* color: black; */
 }
 
-.ico{
+.icon-login {
     font-size: 20;
+    vertical-align: center;
+    padding: 5 5 15 5;
+    /* horizontal-align: center;
+    width: 20;
+    height: 20; */
 }
 
 .label {
