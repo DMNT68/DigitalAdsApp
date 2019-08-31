@@ -15,8 +15,7 @@ import { PipesModule } from "./shared/pipes/pipes.module";
 import { SharedModule } from "./shared/shared.module";
 
 import { AppComponent } from "./app.component";
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from "./login/signup.component";
+import { SignupComponent } from "./login/signup/signup.component";
 
 @NgModule({
     bootstrap: [
@@ -24,8 +23,6 @@ import { SignupComponent } from "./login/signup.component";
     ],
     imports: [
         NativeScriptModule,
-        ReactiveFormsModule,
-        NativeScriptFormsModule,
         NativeScriptHttpClientModule,
         AppRoutingModule,
         ServiceModule,
@@ -33,10 +30,7 @@ import { SignupComponent } from "./login/signup.component";
         SharedModule
     ],
     declarations: [
-        AppComponent,
-        LoginComponent,
-        SignupComponent
-,
+        AppComponent
     ],
     providers: [{ provide: LOCALE_ID, useValue: 'es-ES' }],
     schemas: [

@@ -38,7 +38,7 @@
 
                     <GridLayout class="card elevation" androidElevation="4">
                         <StackLayout class="card-layout">
-                            <Image class="img img-rounded" [src]="producto.img | imagen:'producto'"></Image>
+                            <Image class="img img-rounded" [src]="producto.img | imagen:'producto'" loadMode="async"></Image>
                         </StackLayout>
 
                         <StackLayout class="card-layout-description">

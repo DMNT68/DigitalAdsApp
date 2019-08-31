@@ -1,16 +1,12 @@
 import { NgModule } from "@angular/core";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { Routes } from "@angular/router";
+import { NativeScriptRouterModule } from "nativescript-angular/router";
 
-
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from "./login/signup.component";
 import { LoginGuard } from './shared/services/service.index';
 
-
 const routes: Routes = [
-    { path: "login", component: LoginComponent },
-    { path: "signup", component: SignupComponent },
+    { path: "login", loadChildren: "~/app/login/login/login.module#LoginModule" },
+    { path: "signup", loadChildren: "~/app/login/signup/signup.module#SignupModule"},
     { path: "",canActivate:[LoginGuard], loadChildren:'~/app/pages/pages.module#PagesModule'} 
 ];
 

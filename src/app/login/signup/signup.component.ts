@@ -4,8 +4,8 @@ import { FormGroup,FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Page } from 'tns-core-modules/ui/page/page';
 
 import { alert, prompt } from "tns-core-modules/ui/dialogs";
-import { UsuarioService, UtilService } from '../shared/services/service.index';
-import { Usuario } from '../shared/models/usuario.model';
+import { UsuarioService, UtilService } from '../../shared/services/service.index';
+import { Usuario } from '../../shared/models/usuario.model';
 import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
