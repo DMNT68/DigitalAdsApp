@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
-import { CarritoService, UtilService } from '~/app/shared/services/service.index';
+import { CarritoService, UtilService, ConectividadService } from '~/app/shared/services/service.index';
 
 import {ListViewItemAnimation} from "nativescript-ui-listview";
 
@@ -20,7 +20,7 @@ export class CarritoComponent implements OnInit {
 
   private _itemDeleteAnimation: ListViewItemAnimation;
 
-  constructor(private router: RouterExtensions, private _util: UtilService, public _cs: CarritoService) { }
+  constructor(private router: RouterExtensions, private _util: UtilService, public _cs: CarritoService, private _connect:ConectividadService) { }
 
   ngOnInit() {
 
@@ -33,6 +33,12 @@ export class CarritoComponent implements OnInit {
   }
 
   enviarPedido() {
+
+    if(this._connect.revisarConeccion()){
+      return;
+    }
+    
+
     this._util.confirm('¿Desea enviar el pedido para ser revisado?','Enviar Pedido')
     .then((result)=>{
       if(result){

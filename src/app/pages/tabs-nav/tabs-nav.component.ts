@@ -2,7 +2,7 @@ import { Component,  OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { Page } from 'tns-core-modules/ui/page';
-import { UsuarioService } from '~/app/shared/services/service.index';
+import { UsuarioService, ConectividadService } from '~/app/shared/services/service.index';
 
 @Component({
   selector: 'Tabs-nav',
@@ -18,11 +18,13 @@ export class TabsNavComponent implements OnInit {
     private router: RouterExtensions,
     private active: ActivatedRoute,
     private page: Page,
-    private _us: UsuarioService
+    private _us: UsuarioService,
+    private _connect: ConectividadService
   ){}
 
   ngOnInit(){
     this._us.cargaLocalData();
+    this._connect.conectividadStatus();
     this.loadTabRoutes();
     this.page.actionBarHidden = true;
   }

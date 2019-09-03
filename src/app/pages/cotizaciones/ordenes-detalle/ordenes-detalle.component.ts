@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PageRoute, RouterExtensions } from 'nativescript-angular/router';
-import { CarritoService, UsuarioService, UtilService } from '../../../shared/services/service.index';
+import { CarritoService, UsuarioService, UtilService, ConectividadService } from '../../../shared/services/service.index';
 import { Subscription } from 'rxjs';
+import * as Toast from 'nativescript-toast';
 
 @Component({
   selector: 'ns-ordenes-detalle',
@@ -24,7 +25,8 @@ export class OrdenesDetalleComponent implements OnInit, OnDestroy {
     private _routerExtensions: RouterExtensions,
     public cs:CarritoService,
     private _us: UsuarioService,
-    private _util: UtilService) { }
+    private _util: UtilService,
+    private _connect:ConectividadService) { }
 
   ngOnInit() {
 
@@ -51,16 +53,34 @@ export class OrdenesDetalleComponent implements OnInit, OnDestroy {
       }, 1000);
       this.orden=resp.orden;
       this.detalles=resp.detalles;
-    });
+    },
+      error => {
+  
+        if (this._connect.revisarConeccion()){
+          return;
+        }
+
+        console.log(error);
+      } 
+       
+    );
+
   }
 
   borrarOrden(id:string) {
+
+    if(this._connect.revisarConeccion()){
+      return;
+    }
+    
     this._util.confirm('¿Quieres eliminar la orden?','Eliminar Orden').then((res)=>{
       if(res){
         this.cs.borrarOrden(id).subscribe(()=>{
-          this._util.alert('La orden se ha eliminado').then(()=>{
-            this._routerExtensions.backToPreviousPage();
-          });
+          // this._util.alert('La orden se ha eliminado').then(()=>{
+          //   this._routerExtensions.backToPreviousPage();
+          // });
+          Toast.makeText('El pedido se ha eliminado').show();
+          this._routerExtensions.backToPreviousPage();
         });
       }
     });

@@ -25,7 +25,7 @@ export class PerfilComponent implements OnInit{
   iconTelefono: string;
   iconEditar:string;
   imagenSubir: File;
-  imagenTemp: string;
+  imagenActiva: boolean = false;
   
 
   constructor(public _usuarioService: UsuarioService, private _util: UtilService, private _cs: CarritoService) {
@@ -153,18 +153,20 @@ export class PerfilComponent implements OnInit{
         selection.forEach((selected) => {
 
           if (ios) {
-
-          this.imagenSubir = selected._ios;
-          this.imagenSubir = selected;
-          this.cambiarImagen();
-          console.log('selected:', selected);
+	          this.imagenActiva= true;
+            this.imagenSubir = selected._ios;
+          
+          // this.imagenSubir = selected;
+          // this.cambiarImagen();
+          console.log('selected ios:', selected);
 
           } else {
-
+            this.imagenActiva= true;
             this.imagenSubir = selected._android;
-            this.imagenSubir = selected;
-            this.cambiarImagen();
-            console.log('selected:', selected);
+            
+            // this.imagenSubir = selected;
+            // this.cambiarImagen();
+            console.log('selected Android:', selected);
           }
 
       });

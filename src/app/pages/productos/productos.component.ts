@@ -62,12 +62,6 @@ export class ProductosComponent implements OnInit {
   public onTapUp() {
     this.listViewComponent.listView.scrollToIndex(0, true);
   }
-  
-  onProductoTap(id){
-    this.routerExtensions.navigate([`/producto/${id}` , {
-      transition:{name:'slideTop',duration:1000,curve:'linear'}
-    }]);
-  }
 
   getProductos() {
     

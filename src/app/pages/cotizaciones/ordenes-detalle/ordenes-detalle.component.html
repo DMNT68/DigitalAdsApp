@@ -1,7 +1,9 @@
 <ns-action-bar title="Detalle" class="action-bar">
-    <ActionItem *ngIf="!isLoading" (tap)="borrarOrden(orden._id)" ios.position="right">
+
+    <ActionItem *ngIf="!isLoading" (tap)="borrarOrden(orden._id)" ios.position="right" class="m-10">
         <Button class="ico btn btn-flat btn-active iconDelete action-item" [text]="iconDelete"></Button>
     </ActionItem>
+
 </ns-action-bar>
 
 <GridLayout class="page">

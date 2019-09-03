@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { RouterExtensions } from 'nativescript-angular/router';
 
+import * as Toast from 'nativescript-toast';
+
 import {getString, setString, remove} from "tns-core-modules/application-settings";
 
 import { URL_SERVICIOS } from '~/app/config/config';
@@ -146,7 +148,7 @@ export class CarritoService {
   
     for (const item of this.items) {
       if(item._id == itemParametro._id){
-        this._util.alert(`El producto "${itemParametro.nombre}" ya se encuentra en el pedido`);
+        this._util.alert(`El producto "${itemParametro.nombre}" ya se encuentra en el pedido`).then(()=>{});
         return;
       }
     }
@@ -159,7 +161,10 @@ export class CarritoService {
     this.preciosFinales.push(preciofinalParametro);
     this.guardarLocalData();
     this.actualizar_total();
-    this._util.alert(`El producto "${itemParametro.nombre}" a sido agregado`);
+    this._util.alert(`El producto "${itemParametro.nombre}" a sido agregado`).then(()=>{
+      Toast.makeText('Continua cotizando o ve al carrito para realizar el pedido','long').show();
+      this.router.backToPreviousPage();
+    });
 
   }
 

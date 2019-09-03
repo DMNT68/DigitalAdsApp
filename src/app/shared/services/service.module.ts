@@ -8,7 +8,8 @@ import {
         LoginGuard, 
         UtilService, 
         CarritoService, 
-        SubirArchivoService
+        SubirArchivoService,
+        ConectividadService
       } from './service.index';
 
 
@@ -25,7 +26,8 @@ import {
     LoginGuard,
     UtilService,
     CarritoService,
-    SubirArchivoService
+    SubirArchivoService,
+    ConectividadService
   ]
 })
 export class ServiceModule { }

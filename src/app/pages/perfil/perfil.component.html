@@ -6,7 +6,8 @@
         <StackLayout class="form">
 
             <StackLayout>
-                <Image class="img-profile img-circle" [src]="usuario.img | imagen" (tap)="onSelectSingleTap()"></Image>
+                <Image *ngIf="!imagenActiva" class="img-profile img-circle" [src]="usuario.img | imagen" (tap)="onSelectSingleTap()"></Image>
+                <Image *ngIf="imagenActiva" class="img-profile img-circle" [src]="imagenSubir" (tap)="onSelectSingleTap()"></Image>
                 <!-- <Image class="img-profile img-circle" src="~/assets/images/profile.png"></Image>  -->
             </StackLayout>
 

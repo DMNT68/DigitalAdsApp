@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page/page';
-import { UsuarioService, UtilService} from '../../shared/services/service.index';
+import { UsuarioService, UtilService, ConectividadService} from '../../shared/services/service.index';
 import { Usuario } from '../../shared/models/usuario.model';
 import { RouterExtensions } from 'nativescript-angular/router';
 
@@ -18,7 +18,7 @@ export class LoginComponent {
   iconEmail: string= '';
   iconPassword: string = '';
 
-  constructor(private page:Page , private router:RouterExtensions, public _usuarioService:UsuarioService, private _util:UtilService) {
+  constructor(private page:Page , private router:RouterExtensions, public _usuarioService:UsuarioService, private _util:UtilService, private _connect:ConectividadService) {
     this.page.actionBarHidden = true;
     this.iconEmail = this._util.iconEmail;
     this.iconPassword = this._util.iconPassword;
@@ -26,10 +26,16 @@ export class LoginComponent {
   }
 
   ingresar(){
+
+    if (this._connect.revisarConeccion()){
+      return;
+    }
     
     let usuario = new Usuario(null,this.email,this.password);
     this._usuarioService.login(usuario)
-    .subscribe(() => this.router.navigate(['/'],{ clearHistory: true,transition:{name:'slide',duration:300,curve:'linear'} }),
+    .subscribe(() => {
+      this.router.navigate(['/'],{ clearHistory: true,transition:{name:'slide',duration:300,curve:'linear'} })
+    },
       error => {
         this._usuarioService.alert(error.error.error.message);
         this._usuarioService.processing = false;
@@ -39,7 +45,7 @@ export class LoginComponent {
   }
 
   irRegistrar(){
-
+    
     this.router.navigate(['/signup'], {
       transition:{
         name:'slideRight', 

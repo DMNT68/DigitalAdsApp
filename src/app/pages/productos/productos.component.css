@@ -80,6 +80,7 @@
         border-radius: 100%;
         border-color: transparent;
         border-width: 1;
+        padding-right: 5;
     }
     
     .icono-cart-color {

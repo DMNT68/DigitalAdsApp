@@ -3,8 +3,8 @@ import { ActivatedRoute } from "@angular/router";
 
 
 import { Producto } from '../../../shared/models/producto.model';
-import { ProductoService, UtilService, CarritoService } from '../../../shared/services/service.index';
-import { RouterExtensions, PageRoute } from 'nativescript-angular/router';
+import { ProductoService, UtilService, CarritoService, ConectividadService } from '../../../shared/services/service.index';
+import { PageRoute } from 'nativescript-angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -45,10 +45,9 @@ export class ProductoComponent implements OnInit, OnDestroy {
   constructor(
     public _utilService: UtilService, 
     public _productoService: ProductoService, 
-    private activRoute: ActivatedRoute,
     private pageRoute: PageRoute,
-    private _routerExtensions: RouterExtensions,
-    public cs:CarritoService) {}
+    public cs:CarritoService,
+    private _connect:ConectividadService) {}
     
   ngOnInit() {
     this.iconCarrito = this._utilService.iconCarritoAdd;
@@ -90,9 +89,16 @@ export class ProductoComponent implements OnInit, OnDestroy {
       
       setTimeout(() => {
         this.isLoading = false;
-      }, 1000);
+      }, 500);
       
-    });
+    },
+    error => {
+      if (this._connect.revisarConeccion()){
+        return;
+      }
+      console.log(error);
+    }
+    );
     
   }
 
