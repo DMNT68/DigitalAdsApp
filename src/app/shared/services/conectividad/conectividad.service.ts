@@ -26,7 +26,6 @@ export class ConectividadService {
         default:
             break;
     }
-    console.log(myConnectionType);
   }
 
   public revisarConeccion() : boolean {

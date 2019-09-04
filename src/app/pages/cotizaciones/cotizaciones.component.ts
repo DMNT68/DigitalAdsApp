@@ -2,12 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ListViewEventData } from 'nativescript-ui-listview';
 import { View } from 'tns-core-modules/ui/page/page';
 
-import { UtilService, CarritoService, UsuarioService } from '../../shared/services/service.index';
+import { UtilService, CarritoService, UsuarioService, ConectividadService } from '../../shared/services/service.index';
 import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
   selector: 'ns-cotizaciones',
-  moduleId: module.id,
   templateUrl: `cotizaciones.component.html`,
   styleUrls: ['cotizaciones.component.css']
 })
@@ -28,7 +27,8 @@ export class CotizacionesComponent implements OnInit{
   constructor(private _us: UsuarioService,
               private router:RouterExtensions,
               private _utilService: UtilService, 
-              private _cs:CarritoService) {
+              private _cs:CarritoService,
+              private _connect:ConectividadService) {
     
   }
 
@@ -50,6 +50,11 @@ export class CotizacionesComponent implements OnInit{
   cargarOrdenes() {
     this._cs.cargarOrdenes().subscribe(ordenes=>{
       this.cotizaciones = ordenes;
+    }, error => {
+      if (this._connect.revisarConeccion()){
+        return;
+      }
+      console.log(error);
     });
   }
   

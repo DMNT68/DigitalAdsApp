@@ -11,20 +11,16 @@ import { ServiceModule } from '../shared/services/service.module';
 import { ProductoComponent } from './productos/producto-detalle/producto.component';
 import { ProductosComponent } from './productos/productos.component';
 import { CotizacionesComponent } from './cotizaciones/cotizaciones.component';
-import { PerfilComponent } from './perfil/perfil.component';
 import { TabsNavComponent } from './tabs-nav/tabs-nav.component';
 import { OrdenesDetalleComponent } from './cotizaciones/ordenes-detalle/ordenes-detalle.component';
-import { CarritoComponent } from './carrito/carrito.component';
 
 @NgModule({
     declarations:[
         ProductoComponent,
         ProductosComponent,
         CotizacionesComponent,
-        PerfilComponent,
         TabsNavComponent,
-        OrdenesDetalleComponent,
-        CarritoComponent
+        OrdenesDetalleComponent
     ],
     imports: [
         NativeScriptCommonModule,

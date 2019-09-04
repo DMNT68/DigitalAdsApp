@@ -16,7 +16,7 @@ import { LoginComponent } from "./login.component";
         NativeScriptFormsModule,
         LoginRoutingModule
     ],
-    declarations: [LoginComponent], // declare all components that will be used within the module
-    providers: [ UsuarioService ] // provide all services that will be used within the module
+    declarations: [LoginComponent],
+    providers: [ UsuarioService ] 
 })
 export class LoginModule { }

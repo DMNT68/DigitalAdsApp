@@ -19,12 +19,10 @@ export class TabsNavComponent implements OnInit {
     private active: ActivatedRoute,
     private page: Page,
     private _us: UsuarioService,
-    private _connect: ConectividadService
   ){}
 
   ngOnInit(){
     this._us.cargaLocalData();
-    this._connect.conectividadStatus();
     this.loadTabRoutes();
     this.page.actionBarHidden = true;
   }

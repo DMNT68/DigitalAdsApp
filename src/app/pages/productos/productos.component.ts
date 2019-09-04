@@ -8,7 +8,7 @@ import { Producto } from '../../shared/models/producto.model';
 
 import { TextField } from "tns-core-modules/ui/text-field";
 
-import { ProductoService, UtilService, CarritoService } from '../../shared/services/service.index';
+import { ProductoService, UtilService, CarritoService, ConectividadService } from '../../shared/services/service.index';
 import { RadListViewComponent } from 'nativescript-ui-listview/angular';
 
 
@@ -35,7 +35,8 @@ export class ProductosComponent implements OnInit {
   constructor(public _utilService: UtilService, 
       public _productosService: ProductoService, 
       public routerExtensions:RouterExtensions,
-      public cs: CarritoService) { 
+      public cs: CarritoService,
+      private _connect:ConectividadService) { 
     
   }
   
@@ -68,6 +69,13 @@ export class ProductosComponent implements OnInit {
     this._productosService.cargarProductos()
     .subscribe(productos => {
       this.productos = productos;
+    },error => {
+
+      if (this._connect.revisarConeccion()){
+        return;
+      }
+      console.log(error);
+      
     });
   
   }
