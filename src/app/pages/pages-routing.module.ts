@@ -6,6 +6,7 @@ import { CotizacionesComponent } from "./cotizaciones/cotizaciones.component";
 import { ProductosComponent } from "./productos/productos.component";
 import { TabsNavComponent } from "./tabs-nav/tabs-nav.component";
 import { OrdenesDetalleComponent } from "./cotizaciones/ordenes-detalle/ordenes-detalle.component";
+import { CarritoComponent } from './carrito/carrito.component';
 
 const routes: Routes = [
     {path:'tabs-nav', component: TabsNavComponent, children:[
@@ -16,7 +17,7 @@ const routes: Routes = [
     },
     {path: "detalles/:id", component: OrdenesDetalleComponent},
     {path: "producto/:id", component: ProductoComponent},
-    {path: "carrito", loadChildren:'~/app/pages/carrito/carrito.module#CarritoModule'},
+    {path: "carrito", component: CarritoComponent},
     {path: '', redirectTo:'tabs-nav', pathMatch:'full'}
 ];
 
