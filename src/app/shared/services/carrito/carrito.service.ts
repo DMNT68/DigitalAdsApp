@@ -161,7 +161,7 @@ export class CarritoService {
     this.preciosFinales.push(preciofinalParametro);
     this.guardarLocalData();
     this.actualizar_total();
-    this._util.alert(`El producto "${itemParametro.nombre}" a sido agregado`).then(()=>{
+    this._util.alert(`El producto "${itemParametro.nombre}" se ha agregado`).then(()=>{
       Toast.makeText('Continua cotizando o ve al carrito para realizar el pedido','long').show();
       this.router.backToPreviousPage();
     });

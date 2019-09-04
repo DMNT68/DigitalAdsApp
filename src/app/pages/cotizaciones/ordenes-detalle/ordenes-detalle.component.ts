@@ -73,7 +73,7 @@ export class OrdenesDetalleComponent implements OnInit, OnDestroy {
       return;
     }
     
-    this._util.confirm('¿Quieres eliminar la orden?','Eliminar Orden').then((res)=>{
+    this._util.confirm('¿Quieres eliminar el pedido?','Eliminar Pedido').then((res)=>{
       if(res){
         this.cs.borrarOrden(id).subscribe(()=>{
           // this._util.alert('La orden se ha eliminado').then(()=>{
