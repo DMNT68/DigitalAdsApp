@@ -51,7 +51,7 @@ export class CotizacionesComponent implements OnInit{
     this._cs.cargarOrdenes().subscribe(ordenes=>{
       this.cotizaciones = ordenes;
     }, error => {
-      if (this._connect.revisarConeccion()){
+      if (this._connect.revisarConexion()){
         return;
       }
       console.log(error);

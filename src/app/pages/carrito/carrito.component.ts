@@ -34,7 +34,7 @@ export class CarritoComponent implements OnInit {
 
   enviarPedido() {
 
-    if(this._connect.revisarConeccion()){
+    if(this._connect.revisarConexion()){
       return;
     }
     

@@ -71,7 +71,7 @@ export class ProductosComponent implements OnInit {
       this.productos = productos;
     },error => {
 
-      if (this._connect.revisarConeccion()){
+      if (this._connect.revisarConexion()){
         return;
       }
       console.log(error);

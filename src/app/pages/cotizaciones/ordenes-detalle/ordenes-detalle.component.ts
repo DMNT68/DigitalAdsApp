@@ -56,7 +56,7 @@ export class OrdenesDetalleComponent implements OnInit, OnDestroy {
     },
       error => {
   
-        if (this._connect.revisarConeccion()){
+        if (this._connect.revisarConexion()){
           return;
         }
 
@@ -69,7 +69,7 @@ export class OrdenesDetalleComponent implements OnInit, OnDestroy {
 
   borrarOrden(id:string) {
 
-    if(this._connect.revisarConeccion()){
+    if(this._connect.revisarConexion()){
       return;
     }
     

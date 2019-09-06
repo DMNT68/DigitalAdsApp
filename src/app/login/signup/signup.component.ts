@@ -67,7 +67,7 @@ export class SignupComponent implements OnInit {
       this.alert("Llene los campos correctamente");
     }
     
-    if(this._connect.revisarConeccion()){
+    if(this._connect.revisarConexion()){
       return;
     }
 

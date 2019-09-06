@@ -28,7 +28,7 @@ export class ConectividadService {
     }
   }
 
-  public revisarConeccion() : boolean {
+  public revisarConexion() : boolean {
 
     this.conectividadStatus();
     if(this.status){
