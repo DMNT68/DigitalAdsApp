@@ -12,6 +12,9 @@
 android {  
   defaultConfig {  
     generatedDensities = []
+    ndk {
+      abiFilters.clear()
+    }
   }  
   aaptOptions {  
     additionalParameters "--no-version-vectors"  
