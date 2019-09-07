@@ -19,12 +19,22 @@ export class UsuarioService {
 
   usuario: Usuario;
   token: string;
+  avatar: string;
+
 
   processing = false;
 
   constructor(private router: RouterExtensions , private http:HttpClient, private _sas:SubirArchivoService) { 
       this.cargaLocalData();
   } 
+
+  crearAvatar() {
+    let nombre = this.usuario.nombre;
+    let arregloNombre = nombre.split(' ');
+    let avatar = arregloNombre.map(letra => letra.charAt(0)).slice(0,2).join('');
+    avatar.toUpperCase();
+    return avatar;
+  }
 
   estaLogueado() {
     this.cargaLocalData();
@@ -90,6 +100,7 @@ export class UsuarioService {
       this.router.navigate(['/login'], {clearHistory:true ,transition:{name:'slideRight', duration:300}});
   
     }
+
 
   crearUsuario(usuario:Usuario){
 

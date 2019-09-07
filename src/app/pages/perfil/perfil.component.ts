@@ -26,6 +26,7 @@ export class PerfilComponent implements OnInit{
   iconEditar:string;
   imagenSubir: File;
   imagenActiva: boolean = false;
+  avatar: string;
   
 
   constructor(public _usuarioService: UsuarioService, private _util: UtilService, private _cs: CarritoService) {
@@ -35,6 +36,7 @@ export class PerfilComponent implements OnInit{
   ngOnInit(): void {
 
     this.usuario = this._usuarioService.usuario;
+    this.avatar = this._usuarioService.crearAvatar();
     // Iconos
     this.iconNombre = this._util.iconNombre;
     this.iconEmail = this._util.iconEmail ;

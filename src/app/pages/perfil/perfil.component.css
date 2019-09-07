@@ -36,3 +36,10 @@
 .txt-usuario {
     font-size: 15;
 }
+
+.avatar {
+    color: white;
+    font-size: 95;
+    text-align: center;
+    background-color: #2d3440;
+}

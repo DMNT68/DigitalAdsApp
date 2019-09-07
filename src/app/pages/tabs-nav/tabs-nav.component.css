@@ -4,7 +4,7 @@ TabStripItem.tabstripitem-active:active {
 }
 
 .bottom-nav {
-    background-color: #2d3440;
+    background-color: rgba(255, 255, 255, 0.555);
 }
 
 .ico-font {
