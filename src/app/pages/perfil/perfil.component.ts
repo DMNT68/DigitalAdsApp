@@ -36,6 +36,9 @@ export class PerfilComponent implements OnInit{
   ngOnInit(): void {
 
     this.usuario = this._usuarioService.usuario;
+    this._usuarioService.imagenExistente().subscribe((resp:any)=>{
+      this.imagenActiva = resp.ok;
+    });
     this.avatar = this._usuarioService.crearAvatar();
     // Iconos
     this.iconNombre = this._util.iconNombre;

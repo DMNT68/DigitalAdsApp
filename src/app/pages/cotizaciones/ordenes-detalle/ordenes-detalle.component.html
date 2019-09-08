@@ -24,7 +24,7 @@
 
                 <GridLayout rows="auto, auto, auto, auto" columns="60, *, 30" class="order-details m-t-15">
 
-                    <Image class="img-circle imageList" [src]="detalles.producto.img | imagen:'producto'"></Image>
+                    <Image class="img-circle imageList" [src]="detalles.producto.img | imagen:'producto'" stretch="fill"></Image>
 
                     <Label col="1" class="order-taker" [text]="detalles.producto.nombre" textWrap="true"></Label>
 

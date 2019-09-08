@@ -148,6 +148,11 @@ export class UsuarioService {
 
   }
 
+  imagenExistente() {
+    let url = `${URL_SERVICIOS}/imagen-existe/usuarios/${this.usuario.img}`
+    return this.http.get(url);
+  }
+
   cambiarImagen(archivo: File , id: string) {
 
     this._sas.subirArhivo(archivo, 'usuarios', id)
