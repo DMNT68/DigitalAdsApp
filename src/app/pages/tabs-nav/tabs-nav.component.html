@@ -1,14 +1,19 @@
 <BottomNavigation selectedIndex="0">
 
 
-    <TabStrip class="bottom-nav">
-        <TabStripItem class="tabstripitem-active" title="Inicio" iconSource="res://home"></TabStripItem>
-        <TabStripItem class="tabstripitem-active" title="Pedidos" iconSource="res://cot"></TabStripItem>
-        <TabStripItem class="tabstripitem-active" title="Perfil" iconSource="res://account"></TabStripItem>
-        <!-- TODO: Icon font con problemas en el estilo bug ns v6.0 -->
-        <!-- <TabStripItem class="tabstripitem-active ico ico-font" title="Inicio" iconSource="font://&#xe88a;"></TabStripItem>
-        <TabStripItem class="tabstripitem-active ico ico-font" title="Pedidos" iconSource="font://&#xe242;"></TabStripItem>
-        <TabStripItem class="tabstripitem-active ico ico-font" title="Perfil" iconSource="font://&#xe853;"></TabStripItem> -->
+    <TabStrip>
+        <TabStripItem>
+            <Label text="Inicio"></Label>
+            <Image src="font://&#xe88a;" class="ico ico-font bounce"></Image>
+        </TabStripItem>
+        <TabStripItem `>
+            <Label text="Pedidos"></Label>
+            <Image src="font://&#xe242;" class="ico ico-font bounce"></Image>
+        </TabStripItem>
+        <TabStripItem `>
+            <Label text="Perfil"></Label>
+            <Image src="font://&#xe853;" class="ico ico-font bounce"></Image>
+        </TabStripItem>
     </TabStrip>
 
     <TabContentItem>
