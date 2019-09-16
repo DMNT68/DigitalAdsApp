@@ -32,10 +32,10 @@
         "zone.js": "^0.9.1"
     },
     "devDependencies": {
-        "@angular/compiler-cli": "~8.2.0",
+        "@angular/compiler-cli": "8.2.0",
         "@nativescript/schematics": "^0.7.1",
-        "@ngtools/webpack": "~8.2.0",
-        "nativescript-dev-webpack": "^1.0.1",
+        "@ngtools/webpack": "8.2.0",
+        "nativescript-dev-webpack": "^1.2.0",
         "typescript": "~3.5.3"
     },
     "gitHead": "9b6565a4513375a33a59c44262dfc1d818a8205e",
