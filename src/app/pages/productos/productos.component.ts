@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { ListViewEventData } from 'nativescript-ui-listview';
 
@@ -10,6 +10,7 @@ import { TextField } from "tns-core-modules/ui/text-field";
 
 import { ProductoService, UtilService, CarritoService, ConectividadService } from '../../shared/services/service.index';
 import { RadListViewComponent } from 'nativescript-ui-listview/angular';
+import { Subscription } from 'rxjs';
 
 
 
@@ -20,10 +21,11 @@ import { RadListViewComponent } from 'nativescript-ui-listview/angular';
   templateUrl: `productos.component.html`,
   styleUrls:['productos.component.css']
 })
-export class ProductosComponent implements OnInit {
+export class ProductosComponent implements OnInit, OnDestroy {
 
   isLoading = false;
   productos: Producto[] = [];
+  productosSubs: Subscription;
   textoBuscar = '';
   aparecer = false;
   iconSearch: String;
@@ -57,6 +59,10 @@ export class ProductosComponent implements OnInit {
     
   }
 
+  ngOnDestroy() {
+    this.productosSubs.unsubscribe();
+  }
+
 
   @ViewChild('myRadListView', { static:false }) listViewComponent: RadListViewComponent;
   
@@ -66,7 +72,7 @@ export class ProductosComponent implements OnInit {
 
   getProductos() {
     
-    this._productosService.cargarProductos()
+    this.productosSubs = this._productosService.cargarProductos()
     .subscribe(productos => {
       this.productos = productos;
     },error => {

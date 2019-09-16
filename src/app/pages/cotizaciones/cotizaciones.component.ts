@@ -4,17 +4,19 @@ import { View } from 'tns-core-modules/ui/page/page';
 
 import { UtilService, CarritoService, UsuarioService, ConectividadService } from '../../shared/services/service.index';
 import { RouterExtensions } from 'nativescript-angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ns-cotizaciones',
   templateUrl: `cotizaciones.component.html`,
   styleUrls: ['cotizaciones.component.css']
 })
-export class CotizacionesComponent implements OnInit{
+export class CotizacionesComponent implements OnInit, OnDestroy {
 
     getLista:any;
     cargando:boolean=false;
     cotizaciones: any[]=[];
+    cotizacionesSubs: Subscription;
     iconCotizaciones: string;
     iconIr:string;
     iconRevisado:string;
@@ -43,12 +45,16 @@ export class CotizacionesComponent implements OnInit{
     
   }
 
+  ngOnDestroy() {
+    this.cotizacionesSubs.unsubscribe();
+  }
+
   obtenerPosicionArreglo(i:number) { 
     this._cs.i=i;
   }
   
   cargarOrdenes() {
-    this._cs.cargarOrdenes().subscribe(ordenes=>{
+    this.cotizacionesSubs = this._cs.cargarOrdenes().subscribe(ordenes=>{
       this.cotizaciones = ordenes;
     }, error => {
       if (this._connect.revisarConexion()){
