@@ -12,7 +12,7 @@ const routes: Routes = [
     {path:'tabs-nav', component: TabsNavComponent, children:[
         { path: "productos", component: ProductosComponent, outlet:'productosTab'},
         { path: "cotizaciones", component: CotizacionesComponent, outlet:'cotizacionesTab'},
-        { path: "perfil", loadChildren:'~/app/pages/perfil/perfil.module#PerfilModule', outlet:'perfilTab'}       
+        { path: "perfil", loadChildren: () => import( './perfil/perfil.module' ).then( m => m.PerfilModule ), outlet:'perfilTab'}       
     ] 
     },
     {path: "detalles/:id", component: OrdenesDetalleComponent},
