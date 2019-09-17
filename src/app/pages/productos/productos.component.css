@@ -1,20 +1,15 @@
     .card {
         background-color: #ffffff;
-        margin: 5 10 5 10;
+        margin: 5;
         border-radius: 7;
-    }
-    
-    .card-layout {
-        padding: 0;
     }
     
     .card-layout-description {
         background-color: rgba(255, 255, 255, 0.555);
         color: #2d3440;
         vertical-align: bottom;
-        padding: 2;
-        padding-left: 10;
-        border-radius: 7;
+        padding: 2 10 2 10;
+        border-radius: 0 0 7 7;
     }
     
     .card-layout-description-p {
@@ -30,8 +25,12 @@
         vertical-align: center;
     }
     
-    .img {
-        padding: 0;
+    .img-rounded {
+        border-radius: 7;
+    }
+    
+    .img-rounded-card {
+        border-radius: 7 7 0 0;
     }
     
     .input-field {
@@ -88,11 +87,13 @@
         color: #28bfdb;
         padding-right: -2;
     }
+    /*1  2
+       ⬜  borde-radius: 1 2 3 4
+      3  4
+    */
     
     .icon-cart-add {
-        border-bottom-right-radius: 10;
-        border-bottom-left-radius: 10;
-        border-top-right-radius: 10;
+        border-radius: 0 10 10 10;
         background-color: #0e3743;
         color: #F8F0EE;
         width: 50;

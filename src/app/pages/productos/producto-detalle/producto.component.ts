@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
-
 import { Producto } from '../../../shared/models/producto.model';
 import { ProductoService, UtilService, CarritoService, ConectividadService } from '../../../shared/services/service.index';
 import { PageRoute } from 'nativescript-angular/router';
 import { Subscription } from 'rxjs';
+
+import * as Toast from 'nativescript-toast';
 
 @Component({
   selector: 'ns-producto',
@@ -184,7 +185,18 @@ export class ProductoComponent implements OnInit, OnDestroy {
   }
 
   agregarPedido(){
-    this.cs.agregarCarrito(this.producto,this.cantidad,this.alto,this.ancho,this.nletras,this.precioFinal)
+
+    if (this.rotulos || this.rotulos3D) {
+      if(this.activar){ 
+        this.cs.agregarCarrito(this.producto,this.cantidad,this.alto,this.ancho,this.nletras,this.precioFinal);
+        this.activar = false;
+      } else {
+        Toast.makeText('Debes cotizar el producto primero').show();
+      }
+    } else {
+      this.cs.agregarCarrito(this.producto,this.cantidad,this.alto,this.ancho,this.nletras,this.precioFinal);
+    }
+    
   }
 
   animation(){
