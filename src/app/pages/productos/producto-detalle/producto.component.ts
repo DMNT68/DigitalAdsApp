@@ -47,6 +47,7 @@ export class ProductoComponent implements OnInit, OnDestroy {
     public _utilService: UtilService, 
     public _productoService: ProductoService, 
     private pageRoute: PageRoute,
+    private activRoute : ActivatedRoute,
     public cs:CarritoService,
     private _connect:ConectividadService) {}
     
@@ -55,14 +56,14 @@ export class ProductoComponent implements OnInit, OnDestroy {
     this.iconMas = this._utilService.iconAdd;
     this.iconMenos = this._utilService.iconRemove;
 
-    this.productoSubscription = this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
-      activatedRoute.paramMap.subscribe(paramMap=>{
-        const id = paramMap.get('id');
-        this.getProducto(id);  
-      });
-    });
-      // const id = this.activRoute.snapshot.params.id;
-      // this.getProducto(id);    
+    // this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
+    //   activatedRoute.paramMap.subscribe(paramMap=>{
+    //     const id = paramMap.get('id');
+    //     this.getProducto(id);  
+    //   });
+    // });
+      const id = this.activRoute.snapshot.params.id;
+      this.getProducto(id);    
   }
 
   ngOnDestroy() {
@@ -71,7 +72,7 @@ export class ProductoComponent implements OnInit, OnDestroy {
 
   getProducto(id: string) {
     this.isLoading = true;
-    this._productoService.cargarProducto(id)
+    this.productoSubscription =  this._productoService.cargarProducto(id)
     .subscribe(producto =>{ 
       
       this.producto = producto;
@@ -196,7 +197,7 @@ export class ProductoComponent implements OnInit, OnDestroy {
     } else {
       this.cs.agregarCarrito(this.producto,this.cantidad,this.alto,this.ancho,this.nletras,this.precioFinal);
     }
-    
+
   }
 
   animation(){

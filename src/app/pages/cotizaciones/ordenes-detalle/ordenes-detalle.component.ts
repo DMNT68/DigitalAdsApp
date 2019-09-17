@@ -3,6 +3,7 @@ import { PageRoute, RouterExtensions } from 'nativescript-angular/router';
 import { CarritoService, UsuarioService, UtilService, ConectividadService } from '../../../shared/services/service.index';
 import { Subscription } from 'rxjs';
 import * as Toast from 'nativescript-toast';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'ns-ordenes-detalle',
@@ -21,7 +22,9 @@ export class OrdenesDetalleComponent implements OnInit, OnDestroy {
 
   detalleSubcription: Subscription;
 
-  constructor( private pageRoute: PageRoute,
+  constructor( 
+    private pageRoute: PageRoute,
+    private activRoute : ActivatedRoute,
     private _routerExtensions: RouterExtensions,
     public cs:CarritoService,
     private _us: UsuarioService,
@@ -30,12 +33,15 @@ export class OrdenesDetalleComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.detalleSubcription = this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
-      activatedRoute.paramMap.subscribe(paramMap=>{
-        const id = paramMap.get('id');
-        this.getOrdenDetalle(id);  
-      });
-    });
+    // this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
+    //   activatedRoute.paramMap.subscribe(paramMap=>{
+    //     const id = paramMap.get('id');
+    //     this.getOrdenDetalle(id);  
+    //   });
+    // });
+
+    const id = this.activRoute.snapshot.params.id;
+    this.getOrdenDetalle(id); 
 
     this.iconDelete = this._util.iconDelete;
 
@@ -47,10 +53,10 @@ export class OrdenesDetalleComponent implements OnInit, OnDestroy {
 
   getOrdenDetalle(id:string){
     this.isLoading = true;
-    this.cs.cargarOrdenDetalle(id).subscribe((resp:any)=>{
+    this.detalleSubcription = this.cs.cargarOrdenDetalle(id).subscribe((resp:any)=>{
     setTimeout(() => {
         this.isLoading = false;
-      }, 1000);
+      }, 500);
       this.orden=resp.orden;
       this.detalles=resp.detalles;
     },
