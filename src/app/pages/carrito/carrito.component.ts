@@ -7,8 +7,7 @@ import {ListViewItemAnimation} from "nativescript-ui-listview";
 @Component({
   selector: 'ns-carrito',
   templateUrl: './carrito.component.html',
-  styleUrls: ['./carrito.component.css'],
-  moduleId: module.id,
+  styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
 

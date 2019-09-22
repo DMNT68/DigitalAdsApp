@@ -6,7 +6,6 @@ import { UsuarioService, ConectividadService } from '~/app/shared/services/servi
 
 @Component({
   selector: 'Tabs-nav',
-  moduleId: module.id,
   templateUrl: `tabs-nav.component.html`,
   styleUrls:['tabs-nav.component.css']
 })

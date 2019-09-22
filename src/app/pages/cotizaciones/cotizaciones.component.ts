@@ -2,8 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ListViewEventData } from 'nativescript-ui-listview';
 import { View } from 'tns-core-modules/ui/page/page';
 
-import { UtilService, CarritoService, UsuarioService, ConectividadService } from '../../shared/services/service.index';
-import { RouterExtensions } from 'nativescript-angular/router';
+import { UtilService, CarritoService, ConectividadService } from '../../shared/services/service.index';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -26,11 +25,7 @@ export class CotizacionesComponent implements OnInit, OnDestroy {
 
   
 
-  constructor(private _us: UsuarioService,
-              private router:RouterExtensions,
-              private _utilService: UtilService, 
-              private _cs:CarritoService,
-              private _connect:ConectividadService) {
+  constructor(public _utilService: UtilService, private _cs:CarritoService, private _connect:ConectividadService) {
     
   }
 

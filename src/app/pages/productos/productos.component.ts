@@ -16,8 +16,6 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ns-productos',
-  moduleId: module.id,
-  providers: [ProductoService],
   templateUrl: `productos.component.html`,
   styleUrls:['productos.component.css']
 })

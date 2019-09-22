@@ -10,8 +10,6 @@ import { ios } from 'tns-core-modules/application/application';
 
 @Component({
   selector: 'ns-perfil',
-  moduleId:module.id,
-  providers:[UsuarioService],
   templateUrl: `perfil.component.html`,
   styleUrls:['perfil.component.css']
 })

@@ -3,12 +3,12 @@
 <ScrollView class="page">
 
 
-    <GridLayout rows="*,*" columns="*" class="p-y-5 centrado-vertical visible" *ngIf="!isLoading">
+    <GridLayout rows="*,*" class="p-y-5 centrado-vertical visible" *ngIf="!isLoading">
 
-        <StackLayout row="0" col="0" class="card elevation" androidElevation="6">
+        <StackLayout row="0" class="card elevation" androidElevation="6">
 
             <StackLayout>
-                <Image class="img-rounded-card" [src]="img | imagen:'producto'"></Image>
+                <Image class="img-rounded-card" loadMode="async" [src]="img | imagen:'producto'"></Image>
             </StackLayout>
 
             <StackLayout class="card-layout-description-p">
@@ -19,7 +19,7 @@
         </StackLayout>
 
 
-        <GridLayout row="1" col="0" rows="*" columns="*,*">
+        <GridLayout row="1" rows="*" columns="*,*">
             <GridLayout row="0" col="0" rows="*,*, auto" class="card-cotizar elevation" androidElevation="4">
 
                 <Label row="0" col="0" text="Cotiza el producto"></Label>
@@ -67,13 +67,13 @@
 
             </GridLayout>
 
-            <GridLayout row="1" col="1" rows="*,*,*,*,*,*" columns="*" class="card-cotizar elevation" androidElevation="6">
+            <GridLayout row="1" col="1" rows="*,*,*,*,*,*" class="card-cotizar elevation" androidElevation="6">
                 <Label row="0" text="Costo"></Label>
                 <StackLayout row="1" class="hr-light"></StackLayout>
-                <Label *ngIf="aparecer" col="0" row="2" class=" m-y-11 h3 text-danger text-center animate-transition-up" textWrap="true" text="${{precioFinal | number:'.2-2'}}"></Label>
+                <Label *ngIf="aparecer" row="2" class=" m-y-11 h3 text-danger text-center animate-transition-up" textWrap="true" text="${{precioFinal | number:'.2-2'}}"></Label>
                 <Label row="3" text="Agregar a la lista de pedidos:" textWrap="true"></Label>
                 <StackLayout row="4" class="hr-light"></StackLayout>
-                <Button col="0" row="5" [text]="iconCarrito" class=" m-y-11 btn ico icon-cart-add icon-2x btn-active" width="50" (tap)="agregarPedido()"></Button>
+                <Button row="5" [text]="iconCarrito" class=" m-y-11 btn ico icon-cart-add icon-2x btn-active" width="50" (tap)="agregarPedido()"></Button>
             </GridLayout>
         </GridLayout>
 

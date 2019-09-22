@@ -30,7 +30,7 @@
 .txt-version {
     text-align: center;
     font-size: 11;
-    margin-bottom: 5;
+    margin: 0 20 5 20;
 }
 
 .txt-usuario {
@@ -39,7 +39,12 @@
 
 .avatar {
     color: white;
-    font-size: 100;
+    font-size: 85;
     text-align: center;
     background-color: #222731;
+    padding-top: 10;
+}
+
+Button {
+    width: 40%;
 }

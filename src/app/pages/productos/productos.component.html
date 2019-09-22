@@ -29,25 +29,24 @@
         <ActivityIndicator class="activity-indicator" [busy]="productos.length == 0" [visibility]="productos.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
     </StackLayout>
 
-    <GridLayout rows="auto,*,auto" class="visible" *ngIf="productos.length != 0">
+    <GridLayout class="visible" *ngIf="productos.length != 0">
 
-        <RadListView #myRadListView row="1" class="p-t-5" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
+        <RadListView #myRadListView class="p-t-5" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
 
             <ng-template tkListItemTemplate let-producto="item">
-                <StackLayout [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
 
-                    <GridLayout class="card elevation" androidElevation="4">
-                        <StackLayout>
-                            <Image class="img-rounded" [src]="producto.img | imagen:'producto'" loadMode="async"></Image>
-                        </StackLayout>
+                <GridLayout class="card elevation" androidElevation="4" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
 
-                        <StackLayout class="card-layout-description">
-                            <Label class="label-title p-y-5" [text]="producto.nombre" textWrap="true"></Label>
-                            <Label class="label-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
-                        </StackLayout>
-                    </GridLayout>
+                    <Image class="img-rounded" [src]="producto.img | imagen:'producto'" loadMode="async"></Image>
 
-                </StackLayout>
+
+                    <StackLayout class="card-layout-description">
+                        <Label class="label-title p-y-5" [text]="producto.nombre" textWrap="true"></Label>
+                        <Label class="label-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
+                    </StackLayout>
+                </GridLayout>
+
+
             </ng-template>
 
             <ng-template tkListViewFooter>

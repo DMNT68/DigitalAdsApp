@@ -13,9 +13,9 @@
     <GridLayout rows="*" class="visible" *ngIf="cotizaciones.length != 0">
 
         <RadListView class="m-y-5" [items]="cotizaciones" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
+
             <ng-template tkListItemTemplate let-cotizacion="item" let-i="index">
 
-                <!-- <GridLayout class="card" rows="auto" columns="30,*,40" (tap)="irDetalle(cotizacion._id,i)"z> -->
                 <GridLayout class="card elevation p-2" androidElevation="4" rows="auto" columns="30,*,40" (tap)="obtenerPosicionArreglo(i)" [nsRouterLink]="['/detalles', cotizacion._id]" pageTransition="slide">
 
                     <Label class="text-index" row="0" col="0" [text]="i+1" textWrap="true"></Label>
@@ -31,7 +31,8 @@
                         <Label class="text-desc uncheck ico" row="1" col="2" *ngIf="!cotizacion.atendido" [text]="iconNoRevisado" textWrap="true"></Label>
 
                     </GridLayout>
-                    <Label class="ico text-icon" row="0" col="2" [text]="iconIr" textWrap="true"></Label>
+
+                    <Label class="ico text-icon" row="0" col="2" [text]="iconIr"></Label>
 
                 </GridLayout>
 

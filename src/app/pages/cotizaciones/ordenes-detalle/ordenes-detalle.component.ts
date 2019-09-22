@@ -8,8 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'ns-ordenes-detalle',
   templateUrl: './ordenes-detalle.component.html',
-  styleUrls: ['./ordenes-detalle.component.css'],
-  moduleId: module.id,
+  styleUrls: ['./ordenes-detalle.component.css']
 })
 export class OrdenesDetalleComponent implements OnInit, OnDestroy {
 

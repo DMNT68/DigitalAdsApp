@@ -15,7 +15,7 @@ StackLayout {
 }
 
 Image {
-    margin-bottom: 20;
+    margin: 10 0 10 0;
     height: 70;
 }
 

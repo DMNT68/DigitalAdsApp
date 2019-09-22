@@ -10,8 +10,6 @@ import * as Toast from 'nativescript-toast';
 
 @Component({
   selector: 'ns-producto',
-  moduleId: module.id,
-  providers:[ProductoService],
   templateUrl: `producto.component.html`,
   styleUrls:['../productos.component.css']
 
