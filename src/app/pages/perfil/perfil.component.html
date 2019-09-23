@@ -8,7 +8,7 @@
             <StackLayout vertical-align="center">
                 <Label class="avatar img-profile img-circle" *ngIf="!imagenActiva" [text]="avatar" (tap)="onSelectSingleTap()"></Label>
                 <!-- <Image *ngIf="imagenActiva" class="img-profile img-circle" [src]="usuario.img | imagen" (tap)="onSelectSingleTap()"></Image> -->
-                <Image *ngIf="imagenActiva " class="img-profile img-circle" [src]="imagenSubir" stretch="fill" (tap)="onSelectSingleTap()"></Image>
+                <Image *ngIf="imagenActiva" class="img-profile img-circle" [src]="imagenSrc" stretch="fill" (tap)="onSelectSingleTap()"></Image>
             </StackLayout>
 
             <GridLayout class="margen" rows="auto" columns="40, *, 40">

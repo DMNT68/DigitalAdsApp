@@ -22,7 +22,7 @@ export class PerfilComponent implements OnInit{
   iconEmail: string;
   iconTelefono: string;
   iconEditar:string;
-  imagenSubir: File;
+  imagenSrc: any;
   imagenActiva: boolean = false;
   avatar: string;
   
@@ -43,6 +43,7 @@ export class PerfilComponent implements OnInit{
     this.iconEmail = this._util.iconEmail ;
     this.iconTelefono = this._util.iconTelefono;
     this.iconEditar = this._util.iconModeEdit;
+    
 
   }
 
@@ -142,7 +143,8 @@ export class PerfilComponent implements OnInit{
 
   public onSelectSingleTap() {
     let context = imagepicker.create({
-        mode: "single"
+        mode: "single",
+        mediaType: 1
     });
     this.startSelection(context);
   }
@@ -153,23 +155,20 @@ export class PerfilComponent implements OnInit{
     .authorize()
     .then(() => context.present())
     .then((selection) => {
+      this.imagenSrc = selection.length > 0 ? selection[0] : null;
+      
         selection.forEach((selected) => {
 
           if (ios) {
 	          this.imagenActiva= true;
-            this.imagenSubir = selected._ios;
-          
-          // this.imagenSubir = selected;
-          // this.cambiarImagen();
+            // this.imagenSrc = selected.ios;
           console.log('selected ios:', selected);
 
           } else {
             this.imagenActiva= true;
-            this.imagenSubir = selected._android;
-            
-            // this.imagenSubir = selected;
-            // this.cambiarImagen();
+            this.imagenSrc = selected.android.toString();
             console.log('selected Android:', selected);
+
           }
 
       });
@@ -177,10 +176,6 @@ export class PerfilComponent implements OnInit{
     }).catch(function (e) {
         console.log(e);
     });
-  }
-
-  cambiarImagen() {
-    this._usuarioService.cambiarImagen(this.imagenSubir, this.usuario._id);
   }
 
   salir() {
