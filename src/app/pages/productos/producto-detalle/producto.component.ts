@@ -75,7 +75,7 @@ export class ProductoComponent implements OnInit, OnDestroy {
       
       this.producto = producto;
       this.img = producto.img;
-      this.nombre=producto.nombre;
+      this.nombre = producto.nombre;
       this.categoria = producto.categoria.descripcion;
       this.descripcion = producto.descripcion;
       this.precioFinal = +producto.precioUni;

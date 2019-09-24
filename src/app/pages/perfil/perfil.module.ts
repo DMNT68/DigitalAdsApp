@@ -6,6 +6,7 @@ import { PerfilRoutingModule } from './perfil-routing.module';
 import { ServiceModule } from '../../shared/services/service.module';
 import { PipesModule } from '../../shared/pipes/pipes.module';
 import { SharedModule } from '../../shared/shared.module';
+import { UsuarioService } from '../../shared/services/usuario/usuario.service';
 
 
 @NgModule({

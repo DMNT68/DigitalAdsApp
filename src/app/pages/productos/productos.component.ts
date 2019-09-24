@@ -50,7 +50,7 @@ export class ProductosComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.isLoading = false;
       this.getProductos();
-    }, 1000);
+    }, 500);
     
   }
 
@@ -96,7 +96,7 @@ export class ProductosComponent implements OnInit, OnDestroy {
       const listView = args.object;
       listView.notifyPullToRefreshFinished();
       this.animacion(listView);
-    }, 1000);
+    }, 500);
 
   }
 

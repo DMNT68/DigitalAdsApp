@@ -24,7 +24,7 @@ export class UsuarioService {
       this.cargaLocalData();
   } 
 
-  crearAvatar() {
+  crearAvatar(): string {
     let nombre = this.usuario.nombre;
     let arregloNombre = nombre.split(' ');
     let avatar = arregloNombre.map(letra => letra.charAt(0)).slice(0,2).join('');
@@ -34,8 +34,8 @@ export class UsuarioService {
 
   estaLogueado() {
     this.cargaLocalData();
-      return(this.token.length > 5 ) ? true : false; 
-    }
+    return(this.token.length > 5 ) ? true : false; 
+  }
 
   cargaLocalData() {
 
@@ -86,14 +86,14 @@ export class UsuarioService {
 
   logout() {
 
-      this.usuario = null;
-      this.token = '';
-  
-      remove('usuario');
-      remove('token');
-      remove('id');
+    remove('usuario');
+    remove('token');
+    remove('id');
 
-      this.router.navigate(['/login'], {clearHistory:true ,transition:{name:'slideRight', duration:300}});
+    this.usuario = null;
+    this.token = '';
+
+    this.router.navigate(['/login'], {clearHistory:true ,transition:{name:'slideRight', duration:300}});
   
     }
 
