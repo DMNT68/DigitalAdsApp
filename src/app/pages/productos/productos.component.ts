@@ -1,16 +1,13 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { ListViewEventData } from 'nativescript-ui-listview';
-
+import { RadListViewComponent } from 'nativescript-ui-listview/angular';
 import { View } from 'tns-core-modules/ui/page/page';
+import { TextField } from "tns-core-modules/ui/text-field";
+import { Subscription } from 'rxjs';
 
 import { Producto } from '../../shared/models/producto.model';
-
-import { TextField } from "tns-core-modules/ui/text-field";
-
 import { ProductoService, UtilService, CarritoService, ConectividadService } from '../../shared/services/service.index';
-import { RadListViewComponent } from 'nativescript-ui-listview/angular';
-import { Subscription } from 'rxjs';
 
 
 

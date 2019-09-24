@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core"; 
 import { HttpClient } from '@angular/common/http';
-import { throwError } from "rxjs";
 import { map} from "rxjs/operators";
+
 import { URL_SERVICIOS } from '../../../config/config';
 import { Producto } from "../../models/producto.model";
 

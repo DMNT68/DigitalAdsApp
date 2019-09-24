@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ListViewEventData } from 'nativescript-ui-listview';
 import { View } from 'tns-core-modules/ui/page/page';
+import { Subscription } from 'rxjs';
 
 import { UtilService, CarritoService, ConectividadService } from '../../shared/services/service.index';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ns-cotizaciones',

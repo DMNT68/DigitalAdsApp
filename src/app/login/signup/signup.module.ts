@@ -3,8 +3,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 
-import { UsuarioService } from '../../shared/services/usuario/usuario.service';
 import { SignupRoutingModule } from "./signup-routing.module";
+
+import { UsuarioService } from '../../shared/services/usuario/usuario.service';
 import { SignupComponent } from "./signup.component";
 
 @NgModule({

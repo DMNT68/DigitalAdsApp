@@ -11,9 +11,7 @@ import {
         SubirArchivoService,
         ConectividadService
       } from './service.index';
-
-
-
+      
 @NgModule({
   declarations: [],
   imports: [

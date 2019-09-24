@@ -2,7 +2,8 @@ import { Component,  OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { Page } from 'tns-core-modules/ui/page';
-import { UsuarioService, ConectividadService } from '~/app/shared/services/service.index';
+
+import { UsuarioService} from '~/app/shared/services/service.index';
 
 @Component({
   selector: 'Tabs-nav',

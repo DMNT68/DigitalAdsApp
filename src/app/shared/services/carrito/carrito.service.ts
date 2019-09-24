@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 import { RouterExtensions } from 'nativescript-angular/router';
-
 import * as Toast from 'nativescript-toast';
-
 import {getString, setString, remove} from "tns-core-modules/application-settings";
+import { map } from 'rxjs/operators';
 
 import { URL_SERVICIOS } from '~/app/config/config';
-import { map } from 'rxjs/operators';
 import { Producto } from '../../models/producto.model';
 import { UtilService } from '../util/util.service';
 import { UsuarioService } from '../usuario/usuario.service';

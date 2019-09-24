@@ -1,10 +1,8 @@
 import { Injectable } from "@angular/core"; 
-
 import { isIOS } from "tns-core-modules/platform";
 import * as utils from "tns-core-modules/utils/utils";
 import * as frame from "tns-core-modules/ui/frame";
 import { alert, confirm} from "tns-core-modules/ui/dialogs";
-
 
 @Injectable() 
 export class UtilService { 

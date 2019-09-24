@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page/page';
+import { RouterExtensions } from 'nativescript-angular/router';
+
 import { UsuarioService, UtilService, ConectividadService} from '../../shared/services/service.index';
 import { Usuario } from '../../shared/models/usuario.model';
-import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
   selector: 'ns-login',
@@ -32,7 +33,7 @@ export class LoginComponent {
     let usuario = new Usuario(null,this.email,this.password);
     this._usuarioService.login(usuario)
     .subscribe(() => {
-      this.router.navigate(['/'],{ clearHistory: true,transition:{name:'slide',duration:300,curve:'linear'} })
+      this.router.navigate(['/'],{ clearHistory: true,transition:{name:'slide'} })
     },
       error => {
         this._usuarioService.alert(error.error.error.message);
@@ -43,15 +44,7 @@ export class LoginComponent {
   }
 
   irRegistrar(){
-    
-    this.router.navigate(['/signup'], {
-      transition:{
-        name:'slideRight', 
-        duration:300, 
-        curve:'linear'
-      }
-    });
-
+    this.router.navigate(['/signup'], {transition:{name:'slideRight'}});
   }
 
   

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import {prompt, inputType } from "tns-core-modules/ui/dialogs";
+import { ios } from 'tns-core-modules/application/application';
+import * as imagepicker from "nativescript-imagepicker";
 
 import { UsuarioService, UtilService, CarritoService } from '../../shared/services/service.index';
 import { Usuario } from '../../shared/models/usuario.model';
 
-import * as imagepicker from "nativescript-imagepicker";
-import { ios } from 'tns-core-modules/application/application';
 
 @Component({
   selector: 'ns-perfil',
@@ -14,7 +14,7 @@ import { ios } from 'tns-core-modules/application/application';
   styleUrls:['perfil.component.css']
 })
 export class PerfilComponent implements OnInit{
-
+  
   usuario: Usuario;
   img:any;
   editar= false;
@@ -24,8 +24,7 @@ export class PerfilComponent implements OnInit{
   iconEditar:string;
   imagenSrc: any;
   imagenActiva: boolean = false;
-  avatar: string;
-  
+  avatar: string;  
 
   constructor(public _usuarioService: UsuarioService, private _util: UtilService, private _cs: CarritoService) {
 
@@ -44,7 +43,6 @@ export class PerfilComponent implements OnInit{
     this.iconTelefono = this._util.iconTelefono;
     this.iconEditar = this._util.iconModeEdit;
     
-
   }
 
   modificar(texto:string, usuario:Usuario) {

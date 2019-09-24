@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { connectionType, getConnectionType, startMonitoring, stopMonitoring }from "tns-core-modules/connectivity";
+import { connectionType, getConnectionType}from "tns-core-modules/connectivity";
 import * as Toast from 'nativescript-toast';
 
 @Injectable({

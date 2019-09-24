@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-
-import { Producto } from '../../../shared/models/producto.model';
-import { ProductoService, UtilService, CarritoService, ConectividadService } from '../../../shared/services/service.index';
 import { PageRoute } from 'nativescript-angular/router';
+import * as Toast from 'nativescript-toast';
 import { Subscription } from 'rxjs';
 
-import * as Toast from 'nativescript-toast';
+
+import { ProductoService, UtilService, CarritoService, ConectividadService } from '../../../shared/services/service.index';
+import { Producto } from '../../../shared/models/producto.model';
 
 @Component({
   selector: 'ns-producto',

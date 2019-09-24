@@ -1,6 +1,6 @@
 import { UsuarioService } from '../usuario/usuario.service';
-import { Injectable, Component } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { CanActivate } from '@angular/router';
 import { RouterExtensions } from 'nativescript-angular/router';
 
 // Servicios

@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
+import { Routes } from "@angular/router"; 
 import { NativeScriptRouterModule } from 'nativescript-angular/router';
-import { Routes } from "@angular/router";
+
 import { ProductoComponent } from "./productos/producto-detalle/producto.component";
 import { CotizacionesComponent } from "./cotizaciones/cotizaciones.component";
 import { ProductosComponent } from "./productos/productos.component";

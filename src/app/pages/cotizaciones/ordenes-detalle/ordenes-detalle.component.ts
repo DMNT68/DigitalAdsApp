@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { PageRoute, RouterExtensions } from 'nativescript-angular/router';
-import { CarritoService, UsuarioService, UtilService, ConectividadService } from '../../../shared/services/service.index';
-import { Subscription } from 'rxjs';
-import * as Toast from 'nativescript-toast';
 import { ActivatedRoute } from '@angular/router';
+import { PageRoute, RouterExtensions } from 'nativescript-angular/router';
+import * as Toast from 'nativescript-toast';
+import { Subscription } from 'rxjs';
+
+import { CarritoService, UsuarioService, UtilService, ConectividadService } from '../../../shared/services/service.index';
 
 @Component({
   selector: 'ns-ordenes-detalle',

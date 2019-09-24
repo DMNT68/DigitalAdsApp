@@ -1,17 +1,13 @@
 import { Injectable } from "@angular/core"; 
 import { RouterExtensions } from 'nativescript-angular/router';
 import { HttpClient,HttpHeaders } from "@angular/common/http";
-
-import { throwError } from "rxjs";
-import { map} from "rxjs/operators";
-
 import {getString, setString, remove} from "tns-core-modules/application-settings";
-
+import { map} from "rxjs/operators";
+import { throwError } from "rxjs";
 
 import { Usuario } from '../../models/usuario.model';
 import { URL_SERVICIOS } from '../../../config/config';
 import { SubirArchivoService } from '../subirArchivo/subir-archivo.service';
-import { CarritoService } from "../carrito/carrito.service";
 
 
 @Injectable() 
@@ -81,7 +77,7 @@ export class UsuarioService {
         this.guardarLocaData(String(resp._id) , String(resp.token) , resp.usuario);
         setTimeout(() => {
           this.processing=false;
-        }, 1000);
+        }, 500);
         return true;
 
     }));
@@ -149,7 +145,7 @@ export class UsuarioService {
   }
 
   imagenExistente() {
-    let url = `${URL_SERVICIOS}/imagen-existe/usuarios/${this.usuario.img}`
+    let url = `${URL_SERVICIOS}/imagen-existe/usuarios/${this.usuario.img}`;
     return this.http.get(url);
   }
 

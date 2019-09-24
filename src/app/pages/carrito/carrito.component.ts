@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
-import { CarritoService, UtilService, ConectividadService } from '~/app/shared/services/service.index';
-
 import {ListViewItemAnimation} from "nativescript-ui-listview";
+
+import { CarritoService, UtilService, ConectividadService } from '~/app/shared/services/service.index';
 
 @Component({
   selector: 'ns-carrito',

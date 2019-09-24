@@ -1,12 +1,11 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators } from '@angular/forms';
-
+import { RouterExtensions } from 'nativescript-angular/router';
 import { Page } from 'tns-core-modules/ui/page/page';
-
 import { alert } from "tns-core-modules/ui/dialogs";
+
 import { UsuarioService, UtilService, ConectividadService } from '../../shared/services/service.index';
 import { Usuario } from '../../shared/models/usuario.model';
-import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
   selector: 'ns-signup',
@@ -14,14 +13,13 @@ import { RouterExtensions } from 'nativescript-angular/router';
   styleUrls: ['signup.component.css']
 
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit{
 
     registroForm: FormGroup;
     iconNombre: string;
     iconEmail: string;
     iconTelefono: string;
     iconPassword: string;
-   
 
   constructor(private page:Page, private router:RouterExtensions, private _usuarioService: UsuarioService, private _util:UtilService, private _connect:ConectividadService) {
     this.page.actionBarHidden = true;
@@ -80,16 +78,8 @@ export class SignupComponent implements OnInit {
      this._usuarioService.crearUsuario(usuario)
      .subscribe(()=>{
 
-      this.alert("Su cuenta ha sido creada correctamente")
-       .then(()=>{
-
-         this.router.navigate(['/login'], { clearHistory:true, transition:{
-             name:'slideLeft', 
-             duration:300, 
-             curve:'linear'
-            }
-        });
-
+      this.alert("Su cuenta ha sido creada correctamente").then(()=>{
+         this.router.navigate(['/login'], { clearHistory:true, transition:{name:'slideLeft'}});
       });
 
      }, error => {
@@ -101,12 +91,7 @@ export class SignupComponent implements OnInit {
   }
   
   regresarLogin(){
-    this.router.navigate(['/login'], { clearHistory:true, transition:{
-        name:'slideLeft',
-        duration:300, 
-        curve:'linear'
-      }
-    });
+    this.router.navigate(['/login'], { clearHistory:true, transition:{name:'slideLeft'}});
   }
 
   alert(message: string) {
