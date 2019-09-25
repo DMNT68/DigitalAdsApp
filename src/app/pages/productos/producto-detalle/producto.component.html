@@ -20,6 +20,7 @@
 
 
         <GridLayout row="1" rows="*" columns="*,*">
+
             <GridLayout row="0" col="0" rows="*,*, auto" class="card-cotizar elevation" androidElevation="4">
 
                 <Label row="0" col="0" text="Cotiza el producto"></Label>
@@ -63,6 +64,7 @@
                     <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!nLetrasCtrl.valid && nLetrasCtrl.touched"></Label>
 
                     <Button text="Calcular" (tap)="variarPrecioRotulo3D(alturaCtrl.value, anchoCtrl.value, nLetrasCtrl.value)" [isEnabled]="alturaCtrl.valid && anchoCtrl.valid && nLetrasCtrl.valid" class="btn btn-primary btn-rounded-lg btn-active"></Button>
+
                 </StackLayout>
 
             </GridLayout>
@@ -75,6 +77,7 @@
                 <StackLayout row="4" class="hr-light"></StackLayout>
                 <Button row="5" [text]="iconCarrito" class=" m-y-11 btn ico icon-cart-add icon-2x btn-active" width="50" (tap)="agregarPedido()"></Button>
             </GridLayout>
+
         </GridLayout>
 
     </GridLayout>

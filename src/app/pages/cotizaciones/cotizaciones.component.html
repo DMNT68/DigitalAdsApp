@@ -10,7 +10,7 @@
     </StackLayout>
 
 
-    <GridLayout rows="*" class="visible" *ngIf="cotizaciones.length != 0">
+    <GridLayout class="visible" *ngIf="cotizaciones.length != 0">
 
         <RadListView class="m-y-5" [items]="cotizaciones" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
 

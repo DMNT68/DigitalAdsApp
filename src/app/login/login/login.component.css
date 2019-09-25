@@ -9,9 +9,9 @@ FlexboxLayout {
 
 StackLayout {
     width: 300;
-    padding: 10 16;
+    padding: 10 15;
     background-color: #f0f0f0;
-    border-radius: 5;
+    border-radius: 7;
 }
 
 Image {
@@ -59,10 +59,4 @@ TextField {
 .label-login {
     font-weight: bold;
     margin-left: 5;
-}
-
-.container-bottom-login {
-    margin-top: 1;
-    padding: 1;
-    text-align: center;
 }

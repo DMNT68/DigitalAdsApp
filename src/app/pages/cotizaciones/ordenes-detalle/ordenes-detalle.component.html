@@ -10,12 +10,14 @@
 
     <GridLayout rows="auto,*, 80" class="main-container visible elevation" androidElevation="6" *ngIf="!isLoading">
 
-        <GridLayout row="0" rows="*">
+        <GridLayout row="0">
+
             <GridLayout rows="auto, auto" columns="auto, auto" class="date-container">
                 <Label row="0" col="0" text="Fecha: "></Label>
                 <Label row="0" col="1" text="{{orden.fechaCreacion  | date:'fullDate':'es-EC'}}" textWrap="true"></Label>
                 <StackLayout row="1" colSpan="2" class="divider m-t-5"></StackLayout>
             </GridLayout>
+
         </GridLayout>
 
         <RadListView row="1" [items]="detalles">
@@ -29,24 +31,27 @@
                     <Label col="1" class="order-taker" [text]="detalles.producto.nombre" textWrap="true"></Label>
 
                     <StackLayout row="1" col="1" colSpan="2" class="items">
+
                         <GridLayout columns="auto, *, auto, 30">
                             <Label class="item-name" text="Precio Unitario" class="item-name"></Label>
                             <Label col="2" class="item-price" text=" $ {{detalles.producto.precioUni | number:'.2-2'}}"></Label>
                         </GridLayout>
+
                         <GridLayout columns="auto, *, auto, 30">
                             <Label class="item-name" text="Cantidad" class="item-name"></Label>
                             <Label col="1" text="( {{detalles.cantidad}} )" class="item-quantity"></Label>
                         </GridLayout>
+
                         <GridLayout columns="auto, *, auto, 60" *ngIf="!(detalles.altura == 0)">
-                            <!-- <GridLayout columns="auto, *, auto, 30"> -->
                             <Label class="item-name" text="Altura * Ancho" class="item-name"></Label>
                             <Label col="1" text="( {{detalles.altura| number:'.2-2'}} x {{detalles.ancho | number:'.2-2'}} )m" class="item-quantity"></Label>
                         </GridLayout>
+
                         <GridLayout columns="auto, *, auto, 60" *ngIf="!(detalles.numeroLetras == 0)">
-                            <!-- <GridLayout columns="auto, *, auto, 30"> -->
                             <Label class="item-name" text="Letras" class="item-name"></Label>
                             <Label col="1" text="( {{detalles.numeroLetras}} )" class="item-quantity"></Label>
                         </GridLayout>
+
                     </StackLayout>
 
                     <StackLayout row="2" col="1" class="hr-light m-y-5"></StackLayout>
@@ -57,6 +62,7 @@
                     </GridLayout>
 
                 </GridLayout>
+
             </ng-template>
 
         </RadListView>
@@ -68,7 +74,6 @@
                 <Label row="1" col="1" text="$ {{orden.total  | number:'.2-2'}} "></Label>
             </GridLayout>
         </GridLayout>
-
 
     </GridLayout>
 

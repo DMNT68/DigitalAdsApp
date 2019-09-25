@@ -2,32 +2,31 @@
 
     <StackLayout class="form">
 
-        <StackLayout class="container-top card elevation" androidElevation="4">
+        <StackLayout class="m-10 card elevation" androidElevation="4">
             <Image class="logo" src="~/assets/images/logo.png"></Image>
             <Label class="header" text="Se Cliente de Digital Ads"></Label>
-            <Label text="" class="hr-light"></Label>
+            <Label class="text-danger text-center h5" text="Ingresa los siguientes datos"></Label>
         </StackLayout>
 
         <StackLayout [formGroup]="registroForm">
-            <ScrollView class="ico card elevation" androidElevation="4" height="280">
-                <GridLayout class="m-y-10 m-l-20 m-r-10" rows="auto auto auto auto auto">
+            <ScrollView class="ico card elevation" androidElevation="4" height="290">
+                <StackLayout class="m-y-10 m-l-20 m-r-10">
 
-                    <StackLayout row="0" class="input-field" [ngClass]="{invalid:registroForm.controls['nombre'].errors?.minlength}">
+                    <StackLayout class="input-field" [ngClass]="{invalid:registroForm.controls['nombre'].errors?.minlength}">
                         <Label text="{{iconNombre}} Nombre y Apellido" class="label-signup ico"></Label>
                         <TextField class="input" autocorrect="true" formControlName="nombre"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
-                        <!-- <Label text="Es necesario el nombre" class="text-danger h6" *ngIf="registroForm.controls['nombre'].errors?.required"></Label> -->
                         <Label text="Por lo menos tres caracteres" class="text-danger h6" *ngIf="registroForm.controls['nombre'].errors?.minlength"></Label>
                     </StackLayout>
 
-                    <StackLayout row="1" class="input-field" [ngClass]="{invalid:registroForm.controls['email'].errors?.email}">
+                    <StackLayout class="input-field" [ngClass]="{invalid:registroForm.controls['email'].errors?.email}">
                         <Label text="{{iconEmail}} Correo Electrónico" class="label-signup ico"></Label>
                         <TextField class="input" max="10" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" formControlName="email"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
                         <Label text="No es un e-mail válido" class="text-danger h6" *ngIf="registroForm.controls['email'].errors?.pattern"></Label>
                     </StackLayout>
 
-                    <StackLayout row="2" class="input-field" [ngClass]="{invalid:registroForm.controls['telefono'].errors?.minlength || registroForm.controls['telefono'].errors?.maxlength}">
+                    <StackLayout class="input-field" [ngClass]="{invalid:registroForm.controls['telefono'].errors?.minlength || registroForm.controls['telefono'].errors?.maxlength}">
                         <Label text="{{iconTelefono}} Número telefónico" class="label-signup ico"></Label>
                         <TextField class="input" maxLength="10" keyboardType="number" returnKeyType="next" formControlName="telefono"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
@@ -35,29 +34,30 @@
                         <Label text="Ingrese solo números" class="text-danger h6" *ngIf="registroForm.controls['telefono'].errors?.pattern || registroForm.controls['telefono'].errors?.maxlength"></Label>
                     </StackLayout>
 
-                    <StackLayout row="3" class="input-field" [ngClass]="{invalid:registroForm.controls['password'].errors?.minlength}">
+                    <StackLayout class="input-field" [ngClass]="{invalid:registroForm.controls['password'].errors?.minlength}">
                         <Label text="{{iconPassword}} Contraseña" class="label-signup ico"></Label>
                         <TextField class="input" secure="true" returnKeyType="next" formControlName="password"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
                         <Label text="Por lo menos 6 caracteres" class="text-danger h6" *ngIf="registroForm.controls['password'].errors?.minlength"></Label>
                     </StackLayout>
 
-                    <StackLayout row="4" class="input-field" [ngClass]="{invalid:registroForm.errors?.sonIguales && !registroForm.pristine}">
+                    <StackLayout class="input-field" [ngClass]="{invalid:registroForm.errors?.sonIguales && !registroForm.pristine}">
                         <Label text="{{iconPassword}} Confirmar Contraseña" class="label-signup ico"></Label>
                         <TextField class="input" secure="true" returnKeyType="done" formControlName="password2"></TextField>
                         <StackLayout class="hr-light"></StackLayout>
                         <Label text="Las contraseñas no coinciden" class="text-danger h6" *ngIf="registroForm.errors?.sonIguales && !registroForm.pristine"></Label>
                     </StackLayout>
 
-                </GridLayout>
+                </StackLayout>
             </ScrollView>
 
-            <StackLayout class="container-bottom card elevation" androidElevation="4">
+            <StackLayout class="m-10 card elevation" androidElevation="4">
                 <Button [isEnabled]="registroForm.valid" text="Registrar cuenta" class="ico btn btn-primary btn-active" (tap)="signup()"></Button>
                 <Button text="¿Yá tienes una Cuenta? Regresar" (tap)="regresarLogin()" class="btn btn-flat btn-active btn-small"></Button>
             </StackLayout>
 
         </StackLayout>
+
     </StackLayout>
 
 </FlexboxLayout>

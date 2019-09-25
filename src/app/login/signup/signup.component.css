@@ -5,14 +5,12 @@ FlexboxLayout {
     flex-direction: column;
     justify-content: center;
     background-size: cover;
-    /* background-image: url("~/assets/images/background.png"); */
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ef424c+0,2989d8+50,207cca+51,2d3440+100 */
 }
 
 .card {
     background-color: #f0f0f0;
-    padding: 10;
     border-radius: 7;
+    width: 300;
 }
 
 .btn-primary {
@@ -26,25 +24,14 @@ FlexboxLayout {
     margin-left: 30;
     margin-right: 30;
     flex-grow: 2;
-    vertical-align: middle;
+    vertical-align: center;
 }
 
 .header {
     font-size: 20;
     font-weight: bold;
     text-align: center;
-    color: #D51A1A;
-}
-
-.container-bottom {
-    margin-top: 10;
-    margin-bottom: 10;
-    padding: 1;
-}
-
-.container-top {
-    margin-top: 10;
-    margin-bottom: 10;
+    color: #ef424c;
 }
 
 .logo {
@@ -66,7 +53,7 @@ FlexboxLayout {
     height: 18;
     font-size: 15;
     font-weight: bold;
-    color: darkslateblue;
+    color: #2d3440;
     margin-bottom: 5;
 }
 

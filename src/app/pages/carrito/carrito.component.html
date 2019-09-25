@@ -26,22 +26,27 @@
                     <Label col="1" class="order-taker" [text]="orden.nombre" textWrap="true"></Label>
 
                     <StackLayout row="1" col="1" colSpan="2" class="items">
+
                         <GridLayout columns="auto, *, auto, 60">
                             <Label class="item-name" text="Precio Unitario" class="item-name"></Label>
                             <Label col="2" class="item-price" text=" $ {{orden.precioUni | number:'.2-2'}}"></Label>
                         </GridLayout>
+
                         <GridLayout columns="auto, *, auto, 60">
                             <Label class="item-name" text="Cantidad" class="item-name"></Label>
                             <Label col="1" text="( {{_cs.cantidades[i]}} )" class="item-quantity"></Label>
                         </GridLayout>
+
                         <GridLayout columns="auto, *, auto, 60" *ngIf="orden.categoria.descripcion == 'Rótulos' || orden.categoria.descripcion == 'Rótulos 3D'">
                             <Label class="item-name" text="Altura * Ancho" class="item-name"></Label>
                             <Label col="1" text="( {{_cs.alturas[i] | number:'.2-2'}} x {{_cs.anchos[i] | number:'.2-2'}} )m" class="item-quantity"></Label>
                         </GridLayout>
+
                         <GridLayout columns="auto, *, auto, 60" *ngIf="orden.categoria.descripcion == 'Rótulos 3D'">
                             <Label class="item-name" text="Letras" class="item-name"></Label>
                             <Label col="1" text="( {{_cs.nroLetras[i]}} )" class="item-quantity"></Label>
                         </GridLayout>
+
                     </StackLayout>
 
                     <StackLayout row="2" col="1" class="hr-light m-y-5"></StackLayout>
@@ -59,14 +64,17 @@
         </RadListView>
 
         <GridLayout row="2" rows="*, auto" class="summary m-t-20">
+
             <GridLayout rows="auto, auto" columns="*, auto" class="grand-total-container m-x-15">
                 <StackLayout colSpan="2" class="divider m-b-10 m-t-5"></StackLayout>
                 <Label row="1" text="Total"></Label>
                 <Label row="1" col="1" text="$ {{_cs.total_carrito  | number:'.2-2'}} "></Label>
             </GridLayout>
+
             <GridLayout class="m-x-15 m-y-10 btn-container " row="1">
                 <Button text="Realizar Pedido" class="btn btn-active btn-flat" (tap)="enviarPedido()"></Button>
             </GridLayout>
+
         </GridLayout>
 
     </GridLayout>

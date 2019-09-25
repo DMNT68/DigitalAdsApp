@@ -11,13 +11,11 @@
             <TextField row="1" col="1" [isEnabled]="!_usuarioService.processing" hint="Contraseña" secure="true" returnKeyType="done" [(ngModel)]="password" class="input input-rounded" required></TextField>
         </GridLayout>
 
-        <Button text="Ingresar a tu Cuenta" [isEnabled]="!_usuarioService.processing" class="btn-primary btn-active" (tap)="ingresar()"></Button>
+        <Button text="Ingresar a tu Cuenta" [isEnabled]="!_usuarioService.processing" class="btn-primary btn-active m-t-5" (tap)="ingresar()"></Button>
 
         <ActivityIndicator class="activity-indicator" [busy]="_usuarioService.processing" [visibility]="_usuarioService.processing ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 
-        <StackLayout class="container-bottom-login">
-            <Button text="¿Nó tienes una cuenta? Crea una" (tap)="irRegistrar()" class="btn btn-flat btn-active btn-small" [isEnabled]="!_usuarioService.processing"></Button>
-        </StackLayout>
+        <Button text="¿Nó tienes una cuenta? Crea una" (tap)="irRegistrar()" class="btn btn-flat btn-active btn-small" [isEnabled]="!_usuarioService.processing"></Button>
 
     </StackLayout>
 
