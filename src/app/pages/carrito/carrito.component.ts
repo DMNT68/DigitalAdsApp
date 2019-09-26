@@ -3,6 +3,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import {ListViewItemAnimation} from "nativescript-ui-listview";
 
 import { CarritoService, UtilService, ConectividadService } from '~/app/shared/services/service.index';
+import { ios, android } from 'tns-core-modules/application/application';
 
 @Component({
   selector: 'ns-carrito',
@@ -17,6 +18,9 @@ export class CarritoComponent implements OnInit {
 
   ordenes:any []=[];
 
+  isAndroid:boolean;
+  isIos:boolean;
+
   private _itemDeleteAnimation: ListViewItemAnimation;
 
   constructor(private router: RouterExtensions, private _util: UtilService, public _cs: CarritoService, private _connect:ConectividadService) { }
@@ -28,6 +32,14 @@ export class CarritoComponent implements OnInit {
     this.iconBorrar = this._util.iconDelete;
 
     this.ordenes = this._cs.items;
+
+    if (ios) {
+      this.isAndroid = false;
+      this.isIos = true;
+  } else if (android) {
+      this.isAndroid = true;
+      this.isIos = false;
+  }
 
   }
 

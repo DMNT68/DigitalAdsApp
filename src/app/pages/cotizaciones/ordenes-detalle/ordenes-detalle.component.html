@@ -1,6 +1,6 @@
 <ns-action-bar title="Detalle" class="action-bar">
 
-    <ActionItem *ngIf="!isLoading" (tap)="borrarOrden(orden._id)" ios.position="right" class="m-10">
+    <ActionItem *ngIf="!isLoading" (tap)="borrarOrden(orden._id)" class="m-10">
         <Button class="ico btn btn-flat btn-active iconDelete action-item" [text]="iconDelete"></Button>
     </ActionItem>
 
@@ -32,23 +32,23 @@
 
                     <StackLayout row="1" col="1" colSpan="2" class="items">
 
-                        <GridLayout columns="auto, *, auto, 30">
-                            <Label class="item-name" text="Precio Unitario" class="item-name"></Label>
+                        <GridLayout class="m-b-5" columns="auto, *, auto, 30">
+                            <Label class="item-name" text="Precio Unitario"></Label>
                             <Label col="2" class="item-price" text=" $ {{detalles.producto.precioUni | number:'.2-2'}}"></Label>
                         </GridLayout>
 
-                        <GridLayout columns="auto, *, auto, 30">
-                            <Label class="item-name" text="Cantidad" class="item-name"></Label>
+                        <GridLayout class="m-b-3" columns="auto, *, auto, 30">
+                            <Label class="item-name" text="Cantidad"></Label>
                             <Label col="1" text="( {{detalles.cantidad}} )" class="item-quantity"></Label>
                         </GridLayout>
 
-                        <GridLayout columns="auto, *, auto, 60" *ngIf="!(detalles.altura == 0)">
-                            <Label class="item-name" text="Altura * Ancho" class="item-name"></Label>
+                        <GridLayout class="m-b-3" columns="auto, *, auto, 60" *ngIf="!(detalles.altura == 0)">
+                            <Label class="item-name" text="Altura * Ancho"></Label>
                             <Label col="1" text="( {{detalles.altura| number:'.2-2'}} x {{detalles.ancho | number:'.2-2'}} )m" class="item-quantity"></Label>
                         </GridLayout>
 
-                        <GridLayout columns="auto, *, auto, 60" *ngIf="!(detalles.numeroLetras == 0)">
-                            <Label class="item-name" text="Letras" class="item-name"></Label>
+                        <GridLayout class="m-b-3" columns="auto, *, auto, 60" *ngIf="!(detalles.numeroLetras == 0)">
+                            <Label class="item-name" text="Letras"></Label>
                             <Label col="1" text="( {{detalles.numeroLetras}} )" class="item-quantity"></Label>
                         </GridLayout>
 

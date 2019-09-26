@@ -23,11 +23,9 @@
 
 <GridLayout class="page" vertical-align="center">
 
-    <StackLayout class="vacio" *ngIf="productos.length == 0">
-        <Label [text]="iconProductos" class="ico icon-5x" textWrap="true"></Label>
-        <Label text="Productos" class="p-t-10" textWrap="true"></Label>
-        <ActivityIndicator class="activity-indicator" [busy]="productos.length == 0" [visibility]="productos.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
-    </StackLayout>
+
+    <ActivityIndicator class="activity-indicator" [busy]="productos.length == 0" [visibility]="productos.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+
 
     <GridLayout class="visible" *ngIf="productos.length != 0">
 
@@ -39,11 +37,11 @@
 
                     <Image class="img-rounded" [src]="producto.img | imagen:'producto'" loadMode="async"></Image>
 
-
                     <StackLayout class="card-layout-description">
                         <Label class="label-title p-y-5" [text]="producto.nombre" textWrap="true"></Label>
                         <Label class="label-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
                     </StackLayout>
+
                 </GridLayout>
 
             </ng-template>

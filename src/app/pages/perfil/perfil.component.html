@@ -6,7 +6,7 @@
 
         <StackLayout class="form">
 
-            <StackLayout vertical-align="center">
+            <StackLayout>
                 <Label class="avatar img-profile img-circle" *ngIf="!imagenActiva" [text]="avatar" (tap)="onSelectSingleTap()"></Label>
                 <!-- <Image *ngIf="imagenActiva" class="img-profile img-circle" [src]="usuario.img | imagen" (tap)="onSelectSingleTap()"></Image> -->
                 <Image *ngIf="imagenActiva" class="img-profile img-circle" [src]="imagenSrc" stretch="fill" (tap)="onSelectSingleTap()"></Image>

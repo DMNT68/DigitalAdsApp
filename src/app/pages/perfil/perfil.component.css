@@ -42,7 +42,8 @@
     font-size: 85;
     text-align: center;
     background-color: #222731;
-    padding-top: 10;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
 
 Button {

@@ -1,6 +1,6 @@
 <ns-action-bar title="Lista de Pedidos ( {{ _cs.items.length}} )" class="action-bar" [showBackButton]="false">
     <ActionItem (tap)="back()" ios.position="right" class="m-5">
-        <Button [text]="iconClose" class="ico icon-close btn btn-flat btn-active"></Button>
+        <Button [text]="iconClose" class="ico icon-close btn btn-flat btn-active" *ngIf="!isIos"></Button>
     </ActionItem>
 </ns-action-bar>
 
@@ -27,23 +27,23 @@
 
                     <StackLayout row="1" col="1" colSpan="2" class="items">
 
-                        <GridLayout columns="auto, *, auto, 60">
-                            <Label class="item-name" text="Precio Unitario" class="item-name"></Label>
+                        <GridLayout class="m-b-5" columns="auto, *, auto, 60">
+                            <Label class="item-name" text="Precio Unitario"></Label>
                             <Label col="2" class="item-price" text=" $ {{orden.precioUni | number:'.2-2'}}"></Label>
                         </GridLayout>
 
-                        <GridLayout columns="auto, *, auto, 60">
-                            <Label class="item-name" text="Cantidad" class="item-name"></Label>
+                        <GridLayout class="m-b-3" columns="auto, *, auto, 60">
+                            <Label class="item-name" text="Cantidad"></Label>
                             <Label col="1" text="( {{_cs.cantidades[i]}} )" class="item-quantity"></Label>
                         </GridLayout>
 
-                        <GridLayout columns="auto, *, auto, 60" *ngIf="orden.categoria.descripcion == 'Rótulos' || orden.categoria.descripcion == 'Rótulos 3D'">
-                            <Label class="item-name" text="Altura * Ancho" class="item-name"></Label>
+                        <GridLayout class="m-b-3" columns="auto, *, auto, 60" *ngIf="orden.categoria.descripcion == 'Rótulos' || orden.categoria.descripcion == 'Rótulos 3D'">
+                            <Label class="item-name" text="Altura * Ancho"></Label>
                             <Label col="1" text="( {{_cs.alturas[i] | number:'.2-2'}} x {{_cs.anchos[i] | number:'.2-2'}} )m" class="item-quantity"></Label>
                         </GridLayout>
 
-                        <GridLayout columns="auto, *, auto, 60" *ngIf="orden.categoria.descripcion == 'Rótulos 3D'">
-                            <Label class="item-name" text="Letras" class="item-name"></Label>
+                        <GridLayout class="m-b-3" columns="auto, *, auto, 60" *ngIf="orden.categoria.descripcion == 'Rótulos 3D'">
+                            <Label class="item-name" text="Letras"></Label>
                             <Label col="1" text="( {{_cs.nroLetras[i]}} )" class="item-quantity"></Label>
                         </GridLayout>
 

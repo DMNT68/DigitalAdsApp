@@ -7,15 +7,14 @@
 
         <StackLayout row="0" class="card elevation" androidElevation="6">
 
-            <StackLayout>
-                <Image class="img-rounded-card" loadMode="async" [src]="img | imagen:'producto'"></Image>
-            </StackLayout>
+            <Image class="img-rounded-card" loadMode="async" [src]="img | imagen:'producto'"></Image>
 
             <StackLayout class="card-layout-description-p">
-                <Label class="h4 label-title" [text]="categoria"></Label>
+                <Label class="h3 label-title" [text]="categoria"></Label>
                 <StackLayout class="hr-light m-b-12"></StackLayout>
                 <Label class="body" textWrap="true" [text]="descripcion"></Label>
             </StackLayout>
+
         </StackLayout>
 
 
@@ -23,8 +22,8 @@
 
             <GridLayout row="0" col="0" rows="*,*, auto" class="card-cotizar elevation" androidElevation="4">
 
-                <Label row="0" col="0" text="Cotiza el producto"></Label>
-                <StackLayout row="1" class="hr-light m-b-12"></StackLayout>
+                <Label row="0" col="0" text="Cotiza el producto" class="font-weight-bold font-15x"></Label>
+                <StackLayout row="1" class="hr-light m-b-10"></StackLayout>
 
                 <StackLayout row="2" *ngIf="!rotulos && !rotulos3D">
 
@@ -32,36 +31,45 @@
 
                     <GridLayout class="m-y-12 centrado-horizontal" columns="50,40,50">
                         <Button col="0" [text]="iconMenos" class="btn icon-cantidad ico icon-3x btn-active" (tap)="variarPrecio(-1)"></Button>
-                        <Label col="1" class="input-cantidad p-t-10 animate-transition-up" [text]="cantidad"></Label>
+                        <Label col="1" class="input-cantidad p-y-10" [text]="cantidad"></Label>
                         <Button col="2" [text]="iconMas" class="btn icon-cantidad ico icon-3x btn-active" (tap)="variarPrecio(+1)"></Button>
                     </GridLayout>
 
                 </StackLayout>
 
                 <StackLayout row="2" *ngIf="rotulos">
-                    <Label text="Altura" [ngClass]="{invalid:!alturaCtrl.valid && alturaCtrl.touched}"></Label>
-                    <TextField hint="Altura(metro)" class="inputVariables input" keyboardType="number" returnKeyType="next" required ngModel #alturaCtrl="ngModel"></TextField>
-                    <Label text="Igresar la altura" class=" h6 text-danger" *ngIf="!alturaCtrl.valid && alturaCtrl.touched"></Label>
+                    <StackLayout class="m-b-6">
+                        <Label text="Altura" class="m-b-4" [ngClass]="{invalid:!alturaCtrl.valid && alturaCtrl.touched}"></Label>
+                        <TextField hint="Altura(metro)" class="inputVariables" keyboardType="number" returnKeyType="next" required ngModel #alturaCtrl="ngModel"></TextField>
+                        <Label text="Igresar la altura" class=" h6 text-danger" *ngIf="!alturaCtrl.valid && alturaCtrl.touched"></Label>
+                    </StackLayout>
 
-                    <Label text="Ancho" [ngClass]="{invalid:!anchoCtrl.valid && anchoCtrl.touched}"></Label>
-                    <TextField hint="Ancho(metro)" class="inputVariables" keyboardType="number" returnKeyType="done" required ngModel #anchoCtrl="ngModel"></TextField>
-                    <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!anchoCtrl.valid && anchoCtrl.touched"></Label>
+                    <StackLayout class="m-b-6">
+                        <Label text="Ancho" class="m-b-4" [ngClass]="{invalid:!anchoCtrl.valid && anchoCtrl.touched}"></Label>
+                        <TextField hint="Ancho(metro)" class="inputVariables" keyboardType="number" returnKeyType="done" required ngModel #anchoCtrl="ngModel"></TextField>
+                        <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!anchoCtrl.valid && anchoCtrl.touched"></Label>
+                    </StackLayout>
+
 
                     <Button text="Calcular" (tap)="variarPrecioRotulo(alturaCtrl.value, anchoCtrl.value)" [isEnabled]="alturaCtrl.valid && anchoCtrl.valid" class="btn btn-primary btn-rounded-lg btn-active"></Button>
                 </StackLayout>
 
                 <StackLayout row="2" *ngIf="rotulos3D">
-                    <Label text="Altura" [ngClass]="{invalid:!alturaCtrl.valid && alturaCtrl.touched}"></Label>
-                    <TextField hint="Altura(metro)" class="inputVariables input" keyboardType="number" returnKeyType="next" required ngModel #alturaCtrl="ngModel"></TextField>
-                    <Label text="Igresar la altura" class=" h6 text-danger" *ngIf="!alturaCtrl.valid && alturaCtrl.touched"></Label>
-
-                    <Label text="Ancho" [ngClass]="{invalid:!anchoCtrl.valid && anchoCtrl.touched}"></Label>
-                    <TextField hint="Ancho(metro)" class="inputVariables" keyboardType="number" returnKeyType="next" required ngModel #anchoCtrl="ngModel"></TextField>
-                    <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!anchoCtrl.valid && anchoCtrl.touched"></Label>
-
-                    <Label text="Número de letras" [ngClass]="{invalid:!nLetrasCtrl.valid && nLetrasCtrl.touched}"></Label>
-                    <TextField hint="Letras" class="inputVariables" keyboardType="number" returnKeyType="done" required ngModel #nLetrasCtrl="ngModel"></TextField>
-                    <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!nLetrasCtrl.valid && nLetrasCtrl.touched"></Label>
+                    <StackLayout class="m-b-6">
+                        <Label class="m-b-4" text="Altura" [ngClass]="{invalid:!alturaCtrl.valid && alturaCtrl.touched}"></Label>
+                        <TextField hint="Altura(metro)" class="inputVariables" keyboardType="number" returnKeyType="next" required ngModel #alturaCtrl="ngModel"></TextField>
+                        <Label text="Igresar la altura" class=" h6 text-danger" *ngIf="!alturaCtrl.valid && alturaCtrl.touched"></Label>
+                    </StackLayout>
+                    <StackLayout class="m-b-6">
+                        <Label class="m-b-4" text="Ancho" [ngClass]="{invalid:!anchoCtrl.valid && anchoCtrl.touched}"></Label>
+                        <TextField hint="Ancho(metro)" class="inputVariables" keyboardType="number" returnKeyType="next" required ngModel #anchoCtrl="ngModel"></TextField>
+                        <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!anchoCtrl.valid && anchoCtrl.touched"></Label>
+                    </StackLayout>
+                    <StackLayout class="m-b-6">
+                        <Label class="m-b-4" text="Número de letras" [ngClass]="{invalid:!nLetrasCtrl.valid && nLetrasCtrl.touched}"></Label>
+                        <TextField hint="Letras" class="inputVariables" keyboardType="number" returnKeyType="done" required ngModel #nLetrasCtrl="ngModel"></TextField>
+                        <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!nLetrasCtrl.valid && nLetrasCtrl.touched"></Label>
+                    </StackLayout>
 
                     <Button text="Calcular" (tap)="variarPrecioRotulo3D(alturaCtrl.value, anchoCtrl.value, nLetrasCtrl.value)" [isEnabled]="alturaCtrl.valid && anchoCtrl.valid && nLetrasCtrl.valid" class="btn btn-primary btn-rounded-lg btn-active"></Button>
 
@@ -70,12 +78,12 @@
             </GridLayout>
 
             <GridLayout row="1" col="1" rows="*,*,*,*,*,*" class="card-cotizar elevation" androidElevation="6">
-                <Label row="0" text="Costo"></Label>
-                <StackLayout row="1" class="hr-light"></StackLayout>
+                <Label row="0" text="Costo" class="font-weight-bold font-15x"></Label>
+                <StackLayout row="1" class="hr-light m-b-10"></StackLayout>
                 <Label *ngIf="aparecer" row="2" class=" m-y-11 h3 text-danger text-center animate-transition-up" textWrap="true" text="${{precioFinal | number:'.2-2'}}"></Label>
-                <Label row="3" text="Agregar a la lista de pedidos:" textWrap="true"></Label>
-                <StackLayout row="4" class="hr-light"></StackLayout>
-                <Button row="5" [text]="iconCarrito" class=" m-y-11 btn ico icon-cart-add icon-2x btn-active" width="50" (tap)="agregarPedido()"></Button>
+                <Label row="3" text="Agregar a la lista de pedidos:" class="font-small" textWrap="true"></Label>
+                <StackLayout row="4" class="hr-light m-b-10"></StackLayout>
+                <Button row="5" [text]="iconCarrito" class=" m-y-10 btn ico icon-cart-add icon-2x btn-active" width="50" (tap)="agregarPedido()"></Button>
             </GridLayout>
 
         </GridLayout>
