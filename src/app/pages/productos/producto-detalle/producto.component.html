@@ -38,14 +38,14 @@
                 </StackLayout>
 
                 <StackLayout row="2" *ngIf="rotulos">
-                    <StackLayout class="m-b-6">
-                        <Label text="Altura" class="m-b-4" [ngClass]="{invalid:!alturaCtrl.valid && alturaCtrl.touched}"></Label>
+                    <StackLayout class="m-b-10">
+                        <Label text="Altura" class="m-b-5" [ngClass]="{invalid:!alturaCtrl.valid && alturaCtrl.touched}"></Label>
                         <TextField hint="Altura(metro)" class="inputVariables" keyboardType="number" returnKeyType="next" required ngModel #alturaCtrl="ngModel"></TextField>
                         <Label text="Igresar la altura" class=" h6 text-danger" *ngIf="!alturaCtrl.valid && alturaCtrl.touched"></Label>
                     </StackLayout>
 
-                    <StackLayout class="m-b-6">
-                        <Label text="Ancho" class="m-b-4" [ngClass]="{invalid:!anchoCtrl.valid && anchoCtrl.touched}"></Label>
+                    <StackLayout class="m-b-10">
+                        <Label text="Ancho" class="m-b-5" [ngClass]="{invalid:!anchoCtrl.valid && anchoCtrl.touched}"></Label>
                         <TextField hint="Ancho(metro)" class="inputVariables" keyboardType="number" returnKeyType="done" required ngModel #anchoCtrl="ngModel"></TextField>
                         <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!anchoCtrl.valid && anchoCtrl.touched"></Label>
                     </StackLayout>
@@ -55,18 +55,18 @@
                 </StackLayout>
 
                 <StackLayout row="2" *ngIf="rotulos3D">
-                    <StackLayout class="m-b-6">
-                        <Label class="m-b-4" text="Altura" [ngClass]="{invalid:!alturaCtrl.valid && alturaCtrl.touched}"></Label>
+                    <StackLayout class="m-b-10">
+                        <Label class="m-b-5" text="Altura" [ngClass]="{invalid:!alturaCtrl.valid && alturaCtrl.touched}"></Label>
                         <TextField hint="Altura(metro)" class="inputVariables" keyboardType="number" returnKeyType="next" required ngModel #alturaCtrl="ngModel"></TextField>
                         <Label text="Igresar la altura" class=" h6 text-danger" *ngIf="!alturaCtrl.valid && alturaCtrl.touched"></Label>
                     </StackLayout>
-                    <StackLayout class="m-b-6">
-                        <Label class="m-b-4" text="Ancho" [ngClass]="{invalid:!anchoCtrl.valid && anchoCtrl.touched}"></Label>
+                    <StackLayout class="m-b-10">
+                        <Label class="m-b-5" text="Ancho" [ngClass]="{invalid:!anchoCtrl.valid && anchoCtrl.touched}"></Label>
                         <TextField hint="Ancho(metro)" class="inputVariables" keyboardType="number" returnKeyType="next" required ngModel #anchoCtrl="ngModel"></TextField>
                         <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!anchoCtrl.valid && anchoCtrl.touched"></Label>
                     </StackLayout>
-                    <StackLayout class="m-b-6">
-                        <Label class="m-b-4" text="Número de letras" [ngClass]="{invalid:!nLetrasCtrl.valid && nLetrasCtrl.touched}"></Label>
+                    <StackLayout class="m-b-10">
+                        <Label class="m-b-5" text="Número de letras" [ngClass]="{invalid:!nLetrasCtrl.valid && nLetrasCtrl.touched}"></Label>
                         <TextField hint="Letras" class="inputVariables" keyboardType="number" returnKeyType="done" required ngModel #nLetrasCtrl="ngModel"></TextField>
                         <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!nLetrasCtrl.valid && nLetrasCtrl.touched"></Label>
                     </StackLayout>
