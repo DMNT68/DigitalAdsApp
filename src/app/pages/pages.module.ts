@@ -15,12 +15,14 @@ import { CotizacionesComponent } from './cotizaciones/cotizaciones.component';
 import { TabsNavComponent } from './tabs-nav/tabs-nav.component';
 import { OrdenesDetalleComponent } from './cotizaciones/ordenes-detalle/ordenes-detalle.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
     declarations:[
         ProductoComponent,
         ProductosComponent,
         CotizacionesComponent,
+        PerfilComponent,
         TabsNavComponent,
         OrdenesDetalleComponent,
         CarritoComponent

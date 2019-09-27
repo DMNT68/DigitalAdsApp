@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { connectionType, getConnectionType}from "tns-core-modules/connectivity";
-import * as Toast from 'nativescript-toast';
+
+import { UtilService } from '../util/util.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class ConectividadService {
 
   private status:boolean = false;
 
-  constructor() { }
+  constructor(private _util:UtilService) { }
 
   // result is ConnectionType enumeration (none, wifi or mobile)
   
@@ -21,7 +22,7 @@ export class ConectividadService {
         case connectionType.none:
             // Denotes no Internet connection.
             this.status = true;
-            Toast.makeText("No tienes conexión a internet").show();
+            this._util.toast('No tiene conexión a internet');
             break;
         default:
             break;
@@ -31,6 +32,7 @@ export class ConectividadService {
   public revisarConexion() : boolean {
 
     this.conectividadStatus();
+    
     if(this.status){
       return true;
     } else {

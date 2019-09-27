@@ -3,6 +3,7 @@ import { isIOS } from "tns-core-modules/platform";
 import * as utils from "tns-core-modules/utils/utils";
 import * as frame from "tns-core-modules/ui/frame";
 import { alert, confirm} from "tns-core-modules/ui/dialogs";
+import { Toasty, ToastDuration } from 'nativescript-toasty';
 
 @Injectable() 
 export class UtilService { 
@@ -70,7 +71,7 @@ export class UtilService {
         return formateado;
     }
 
-    public alert(message: string, title?:string) {
+    public alert(message: string, title?:string): Promise<void> {
 
         return alert({
             title: title || 'DIGITAL ADS',
@@ -80,7 +81,7 @@ export class UtilService {
         
     }
 
-    public confirm(message: string, title?:string) {
+    public confirm(message: string, title?:string): Promise<boolean> {
         return confirm({
             title: title || 'DIGITAL ADS',
             message: message,
@@ -92,8 +93,28 @@ export class UtilService {
     public cerrarTecladoTelefono() {
         if (isIOS) {
           frame.topmost().nativeView.endEditing(true);
-            } else {
+        } else {
           utils.ad.dismissSoftInput();    
-            }
         }
+    }
+
+    /**
+     * Método para mostrar una notificación de una acción.
+     * Uso del plugin Toasty
+     * @param texto Mensaje que va mostrar la notifiación
+     * @param duracion Duración del mensaje puede ser 'short'(por defecto) o 'long'
+     */
+    public toast(texto: string, duracion:string = 'short') {
+
+        const toast = new Toasty({ text: texto });
+        
+        if (duracion === 'long'){
+            toast.duration = ToastDuration.LONG;
+        }else if (duracion === 'short') {
+            toast.duration = ToastDuration.SHORT;
+        }
+
+        toast.show();
+
+    }
 }

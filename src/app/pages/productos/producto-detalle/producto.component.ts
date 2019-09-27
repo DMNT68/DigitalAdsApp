@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { PageRoute } from 'nativescript-angular/router';
-import * as Toast from 'nativescript-toast';
 import { Subscription } from 'rxjs';
 
 
@@ -91,36 +90,32 @@ export class ProductoComponent implements OnInit, OnDestroy {
         this.isLoading = false;
       }, 500);
       
-    },
-    error => {
+    }, error => {
       if (this._connect.revisarConexion()){
         return;
       }
       console.log(error);
-    }
-    );
+    });
     
   }
 
   variarPrecio(cantidad?: number){
 
-    
     if(this.precioFinal < +this.producto.precioUni && cantidad < 0){
       this.precioFinal = +this.producto.precioUni;
       this.cantidad = 1;
       this.alto = 0;
       this.ancho = 0;
       this.nletras = 0;
-      this._utilService.alert("La cantidad debe ser igual o mayor a 1");
+      this._utilService.toast('La cantidad debe ser igual o mayor a 1');
       return;
     }
     
     this.animation();
-
     this.cantidad += cantidad; 
     this.precioFinal = +this.producto.precioUni * this.cantidad;
-    
     this.activar=true;
+
   }
 
   variarPrecioRotulo3D(altura:number, ancho:number, nletras:number) {
@@ -190,7 +185,7 @@ export class ProductoComponent implements OnInit, OnDestroy {
         this.cs.agregarCarrito(this.producto,this.cantidad,this.alto,this.ancho,this.nletras,this.precioFinal);
         this.activar = false;
       } else {
-        Toast.makeText('Debes cotizar el producto primero').show();
+        this._utilService.toast('Debe cotizar el producto primero y calcular el precio','long');
       }
     } else {
       this.cs.agregarCarrito(this.producto,this.cantidad,this.alto,this.ancho,this.nletras,this.precioFinal);

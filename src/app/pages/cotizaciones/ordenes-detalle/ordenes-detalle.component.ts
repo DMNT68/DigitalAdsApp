@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PageRoute, RouterExtensions } from 'nativescript-angular/router';
-import * as Toast from 'nativescript-toast';
 import { Subscription } from 'rxjs';
 
 import { CarritoService, UsuarioService, UtilService, ConectividadService } from '../../../shared/services/service.index';
@@ -79,13 +78,10 @@ export class OrdenesDetalleComponent implements OnInit, OnDestroy {
       return;
     }
     
-    this._util.confirm('¿Quieres eliminar el pedido?','Eliminar Pedido').then((res)=>{
+    this._util.confirm('¿Quiere eliminar el pedido?','Eliminar Pedido').then((res)=>{
       if(res){
         this.cs.borrarOrden(id).subscribe(()=>{
-          // this._util.alert('La orden se ha eliminado').then(()=>{
-          //   this._routerExtensions.backToPreviousPage();
-          // });
-          Toast.makeText('El pedido se ha eliminado').show();
+          this._util.toast('El pedido se ha eliminado');
           this._routerExtensions.backToPreviousPage();
         });
       }

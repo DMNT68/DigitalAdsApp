@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RouterExtensions } from 'nativescript-angular/router';
-import * as Toast from 'nativescript-toast';
 import {getString, setString, remove} from "tns-core-modules/application-settings";
 import { map } from 'rxjs/operators';
 
@@ -129,10 +128,9 @@ export class CarritoService {
 
   
   
-  /** 
-   * Metodos para carrito
+  /**
+   * Ir al componente carrito
    */
-
   verCarrito() {
     if(this._us.token){
       this.router.navigate(['/carrito'], {transition:{name:'slideTop', duration:300}});
@@ -158,8 +156,9 @@ export class CarritoService {
     this.preciosFinales.push(preciofinalParametro);
     this.guardarLocalData();
     this.actualizar_total();
-    this._util.alert(`El producto "${itemParametro.nombre}" se ha agregado`).then(()=>{
-      Toast.makeText('Continua cotizando o ve al carrito para realizar el pedido','long').show();
+
+    this._util.alert(`El producto "${itemParametro.nombre}" se ha agregado`).then( () => {
+      this._util.toast('Continua cotizando o ve al carrito para realizar el pedido','long');
       this.router.backToPreviousPage();
     });
 
@@ -177,16 +176,16 @@ export class CarritoService {
   }
 
   vaciarCarrito() {
-    this.items=[];
-    this.cantidades=[];
-    this.alturas=[];
-    this.anchos=[];
-    this.nroLetras=[];
-    this.preciosFinales=[];
+
+    this.items = [];
+    this.cantidades = [];
+    this.alturas = [];
+    this.anchos = [];
+    this.nroLetras = [];
+    this.preciosFinales = [];
     this.actualizar_total();
     this.guardarLocalData();
     this.removed();
-    
 
   }
 

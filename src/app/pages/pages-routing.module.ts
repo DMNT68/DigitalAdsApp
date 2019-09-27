@@ -8,12 +8,13 @@ import { ProductosComponent } from "./productos/productos.component";
 import { TabsNavComponent } from "./tabs-nav/tabs-nav.component";
 import { OrdenesDetalleComponent } from "./cotizaciones/ordenes-detalle/ordenes-detalle.component";
 import { CarritoComponent } from './carrito/carrito.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes = [
     {path:'tabs-nav', component: TabsNavComponent, children:[
         { path: "productos", component: ProductosComponent, outlet:'productosTab'},
         { path: "cotizaciones", component: CotizacionesComponent, outlet:'cotizacionesTab'},
-        { path: "perfil", loadChildren: () => import( './perfil/perfil.module' ).then( m => m.PerfilModule ), outlet:'perfilTab'}       
+        { path: "perfil", component: PerfilComponent, outlet:'perfilTab'}       
     ] 
     },
     {path: "detalles/:id", component: OrdenesDetalleComponent},
