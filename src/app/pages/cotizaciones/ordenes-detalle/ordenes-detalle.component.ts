@@ -50,7 +50,11 @@ export class OrdenesDetalleComponent implements OnInit, OnDestroy {
     this.detalleSubcription.unsubscribe();
   }
 
-  getOrdenDetalle(id:string){
+  /**
+   * Función que permite obtener objeto el detalle de una orden o pedido segun el id del pedido.
+   * @param id ID de la orden o pedido.
+   */
+  public getOrdenDetalle(id:string){
     this.isLoading = true;
     this.detalleSubcription = this.cs.cargarOrdenDetalle(id).subscribe((resp:any)=>{
     setTimeout(() => {
@@ -72,7 +76,11 @@ export class OrdenesDetalleComponent implements OnInit, OnDestroy {
 
   }
 
-  borrarOrden(id:string) {
+  /**
+   * Función que permite borrar el pedido u orden.
+   * @param id ID del pedido u orden.
+   */
+  public borrarOrden(id:string) {
 
     if(this._connect.revisarConexion()){
       return;

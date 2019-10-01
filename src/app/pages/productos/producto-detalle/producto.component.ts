@@ -67,7 +67,11 @@ export class ProductoComponent implements OnInit, OnDestroy {
     this.productoSubscription.unsubscribe();
   }
 
-  getProducto(id: string) {
+  /**
+   * Función que permite obtener objeto el detalle del producto según el id.
+   * @param id ID del producto.
+   */
+  public getProducto(id: string) {
     this.isLoading = true;
     this.productoSubscription =  this._productoService.cargarProducto(id)
     .subscribe(producto =>{ 
@@ -99,7 +103,12 @@ export class ProductoComponent implements OnInit, OnDestroy {
     
   }
 
-  variarPrecio(cantidad?: number){
+  /**
+   * Función que permite realizar la cotización de un producto variando
+   * el precio según las unidades que se haya elegido.
+   * @param cantidad Cantidad de productos.
+   */
+  public variarPrecio(cantidad?: number){
 
     if(this.precioFinal < +this.producto.precioUni && cantidad < 0){
       this.precioFinal = +this.producto.precioUni;
@@ -118,7 +127,13 @@ export class ProductoComponent implements OnInit, OnDestroy {
 
   }
 
-  variarPrecioRotulo3D(altura:number, ancho:number, nletras:number) {
+  /**
+   * Función que permite cotizar un rótulo 3D.
+   * @param altura Longitud de la altura del rótulo(lona).
+   * @param ancho Longitud del ancho del rótulo(lona).
+   * @param nletras Número de letras 3D.
+   */
+  public variarPrecioRotulo3D(altura:number, ancho:number, nletras:number) {
 
     
     this._utilService.cerrarTecladoTelefono();
@@ -149,7 +164,12 @@ export class ProductoComponent implements OnInit, OnDestroy {
     
   }
 
-  variarPrecioRotulo(altura:number, ancho:number) {
+  /**
+   * Función que permite cotizar un rótulo.
+   * @param altura Longitud de la altura del rótulo.
+   * @param ancho Longitud del ancho del rótulo.
+   */
+  public variarPrecioRotulo(altura:number, ancho:number) {
 
     
     this._utilService.cerrarTecladoTelefono();
@@ -178,7 +198,11 @@ export class ProductoComponent implements OnInit, OnDestroy {
     this.activar=true;
   }
 
-  agregarPedido(){
+  /**
+   * Función que permite agregar un producto a la lista de pedidos,
+   * siempre y cuando se haya hecho una cotización de un producto
+   */
+  public agregarPedido(){
 
     if (this.rotulos || this.rotulos3D) {
       if(this.activar){ 
@@ -193,7 +217,10 @@ export class ProductoComponent implements OnInit, OnDestroy {
 
   }
 
-  animation(){
+  /**
+   * Función que actúa como bandera que permite realizar un animación al variar el precio cuando lo calcula.
+   */
+  public animation(){
     this.aparecer = false;
     setTimeout(() => {
       this.aparecer = true;

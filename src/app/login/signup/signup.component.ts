@@ -29,6 +29,11 @@ export class SignupComponent implements OnInit{
     this.iconPassword = this._util.iconPassword;
   }
 
+  /**
+   * Función que permite validar la contraseña que el usuario ingresa.
+   * @param campo1 Primera contraseña.
+   * @param campo2 Segunda contraseña que ayuda a verificar si las contraseñas coinciden.
+   */
   public sonIguales(campo1: string, campo2: string) {
 
     return (group: FormGroup) => {
@@ -58,9 +63,11 @@ export class SignupComponent implements OnInit{
 
   }
 
-  signup(){
+  /**
+   * Función que realiza un nuevo registro de un usuario.
+   */
+  public signup(){
 
-    
     if(this.registroForm.invalid){
       this.alert("Llene los campos correctamente");
     }
@@ -90,11 +97,18 @@ export class SignupComponent implements OnInit{
 
   }
   
-  regresarLogin(){
+  /**
+   * Función que permite navegar al componente login.
+   */
+  public regresarLogin(){
     this.router.navigate(['/login'], { clearHistory:true, transition:{name:'slideLeft'}});
   }
 
-  alert(message: string) {
+  /**
+   * Función que permite ejeuctar un alerta como cuadro de diálogo.
+   * @param message Mensaje del cuadro de diálogo.
+   */
+  public alert(message: string) {
 
     return alert({
         title: "DIGITAL ADS",

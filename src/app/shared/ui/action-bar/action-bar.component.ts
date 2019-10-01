@@ -21,14 +21,24 @@ export class ActionBarComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Accesor get a la función onGoBack.
+   * Función que permite mostrar o no el boton hacia atras en el action bar.
+   */
   get canGoBack(){
     return this.router.canGoBack() && this.showBackButton;
   }
 
+  /**
+   * Función que permite regradar a la página anterior
+   */
   onGoBack(){
     this.router.backToPreviousPage();
   }
 
+  /**
+   * Función que permite configurar el icono flecha hacia atras.
+   */
   onLoadedActionBar() {
     if (isAndroid) {
       const androidToolbar = this.page.actionBar.nativeView;

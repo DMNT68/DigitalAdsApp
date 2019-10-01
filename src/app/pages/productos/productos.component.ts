@@ -61,11 +61,17 @@ export class ProductosComponent implements OnInit, OnDestroy {
 
   @ViewChild('myRadListView', { static:false }) listViewComponent: RadListViewComponent;
   
+  /**
+   * Función que realizar un desplazamiento para arriba al principio de arreglo oroductos.
+   */
   public onTapUp() {
     this.listViewComponent.listView.scrollToIndex(0, true);
   }
 
-  getProductos() {
+  /**
+   * Función que permite obtener un arreglo con todos los productos.
+   */
+  public getProductos() {
     
     this.productosSubs = this._productosService.cargarProductos()
     .subscribe(productos => {
@@ -81,13 +87,21 @@ export class ProductosComponent implements OnInit, OnDestroy {
   
   }
 
-  buscarProducto(args) {
+  /**
+   * Función que permite obtener el texto de un campo. Este ayudara a realizar la busqueda de un producto.
+   * @param args Argumento de entrada
+   */
+  public buscarProducto(args) {
 
     const texto = <TextField>args.object;
     this.textoBuscar = texto.text;
 
   }
 
+  /**
+   * Función que permite realizar actualización de a la página el gesto pull to refresh.
+   * @param args evento de tipo ListViewEventData
+   */
   public onPullToRefreshInitiated(args: ListViewEventData) {
     
     setTimeout(() => {
@@ -100,7 +114,11 @@ export class ProductosComponent implements OnInit, OnDestroy {
 
   }
 
-  animacion(target: View) {
+  /**
+   * Función que permite realizar una naimación donde renderizar gradualmente los elementos de la vista. 
+   * @param target parametro de tipo Viev
+   */
+  public animacion(target: View) {
     let duration = 300;
     target.animate({ opacity: 0, duration: duration })
           .then(() => target.animate({ opacity: 1, duration: duration }))
@@ -109,7 +127,10 @@ export class ProductosComponent implements OnInit, OnDestroy {
         });
   }
 
-  
+  /**
+   * Funcion que actual como bandera para determinar cuando el teclado del dispositivo debe desaparecer,
+   * y borrar texto de busqueda.
+   */
   aparecerBuscar() {
 
     if (!this.aparecer) {
@@ -124,7 +145,10 @@ export class ProductosComponent implements OnInit, OnDestroy {
 
   }
 
-  goCarrito() {
+  /**
+   * Función que permite navegar al componente carrito.
+   */
+  public goCarrito() {
     this.cs.verCarrito();
   }
 

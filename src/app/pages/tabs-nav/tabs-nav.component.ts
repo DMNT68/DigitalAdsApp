@@ -26,7 +26,10 @@ export class TabsNavComponent implements OnInit {
     this.loadTabRoutes();
     this.page.actionBarHidden = true;
   }
-        
+  
+  /**
+   * Función que permite configurar la salidas de las rutas cada una de las pestañas de navgacion (Bottom Navigation - tabs)
+   */
   private loadTabRoutes() {
     this.router.navigate(
       [

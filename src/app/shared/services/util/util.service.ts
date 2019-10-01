@@ -71,6 +71,11 @@ export class UtilService {
         return formateado;
     }
 
+    /**
+     * Función que permite ejecutar una alerta como cuadro de diálogo.
+     * @param message Mensaje para mostrar el cuadro de diálogo
+     * @param title Título para el cuadro de dialogo, paramentro opcional si no manda un valor por defecto es "Digital ADS"
+     */
     public alert(message: string, title?:string): Promise<void> {
 
         return alert({
@@ -81,6 +86,11 @@ export class UtilService {
         
     }
 
+    /**
+     * Función que permite ejecutar una alerta como cuadro de diálogo.
+     * @param message Mensaje para mostrar el cuadro de diálogo
+     * @param title Título para el cuadro de dialogo, paramentro opcional si no manda un valor por defecto es "Digital ADS"
+     */
     public confirm(message: string, title?:string): Promise<boolean> {
         return confirm({
             title: title || 'DIGITAL ADS',
@@ -90,6 +100,9 @@ export class UtilService {
         });
     }
 
+    /**
+     * Función que cierra el teclado.
+     */
     public cerrarTecladoTelefono() {
         if (isIOS) {
           frame.topmost().nativeView.endEditing(true);

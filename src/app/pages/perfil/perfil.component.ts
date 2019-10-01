@@ -45,6 +45,11 @@ export class PerfilComponent implements OnInit{
     
   }
 
+  /**
+   * Función que permite modificar el nombre, correo electrónic o telefono del perfil del usuario.
+   * @param texto Permite identificar que propiedad del usuario desea modificar('Nombre'/'Correo Electrónico/telefono').
+   * @param usuario Objeto usuario que desea modificar.
+   */
   modificar(texto:string, usuario:Usuario) {
 
     if (texto==='Nombre') {
@@ -62,6 +67,11 @@ export class PerfilComponent implements OnInit{
     }
   }
 
+  /**
+   * Función que permite modificar el nombre del usuario.
+   * @param texto Mensaje o propiedad que se desea mostrar en el cuadro de diálogo.
+   * @param usuario Objeto usuario. Propiedad email a modificar
+   */
   private editarNombre(texto:string, usuario:Usuario) {
     prompt({
       title: `Editar Perfil - Digital ADS`,
@@ -87,6 +97,11 @@ export class PerfilComponent implements OnInit{
     });
   }
 
+  /**
+   * Función que permite modificar el email del usuario.
+   * @param texto Mensaje o propiedad que se desea mostrar en el cuadro de diálogo.
+   * @param usuario Objeto usuario. Propiedad email a modificar
+   */
   private editarEmail(texto:string, usuario:Usuario) {
     prompt({
       title: "Editar Perfil - Digital ADS",
@@ -112,6 +127,11 @@ export class PerfilComponent implements OnInit{
     });
   }
 
+  /**
+   * Función que permite modificar el teléfono del usuario.
+   * @param texto Mensaje o propiedad que se desea mostrar en el cuadro de diálogo.
+   * @param usuario Objeto usuario. Propiedad teléfono a modificar
+   */
   private editarTelefono(texto:string, usuario:Usuario) {
     prompt({
       title: "Editar Perfil - Digital ADS",
@@ -138,7 +158,9 @@ export class PerfilComponent implements OnInit{
     });
   }
 
-
+  /**
+   * Función que hace uso del plugin ImagePicker, que permite seleccionar una imagen del carrete del dispositivo.
+   */
   public onSelectSingleTap() {
     let context = imagepicker.create({
         mode: "single",
@@ -147,6 +169,9 @@ export class PerfilComponent implements OnInit{
     this.startSelection(context);
   }
 
+  /**
+   * Función que permite cambiar la imagen del usuario.
+   */
   private startSelection(context) {
     
     context
@@ -176,7 +201,10 @@ export class PerfilComponent implements OnInit{
     });
   }
 
-  salir() {
+  /**
+   * Función que permite cerrar la sesión del usuario.
+   */
+  public salir() {
     this._cs.vaciarCarrito();
     this._usuarioService.logout();
   }

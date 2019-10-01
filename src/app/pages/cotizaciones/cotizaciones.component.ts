@@ -44,11 +44,18 @@ export class CotizacionesComponent implements OnInit, OnDestroy {
     this.cotizacionesSubs.unsubscribe();
   }
 
+  /**
+   * Función que permite obtener la posición del arreglo.
+   * @param i Posición del arreglo.
+   */
   obtenerPosicionArreglo(i:number) { 
     this._cs.i=i;
   }
   
-  cargarOrdenes() {
+  /**
+   * Función que permite obtener un arreglo con todos los pedidos del usuario.
+   */
+  public cargarOrdenes() {
     this.cotizacionesSubs = this._cs.cargarOrdenes().subscribe(ordenes=>{
       this.cotizaciones = ordenes;
     }, error => {
@@ -59,6 +66,11 @@ export class CotizacionesComponent implements OnInit, OnDestroy {
     });
   }
   
+
+  /**
+   * Función que permite realizar actualización de a la página el gesto pull to refresh.
+   * @param args evento de tipo ListViewEventData
+   */
   public onPullToRefreshInitiated(args: ListViewEventData) {
     
     setTimeout(() => {
@@ -71,6 +83,10 @@ export class CotizacionesComponent implements OnInit, OnDestroy {
     this.cargando=true;
   }
 
+  /**
+   * Función que permite realizar una naimación donde renderizar gradualmente los elementos de la vista. 
+   * @param target parametro de tipo Viev
+   */
   animacion(target: View) {
     let duration = 300;
     target.animate({ opacity: 0, duration: duration })
@@ -80,6 +96,9 @@ export class CotizacionesComponent implements OnInit, OnDestroy {
         });
   }
 
+  /**
+   * Funcion que permite controlar el componente de interface loading
+   */
   recargar() {
     this.isLoading = true;
     setTimeout(() => {

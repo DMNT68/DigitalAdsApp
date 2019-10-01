@@ -24,7 +24,10 @@ export class LoginComponent {
     
   }
 
-  ingresar(){
+  /**
+   * Función que permite autenticar un usuario.
+   */
+  public ingresar(){
 
     if (this._connect.revisarConexion()){
       return;
@@ -43,6 +46,9 @@ export class LoginComponent {
     
   }
 
+  /**
+   * Función que permite navegar al componente signup.
+   */
   irRegistrar(){
     this.router.navigate(['/signup'], {transition:{name:'slideRight'}});
   }
