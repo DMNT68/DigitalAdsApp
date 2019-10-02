@@ -46,12 +46,12 @@
 
                     <StackLayout class="m-b-10">
                         <Label text="Ancho" class="m-b-5" [ngClass]="{invalid:!anchoCtrl.valid && anchoCtrl.touched}"></Label>
-                        <TextField hint="Ancho(metro)" class="inputVariables" keyboardType="number" returnKeyType="done" required ngModel #anchoCtrl="ngModel"></TextField>
+                        <TextField hint="Ancho(metro)" class="inputVariables" keyboardType="number" returnKeyType="done" required ngModel #anchoCtrl="ngModel" (returnPress)="variarPrecioRotulo(alturaCtrl.value, anchoCtrl.value)"></TextField>
                         <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!anchoCtrl.valid && anchoCtrl.touched"></Label>
                     </StackLayout>
 
-
                     <Button text="Calcular" (tap)="variarPrecioRotulo(alturaCtrl.value, anchoCtrl.value)" [isEnabled]="alturaCtrl.valid && anchoCtrl.valid" class="btn btn-primary btn-rounded-lg btn-active"></Button>
+
                 </StackLayout>
 
                 <StackLayout row="2" *ngIf="rotulos3D">
@@ -67,7 +67,7 @@
                     </StackLayout>
                     <StackLayout class="m-b-10">
                         <Label class="m-b-5" text="Número de letras" [ngClass]="{invalid:!nLetrasCtrl.valid && nLetrasCtrl.touched}"></Label>
-                        <TextField hint="Letras" class="inputVariables" keyboardType="number" returnKeyType="done" required ngModel #nLetrasCtrl="ngModel"></TextField>
+                        <TextField hint="Letras" class="inputVariables" keyboardType="number" returnKeyType="done" required ngModel #nLetrasCtrl="ngModel" (returnPress)="variarPrecioRotulo3D(alturaCtrl.value, anchoCtrl.value, nLetrasCtrl.value)"></TextField>
                         <Label text="Igresar el ancho" class="h6 text-danger" *ngIf="!nLetrasCtrl.valid && nLetrasCtrl.touched"></Label>
                     </StackLayout>
 

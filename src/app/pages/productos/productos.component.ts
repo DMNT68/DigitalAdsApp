@@ -145,6 +145,10 @@ export class ProductosComponent implements OnInit, OnDestroy {
 
   }
 
+  onSubmit() {
+    this._utilService.cerrarTecladoTelefono();
+  }
+
   /**
    * Función que permite navegar al componente carrito.
    */
