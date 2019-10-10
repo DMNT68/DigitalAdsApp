@@ -20,13 +20,15 @@ export class SignupComponent implements OnInit{
     iconEmail: string;
     iconTelefono: string;
     iconPassword: string;
+    iconPassword2: string;
 
   constructor(private page:Page, private router:RouterExtensions, private _usuarioService: UsuarioService, private _util:UtilService, private _connect:ConectividadService) {
     this.page.actionBarHidden = true;
     this.iconNombre = this._util.iconNombre;
     this.iconEmail = this._util.iconEmail;
     this.iconTelefono = this._util.iconTelefono
-    this.iconPassword = this._util.iconPassword;
+    this.iconPassword = this._util.iconPassword2;
+    this.iconPassword2 = this._util.iconPassword2Bold;
   }
 
   /**

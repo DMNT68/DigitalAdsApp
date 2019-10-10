@@ -1,16 +1,8 @@
 /* Estilo Signup */
 
-FlexboxLayout {
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    background-size: cover;
-}
-
 .card {
-    background-color: #f0f0f0;
+    background-color: white;
     border-radius: 7;
-    width: 300;
 }
 
 .btn-primary {
@@ -18,13 +10,6 @@ FlexboxLayout {
     height: 50;
     border-radius: 5;
     font-size: 14;
-}
-
-.form {
-    margin-left: 30;
-    margin-right: 30;
-    flex-grow: 2;
-    vertical-align: center;
 }
 
 .header {
@@ -45,10 +30,6 @@ FlexboxLayout {
     margin-bottom: 15;
 }
 
-.btn-primary {
-    margin-top: 10;
-}
-
 .label-signup {
     height: 18;
     font-size: 15;
@@ -58,7 +39,20 @@ FlexboxLayout {
 }
 
 TextField {
-    font-size: 18;
-    horizontal-align: right;
-    width: 95%;
+    placeholder-color: #2d3440;
+    background-color: #eeeeee;
+    vertical-align: center;
+    opacity: 0.8;
+    padding-left: 15;
+    height: 40;
+    font-size: 14;
+    border-radius: 7;
+}
+
+.icon-signup {
+    font-size: 20;
+    vertical-align: center;
+    padding: 5 5 15 5;
+    color: #2d3440;
+    opacity: 0.8;
 }

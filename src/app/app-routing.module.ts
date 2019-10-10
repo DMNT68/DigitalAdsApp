@@ -5,8 +5,7 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { LoginGuard } from './shared/services/service.index';
 
 const routes: Routes = [
-    { path: "login", loadChildren: () => import( './login/login/login.module' ).then( m => m.LoginModule ) },
-    { path: "signup", loadChildren: () => import( './login/signup/signup.module' ).then( m => m.SignupModule ) },
+    { path: "login", loadChildren: () => import( './auth/auth.module' ).then( m => m.AuthModule ) },
     { path: "",canActivate:[LoginGuard], loadChildren: () => import( './pages/pages.module' ).then( m => m.PagesModule )} 
 ];
 

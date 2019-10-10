@@ -16,14 +16,22 @@
 
 .page {
     background-image: url("~/assets/images/background.png");
-    /* background-color: #f8f0ee; */
-    /* uso de gradientes de colorzilla */
-    /* background: #ef424c;
-    background: -moz-linear-gradient(45deg, #ef424c 0%, #2989d8 50%, #207cca 51%, #2d3440 100%);
-    background: -webkit-linear-gradient(45deg, #ef424c 0%, #2989d8 50%, #207cca 51%, #2d3440 100%);
-    background: linear-gradient(45deg, #ef424c 0%, #2989d8 50%, #207cca 51%, #2d3440 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ef424c', endColorstr='#2d3440', GradientType=1);  
-    */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+FlexboxLayout {
+    padding: 0 25 0 25;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 42;
+    color: white;
+    font-weight: bold;
 }
 
 .centrado-vertical {
