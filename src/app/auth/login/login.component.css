@@ -1,7 +1,7 @@
 /* Estilo Login */
 
 StackLayout {
-    padding: 10 10;
+    padding: 0 20 0 20;
     background-color: white;
     border-radius: 7;
 }
@@ -11,20 +11,33 @@ Image {
     height: 70;
 }
 
-Button,
-TextField {
-    margin-bottom: 10;
+.header {
+    font-size: 28;
+    font-weight: bold;
+    text-align: center;
+    color: #ef424c;
+}
+
+.text-sub {
+    font-size: 14;
+    color: #ef424c;
+    font-weight: 300;
+    text-align: center;
 }
 
 .btn-primary {
     background-color: #ef424c;
-    margin-left: 0;
-    margin-right: 0;
     height: 50;
-    border-radius: 5;
+    border-radius: 7;
     font-size: 14;
     font-weight: 600;
     color: #f4f2ec;
+    margin: 10 0 5 0;
+}
+
+.btn-sec {
+    color: #6644cc;
+    margin: 5 0 5 0;
 }
 
 TextField {
@@ -36,12 +49,13 @@ TextField {
     height: 50;
     font-size: 16;
     border-radius: 7;
+    margin-bottom: 10;
 }
 
 .icon-login {
     font-size: 20;
     vertical-align: center;
-    padding: 5 5 15 5;
+    padding: 5 5 5 0;
     color: #2d3440;
     opacity: 0.8;
 }

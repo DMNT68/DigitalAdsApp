@@ -6,36 +6,37 @@
 }
 
 .btn-primary {
-    margin: 5 20 5 20;
+    margin: 0 10 2 10;
     height: 50;
-    border-radius: 5;
+    border-radius: 7;
     font-size: 14;
+    font-weight: bold;
+    background-color: #6644cc;
+    color: white;
+}
+
+.btn-sec {
+    color: #ef424c;
+    margin: 2 10 5 10;
 }
 
 .header {
-    font-size: 20;
+    font-size: 24;
     font-weight: bold;
     text-align: center;
-    color: #ef424c;
+    color: #6644cc;
+}
+
+.text-sub {
+    font-size: 14;
+    color: #6644cc;
+    font-weight: 300;
+    text-align: center;
 }
 
 .logo {
-    margin-bottom: 10;
-    margin-top: 10;
+    margin: 10 0 10 0;
     height: 70;
-    width: 70;
-}
-
-.input-field {
-    margin-bottom: 15;
-}
-
-.label-signup {
-    height: 18;
-    font-size: 15;
-    font-weight: bold;
-    color: #2d3440;
-    margin-bottom: 5;
 }
 
 TextField {
@@ -52,7 +53,7 @@ TextField {
 .icon-signup {
     font-size: 20;
     vertical-align: center;
-    padding: 5 5 15 5;
+    padding: 5;
     color: #2d3440;
     opacity: 0.8;
 }

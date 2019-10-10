@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit{
     iconPassword: string;
     iconPassword2: string;
 
-  constructor(private page:Page, private router:RouterExtensions, private _usuarioService: UsuarioService, private _util:UtilService, private _connect:ConectividadService) {
+  constructor(private page:Page, private router:RouterExtensions, public _usuarioService: UsuarioService, private _util:UtilService, private _connect:ConectividadService) {
     this.page.actionBarHidden = true;
     this.iconNombre = this._util.iconNombre;
     this.iconEmail = this._util.iconEmail;
@@ -93,6 +93,7 @@ export class SignupComponent implements OnInit{
 
      }, error => {
       this._usuarioService.alert(error.error.err.errors.email.message);
+      this._usuarioService.processing = false;
       console.log('error:',error.error.err.errors.email.message);
       }
     );

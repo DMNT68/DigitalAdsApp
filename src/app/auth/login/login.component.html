@@ -2,21 +2,24 @@
 
     <StackLayout class="ico elevation" androidElevation="4">
 
-        <Image src="~/assets/images/logo.png"></Image>
+        <Image src="res://icon"></Image>
+
+        <Label text="Bienvenido" class="header"></Label>
+        <Label class="text-sub m-b-20" text="Ingresa tus credenciales"></Label>
 
         <GridLayout rows="auto, auto" columns="auto, *">
             <Label [text]="iconEmail" row="0" col="0" class="ico icon-login"></Label>
-            <TextField row="0" col="1" [isEnabled]="!_usuarioService.processing" hint="Correo Electrónico" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" [(ngModel)]="email" class="input input-border" required></TextField>
+            <TextField row="0" col="1" [isEnabled]="!_usuarioService.processing" hint="Correo Electrónico" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" [(ngModel)]="email" required></TextField>
             <Label [text]="iconPassword" row="1" col="0" class="ico icon-login"></Label>
-            <TextField row="1" col="1" [isEnabled]="!_usuarioService.processing" hint="Contraseña" secure="true" returnKeyType="done" [(ngModel)]="password" class="input input-rounded" required (returnPress)="ingresar()"></TextField>
+            <TextField row="1" col="1" [isEnabled]="!_usuarioService.processing" hint="Contraseña" secure="true" returnKeyType="done" [(ngModel)]="password" required (returnPress)="ingresar()"></TextField>
         </GridLayout>
 
         <Button text="Ingresar a tu Cuenta" [isEnabled]="!_usuarioService.processing" class="btn-primary btn-active m-t-5" (tap)="ingresar()"></Button>
 
-        <ActivityIndicator class="activity-indicator" [busy]="_usuarioService.processing" [visibility]="_usuarioService.processing ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
-
-        <Button text="¿Nó tienes una cuenta? Crea una" (tap)="irRegistrar()" class="btn btn-flat btn-active btn-small" [isEnabled]="!_usuarioService.processing"></Button>
+        <Button text="¿Nó tienes una cuenta? Crea una" (tap)="irRegistrar()" class="btn btn-flat btn-active btn-small btn-sec" [isEnabled]="!_usuarioService.processing"></Button>
 
     </StackLayout>
 
 </FlexboxLayout>
+
+<ActivityIndicator class="activity-indicator" [busy]="_usuarioService.processing" [visibility]="_usuarioService.processing ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>

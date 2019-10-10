@@ -64,8 +64,7 @@ FlexboxLayout {
 .btn-small {
     font-size: 12;
     font-weight: bold;
-    height: 30;
-    padding: 1;
+    height: 40;
 }
 
 .label-recargar {
