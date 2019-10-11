@@ -2,10 +2,10 @@
     "nativescript": {
         "id": "com.digitalads.digitalads",
         "tns-ios": {
-            "version": "6.0.1"
+            "version": "6.1.0"
         },
         "tns-android": {
-            "version": "6.0.0"
+            "version": "6.1.2"
         }
     },
     "description": "Aplicación de Cotización para la empresa Digital ads ",

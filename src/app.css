@@ -1,5 +1,7 @@
 @import '~nativescript-theme-core/css/core.light.css';
-@import './assets/css/custom.css';
+
+/* @import './assets/css/custom.css'; */
+
 
 /* margin:t r b l  */
 
@@ -12,6 +14,15 @@
 
 .ico {
     font-family: 'IcoMoon-Free', 'icomoon';
+}
+
+.action-bar {
+    background-color: #2d3440;
+    color: white;
+}
+
+.activity-indicator {
+    color: #2d3440;
 }
 
 .page {
@@ -53,12 +64,6 @@ FlexboxLayout {
     border-color: transparent;
     border-width: 1;
     z-index: 0;
-}
-
-.btn-text {
-    font-size: 14;
-    font-weight: bold;
-    color: #ef424c
 }
 
 .btn-small {
@@ -125,6 +130,10 @@ FlexboxLayout {
 
 .icon-5x {
     font-size: 100px;
+}
+
+.h6 {
+    font-size: 11;
 }
 
 .invalid {

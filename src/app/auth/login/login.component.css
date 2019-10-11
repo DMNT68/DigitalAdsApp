@@ -36,8 +36,9 @@ Image {
 }
 
 .btn-sec {
-    color: #6644cc;
+    color: #ef424c;
     margin: 5 0 5 0;
+    font-weight: 500;
 }
 
 TextField {
@@ -55,7 +56,7 @@ TextField {
 .icon-login {
     font-size: 20;
     vertical-align: center;
-    padding: 5 5 5 0;
+    padding: 5 5 15 0;
     color: #2d3440;
     opacity: 0.8;
 }

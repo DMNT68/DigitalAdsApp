@@ -23,9 +23,7 @@
 
 <GridLayout class="page" vertical-align="center">
 
-
     <ActivityIndicator class="activity-indicator" [busy]="productos.length == 0" [visibility]="productos.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
-
 
     <GridLayout class="visible" *ngIf="productos.length != 0">
 

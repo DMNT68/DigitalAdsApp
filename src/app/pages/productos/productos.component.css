@@ -54,11 +54,13 @@
     }
     
     .inputVariables {
+        placeholder-color: #2d3440;
+        background-color: #eeeeee;
+        opacity: 0.8;
+        padding-left: 15;
+        height: 35;
         font-size: 12;
-        placeholder-color: #A8A8A8;
-        vertical-align: center;
-        padding-top: 5;
-        size: 30;
+        border-radius: 7;
     }
     
     .searchbar {
@@ -94,13 +96,9 @@
     
     .icon-cart-add {
         border-radius: 0 10 10 10;
-        background-color: #0e3743;
-        color: #F8F0EE;
+        background-color: #2d3440;
+        color: white;
         width: 50;
-    }
-    
-    RadListView {
-        margin-right: -2;
     }
     
     .footer {
@@ -173,6 +171,16 @@
         font-size: 11;
     }
     
-    .font-15x {
+    .font-cot {
         font-size: 17;
+        font-weight: bold;
+        color: #2d3440;
+    }
+    
+    .btn-primary {
+        border-radius: 7;
+        font-size: 14;
+        font-weight: bold;
+        background-color: #2d3440;
+        color: white;
     }

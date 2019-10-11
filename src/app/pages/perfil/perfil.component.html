@@ -2,9 +2,9 @@
 
 <ScrollView class="page">
 
-    <StackLayout class="card elevation centrado-vertical visible" androidElevation="4">
+    <StackLayout class="card elevation visible" androidElevation="4">
 
-        <StackLayout class="form">
+        <StackLayout>
 
             <StackLayout>
                 <Label class="avatar img-profile img-circle" *ngIf="!imagenActiva" [text]="avatar" (tap)="onSelectSingleTap()"></Label>
@@ -14,10 +14,10 @@
 
             <GridLayout class="margen" rows="auto" columns="40, *, 40">
 
-                <Label class="ico icon-1x text-primary text-center" [text]="iconNombre" row="0" col="0"></Label>
+                <Label class="ico icon-1x icon-perfil" [text]="iconNombre" row="0" col="0"></Label>
 
                 <StackLayout row="0" col="1">
-                    <Label class="h5" text="Nombre" textWrap="true"></Label>
+                    <Label class="txt-perfil" text="Nombre"></Label>
                     <Label class="txt-usuario" [text]="usuario.nombre" textWrap="true"></Label>
                     <StackLayout class="hr-light margen-linea"></StackLayout>
                 </StackLayout>
@@ -28,10 +28,10 @@
 
             <GridLayout class="margen" rows="auto" columns="40, *, 40">
 
-                <Label class="ico icon-1x text-primary text-center" [text]="iconEmail" row="0" col="0"></Label>
+                <Label class="ico icon-1x icon-perfil" [text]="iconEmail" row="0" col="0"></Label>
 
                 <StackLayout row="0" col="1">
-                    <Label class="h5" text="Correo Electrónico" textWrap="true"></Label>
+                    <Label class="txt-perfil" text="Correo Electrónico"></Label>
                     <Label class="txt-usuario" [text]="usuario.email" textWrap="true"></Label>
                     <StackLayout class="hr-light margen-linea"></StackLayout>
 
@@ -41,12 +41,12 @@
 
             </GridLayout>
 
-            <GridLayout class="margen" rows="auto" columns="40, *, 40">
+            <GridLayout rows="auto" columns="40, *, 40">
 
-                <Label class="ico icon-1x text-primary text-center" [text]="iconTelefono" row="0" col="0"></Label>
+                <Label class="ico icon-1x icon-perfil" [text]="iconTelefono" row="0" col="0"></Label>
 
                 <StackLayout row="0" col="1">
-                    <Label class="h5" text="Teléfono" textWrap="true"></Label>
+                    <Label class="txt-perfil" text="Teléfono"></Label>
                     <Label class="txt-usuario" [text]="usuario.telefono" textWrap="true"></Label>
                     <StackLayout class="hr-light margen-linea"></StackLayout>
                 </StackLayout>
@@ -57,7 +57,7 @@
 
         </StackLayout>
 
-        <Button text="Cerrar Sesión" class="btn btn-flat btn-text btn-active" (tap)="salir()"></Button>
+        <Button text="Cerrar Sesión" class="btn btn-flat btn-sec btn-active" (tap)="salir()"></Button>
 
         <Label class="txt-version" text="Digital Ads v1.1.0"></Label>
 

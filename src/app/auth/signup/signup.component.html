@@ -10,32 +10,32 @@
                 <GridLayout rows="*, *" columns="auto, *" class="m-b-10" [ngClass]="{invalid:registroForm.controls['nombre'].errors?.minlength}">
                     <Label [text]="iconNombre" row="0" col="0" class="ico icon-signup"></Label>
                     <TextField [isEnabled]="!_usuarioService.processing" row="0" col="1" hint="Nombre y Apellido" autocorrect="true" formControlName="nombre" returnKeyType="next" required></TextField>
-                    <Label row="1" col="1" text="Por lo menos tres caracteres" class="p-l-10 text-danger h6" *ngIf="registroForm.controls['nombre'].errors?.minlength"></Label>
+                    <Label row="1" col="1" text="Por lo menos tres caracteres" class="p-l-10 invalid h6" *ngIf="registroForm.controls['nombre'].errors?.minlength"></Label>
                 </GridLayout>
 
                 <GridLayout rows="*, *" columns="auto, *" class="m-b-10" [ngClass]="{invalid:registroForm.controls['email'].errors?.email}">
                     <Label [text]="iconEmail" row="0" col="0" class="ico icon-signup"></Label>
                     <TextField [isEnabled]="!_usuarioService.processing" row="0" col="1" hint="Correo Electrónico" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" formControlName="email"></TextField>
-                    <Label row="1" col="1" class="p-l-10 text-danger h6" text="No es un e-mail válido" *ngIf="registroForm.controls['email'].errors?.email"></Label>
+                    <Label row="1" col="1" class="p-l-10 invalid h6" text="No es un e-mail válido" *ngIf="registroForm.controls['email'].errors?.email"></Label>
                 </GridLayout>
 
                 <GridLayout rows="*,*,*" columns="auto, *" class="m-b-10" [ngClass]="{invalid:registroForm.controls['telefono'].errors?.minlength || registroForm.controls['telefono'].errors?.maxlength}">
                     <Label [text]="iconTelefono" row="0" col="0" class="ico icon-signup"></Label>
                     <TextField [isEnabled]="!_usuarioService.processing" row="0" col="1" hint="Número telefónico" maxLength="10" keyboardType="number" returnKeyType="next" formControlName="telefono"></TextField>
-                    <Label row="1" col="1" class="p-l-10 text-danger h6" text="No es un número válido" *ngIf="registroForm.controls['telefono'].errors?.minlength || registroForm.controls['telefono'].errors?.maxlength"></Label>
-                    <Label row="2" col="1" class="p-l-10 text-danger h6" text="Ingrese solo números" *ngIf="registroForm.controls['telefono'].errors?.pattern || registroForm.controls['telefono'].errors?.maxlength"></Label>
+                    <Label row="1" col="1" class="p-l-10 invalid h6" text="No es un número válido" *ngIf="registroForm.controls['telefono'].errors?.minlength || registroForm.controls['telefono'].errors?.maxlength"></Label>
+                    <Label row="2" col="1" class="p-l-10 invalid h6" text="Ingrese solo números" *ngIf="registroForm.controls['telefono'].errors?.pattern || registroForm.controls['telefono'].errors?.maxlength"></Label>
                 </GridLayout>
 
                 <GridLayout rows="*, *" columns="auto, *" class="m-b-10" [ngClass]="{invalid:registroForm.controls['password'].errors?.minlength}">
                     <Label [text]="iconPassword" row="0" col="0" class="ico icon-signup"></Label>
                     <TextField [isEnabled]="!_usuarioService.processing" row="0" col="1" hint="Contraseña" secure="true" returnKeyType="next" formControlName="password"></TextField>
-                    <Label row="1" col="1" class="p-l-10 text-danger h6" text="Por lo menos 6 caracteres" *ngIf="registroForm.controls['password'].errors?.minlength"></Label>
+                    <Label row="1" col="1" class="p-l-10 invalid h6" text="Por lo menos 6 caracteres" *ngIf="registroForm.controls['password'].errors?.minlength"></Label>
                 </GridLayout>
 
                 <GridLayout rows="*, *" columns="auto, *" [ngClass]="{invalid:registroForm.errors?.sonIguales && !registroForm.pristine}">
                     <Label [text]="iconPassword2" row="0" col="0" class="ico icon-signup"></Label>
                     <TextField [isEnabled]="!_usuarioService.processing" row="0" col="1" hint="Confirmar Contraseña" secure="true" returnKeyType="done" formControlName="password2"></TextField>
-                    <Label row="1" col="1" class="p-l-10 text-danger h6" text="Las contraseñas no coinciden" *ngIf="registroForm.errors?.sonIguales && !registroForm.pristine"></Label>
+                    <Label row="1" col="1" class="p-l-10 invalid h6" text="Las contraseñas no coinciden" *ngIf="registroForm.errors?.sonIguales && !registroForm.pristine"></Label>
                 </GridLayout>
 
             </StackLayout>
