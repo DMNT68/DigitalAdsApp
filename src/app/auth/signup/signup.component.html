@@ -41,7 +41,7 @@
             </StackLayout>
         </ScrollView>
 
-        <Button [isEnabled]="registroForm.valid || !_usuarioService.processing" text="Registrar cuenta" class="btn btn-primary btn-active" (tap)="signup()"></Button>
+        <Button [isEnabled]="registroForm.valid && !_usuarioService.processing" text="Registrar cuenta" class="btn btn-primary btn-active" (tap)="signup()"></Button>
         <Button [isEnabled]="!_usuarioService.processing" text="¿Yá tienes una Cuenta? Regresar" (tap)="regresarLogin()" class="btn btn-flat btn-active btn-small btn-sec"></Button>
 
     </StackLayout>

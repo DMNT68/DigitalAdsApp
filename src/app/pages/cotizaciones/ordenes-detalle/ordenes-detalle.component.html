@@ -1,7 +1,7 @@
 <ns-action-bar title="Detalle" class="action-bar">
 
-    <ActionItem *ngIf="!isLoading" (tap)="borrarOrden(orden._id)" ios.position = "right" class="m-10">
-        <Button class="ico btn btn-flat btn-active iconDelete action-item" [text] = "iconDelete"></Button>
+    <ActionItem *ngIf="!isLoading" (tap)="borrarOrden(orden._id)" ios.position="right" class="m-10">
+        <Button class="ico btn btn-flat btn-active iconDelete action-item" [text]="iconDelete"></Button>
     </ActionItem>
 
 </ns-action-bar>
@@ -14,7 +14,7 @@
 
             <GridLayout rows="auto, auto" columns="auto, auto" class="date-container">
                 <Label row="0" col="0" text="Fecha: "></Label>
-                <Label row="0" col="1" text="{{orden.fechaCreacion  | date:'fullDate':'es-EC'}}" textWrap="true"></Label>
+                <Label row="0" col="1" text="{{orden.fechaCreacion  | date:'longDate':'es-EC'}}" textWrap="true"></Label>
                 <StackLayout row="1" colSpan="2" class="divider m-t-5"></StackLayout>
             </GridLayout>
 
