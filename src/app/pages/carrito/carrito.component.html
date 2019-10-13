@@ -1,6 +1,6 @@
 <ns-action-bar title="Lista de Pedidos ( {{ _cs.items.length}} )" class="action-bar" [showBackButton]="false">
     <ActionItem (tap)="back()" ios.position="right" class="m-5">
-        <Button [text]="iconClose" class="ico icon-close btn btn-flat btn-active" *ngIf="!isIos"></Button>
+        <Button [text]="iconClose" class="ico icon-close btn btn-flat btn-close btn-active" *ngIf="!isIos"></Button>
     </ActionItem>
 </ns-action-bar>
 
@@ -71,9 +71,7 @@
                 <Label row="1" col="1" text="$ {{_cs.total_carrito  | number:'.2-2'}} "></Label>
             </GridLayout>
 
-            <GridLayout class="m-x-15 m-y-10 btn-container " row="1">
-                <Button text="Realizar Pedido" class="btn btn-active btn-flat" (tap)="enviarPedido()"></Button>
-            </GridLayout>
+            <Button row="1" text="Realizar Pedido" class="btn btn-active btn-total m-x-15 m-y-10" (tap)="enviarPedido()"></Button>
 
         </GridLayout>
 

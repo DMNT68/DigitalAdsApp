@@ -14,6 +14,9 @@ export class ConectividadService {
 
   // result is ConnectionType enumeration (none, wifi or mobile)
   
+  /**
+   * Función que permite verificar la conectividad del dispositivo en este caso la de tener internet.
+   */
   public conectividadStatus (){
     this.status = false;
     const myConnectionType = getConnectionType();
@@ -29,7 +32,10 @@ export class ConectividadService {
     }
   }
 
-  public revisarConexion() : boolean {
+  /**
+   * Función que permite verificar el estado de la conectividad. Retorna un boolean 
+   */
+  public revisarConexion(): boolean {
 
     this.conectividadStatus();
     

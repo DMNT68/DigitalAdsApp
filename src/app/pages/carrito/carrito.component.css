@@ -16,15 +16,13 @@
     font-size: 18;
     color: #2d3440;
     font-weight: bold;
-    ;
 }
 
 .order-details {
     vertical-align: top;
 }
 
-.items,
-.sub-total {
+.items {
     opacity: 0.8;
     font-size: 16;
     color: #4A535D;
@@ -38,7 +36,8 @@
 }
 
 .item-price {
-    font-weight: 400;
+    font-weight: 500;
+    color: #2d3440;
 }
 
 .item-quantity {
@@ -53,24 +52,35 @@
     border-radius: 6;
 }
 
-.sub-total Label {
+.sub-total {
     font-weight: bold;
+    color: #2d3440;
+    opacity: 0.9;
+    font-size: 16;
+    letter-spacing: 0.027;
 }
 
-Button {
+.btn-total {
     height: 60;
+    background-color: #2d3440;
     border-radius: 6;
-    color: #FFFFFF;
+    color: white;
     font-size: 16;
     font-weight: bold;
     letter-spacing: 0.05;
 }
 
+.btn-close {
+    color: white;
+    font-weight: bold;
+    font-size: 16;
+}
+
 .grand-total-container {
-    opacity: 0.8;
+    opacity: 0.9;
     font-weight: bold;
     font-size: 18;
-    color: #4A535D;
+    color: #2d3440;
     letter-spacing: 0.03;
     margin-right: 60;
     margin-left: 60;

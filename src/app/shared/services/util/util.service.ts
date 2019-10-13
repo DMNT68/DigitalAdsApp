@@ -8,12 +8,11 @@ import { Toasty, ToastDuration } from 'nativescript-toasty';
 @Injectable() 
 export class UtilService { 
 
-    months = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-    days = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
-
     //icon fonts IcoMoon-Free
     iconEmail: string;
     iconPassword: string;
+    iconPassword2: string;
+    iconPassword2Bold: string;
     iconTelefono: string;
     iconNombre: string;
     iconCarritoAdd: string;
@@ -41,6 +40,8 @@ export class UtilService {
     constructor() {
         this.iconEmail = String.fromCharCode(0xe0e1);
         this.iconPassword = String.fromCharCode(0xe0da);
+        this.iconPassword2 = String.fromCharCode(0xe899);
+        this.iconPassword2Bold = String.fromCharCode(0xe897);
         this.iconTelefono = String.fromCharCode(0xe0cd);
         this.iconNombre = String.fromCharCode(0xe7fd);
         this.iconCarritoAdd = String.fromCharCode(0xe854);
@@ -66,11 +67,11 @@ export class UtilService {
         
     } 
 
-    public fechaFormato(fecha: Date) {
-        let formateado = `${this.days[fecha.getDay()]}, ${fecha.getDay()}/${this.months[fecha.getMonth()]}/${fecha.getFullYear()}`;
-        return formateado;
-    }
-
+    /**
+     * Función que permite ejecutar una alerta como cuadro de diálogo.
+     * @param message Mensaje para mostrar el cuadro de diálogo
+     * @param title Título para el cuadro de dialogo, paramentro opcional si no manda un valor por defecto es "Digital ADS"
+     */
     public alert(message: string, title?:string): Promise<void> {
 
         return alert({
@@ -81,6 +82,11 @@ export class UtilService {
         
     }
 
+    /**
+     * Función que permite ejecutar una alerta como cuadro de diálogo.
+     * @param message Mensaje para mostrar el cuadro de diálogo
+     * @param title Título para el cuadro de dialogo, paramentro opcional si no manda un valor por defecto es "Digital ADS"
+     */
     public confirm(message: string, title?:string): Promise<boolean> {
         return confirm({
             title: title || 'DIGITAL ADS',
@@ -90,6 +96,9 @@ export class UtilService {
         });
     }
 
+    /**
+     * Función que cierra el teclado.
+     */
     public cerrarTecladoTelefono() {
         if (isIOS) {
           frame.topmost().nativeView.endEditing(true);

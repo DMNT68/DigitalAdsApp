@@ -20,11 +20,14 @@ export class LoginComponent {
   constructor(private page:Page , private router:RouterExtensions, public _usuarioService:UsuarioService, private _util:UtilService, private _connect:ConectividadService) {
     this.page.actionBarHidden = true;
     this.iconEmail = this._util.iconEmail;
-    this.iconPassword = this._util.iconPassword;
+    this.iconPassword = this._util.iconPassword2;
     
   }
 
-  ingresar(){
+  /**
+   * Función que permite autenticar un usuario.
+   */
+  public ingresar(){
 
     if (this._connect.revisarConexion()){
       return;
@@ -43,8 +46,11 @@ export class LoginComponent {
     
   }
 
+  /**
+   * Función que permite navegar al componente signup.
+   */
   irRegistrar(){
-    this.router.navigate(['/signup'], {transition:{name:'slideRight'}});
+    this.router.navigate(['login/signup'], {transition:{name:'slideRight'}});
   }
 
   

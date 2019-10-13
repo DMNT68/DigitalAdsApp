@@ -43,12 +43,14 @@ export class CarritoComponent implements OnInit {
 
   }
 
-  enviarPedido() {
+  /**
+   * Función que realiza el pedido.
+   */
+  public enviarPedido() {
 
     if(this._connect.revisarConexion()){
       return;
     }
-    
 
     this._util.confirm('¿Desea enviar el pedido para ser revisado?','Enviar Pedido')
     .then((result)=>{
@@ -66,9 +68,13 @@ export class CarritoComponent implements OnInit {
         );
 
       }
-    })
+    });
   }
 
+  /**
+   * Función que permiter romover un item del pedido.
+   * @param i Posición del arreglo
+   */
   borrarItem(i:number){
     this._util.confirm('¿Deseas quitar el producto de la lista?').then((result)=>{
       if(result){
@@ -77,6 +83,9 @@ export class CarritoComponent implements OnInit {
     });
   }
 
+  /** 
+   * Función que permite navegar al pagina anterior.
+   */
   back(){
     this.router.backToPreviousPage();
   }

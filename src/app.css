@@ -1,5 +1,7 @@
 @import '~nativescript-theme-core/css/core.light.css';
-@import './assets/css/custom.css';
+
+/* @import './assets/css/custom.css'; */
+
 
 /* margin:t r b l  */
 
@@ -14,16 +16,33 @@
     font-family: 'IcoMoon-Free', 'icomoon';
 }
 
+.action-bar {
+    background-color: #2d3440;
+    color: white;
+}
+
+.activity-indicator {
+    color: #2d3440;
+}
+
 .page {
     background-image: url("~/assets/images/background.png");
-    /* background-color: #f8f0ee; */
-    /* uso de gradientes de colorzilla */
-    /* background: #ef424c;
-    background: -moz-linear-gradient(45deg, #ef424c 0%, #2989d8 50%, #207cca 51%, #2d3440 100%);
-    background: -webkit-linear-gradient(45deg, #ef424c 0%, #2989d8 50%, #207cca 51%, #2d3440 100%);
-    background: linear-gradient(45deg, #ef424c 0%, #2989d8 50%, #207cca 51%, #2d3440 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ef424c', endColorstr='#2d3440', GradientType=1);  
-    */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+FlexboxLayout {
+    padding: 0 25 0 25;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 42;
+    color: white;
+    font-weight: bold;
 }
 
 .centrado-vertical {
@@ -47,17 +66,10 @@
     z-index: 0;
 }
 
-.btn-text {
-    font-size: 14;
-    font-weight: bold;
-    color: #ef424c
-}
-
 .btn-small {
     font-size: 12;
     font-weight: bold;
-    height: 30;
-    padding: 1;
+    height: 40;
 }
 
 .label-recargar {
@@ -118,6 +130,10 @@
 
 .icon-5x {
     font-size: 100px;
+}
+
+.h6 {
+    font-size: 11;
 }
 
 .invalid {

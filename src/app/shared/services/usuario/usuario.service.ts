@@ -24,7 +24,11 @@ export class UsuarioService {
       this.cargaLocalData();
   } 
 
-  crearAvatar(): string {
+  /**
+   * Función que permite crear un avatar con la primer letra del nombre y apellido.
+   * Ejemplo resultado: nombre(Andrés Salgado) avatar(AS)
+   */
+  public crearAvatar(): string {
     let nombre = this.usuario.nombre;
     let arregloNombre = nombre.split(' ');
     let avatar = arregloNombre.map(letra => letra.charAt(0)).slice(0,2).join('');
@@ -32,12 +36,20 @@ export class UsuarioService {
     return avatar;
   }
 
-  estaLogueado() {
+  /**
+   * Función que verifica si un token existe en el almacenamiento local del dispositivo,
+   * con lo que permite saber a donde navegar (Login o tabs-nav) cuando la aplicacion se ejecuta.
+   * Si retorna "True" navega a tabs-nav, si retorna "False" navega a Login.
+   */
+  public estaLogueado() {
     this.cargaLocalData();
     return(this.token.length > 5 ) ? true : false; 
   }
 
-  cargaLocalData() {
+  /**
+   * Función que permite cargar los datos guardados en el almacenamiento local del dispositvo.
+   */
+  public cargaLocalData() {
 
       if ( getString('token') ) {
         this.token = getString('token');
@@ -49,7 +61,13 @@ export class UsuarioService {
   
     }
 
-  guardarLocaData(id: string, token: string, usuario: Usuario){
+  /**
+   * Función que permite guardar los datos del usuario en el almacenamiento del dispositivo.
+   * @param id Parametro ID del usuario.
+   * @param token Token del usuario que inicia sesión.
+   * @param usuario Objeto usuario
+   */
+  private guardarLocaData(id: string, token: string, usuario: Usuario){
       
       setString('id',id);
       setString('token',token);
@@ -59,7 +77,11 @@ export class UsuarioService {
 
   }
 
-  login (usuario: Usuario) {
+  /**
+   * Función que permite autenticar a un usuario.
+   * @param usuario Objeto Usuario
+   */
+  public login (usuario: Usuario) {
 
     this.processing = true;
     
@@ -84,7 +106,11 @@ export class UsuarioService {
 
   }
 
-  logout() {
+  /**
+   * Función que permite cerrar sesión y navegar a Login,
+   * borrando o removiendo los datos guardados del almacenamiento del dispositivo.
+   */
+  public logout() {
 
     remove('usuario');
     remove('token');
@@ -93,24 +119,40 @@ export class UsuarioService {
     this.usuario = null;
     this.token = '';
 
-    this.router.navigate(['/login'], {clearHistory:true ,transition:{name:'slideRight', duration:300}});
+    this.router.navigate(['/login'], {clearHistory:true ,transition:{name:'slideRight'}});
   
     }
 
 
-  crearUsuario(usuario:Usuario){
+  /**
+   * Función que permite crear o registrar un usuario en una bdd.
+   * @param usuario Objeto usuario
+   */
+  public crearUsuario(usuario:Usuario){
 
+      this.processing = true;
       let url=URL_SERVICIOS + '/usuario';
 
       if(!usuario.email || !usuario.password || !usuario.telefono) {
         this.alert("Por favor ingresa tu datos por favor.");
-          return throwError("Por favor ingresa tus datos por favor.");
+        this.processing=false;
+        return throwError("Por favor ingresa tus datos por favor.");
       }
       
-      return this.http.post(url,usuario);
+      return this.http.post(url,usuario).pipe(map(()=>{
+        setTimeout(() => {
+          this.processing=false;
+        }, 500);
+        return true;
+      }));
 
   }
 
+  /**
+   * Función que permite ejecutar una alerta como cuadro de dialogo
+   * @param message Mensaje para mostrar el cuadro de dialogo
+   * @param title Título para el cuadro de dialogo, paramentro opcional si no manda un valor por defecto es "Digital ADS"
+   */
   public alert(message: string, title?:string) {
 
     return alert({
@@ -121,7 +163,11 @@ export class UsuarioService {
     
   }
 
-  actualizarUsuario(usuario: Usuario) {
+  /**
+   * Función que permite modificar un registro de un usuario de la bdd.
+   * @param usuario Objeto usuario
+   */
+  public actualizarUsuario(usuario: Usuario) {
 
     let url = URL_SERVICIOS + '/usuario/' + usuario._id;
     
@@ -144,6 +190,9 @@ export class UsuarioService {
 
   }
 
+  /**
+   * Función que retorna la respuesta a una petición http
+   */
   imagenExistente() {
     let url = `${URL_SERVICIOS}/imagen-existe/usuarios/${this.usuario.img}`;
     return this.http.get(url);

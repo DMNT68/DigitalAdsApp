@@ -16,15 +16,13 @@
     font-size: 18;
     color: #2d3440;
     font-weight: bold;
-    ;
 }
 
 .order-details {
     vertical-align: top;
 }
 
-.items,
-.sub-total {
+.items {
     opacity: 0.8;
     font-size: 16;
     color: #4A535D;
@@ -38,7 +36,8 @@
 }
 
 .item-price {
-    font-weight: 400;
+    font-weight: 500;
+    color: #2d3440;
 }
 
 .item-quantity {
@@ -46,31 +45,19 @@
     color: #A4A9AE;
 }
 
-.btn-container {
-    height: 60;
-    vertical-align: center;
-    background-color: #ef424c;
-    border-radius: 6;
-}
-
-.sub-total Label {
+.sub-total {
     font-weight: bold;
-}
-
-Button {
-    height: 60;
-    border-radius: 6;
-    color: #FFFFFF;
+    color: #2d3440;
+    opacity: 0.9;
     font-size: 16;
-    font-weight: bold;
-    letter-spacing: 0.05;
+    letter-spacing: 0.027;
 }
 
 .grand-total-container {
     opacity: 0.8;
     font-weight: bold;
     font-size: 18;
-    color: #4A535D;
+    color: #2d3440;
     letter-spacing: 0.03;
     margin-right: 30;
     margin-left: 60;
@@ -89,13 +76,6 @@ Button {
     height: 5;
     opacity: 0.5;
     background: #D8D8D8;
-}
-
-.iconBorrar {
-    font-size: 18;
-    margin-top: 2;
-    text-align: center;
-    color: rgb(247, 77, 77);
 }
 
 .iconDelete {

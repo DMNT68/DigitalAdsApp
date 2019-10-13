@@ -37,7 +37,10 @@ export class CarritoService {
 
   }
 
-  realizarPedido() {
+  /**
+   * Función que hace un petición http - POST para registrar un pedido del usuario en la bdd
+   */
+  public realizarPedido() {
 
     let parametros:any={};
     let url = URL_SERVICIOS + '/orden';
@@ -84,7 +87,11 @@ export class CarritoService {
 
   }
 
-  cargarOrdenes() {
+  /**
+   * Función que realiza una peticion http - GET. 
+   * Recibe como respuesta las ordenes o pedidos del usuario que esta en sesión.
+   */
+  public cargarOrdenes() {
 
     let url = URL_SERVICIOS + '/ordenesUsuario';
     let header = new HttpHeaders({
@@ -99,7 +106,12 @@ export class CarritoService {
     }));
   }
 
-  cargarOrdenDetalle(id:string) {
+  /**
+   * Función  que realiza una petición http - GET. 
+   * Recibe como respuesta un objeto con los productos y variantes que el usuario hizo en la cotización
+   * @param id ID de la orden o pedido
+   */
+  public cargarOrdenDetalle(id:string) {
 
     let url = URL_SERVICIOS + `/detalles/${id}`;
     let header = new HttpHeaders({
@@ -112,7 +124,11 @@ export class CarritoService {
   }
 
 
-  borrarOrden(id:string) {
+  /**
+   * Función que realiza una petición http-DELETE, que permite borrar un pedido.
+   * @param id ID del pedido o orden
+   */
+  public borrarOrden(id:string) {
 
     let url = URL_SERVICIOS + `/orden/${id}`;
     let header = new HttpHeaders({
@@ -129,17 +145,26 @@ export class CarritoService {
   
   
   /**
-   * Ir al componente carrito
+   * Función que permite navegar al componente carrito que tiene la lista de productos cotizados y listo para enviar el pedido.
    */
-  verCarrito() {
+  public verCarrito() {
     if(this._us.token){
-      this.router.navigate(['/carrito'], {transition:{name:'slideTop', duration:300}});
+      this.router.navigate(['/carrito'], {transition:{name:'slideTop'}});
     } else {
       this._us.logout();
     }
   }
 
-  agregarCarrito(itemParametro:Producto, cantidadesParametros:number, alturaParametro:number, anchoParametro:number, nroLetraParametro:number, preciofinalParametro:number) {
+  /**
+   * Función que permite agregar un producto cotizado a la lista de pedidos.
+   * @param itemParametro ID del producto.
+   * @param cantidadesParametros Cantidad de unidades solicitadas por producto.
+   * @param alturaParametro Longitud de altura de producto aplica solo para rótulos.
+   * @param anchoParametro Longitud de ancho de producto aplica solo para rótulos.
+   * @param nroLetraParametro Número de letras aplica solo para rotulos 3D.
+   * @param preciofinalParametro Subtotal del producto.
+   */
+  public agregarCarrito(itemParametro:Producto, cantidadesParametros:number, alturaParametro:number, anchoParametro:number, nroLetraParametro:number, preciofinalParametro:number) {
   
     for (const item of this.items) {
       if(item._id == itemParametro._id){
@@ -164,7 +189,11 @@ export class CarritoService {
 
   }
 
-  removerItems(i:number) {
+  /**
+   * Función que permite remover un item(producto cotizado) de la lista de pedidos.
+   * @param i Posicion del arreglo de pedido
+   */
+  public removerItems(i:number) {
     this.items.splice(i,1);
     this.cantidades.splice(i,1);
     this.alturas.splice(i,1);
@@ -175,7 +204,10 @@ export class CarritoService {
     this.guardarLocalData();
   }
 
-  vaciarCarrito() {
+  /**
+   * Función que permite vaciar la lista de pedidos.Vacia las propiedades items, cantidades, alturas, anchos, nroLetras, preciosFinales.
+   */
+  public vaciarCarrito() {
 
     this.items = [];
     this.cantidades = [];
@@ -189,13 +221,19 @@ export class CarritoService {
 
   }
 
-  actualizar_total(){
-    this.total_carrito=0;
+  /**
+   * Función que hace el calculo de sumar los subtotales
+   */
+  private actualizar_total(){
+    this.total_carrito = 0;
     for (const t of this.preciosFinales) {
-      this.total_carrito+=t;
+      this.total_carrito += t;
     }
   }
 
+  /**
+   * Funcion que permite remover o borrar las propiedades del pedido que fueron almacenadas en el dispositivo.
+   */
   private removed() {
     remove('items');
     remove('cantidades');
@@ -203,9 +241,11 @@ export class CarritoService {
     remove('anchos');
     remove('nroLetras');
     remove('preciosFinales');
-
   }
 
+  /**
+   * Función que permite guardar en el almacenamiento local del dispositivo las propiedes de carrito
+   */
   private guardarLocalData() {
     setString('items',JSON.stringify(this.items));
     setString('cantidades',JSON.stringify(this.cantidades));
@@ -215,7 +255,10 @@ export class CarritoService {
     setString('preciosFinales',JSON.stringify(this.preciosFinales));
   }
 
-  cargarLocalData() {
+  /**
+   * Función que permite obtener las propidades que fueron guardades en el almacenamiento del dispositivo.
+   */
+  private cargarLocalData() {
 
     let promesa = new Promise((resolve, reject)=>{
 
