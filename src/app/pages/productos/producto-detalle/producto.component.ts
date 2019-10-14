@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
 import { PageRoute } from 'nativescript-angular/router';
 import { Subscription } from 'rxjs';
-
 
 import { ProductoService, UtilService, CarritoService, ConectividadService } from '../../../shared/services/service.index';
 import { Producto } from '../../../shared/models/producto.model';
@@ -15,6 +15,9 @@ import { Producto } from '../../../shared/models/producto.model';
 })
 export class ProductoComponent implements OnInit, OnDestroy {
 
+  cotizar1Form: FormGroup
+  cotizar2Form: FormGroup
+  
   producto: Producto;
   precioFinal: number;
   cantidad: number = 1;
@@ -49,18 +52,24 @@ export class ProductoComponent implements OnInit, OnDestroy {
     private _connect:ConectividadService) {}
     
   ngOnInit() {
+    
+    this.cotizar1Form = new FormGroup({
+      'altura': new FormControl('',[Validators.required, Validators.pattern('[0-9]*')]),
+      'ancho': new FormControl('',[Validators.required, Validators.pattern('[0-9]*')])
+    });
+    
+    this.cotizar2Form = new FormGroup({
+      'altura': new FormControl('',[Validators.required, Validators.pattern('[0-9]*')]),
+      'ancho': new FormControl('',[Validators.required, Validators.pattern('[0-9]*')]),
+      'letras': new FormControl('',[Validators.required, Validators.pattern('[0-9]*')])
+    });
+    
     this.iconCarrito = this._utilService.iconCarritoAdd;
     this.iconMas = this._utilService.iconAdd;
     this.iconMenos = this._utilService.iconRemove;
 
-    // this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
-    //   activatedRoute.paramMap.subscribe(paramMap=>{
-    //     const id = paramMap.get('id');
-    //     this.getProducto(id);  
-    //   });
-    // });
-      const id = this.activRoute.snapshot.params.id;
-      this.getProducto(id);    
+    const id = this.activRoute.snapshot.params.id;
+    this.getProducto(id);    
   }
 
   ngOnDestroy() {
