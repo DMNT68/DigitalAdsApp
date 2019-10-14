@@ -31,7 +31,7 @@
 
                     <GridLayout class="m-y-12 centrado-horizontal" columns="50,40,50">
                         <Button col="0" [text]="iconMenos" class="btn icon-cantidad ico icon-3x btn-active" (tap)="variarPrecio(-1)"></Button>
-                        <Label col="1" class="input-cantidad p-y-10" [text]="cantidad"></Label>
+                        <Label col="1" class="input-cantidad p-y-10" [text]="cantidad" textWrap="true"></Label>
                         <Button col="2" [text]="iconMas" class="btn icon-cantidad ico icon-3x btn-active" (tap)="variarPrecio(+1)"></Button>
                     </GridLayout>
 
