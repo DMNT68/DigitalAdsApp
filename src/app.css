@@ -76,6 +76,7 @@ FlexboxLayout {
     font-size: 12;
     height: 50;
     width: 100;
+    color: #2d3440
 }
 
 .label-title {

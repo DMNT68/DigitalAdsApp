@@ -7,7 +7,7 @@
 
         <StackLayout row="0" class="card elevation" androidElevation="6">
 
-            <Image class="img-rounded-card" loadMode="async" [src]="img | imagen:'producto'"></Image>
+            <Image class="img-rounded-card" loadMode="async" stretch="aspectFit" [src]="img | imagen:'producto'"></Image>
 
             <StackLayout class="card-layout-description-p">
                 <Label class="h3 label-title" [text]="categoria"></Label>
@@ -92,4 +92,4 @@
 
     <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 
-</ScrollView>
+</ScrollView>s
