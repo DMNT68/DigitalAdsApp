@@ -2,89 +2,96 @@
 
 <ScrollView class="page">
 
-
     <GridLayout rows="*,*" class="p-y-5 centrado-vertical visible" *ngIf="!isLoading">
 
-        <StackLayout row="0" class="card elevation" androidElevation="6">
+        <MDCardView row="0" class="card" elevation="6" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
 
-            <Image class="img-rounded-card" loadMode="async" stretch="aspectFit" [src]="img | imagen:'producto'"></Image>
+            <StackLayout>
 
-            <StackLayout class="card-layout-description-p">
-                <Label class="h3 label-title" [text]="categoria"></Label>
-                <StackLayout class="hr-light m-b-12"></StackLayout>
-                <Label class="body" textWrap="true" [text]="descripcion"></Label>
+                <Image class="img-rounded-card" loadMode="async" stretch="aspectFit" [src]="img | imagen:'producto'"></Image>
+
+                <StackLayout class="card-layout-description-p">
+                    <Label class="h3 label-title" [text]="categoria"></Label>
+                    <StackLayout class="hr-light m-b-12"></StackLayout>
+                    <Label class="body" textWrap="true" [text]="descripcion"></Label>
+                </StackLayout>
+
             </StackLayout>
-
-        </StackLayout>
+        </MDCardView>
 
 
         <GridLayout row="1" rows="*" columns="*,*">
 
-            <GridLayout row="0" col="0" rows="*,*, auto" class="card-cotizar elevation" androidElevation="4">
+            <MDCardView row="0" col="0" elevation="4" class="card-cotizar">
 
-                <Label row="0" col="0" text="Cotiza el producto" class="font-cot"></Label>
-                <StackLayout row="1" class="hr-light m-b-10"></StackLayout>
+                <GridLayout rows="*,*, auto" class="p-10">
 
-                <StackLayout row="2" *ngIf="!rotulos && !rotulos3D">
+                    <Label row="0" text="Cotiza el producto" class="font-cot"></Label>
+                    <StackLayout row="1" class="hr-light m-b-10"></StackLayout>
 
-                    <Label text="Cantidad:" textWrap="true"></Label>
+                    <StackLayout row="2" *ngIf="!rotulos && !rotulos3D">
 
-                    <GridLayout class="m-y-12 centrado-horizontal" columns="50,40,50">
-                        <Button col="0" [text]="iconMenos" class="btn icon-cantidad ico icon-3x btn-active" (tap)="variarPrecio(-1)"></Button>
-                        <Label col="1" class="input-cantidad p-y-10" [text]="cantidad" textWrap="true"></Label>
-                        <Button col="2" [text]="iconMas" class="btn icon-cantidad ico icon-3x btn-active" (tap)="variarPrecio(+1)"></Button>
-                    </GridLayout>
+                        <Label text="Cantidad:" textWrap="true"></Label>
 
-                </StackLayout>
+                        <GridLayout class="m-y-12 centrado-horizontal" columns="50,40,50">
+                            <Button col="0" [text]="iconMenos" class="btn icon-cantidad ico icon-3x btn-active" (tap)="variarPrecio(-1)"></Button>
+                            <Label col="1" class="input-cantidad p-y-10" [text]="cantidad" textWrap="true"></Label>
+                            <Button col="2" [text]="iconMas" class="btn icon-cantidad ico icon-3x btn-active" (tap)="variarPrecio(+1)"></Button>
+                        </GridLayout>
 
-                <StackLayout [formGroup]="cotizar1Form" row="2" *ngIf="rotulos">
-                    <StackLayout class="m-b-10">
-                        <Label text="Altura*" class="m-b-5" [ngClass]="{invalid:cotizar1Form.controls['altura'].errors?.required || cotizar1Form.controls['altura'].errors?.pattern }"></Label>
-                        <TextField hint="Altura(metro)" class="inputVariables" keyboardType="number" returnKeyType="next" formControlName="altura"></TextField>
-                        <Label class="p-l-10 invalid h6" text="Ingrese solo números" *ngIf="cotizar1Form.controls['altura'].errors?.pattern"></Label>
                     </StackLayout>
 
-                    <StackLayout class="m-b-10">
-                        <Label text="Ancho*" class="m-b-5" [ngClass]="{invalid:cotizar1Form.controls['ancho'].errors?.required || cotizar1Form.controls['ancho'].errors?.pattern }"></Label>
-                        <TextField hint="Ancho(metro)" class="inputVariables" keyboardType="number" returnKeyType="done" formControlName="ancho"></TextField>
-                        <Label class="p-l-10 invalid h6" text="Ingrese solo números" *ngIf="cotizar1Form.controls['ancho'].errors?.pattern"></Label>
+                    <StackLayout [formGroup]="cotizar1Form" row="2" *ngIf="rotulos">
+                        <StackLayout class="m-b-10">
+                            <Label text="Altura*" class="m-b-5" [ngClass]="{invalid:cotizar1Form.controls['altura'].errors?.required || cotizar1Form.controls['altura'].errors?.pattern }"></Label>
+                            <TextField hint="Altura(metros)" class="inputVariables" keyboardType="number" returnKeyType="next" formControlName="altura"></TextField>
+                            <Label class="p-l-10 invalid h6" text="Ingrese solo números" *ngIf="cotizar1Form.controls['altura'].errors?.pattern"></Label>
+                        </StackLayout>
+
+                        <StackLayout class="m-b-10">
+                            <Label text="Ancho*" class="m-b-5" [ngClass]="{invalid:cotizar1Form.controls['ancho'].errors?.required || cotizar1Form.controls['ancho'].errors?.pattern }"></Label>
+                            <TextField hint="Ancho(metros)" class="inputVariables" keyboardType="number" returnKeyType="done" formControlName="ancho"></TextField>
+                            <Label class="p-l-10 invalid h6" text="Ingrese solo números" *ngIf="cotizar1Form.controls['ancho'].errors?.pattern"></Label>
+                        </StackLayout>
+
+                        <Button text="Calcular" (tap)="variarPrecioRotulo(cotizar1Form.controls['altura'].value, cotizar1Form.controls['ancho'].value)" [isEnabled]="cotizar1Form.valid" class="btn-primary btn-active"></Button>
+
                     </StackLayout>
 
-                    <Button text="Calcular" (tap)="variarPrecioRotulo(cotizar1Form.controls['altura'].value, cotizar1Form.controls['ancho'].value)" [isEnabled]="cotizar1Form.valid" class="btn-primary btn-active"></Button>
+                    <StackLayout [formGroup]="cotizar2Form" row="2" *ngIf="rotulos3D">
+                        <StackLayout class="m-b-10">
+                            <Label class="m-b-5" text="Altura*" [ngClass]="{invalid:cotizar2Form.controls['altura'].errors?.required || cotizar2Form.controls['altura'].errors?.pattern }"></Label>
+                            <TextField hint="Altura(metros)" class="inputVariables" keyboardType="number" returnKeyType="next" formControlName="altura"></TextField>
+                            <Label class="p-l-10 invalid h6" text="Ingrese solo números" *ngIf="cotizar2Form.controls['altura'].errors?.pattern"></Label>
+                        </StackLayout>
+                        <StackLayout class="m-b-10">
+                            <Label class="m-b-5" text="Ancho*" [ngClass]="{invalid:cotizar2Form.controls['ancho'].errors?.required || cotizar2Form.controls['ancho'].errors?.pattern }"></Label>
+                            <TextField hint="Ancho(metros)" class="inputVariables" keyboardType="number" returnKeyType="next" formControlName="ancho"></TextField>
+                            <Label class="p-l-10 invalid h6" text="Ingrese solo números" *ngIf="cotizar2Form.controls['ancho'].errors?.pattern"></Label>
+                        </StackLayout>
+                        <StackLayout class="m-b-10">
+                            <Label class="m-b-5" text="Número de letras*" [ngClass]="{invalid:cotizar2Form.controls['letras'].errors?.required || cotizar2Form.controls['letras'].errors?.pattern }"></Label>
+                            <TextField hint="Letras" class="inputVariables" keyboardType="number" returnKeyType="done" formControlName="letras"></TextField>
+                            <Label class="p-l-10 invalid h6" text="Ingrese solo números" *ngIf="cotizar2Form.controls['letras'].errors?.pattern"></Label>
+                        </StackLayout>
 
-                </StackLayout>
+                        <Button text="Calcular" (tap)="variarPrecioRotulo3D(cotizar2Form.controls['altura'].value, cotizar2Form.controls['ancho'].value, cotizar2Form.controls['letras'].value)" [isEnabled]="cotizar2Form.valid" class="btn btn-primary btn-active"></Button>
 
-                <StackLayout [formGroup]="cotizar2Form" row="2" *ngIf="rotulos3D">
-                    <StackLayout class="m-b-10">
-                        <Label class="m-b-5" text="Altura*" [ngClass]="{invalid:cotizar2Form.controls['altura'].errors?.required || cotizar2Form.controls['altura'].errors?.pattern }"></Label>
-                        <TextField hint="Altura(metro)" class="inputVariables" keyboardType="number" returnKeyType="next" formControlName="altura"></TextField>
-                        <Label class="p-l-10 invalid h6" text="Ingrese solo números" *ngIf="cotizar2Form.controls['altura'].errors?.pattern"></Label>
                     </StackLayout>
-                    <StackLayout class="m-b-10">
-                        <Label class="m-b-5" text="Ancho*" [ngClass]="{invalid:cotizar2Form.controls['ancho'].errors?.required || cotizar2Form.controls['ancho'].errors?.pattern }"></Label>
-                        <TextField hint="Ancho(metro)" class="inputVariables" keyboardType="number" returnKeyType="next" formControlName="ancho"></TextField>
-                        <Label class="p-l-10 invalid h6" text="Ingrese solo números" *ngIf="cotizar2Form.controls['ancho'].errors?.pattern"></Label>
-                    </StackLayout>
-                    <StackLayout class="m-b-10">
-                        <Label class="m-b-5" text="Número de letras*" [ngClass]="{invalid:cotizar2Form.controls['letras'].errors?.required || cotizar2Form.controls['letras'].errors?.pattern }"></Label>
-                        <TextField hint="Letras" class="inputVariables" keyboardType="number" returnKeyType="done" formControlName="letras"></TextField>
-                        <Label class="p-l-10 invalid h6" text="Ingrese solo números" *ngIf="cotizar2Form.controls['letras'].errors?.pattern"></Label>
-                    </StackLayout>
 
-                    <Button text="Calcular" (tap)="variarPrecioRotulo3D(cotizar2Form.controls['altura'].value, cotizar2Form.controls['ancho'].value, cotizar2Form.controls['letras'].value)" [isEnabled]="cotizar2Form.valid" class="btn-primary btn-active"></Button>
+                </GridLayout>
+            </MDCardView>
 
-                </StackLayout>
-
-            </GridLayout>
-
-            <GridLayout row="1" col="1" rows="*,*,*,*,*,*" class="card-cotizar elevation" androidElevation="6">
-                <Label row="0" text="Costo" class="font-cot"></Label>
-                <StackLayout row="1" class="hr-light m-b-10"></StackLayout>
-                <Label *ngIf="aparecer" row="2" class=" m-y-11 h2 invalid text-center animate-transition-up" textWrap="true" text="${{precioFinal | number:'.2-2'}}"></Label>
-                <Label row="3" text="Agregar a la lista de pedidos:" class="font-small" textWrap="true"></Label>
-                <StackLayout row="4" class="hr-light m-b-10"></StackLayout>
-                <Button row="5" [text]="iconCarrito" class=" m-y-10 btn ico icon-cart-add icon-2x btn-active" width="50" (tap)="agregarPedido()"></Button>
-            </GridLayout>
+            <MDCardView row="1" col="1" class="card-cotizar" elevation="6">
+                <GridLayout rows="*,*,*,*,*,*" class="p-10">
+                    <Label row="0" text="Costo" class="font-cot"></Label>
+                    <StackLayout row="1" class="hr-light m-b-10"></StackLayout>
+                    <Label *ngIf="aparecer" row="2" class=" m-y-11 h2 invalid text-center animate-transition-up" textWrap="true" text="${{precioFinal | number:'.2-2'}}"></Label>
+                    <Label row="3" text="Agregar a la lista de pedidos:" class="font-small" textWrap="true"></Label>
+                    <StackLayout row="4" class="hr-light m-b-10"></StackLayout>
+                    <Button row="5" [text]="iconCarrito" class=" m-y-10 btn ico icon-cart-add icon-2x btn-active" width="50" (tap)="agregarPedido()"></Button>
+                </GridLayout>
+            </MDCardView>
 
         </GridLayout>
 
@@ -92,4 +99,4 @@
 
     <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 
-</ScrollView>s
+</ScrollView>

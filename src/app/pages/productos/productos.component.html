@@ -31,16 +31,18 @@
 
             <ng-template tkListItemTemplate let-producto="item">
 
-                <GridLayout class="card elevation" androidElevation="4" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
+                <MDCardView class="card" elevation="4" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
+                    <GridLayout>
 
-                    <Image class="img-rounded" [src]="producto.img | imagen:'producto'" loadMode="async" stretch="aspectFit"></Image>
+                        <Image class="img-rounded-card" [src]="producto.img | imagen:'producto'" loadMode="async" stretch="aspectFit"></Image>
 
-                    <StackLayout class="card-layout-description">
-                        <Label class="label-title p-y-5" [text]="producto.nombre" textWrap="true"></Label>
-                        <Label class="label-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
-                    </StackLayout>
+                        <StackLayout class="card-layout-description">
+                            <Label class="label-title p-y-5" [text]="producto.nombre" textWrap="true"></Label>
+                            <Label class="label-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
+                        </StackLayout>
 
-                </GridLayout>
+                    </GridLayout>
+                </MDCardView>
 
             </ng-template>
 

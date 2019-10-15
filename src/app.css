@@ -59,6 +59,12 @@ FlexboxLayout {
     border-color: #D8D8D8;
 }
 
+Button {
+    background-color: #2d3440;
+    color: white;
+    margin: 5;
+}
+
 .btn-flat {
     background-color: transparent;
     border-color: transparent;
