@@ -2,11 +2,18 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
-
-import { AuthRoutingModule } from './auth-routing.module';
+import { NativeScriptRouterModule } from 'nativescript-angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { Routes } from '@angular/router';
+
+const routes: Routes = [
+
+  { path: '', component: LoginComponent },
+  { path: 'signup', component: SignupComponent }
+
+]
 
 @NgModule({
   declarations: [
@@ -17,7 +24,8 @@ import { SignupComponent } from './signup/signup.component';
     NativeScriptCommonModule,
     NativeScriptFormsModule,
     ReactiveFormsModule,
-    AuthRoutingModule
+    NativeScriptRouterModule,
+    NativeScriptRouterModule.forChild(routes)
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

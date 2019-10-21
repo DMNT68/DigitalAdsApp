@@ -21,37 +21,33 @@
 
 </ns-action-bar>
 
-<GridLayout class="page" vertical-align="center">
+<GridLayout class="page">
 
     <ActivityIndicator class="activity-indicator" [busy]="productos.length == 0" [visibility]="productos.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 
-    <GridLayout class="visible" *ngIf="productos.length != 0">
+    <RadListView *ngIf="productos.length != 0" class="visible" #myRadListView class="p-t-5" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
 
-        <RadListView #myRadListView class="p-t-5" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
+        <ng-template tkListItemTemplate let-producto="item">
 
-            <ng-template tkListItemTemplate let-producto="item">
+            <MDCardView class="card" elevation="4" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
+                <GridLayout>
 
-                <MDCardView class="card" elevation="4" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
-                    <GridLayout>
+                    <Image class="img-rounded-card" [src]="producto.img | imagen:'producto'" loadMode="async" stretch="aspectFit"></Image>
 
-                        <Image class="img-rounded-card" [src]="producto.img | imagen:'producto'" loadMode="async" stretch="aspectFit"></Image>
+                    <StackLayout class="card-layout-description">
+                        <Label class="label-title p-y-5" [text]="producto.nombre" textWrap="true"></Label>
+                        <Label class="label-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
+                    </StackLayout>
 
-                        <StackLayout class="card-layout-description">
-                            <Label class="label-title p-y-5" [text]="producto.nombre" textWrap="true"></Label>
-                            <Label class="label-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
-                        </StackLayout>
+                </GridLayout>
+            </MDCardView>
 
-                    </GridLayout>
-                </MDCardView>
+        </ng-template>
 
-            </ng-template>
+        <ng-template tkListViewFooter>
+            <Label class="ico footer btn btn-active" [text]="iconUp" (tap)="onTapUp()"></Label>
+        </ng-template>
 
-            <ng-template tkListViewFooter>
-                <Label class="ico footer btn btn-active" [text]="iconUp" (tap)="onTapUp()"></Label>
-            </ng-template>
-
-        </RadListView>
-
-    </GridLayout>
+    </RadListView>
 
 </GridLayout>

@@ -50,7 +50,13 @@ TextField {
     height: 50;
     font-size: 15;
     border-radius: 7;
-    margin-bottom: 10;
+}
+
+.container-tf {
+    background-color: #eeeeee;
+    border-radius: 7;
+    height: 50;
+    vertical-align: center;
 }
 
 .icon-login {
@@ -59,4 +65,12 @@ TextField {
     padding: 5 5 15 0;
     color: #2d3440;
     opacity: 0.8;
+}
+
+.icon-visible {
+    font-size: 20;
+    vertical-align: center;
+    color: #2d3440;
+    opacity: 0.8;
+    margin-right: 10;
 }

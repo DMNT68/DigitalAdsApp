@@ -9,7 +9,11 @@
 /*fonts*/
 
 * {
-    font-family: 'Roboto', 'Roboto';
+    font-family: 'Roboto-Regular', 'Roboto';
+}
+
+.roboto-bold {
+    font-family: 'Roboto-Bold', 'Roboto Bold';
 }
 
 .ico {
