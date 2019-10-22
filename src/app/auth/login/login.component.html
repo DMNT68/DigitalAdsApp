@@ -21,7 +21,7 @@
 
             <Button text="Ingresar a tu Cuenta" [isEnabled]="!_usuarioService.processing" class="btn btn-primary btn-active m-t-5" (tap)="ingresar()"></Button>
             <ActivityIndicator class="activity-indicator" [busy]="_usuarioService.processing" [visibility]="_usuarioService.processing ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
-            <Button text="¿Nó tienes una cuenta? Crea una" (tap)="irRegistrar()" class="btn btn-flat btn-active btn-small btn-sec" [isEnabled]="!_usuarioService.processing"></Button>
+            <Button text="¿No tienes una cuenta? Crea una aquí" (tap)="irRegistrar()" class="btn btn-flat btn-active btn-small btn-sec" [isEnabled]="!_usuarioService.processing"></Button>
 
         </StackLayout>
     </MDCardView>

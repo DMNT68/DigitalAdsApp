@@ -18,7 +18,8 @@
 .btn-sec {
     color: #6644cc;
     margin: 2 10 5 10;
-    font-weight: 500;
+    font-weight: normal;
+    text-transform: none;
 }
 
 .header {
