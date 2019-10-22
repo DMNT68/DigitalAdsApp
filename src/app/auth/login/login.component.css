@@ -28,8 +28,8 @@ Image {
 .btn-primary {
     background-color: #ef424c;
     height: 50;
-    border-radius: 7;
-    font-size: 12;
+    border-radius: 4;
+    font-size: 15;
     font-weight: 600;
     color: #f4f2ec;
     margin: 10 0 5 0;
@@ -38,7 +38,8 @@ Image {
 .btn-sec {
     color: #ef424c;
     margin: 5 0 5 0;
-    font-weight: 500;
+    font-weight: normal;
+    text-transform: none;
 }
 
 TextField {
@@ -48,15 +49,29 @@ TextField {
     opacity: 0.8;
     padding-left: 15;
     height: 50;
-    font-size: 16;
+    font-size: 15;
     border-radius: 7;
-    margin-bottom: 10;
+}
+
+.container-tf {
+    background-color: #eeeeee;
+    border-radius: 7;
+    height: 50;
+    vertical-align: center;
 }
 
 .icon-login {
     font-size: 20;
-    vertical-align: center;
-    padding: 5 5 15 0;
+    text-align: center;
+    padding: 15 5 15 0;
     color: #2d3440;
     opacity: 0.8;
+}
+
+.icon-visible {
+    font-size: 20;
+    text-align: center;
+    color: #2d3440;
+    opacity: 0.5;
+    padding: 15 10 15 0;
 }

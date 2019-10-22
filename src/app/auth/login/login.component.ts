@@ -16,12 +16,17 @@ export class LoginComponent {
   password: string;
   iconEmail: string= '';
   iconPassword: string = '';
+  iconVisibility: string = '';
+  iconVisibilityOff: string = '';
+
+  visibility: boolean = true;
 
   constructor(private page:Page , private router:RouterExtensions, public _usuarioService:UsuarioService, private _util:UtilService, private _connect:ConectividadService) {
     this.page.actionBarHidden = true;
     this.iconEmail = this._util.iconEmail;
     this.iconPassword = this._util.iconPassword2;
-    
+    this.iconVisibility = this._util.iconVisibility;
+    this.iconVisibilityOff = this._util.iconVisibilityOff;
   }
 
   /**

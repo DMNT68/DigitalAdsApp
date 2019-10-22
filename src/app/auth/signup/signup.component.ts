@@ -21,6 +21,10 @@ export class SignupComponent implements OnInit{
     iconTelefono: string;
     iconPassword: string;
     iconPassword2: string;
+    iconVisibility: string = '';
+    iconVisibilityOff: string = '';
+
+    visibility: boolean = true;
 
   constructor(private page:Page, private router:RouterExtensions, public _usuarioService: UsuarioService, private _util:UtilService, private _connect:ConectividadService) {
     this.page.actionBarHidden = true;
@@ -29,6 +33,8 @@ export class SignupComponent implements OnInit{
     this.iconTelefono = this._util.iconTelefono
     this.iconPassword = this._util.iconPassword2;
     this.iconPassword2 = this._util.iconPassword2Bold;
+    this.iconVisibility = this._util.iconVisibility;
+    this.iconVisibilityOff = this._util.iconVisibilityOff;
   }
 
   /**

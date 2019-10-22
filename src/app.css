@@ -9,7 +9,11 @@
 /*fonts*/
 
 * {
-    font-family: 'Roboto', 'Roboto';
+    font-family: 'Roboto-Regular', 'Roboto';
+}
+
+.roboto-bold {
+    font-family: 'Roboto-Bold', 'Roboto Bold';
 }
 
 .ico {
@@ -59,6 +63,11 @@ FlexboxLayout {
     border-color: #D8D8D8;
 }
 
+Button {
+    background-color: white;
+    color: #2d3440;
+}
+
 .btn-flat {
     background-color: transparent;
     border-color: transparent;
@@ -76,6 +85,7 @@ FlexboxLayout {
     font-size: 12;
     height: 50;
     width: 100;
+    color: #2d3440
 }
 
 .label-title {

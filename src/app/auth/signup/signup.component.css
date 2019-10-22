@@ -18,7 +18,8 @@
 .btn-sec {
     color: #6644cc;
     margin: 2 10 5 10;
-    font-weight: 500;
+    font-weight: normal;
+    text-transform: none;
 }
 
 .header {
@@ -51,10 +52,24 @@ TextField {
     border-radius: 7;
 }
 
+.container-tf {
+    background-color: #eeeeee;
+    border-radius: 7;
+    height: 40;
+    vertical-align: center;
+}
+
 .icon-signup {
     font-size: 20;
-    vertical-align: center;
-    padding: 5;
+    padding: 15 10 15 0;
     color: #2d3440;
     opacity: 0.8;
+}
+
+.icon-visible {
+    font-size: 20;
+    text-align: center;
+    color: #2d3440;
+    opacity: 0.5;
+    padding: 10 10 10 0;
 }

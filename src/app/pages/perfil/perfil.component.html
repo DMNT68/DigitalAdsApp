@@ -2,9 +2,9 @@
 
 <ScrollView class="page">
 
-    <StackLayout class="card elevation visible" androidElevation="4">
+    <MDCardView class="card visible" elevation="4">
+        <StackLayout class="padding">
 
-        <StackLayout>
 
             <StackLayout>
                 <Label class="avatar img-profile img-circle" *ngIf="!imagenActiva" [text]="avatar" (tap)="onSelectSingleTap()"></Label>
@@ -55,12 +55,11 @@
 
             </GridLayout>
 
+            <Button text="Cerrar Sesión" class="btn btn-flat btn-sec btn-active" (tap)="salir()"></Button>
+
+            <!-- <Label class="txt-version" text="Digital Ads v1.1.0"></Label> -->
+
         </StackLayout>
-
-        <Button text="Cerrar Sesión" class="btn btn-flat btn-sec btn-active" (tap)="salir()"></Button>
-
-        <Label class="txt-version" text="Digital Ads v1.1.0"></Label>
-
-    </StackLayout>
+    </MDCardView>
 
 </ScrollView>

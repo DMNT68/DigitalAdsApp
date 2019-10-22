@@ -1,23 +1,28 @@
 <FlexboxLayout class="page">
+    <MDCardView elevation="4">
+        <StackLayout>
 
-    <StackLayout class="ico elevation" androidElevation="4">
+            <Image src="res://icon"></Image>
 
-        <Image src="res://icon"></Image>
+            <Label text="Bienvenido" class="header"></Label>
+            <Label class="text-sub m-b-20" text="Ingresa tus credenciales"></Label>
 
-        <Label text="Bienvenido" class="header"></Label>
-        <Label class="text-sub m-b-20" text="Ingresa tus credenciales"></Label>
+            <GridLayout rows="auto, auto" columns="auto, *">
+                <Label [text]="iconEmail" row="0" col="0" class="ico icon-login"></Label>
+                <TextField class="m-b-10" row="0" col="1" [isEnabled]="!_usuarioService.processing" hint="Correo Electrónico" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" [(ngModel)]="email" required></TextField>
+                <Label [text]="iconPassword" row="1" col="0" class="ico icon-login"></Label>
+                <GridLayout row="1" col="1" columns="*,auto" class="container-tf">
+                    <TextField col="0" [isEnabled]="!_usuarioService.processing" hint="Contraseña" [secure]="visibility" returnKeyType="done" [(ngModel)]="password" required (returnPress)="ingresar()"></TextField>
+                    <Label *ngIf="!visibility" [text]="iconVisibilityOff" col="1" class="ico icon-visible" (tap)="visibility = true"></Label>
+                    <Label *ngIf="visibility" [text]="iconVisibility" col="1" class="ico icon-visible" (tap)="visibility = false"></Label>
+                </GridLayout>
 
-        <GridLayout rows="auto, auto" columns="auto, *">
-            <Label [text]="iconEmail" row="0" col="0" class="ico icon-login"></Label>
-            <TextField row="0" col="1" [isEnabled]="!_usuarioService.processing" hint="Correo Electrónico" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" [(ngModel)]="email" required></TextField>
-            <Label [text]="iconPassword" row="1" col="0" class="ico icon-login"></Label>
-            <TextField row="1" col="1" [isEnabled]="!_usuarioService.processing" hint="Contraseña" secure="true" returnKeyType="done" [(ngModel)]="password" required (returnPress)="ingresar()"></TextField>
-        </GridLayout>
+            </GridLayout>
 
-        <Button text="Ingresar a tu Cuenta" [isEnabled]="!_usuarioService.processing" class="btn-primary btn-active m-t-5" (tap)="ingresar()"></Button>
-        <ActivityIndicator class="activity-indicator" [busy]="_usuarioService.processing" [visibility]="_usuarioService.processing ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
-        <Button text="¿Nó tienes una cuenta? Crea una" (tap)="irRegistrar()" class="btn btn-flat btn-active btn-small btn-sec" [isEnabled]="!_usuarioService.processing"></Button>
+            <Button text="Ingresar a tu Cuenta" [isEnabled]="!_usuarioService.processing" class="btn btn-primary btn-active m-t-5" (tap)="ingresar()"></Button>
+            <ActivityIndicator class="activity-indicator" [busy]="_usuarioService.processing" [visibility]="_usuarioService.processing ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+            <Button text="¿No tienes una cuenta? Crea una aquí" (tap)="irRegistrar()" class="btn btn-flat btn-active btn-small btn-sec" [isEnabled]="!_usuarioService.processing"></Button>
 
-    </StackLayout>
-
+        </StackLayout>
+    </MDCardView>
 </FlexboxLayout>

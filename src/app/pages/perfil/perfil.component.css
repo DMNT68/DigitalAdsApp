@@ -2,6 +2,9 @@
     background-color: #ffffff;
     margin: 5 10 5 10;
     border-radius: 7;
+}
+
+.padding {
     padding: 0 20 0 20;
     vertical-align: center;
 }

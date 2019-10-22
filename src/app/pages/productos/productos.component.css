@@ -5,8 +5,8 @@
     }
     
     .card-layout-description {
-        background-color: rgba(255, 255, 255, 0.555);
-        color: #2d3440;
+        background-color: rgba(45, 52, 64, 0.5);
+        color: white;
         vertical-align: bottom;
         padding: 2 10 2 10;
         border-radius: 0 0 7 7;
@@ -19,7 +19,6 @@
     
     .card-cotizar {
         margin: 5;
-        padding: 10;
         background-color: #ffffff;
         border-radius: 7;
         vertical-align: center;
@@ -38,7 +37,7 @@
     }
     
     .input-cantidad {
-        font-size: 28;
+        font-size: 24s;
         margin: 5 5 5 5;
         text-align: center;
     }

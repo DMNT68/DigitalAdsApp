@@ -35,6 +35,8 @@ export class UtilService {
     iconReport: string;
     iconSearch: string;
     iconTop: string;
+    iconVisibility: string;
+    iconVisibilityOff: string;
 
 
     constructor() {
@@ -64,6 +66,8 @@ export class UtilService {
         this.iconReport = String.fromCharCode(0xe160);
         this.iconSearch = String.fromCharCode(0xe8b6);
         this.iconTop = String.fromCharCode(0xe25a);
+        this.iconVisibility = String.fromCharCode(0xe8f4);
+        this.iconVisibilityOff = String.fromCharCode(0xe8f5);
         
     } 
 

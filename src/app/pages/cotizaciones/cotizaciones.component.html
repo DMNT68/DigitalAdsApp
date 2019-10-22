@@ -6,7 +6,7 @@
         <Label [text]="iconCotizaciones" class="txt-white icon-5x ico" textWrap="true"></Label>
         <Label text="Sin Cotizaciones" class="txt-white p-t-10" textWrap="true"></Label>
         <Button [visibility]="!isLoading ? 'visible' : 'collapse'" text="Recargar... {{iconRefresh}}" class="ico btn btn-flat btn-active label-recargar m-t-10" (tap)="recargar()"></Button>
-        <ActivityIndicator class="activity-indicator-white" [busy]="isLoading" [visibility]="cotizaciones.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+        <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="cotizaciones.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
     </StackLayout>
 
 
