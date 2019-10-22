@@ -61,16 +61,16 @@ TextField {
 
 .icon-login {
     font-size: 20;
-    vertical-align: center;
-    padding: 5 5 15 0;
+    text-align: center;
+    padding: 15 5 15 0;
     color: #2d3440;
     opacity: 0.8;
 }
 
 .icon-visible {
     font-size: 20;
-    vertical-align: center;
+    text-align: center;
     color: #2d3440;
-    opacity: 0.8;
-    margin-right: 10;
+    opacity: 0.5;
+    padding: 15 10 15 0;
 }
