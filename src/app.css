@@ -14,6 +14,7 @@
 
 .roboto-bold {
     font-family: 'Roboto-Bold', 'Roboto Bold';
+    font-weight: 700;
 }
 
 .ico {
@@ -26,7 +27,7 @@
 }
 
 .activity-indicator {
-    color: #2d3440;
+    color: #272734;
 }
 
 .page {
@@ -86,16 +87,6 @@ Button {
     height: 50;
     width: 100;
     color: #2d3440
-}
-
-.label-title {
-    font-size: 18;
-    font-weight: bold;
-}
-
-.label-description {
-    font-size: 14;
-    /* height: 15 */
 }
 
 .badge {

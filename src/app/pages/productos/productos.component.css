@@ -17,6 +17,16 @@
         padding: 10;
     }
     
+    .label-title {
+        font-size: 18;
+        font-weight: bold;
+    }
+    
+    .label-description {
+        font-size: 14;
+        /* height: 15 */
+    }
+    
     .card-cotizar {
         margin: 5;
         background-color: #ffffff;

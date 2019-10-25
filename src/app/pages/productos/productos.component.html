@@ -35,7 +35,7 @@
                     <Image class="img-rounded-card" [src]="producto.img | imagen:'producto'" loadMode="async" stretch="aspectFit"></Image>
 
                     <StackLayout class="card-layout-description">
-                        <Label class="label-title p-y-5" [text]="producto.nombre" textWrap="true"></Label>
+                        <Label class="label-title p-y-5 roboto-bold" [text]="producto.nombre" textWrap="true"></Label>
                         <Label class="label-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
                     </StackLayout>
 
@@ -45,7 +45,7 @@
         </ng-template>
 
         <ng-template tkListViewFooter>
-            <Label class="ico footer btn btn-active" [text]="iconUp" (tap)="onTapUp()"></Label>
+            <Label class="ico footer" [text]="iconUp" (tap)="onTapUp()"></Label>
         </ng-template>
 
     </RadListView>
