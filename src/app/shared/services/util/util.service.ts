@@ -4,7 +4,6 @@ import * as utils from "tns-core-modules/utils/utils";
 import * as frame from "tns-core-modules/ui/frame";
 import { alert, confirm} from "tns-core-modules/ui/dialogs";
 import { Toasty, ToastDuration } from 'nativescript-toasty';
-import * as appavailability from "nativescript-appavailability";
 import { available } from "nativescript-appavailability";
 import { openUrl } from "tns-core-modules/utils/utils";
 
@@ -95,8 +94,9 @@ export class UtilService {
      * Función que permite ejecutar una alerta como cuadro de diálogo.
      * @param message Mensaje para mostrar el cuadro de diálogo
      * @param title Título para el cuadro de dialogo, paramentro opcional si no manda un valor por defecto es "Digital ADS"
+     * @param ok Establecer el texto para okButtonText. Por defecto sera "OK"
      */
-    public confirm(message: string, title?:string): Promise<boolean> {
+    public confirm(message: string, title?:string,ok?:string): Promise<boolean> {
         return confirm({
             title: title || 'DIGITAL ADS',
             message: message,
@@ -121,6 +121,7 @@ export class UtilService {
      * Uso del plugin Toasty
      * @param texto Mensaje que va mostrar la notifiación
      * @param duracion Duración del mensaje puede ser 'short'(por defecto) o 'long'
+     * 
      */
     public toast(texto: string, duracion:string = 'short') {
 
@@ -136,19 +137,27 @@ export class UtilService {
 
     }
 
+    /**
+     * Función que permite abrir la url de una página de facebook.
+     * Si el dispositivo tiene instalado la aplicación de facebook la abrirá allí
+     * caso contrario la abrirá en el navegador por defecto del dispositivo.
+     */
     public abrirFacebook(){
-        this.confirm('¿Sí deseas saber mas sobre nuestros productos visita nuestra página de Faceboook?').then((res)=>{
+        this.confirm('Sí deseas saber mas sobre nuestros productos visita nuestra página de Faceboook','','IR').then((res)=>{
 
-            const facebookScheme = "fb://";
-            available(facebookScheme).then(available => {
-              if (available) {
-                // open in the app
-                openUrl(facebookScheme + (isIOS ? "/user?screen_name=" : "user?user_id=") + "digital.ads.ibarra");
-              } else {
-                // open in the default browser
-                openUrl("https://www.facebook.com/digital.ads.ibarra/");
-              }
-            });
+            if(res){
+                const facebookScheme = "fb://";
+                available(facebookScheme).then(available => {
+                  if (available) {
+                    // open in the app
+                    openUrl(facebookScheme + (isIOS ? "/user?screen_name=" : "user?user_id=") + "digital.ads.ibarra");
+                  } else {
+                    // open in the default browser
+                    openUrl("https://www.facebook.com/digital.ads.ibarra/");
+                  }
+                });
+            }
+
 
         });
     }
