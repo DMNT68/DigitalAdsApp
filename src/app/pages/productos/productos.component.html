@@ -1,5 +1,9 @@
 <ns-action-bar title="Productos" class="action-bar" [showBackButton]="false">
 
+    <ActionItem ios.position="rigth" (tap)="_utilService.abrirFacebook()">
+        <Button class="btn btn-flat btn-active icono-fb-color ico" [text]="_utilService.iconFacebook"></Button>
+    </ActionItem>
+
     <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="goCarrito()">
         <StackLayout orientation="horizontal" [isEnable]="productos.length == 0">
             <Label class="ico icono-cart-color" [text]="iconCarrito"></Label>
@@ -25,11 +29,11 @@
 
     <ActivityIndicator class="activity-indicator" [busy]="productos.length == 0" [visibility]="productos.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 
-    <RadListView *ngIf="productos.length != 0" class="visible" #myRadListView class="p-t-5" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
+    <RadListView *ngIf="productos.length != 0" #myRadListView class="p-t-5" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
 
         <ng-template tkListItemTemplate let-producto="item">
 
-            <MDCardView class="card" elevation="4" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
+            <MDCardView class="card visible" elevation="4" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
                 <GridLayout>
 
                     <Image class="img-rounded-card" [src]="producto.img | imagen:'producto'" loadMode="async" stretch="aspectFit"></Image>

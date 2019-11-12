@@ -4,6 +4,10 @@ import * as utils from "tns-core-modules/utils/utils";
 import * as frame from "tns-core-modules/ui/frame";
 import { alert, confirm} from "tns-core-modules/ui/dialogs";
 import { Toasty, ToastDuration } from 'nativescript-toasty';
+import * as appavailability from "nativescript-appavailability";
+import { available } from "nativescript-appavailability";
+import { openUrl } from "tns-core-modules/utils/utils";
+
 
 @Injectable() 
 export class UtilService { 
@@ -37,6 +41,7 @@ export class UtilService {
     iconTop: string;
     iconVisibility: string;
     iconVisibilityOff: string;
+    iconFacebook: string;
 
 
     constructor() {
@@ -68,7 +73,7 @@ export class UtilService {
         this.iconTop = String.fromCharCode(0xe25a);
         this.iconVisibility = String.fromCharCode(0xe8f4);
         this.iconVisibilityOff = String.fromCharCode(0xe8f5);
-        
+        this.iconFacebook = String.fromCharCode(0xe901);
     } 
 
     /**
@@ -95,7 +100,7 @@ export class UtilService {
         return confirm({
             title: title || 'DIGITAL ADS',
             message: message,
-            okButtonText: "ok",
+            okButtonText: "OK",
             cancelButtonText: "Cancelar"
         });
     }
@@ -130,4 +135,22 @@ export class UtilService {
         toast.show();
 
     }
+
+    public abrirFacebook(){
+        this.confirm('¿Sí deseas saber mas sobre nuestros productos visita nuestra página de Faceboook?').then((res)=>{
+
+            const facebookScheme = "fb://";
+            available(facebookScheme).then(available => {
+              if (available) {
+                // open in the app
+                openUrl(facebookScheme + (isIOS ? "/user?screen_name=" : "user?user_id=") + "digital.ads.ibarra");
+              } else {
+                // open in the default browser
+                openUrl("https://www.facebook.com/digital.ads.ibarra/");
+              }
+            });
+
+        });
+    }
+    
 }

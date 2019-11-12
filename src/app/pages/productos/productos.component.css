@@ -98,6 +98,12 @@
         color: #28bfdb;
         padding-right: -2;
     }
+    
+    .icono-fb-color {
+        color: #4267B2;
+        font-size: 20;
+        width: 40;
+    }
     /*1  2
        ⬜  borde-radius: 1 2 3 4
       3  4
