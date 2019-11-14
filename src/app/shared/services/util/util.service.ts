@@ -4,7 +4,7 @@ import * as utils from "tns-core-modules/utils/utils";
 import * as frame from "tns-core-modules/ui/frame";
 import { alert, confirm} from "tns-core-modules/ui/dialogs";
 import { Toasty, ToastDuration } from 'nativescript-toasty';
-import { available } from "nativescript-appavailability";
+import { available, availableSync  } from "nativescript-appavailability";
 import { openUrl } from "tns-core-modules/utils/utils";
 
 
@@ -72,7 +72,7 @@ export class UtilService {
         this.iconTop = String.fromCharCode(0xe25a);
         this.iconVisibility = String.fromCharCode(0xe8f4);
         this.iconVisibilityOff = String.fromCharCode(0xe8f5);
-        this.iconFacebook = String.fromCharCode(0xe901);
+        this.iconFacebook = String.fromCharCode(0xe902);
     } 
 
     /**
@@ -146,17 +146,15 @@ export class UtilService {
         this.confirm('Sí deseas saber mas sobre nuestros productos visita nuestra página de Faceboook','','IR').then((res)=>{
 
             if(res){
-                const facebookScheme = "fb://";
-                available(facebookScheme).then(available => {
-                  if (available) {
-                    // open in the app
-                    openUrl(facebookScheme + (isIOS ? "/user?screen_name=" : "user?user_id=") + "digital.ads.ibarra");
-                  } else {
-                    // open in the default browser
-                    openUrl("https://www.facebook.com/digital.ads.ibarra/");
-                  }
-                });
-            }
+
+                if (availableSync("fb://")) {
+                openUrl("fb://" + (isIOS ? "/user?screen_name=" : "user?user_id=") + "digital.ads.ibarra");
+ 
+                } else {
+                    openUrl("https://facebook.com/digital.ads.ibarra");
+                }
+
+             }
 
 
         });

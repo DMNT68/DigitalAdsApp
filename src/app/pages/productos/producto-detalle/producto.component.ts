@@ -54,13 +54,13 @@ export class ProductoComponent implements OnInit, OnDestroy {
   ngOnInit() {
     
     this.cotizar1Form = new FormGroup({
-      'altura': new FormControl('',[Validators.required, Validators.pattern('[0-9]*')]),
-      'ancho': new FormControl('',[Validators.required, Validators.pattern('[0-9]*')])
+      'altura': new FormControl('',[Validators.required, Validators.pattern('[0-9.]*[^,]')]),
+      'ancho': new FormControl('',[Validators.required, Validators.pattern('[0-9.]*[^,]')])
     });
     
     this.cotizar2Form = new FormGroup({
-      'altura': new FormControl('',[Validators.required, Validators.pattern('[0-9]*')]),
-      'ancho': new FormControl('',[Validators.required, Validators.pattern('[0-9]*')]),
+      'altura': new FormControl('',[Validators.required, Validators.pattern('[0-9.]*[^,]')]),
+      'ancho': new FormControl('',[Validators.required, Validators.pattern('[0-9.]*[^,]')]),
       'letras': new FormControl('',[Validators.required, Validators.pattern('[0-9]*')])
     });
     

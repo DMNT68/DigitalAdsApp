@@ -4,7 +4,7 @@
 
     <GridLayout rows="*,*" class="p-y-5 centrado-vertical visible" *ngIf="!isLoading">
 
-        <MDCardView row="0" class="card" elevation="4" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
+        <MDCardView row="0" class="card" elevation="2" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
 
             <StackLayout>
 
@@ -22,7 +22,7 @@
 
         <GridLayout row="1" rows="*" columns="*,*">
 
-            <MDCardView row="0" col="0" elevation="4" class="card-cotizar">
+            <MDCardView row="0" col="0" elevation="2" class="card-cotizar">
 
                 <GridLayout rows="*,*, auto" class="p-10">
 
@@ -82,7 +82,7 @@
                 </GridLayout>
             </MDCardView>
 
-            <MDCardView row="1" col="1" class="card-cotizar" elevation="4">
+            <MDCardView row="1" col="1" class="card-cotizar" elevation="2">
                 <GridLayout rows="*,*,*,*,*,*" class="p-10">
                     <Label row="0" text="Costo" class="font-cot"></Label>
                     <StackLayout row="1" class="hr-light m-b-10"></StackLayout>

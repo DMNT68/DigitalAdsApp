@@ -16,7 +16,7 @@
 
             <ng-template tkListItemTemplate let-cotizacion="item" let-i="index">
 
-                <GridLayout class="card elevation p-2" androidElevation="4" rows="auto" columns="30,*,40" (tap)="obtenerPosicionArreglo(i)" [nsRouterLink]="['/detalles', cotizacion._id]" pageTransition="slide">
+                <GridLayout class="card elevation p-2" androidElevation="2" rows="auto" columns="30,*,40" (tap)="obtenerPosicionArreglo(i)" [nsRouterLink]="['/detalles', cotizacion._id]" pageTransition="slide">
 
                     <Label class="text-index" row="0" col="0" [text]="i+1" textWrap="true"></Label>
 

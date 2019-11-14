@@ -1,6 +1,6 @@
 <ns-action-bar title="Productos" class="action-bar" [showBackButton]="false">
 
-    <ActionItem ios.position="rigth" (tap)="_utilService.abrirFacebook()">
+    <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="_utilService.abrirFacebook()">
         <Button class="btn btn-flat btn-active icono-fb-color ico" [text]="_utilService.iconFacebook"></Button>
     </ActionItem>
 
@@ -33,7 +33,7 @@
 
         <ng-template tkListItemTemplate let-producto="item">
 
-            <MDCardView class="card visible" elevation="4" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
+            <MDCardView class="card visible" elevation="2" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
                 <GridLayout>
 
                     <Image class="img-rounded-card" [src]="producto.img | imagen:'producto'" loadMode="async" stretch="aspectFit"></Image>
