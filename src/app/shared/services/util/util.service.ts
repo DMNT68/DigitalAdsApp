@@ -1,11 +1,16 @@
 import { Injectable } from "@angular/core"; 
+import { HttpClient } from '@angular/common/http';
+import { RouterExtensions } from 'nativescript-angular/router';
+import { Toasty, ToastDuration } from 'nativescript-toasty';
+import { available, availableSync  } from "nativescript-appavailability";
 import { isIOS } from "tns-core-modules/platform";
 import * as utils from "tns-core-modules/utils/utils";
 import * as frame from "tns-core-modules/ui/frame";
 import { alert, confirm} from "tns-core-modules/ui/dialogs";
-import { Toasty, ToastDuration } from 'nativescript-toasty';
-import { available, availableSync  } from "nativescript-appavailability";
 import { openUrl } from "tns-core-modules/utils/utils";
+import { URL_SERVICIOS } from '../../../config/config';
+import { map } from 'rxjs/operators';
+import { Information } from '../../models/information.model';
 
 
 @Injectable() 
@@ -43,7 +48,7 @@ export class UtilService {
     iconFacebook: string;
 
 
-    constructor() {
+    constructor(private router:RouterExtensions, private http: HttpClient) {
         this.iconEmail = String.fromCharCode(0xe0e1);
         this.iconPassword = String.fromCharCode(0xe0da);
         this.iconPassword2 = String.fromCharCode(0xe899);
@@ -138,20 +143,24 @@ export class UtilService {
     }
 
     /**
-     * Función que permite abrir la url de una página de facebook.
-     * Si el dispositivo tiene instalado la aplicación de facebook la abrirá allí
-     * caso contrario la abrirá en el navegador por defecto del dispositivo.
+     * Abre el navegador o la aplicación de la red social correspondiente
+     * @param msg Mensaje de confirmación
+     * @param provider Red social Ej: 'fb://'
+     * @param url Enlace de la red social
+     * @param userId Usuario de la red social a cual va a puntar
      */
-    public abrirFacebook(){
-        this.confirm('Sí deseas saber mas sobre nuestros productos visita nuestra página de Faceboook','','IR').then((res)=>{
+    public openLink(msg:string,provider:string,url:string,userId:string) {
+        this.confirm(msg,'','IR').then((res)=>{
 
             if(res){
 
-                if (availableSync("fb://")) {
-                openUrl("fb://" + (isIOS ? "/user?screen_name=" : "user?user_id=") + "digital.ads.ibarra");
- 
+                if (availableSync(provider)) {
+                    openUrl(provider + (isIOS ? "/user?screen_name=" : "user?user_id=") + userId);
+                    this.router.backToPreviousPage();
                 } else {
-                    openUrl("https://facebook.com/digital.ads.ibarra");
+                    openUrl(url);
+                    this.router.backToPreviousPage();
+
                 }
 
              }
@@ -159,5 +168,25 @@ export class UtilService {
 
         });
     }
-    
+
+    /**
+     * Función que permitir dirigir a la pantalla de about
+     */
+    public goToAbout() {
+        this.router.navigate(['/about'], {transition:{name:'slide'}});
+    }
+
+    /**
+     * Función que permite traer la información de la base de datos mediate
+     * el procotolo http
+     */
+    public getInformation(){
+        let url = URL_SERVICIOS + '/info';
+        return this.http.get(url).pipe(map((res:Information)=>{
+            return res.info;
+        }));
+    }
+
+
+
 }

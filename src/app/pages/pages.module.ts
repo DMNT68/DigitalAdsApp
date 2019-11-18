@@ -4,7 +4,6 @@ import {NativeScriptCommonModule} from "nativescript-angular/common"
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { NativeScriptMaterialCardViewModule } from "nativescript-material-cardview/angular";
-
 import { PagesRoutingModule } from './pages-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { PipesModule } from '../shared/pipes/pipes.module';

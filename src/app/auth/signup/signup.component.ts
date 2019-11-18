@@ -26,7 +26,12 @@ export class SignupComponent implements OnInit{
 
     visibility: boolean = true;
 
-  constructor(private page:Page, private router:RouterExtensions, public _usuarioService: UsuarioService, private _util:UtilService, private _connect:ConectividadService) {
+  constructor(private page:Page, 
+    private router:RouterExtensions, 
+    public _usuarioService: UsuarioService, 
+    private _util:UtilService, 
+    private _connect:ConectividadService) 
+    {
     this.page.actionBarHidden = true;
     this.iconNombre = this._util.iconNombre;
     this.iconEmail = this._util.iconEmail;

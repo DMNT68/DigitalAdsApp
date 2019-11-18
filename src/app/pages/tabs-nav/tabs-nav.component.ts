@@ -37,6 +37,7 @@ export class TabsNavComponent implements OnInit {
           outlets: {
             productosTab: ['productos'],
             cotizacionesTab: ['cotizaciones'],
+            // aboutTab: ['about'],
             perfilTab: ['perfil']
           }
         }

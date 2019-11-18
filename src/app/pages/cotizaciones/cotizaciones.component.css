@@ -54,11 +54,11 @@
 }
 
 .check {
-    color: rgb(36, 221, 36);
-    font-size: 16;
+    color: #16ee32;
+    font-size: 20;
 }
 
 .uncheck {
     color: gray;
-    font-size: 16;
+    font-size: 20;
 }

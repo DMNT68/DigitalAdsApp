@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
-import { PageRoute } from 'nativescript-angular/router';
 import { Subscription } from 'rxjs';
 
 import { ProductoService, UtilService, CarritoService, ConectividadService } from '../../../shared/services/service.index';
 import { Producto } from '../../../shared/models/producto.model';
+import { Page } from 'tns-core-modules/ui/page/page';
+import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
   selector: 'ns-producto',
@@ -45,13 +46,15 @@ export class ProductoComponent implements OnInit, OnDestroy {
 
   constructor(
     public _utilService: UtilService, 
-    public _productoService: ProductoService, 
-    private pageRoute: PageRoute,
+    public _productoService: ProductoService,
     private activRoute : ActivatedRoute,
     public cs:CarritoService,
-    private _connect:ConectividadService) {}
+    private _connect:ConectividadService,
+    private page: Page,
+    private router:RouterExtensions) {}
     
   ngOnInit() {
+    this.page.actionBarHidden = true;
     
     this.cotizar1Form = new FormGroup({
       'altura': new FormControl('',[Validators.required, Validators.pattern('[0-9.]*[^,]')]),
@@ -83,8 +86,7 @@ export class ProductoComponent implements OnInit, OnDestroy {
   public getProducto(id: string) {
     this.isLoading = true;
     this.productoSubscription =  this._productoService.cargarProducto(id)
-    .subscribe(producto =>{ 
-      
+    .subscribe(producto => { 
       this.producto = producto;
       this.img = producto.img;
       this.nombre = producto.nombre;
@@ -234,6 +236,10 @@ export class ProductoComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.aparecer = true;
     }, 1);
+  }
+
+  public onBack() {
+    this.router.backToPreviousPage();
   }
 
 }

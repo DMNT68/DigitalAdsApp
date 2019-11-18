@@ -56,13 +56,12 @@ export class CarritoComponent implements OnInit {
     .then((result)=>{
       if(result){
 
-        this._cs.realizarPedido().subscribe(
-          ()=>{
+        this._cs.realizarPedido().subscribe(() => {
           this._util.alert('Revisaremos tu pedido y nos pondremos en contacto contigo muy pronto.','Enviado Exitosamente')
           .then(() => this.back());
           },
            error => {
-             console.log('error:::', error);
+             console.log('error:', error);
             this._util.alert(error.message,'Error al enviar pedido');
           }
         );

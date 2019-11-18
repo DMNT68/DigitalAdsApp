@@ -2,7 +2,7 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android" 
     package="__PACKAGE__" 
-    android:versionCode="4" 
+    android:versionCode="5" 
     android:versionName="1.2">
     <supports-screens 
     android:smallScreens="true" 
@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <application android:name="com.tns.NativeScriptApplication" 
     android:allowBackup="true" 
     android:icon="@drawable/icon" 
@@ -31,5 +32,6 @@
             </intent-filter>
         </activity>
         <activity android:name="com.tns.ErrorReportActivity" />
+        <service android:name="com.mapbox.services.android.telemetry.service.TelemetryService" />
     </application>
 </manifest>

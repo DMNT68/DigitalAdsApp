@@ -216,4 +216,8 @@ export class PerfilComponent implements OnInit{
   
   }
 
+  goToAbout(){
+    this._util.goToAbout();
+  }
+
 }

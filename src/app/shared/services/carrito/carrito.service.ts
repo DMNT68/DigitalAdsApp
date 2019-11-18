@@ -42,14 +42,9 @@ export class CarritoService {
    */
   public realizarPedido() {
 
-    let parametros:any={};
     let url = URL_SERVICIOS + '/orden';
     
-    let header = new HttpHeaders({
-      'Content-Type': 'application/json; charset=utf-8',
-      'token': this._us.token
-    });
-
+    let parametros:any={};
     let ids: string [] = [];
     let cantidad: number [] = this.cantidades;
     let altura: number [] = this.alturas;
@@ -71,8 +66,8 @@ export class CarritoService {
       total: this.total_carrito
     }
 
-    return this.http.post(url,parametros,{headers: header})
-    .pipe(map((resp:any)=>{
+    return this.http.post(url,parametros,{headers: this.commonHeaders()})
+    .pipe(map((resp:any) => {
       this.items=[];
       this.cantidades=[];
       this.alturas=[];
@@ -94,12 +89,7 @@ export class CarritoService {
   public cargarOrdenes() {
 
     let url = URL_SERVICIOS + '/ordenesUsuario';
-    let header = new HttpHeaders({
-      'Content-Type': 'application/json; charset=utf-8',
-      'token': this._us.token
-    });
-
-    return this.http.get(url,{headers:header})
+    return this.http.get(url,{headers:this.commonHeaders()})
     .pipe(map((resp:any)=>{
       this.pedidos = resp.ordenes;
       return this.pedidos;
@@ -114,15 +104,9 @@ export class CarritoService {
   public cargarOrdenDetalle(id:string) {
 
     let url = URL_SERVICIOS + `/detalles/${id}`;
-    let header = new HttpHeaders({
-      'Content-Type': 'application/json; charset=utf-8',
-      'token': this._us.token
-    });
-
-   return this.http.get(url,{headers:header});
+    return this.http.get(url,{headers:this.commonHeaders()});
 
   }
-
 
   /**
    * Función que realiza una petición http-DELETE, que permite borrar un pedido.
@@ -168,7 +152,7 @@ export class CarritoService {
   
     for (const item of this.items) {
       if(item._id == itemParametro._id){
-        this._util.alert(`El producto "${itemParametro.nombre}" ya se encuentra en el pedido`).then(()=>{});
+        this._util.alert(`El producto "${itemParametro.nombre}" ya se encuentra en el pedido`);
         return;
       }
     }
@@ -277,6 +261,17 @@ export class CarritoService {
 
     return promesa;
 
+  }
+
+  /**
+   * Función que permite crear un nuevo HttpHeader para ser utilizado 
+   * en la petición que necesite un header
+   */
+  private commonHeaders(){
+    return new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'token': this._us.token
+    });
   }
 
 }

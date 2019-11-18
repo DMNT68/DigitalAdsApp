@@ -9,18 +9,20 @@ import { TabsNavComponent } from "./tabs-nav/tabs-nav.component";
 import { OrdenesDetalleComponent } from "./cotizaciones/ordenes-detalle/ordenes-detalle.component";
 import { CarritoComponent } from './carrito/carrito.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { AboutModule } from './about/about.module';
 
 const routes: Routes = [
     {path:'tabs-nav', component: TabsNavComponent, children:[
         { path: "productos", component: ProductosComponent, outlet:'productosTab'},
         { path: "cotizaciones", component: CotizacionesComponent, outlet:'cotizacionesTab'},
-        { path: "perfil", component: PerfilComponent, outlet:'perfilTab'}       
+        { path: "perfil", component: PerfilComponent, outlet:'perfilTab'}    
     ] 
-    },
-    {path: "detalles/:id", component: OrdenesDetalleComponent},
-    {path: "producto/:id", component: ProductoComponent},
-    {path: "carrito", component: CarritoComponent},
-    {path: '', redirectTo:'tabs-nav', pathMatch:'full'}
+},
+    { path: "detalles/:id", component: OrdenesDetalleComponent},
+    { path: "producto/:id", component: ProductoComponent},
+    { path: "carrito", component: CarritoComponent},
+    { path: "about", loadChildren: ()=> import ('./about/about.module').then(m => m.AboutModule)},    
+    { path: '', redirectTo:'tabs-nav', pathMatch:'full'}
 ];
 
 

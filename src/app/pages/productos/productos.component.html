@@ -1,8 +1,8 @@
 <ns-action-bar title="Productos" class="action-bar" [showBackButton]="false">
 
-    <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="_utilService.abrirFacebook()">
-        <Button class="btn btn-flat btn-active icono-fb-color ico" [text]="_utilService.iconFacebook"></Button>
-    </ActionItem>
+    <!-- <ActionItem *ngIf="!aparecer" (tap)="_utilService.goToAbout()" ios.position="right" class="m-10">
+        <Button class="ico btn btn-flat btn-active icon-2x iconInfo action-item" text="&#xe88e;"></Button>
+    </ActionItem> -->
 
     <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="goCarrito()">
         <StackLayout orientation="horizontal" [isEnable]="productos.length == 0">

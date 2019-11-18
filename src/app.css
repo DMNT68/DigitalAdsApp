@@ -50,6 +50,12 @@ FlexboxLayout {
     font-weight: bold;
 }
 
+.sub-title {
+    font-size: 18;
+    color: white;
+    font-weight: 500;
+}
+
 .centrado-vertical {
     vertical-align: center;
 }
@@ -133,6 +139,14 @@ Button {
     font-size: 100px;
 }
 
+.iconInfo {
+    font-size: 24;
+    width: 50;
+    height: 50;
+    border-radius: 50%;
+    color: white;
+}
+
 .h6 {
     font-size: 11;
 }
@@ -150,7 +164,7 @@ Button {
 
 .visible {
     animation-name: show;
-    animation-duration: 0.5s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
 }
 
@@ -161,4 +175,27 @@ Button {
     to {
         opacity: 1;
     }
+}
+
+.back {
+    color: white;
+    font-size: 30;
+    margin: 10 0 0 10;
+    height: 40;
+    width: 40;
+    border-radius: 100%;
+    padding: 0;
+    vertical-align: top;
+}
+
+.background-detail {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 200;
+}
+
+.background-label {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.349);
 }

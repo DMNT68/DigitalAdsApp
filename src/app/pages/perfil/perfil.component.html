@@ -1,10 +1,14 @@
-<ns-action-bar title="Perfil" class="action-bar" [showBackButton]="false"></ns-action-bar>
+<ns-action-bar title="Perfil" class="action-bar" [showBackButton]="false">
+    <ActionItem (tap)="goToAbout()" ios.position="right" class="m-10">
+        <Button class="ico btn btn-flat btn-active icon-2x iconInfo action-item" text="&#xe88e;"></Button>
+    </ActionItem>
+
+</ns-action-bar>
 
 <ScrollView class="page">
 
     <MDCardView class="card visible" elevation="4">
         <StackLayout class="padding">
-
 
             <StackLayout>
                 <Label class="avatar img-profile img-circle" *ngIf="!imagenActiva" [text]="avatar" (tap)="onSelectSingleTap()"></Label>
