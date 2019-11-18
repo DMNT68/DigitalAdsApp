@@ -1,11 +1,12 @@
 .label {
     color: gray;
     margin-bottom: 5;
-    font-size: 12;
+    font-size: 14;
+    vertical-align: top;
 }
 
 .black {
-    font-size: 14;
+    font-size: 16;
     color: black;
 }
 
@@ -19,21 +20,26 @@
 
 .wt {
     color: #25D366;
-    vertical-align: middle;
+    vertical-align: top;
+    margin-right: 5;
 }
 
 .gm {
     color: #D14836;
-    vertical-align: middle;
+    vertical-align: top;
+    margin-right: 5;
 }
 
 .lc {
     color: tomato;
-    vertical-align: middle;
+    vertical-align: top;
+    margin-right: 5;
 }
 
 .if {
     color: teal;
+    vertical-align: top;
+    margin-right: 5;
 }
 
 .icono-fb-color {
