@@ -1,0 +1,67 @@
+.label {
+    color: gray;
+    margin-bottom: 5;
+    font-size: 12;
+}
+
+.black {
+    font-size: 14;
+    color: black;
+}
+
+.box-info {
+    background-color: white;
+    margin: 0 10 0 10;
+    margin-top: -100;
+    border-radius: 7;
+    padding: 10 10 0 10;
+}
+
+.wt {
+    color: #25D366;
+    vertical-align: middle;
+}
+
+.gm {
+    color: #D14836;
+    vertical-align: middle;
+}
+
+.lc {
+    color: tomato;
+    vertical-align: middle;
+}
+
+.if {
+    color: teal;
+}
+
+.icono-fb-color {
+    color: #4172B8;
+    font-size: 26;
+    height: 40;
+    width: 45;
+    border-radius: 100%;
+    text-align: center;
+    padding: 0;
+}
+
+.icono-ig-color {
+    color: #E4405F;
+    font-size: 26;
+    height: 40;
+    width: 45;
+    border-radius: 100%;
+    text-align: center;
+    padding: 0;
+}
+
+.icono-tw-color {
+    color: #1DA1F2;
+    font-size: 26;
+    height: 40;
+    width: 45;
+    border-radius: 100%;
+    text-align: center;
+    padding: 0;
+}

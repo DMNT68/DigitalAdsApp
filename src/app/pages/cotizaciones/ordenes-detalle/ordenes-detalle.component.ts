@@ -4,6 +4,8 @@ import { PageRoute, RouterExtensions } from 'nativescript-angular/router';
 import { Subscription } from 'rxjs';
 
 import { CarritoService, UsuarioService, UtilService, ConectividadService } from '../../../shared/services/service.index';
+import { Detalle } from '../../../shared/models/ordenDetalle.model';
+import { Orden, OrdenClass } from '../../../shared/models/orden.model';
 
 @Component({
   selector: 'ns-ordenes-detalle',
@@ -12,8 +14,8 @@ import { CarritoService, UsuarioService, UtilService, ConectividadService } from
 })
 export class OrdenesDetalleComponent implements OnInit, OnDestroy {
 
-  detalles:any[]=[];
-  orden:any={}
+  detalles:Detalle[]=[];
+  orden:OrdenClass={}
 
   isLoading = false;
 
@@ -56,19 +58,18 @@ export class OrdenesDetalleComponent implements OnInit, OnDestroy {
    */
   public getOrdenDetalle(id:string){
     this.isLoading = true;
-    this.detalleSubcription = this.cs.cargarOrdenDetalle(id).subscribe((resp:any)=>{
+    this.detalleSubcription = this.cs.cargarOrdenDetalle(id).subscribe((resp:Orden)=>{
     setTimeout(() => {
         this.isLoading = false;
       }, 500);
-      this.orden=resp.orden;
-      this.detalles=resp.detalles;
+      this.orden = resp.orden;
+      this.detalles = resp.detalles;
     },
       error => {
   
         if (this._connect.revisarConexion()){
           return;
         }
-
         console.log(error);
       } 
        

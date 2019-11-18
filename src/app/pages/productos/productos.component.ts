@@ -62,7 +62,7 @@ export class ProductosComponent implements OnInit, OnDestroy {
   @ViewChild('myRadListView', { static:false }) listViewComponent: RadListViewComponent;
   
   /**
-   * Función que realizar un desplazamiento para arriba al principio de arreglo oroductos.
+   * Función que realizar un desplazamiento hacia arriba, al principio de arreglo oroductos.
    */
   public onTapUp() {
     this.listViewComponent.listView.scrollToIndex(0, true);

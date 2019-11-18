@@ -205,8 +205,19 @@ export class PerfilComponent implements OnInit{
    * Función que permite cerrar la sesión del usuario.
    */
   public salir() {
-    this._cs.vaciarCarrito();
-    this._usuarioService.logout();
+    this._util.confirm('¿Desea salir de su cuenta?').then(( res ) => {
+      
+      if (res){
+        this._cs.vaciarCarrito();
+        this._usuarioService.logout();
+      }
+    
+    });
+  
+  }
+
+  goToAbout(){
+    this._util.goToAbout();
   }
 
 }

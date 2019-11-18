@@ -1,0 +1,36 @@
+<StackLayout>
+    <StackLayout class="background-detail" [backgroundImage]="img">
+        <GridLayout rows="auto,*" columns="auto, auto" class="background-label">
+            <Button row="0" col="0" class="ico btn btn-flat btn-active back" text="&#xe5c4;" (tap)="onBack()"></Button>
+            <Label row="0" col="1" [text]="name" class="title p-l-10 roboto-bold" textWrap="true"></Label>
+            <Label row="1" col="1" text="Información" class="sub-title p-l-10" textWrap="true"></Label>
+        </GridLayout>
+    </StackLayout>
+    <StackLayout class="box-info">
+        <ScrollView height="200">
+            <GridLayout rows="auto,auto,auto,auto,auto,auto,auto" columns="20,*">
+                <Label row="0" col="0" class="ico gm" text="&#xe90c;"></Label>
+                <Label row="0" col="1" class="label black" [text]="email"></Label>
+                <Label row="1" col="0" class="ico wt" text="&#xe908;"></Label>
+                <Label row="1" col="1" class="label black" [text]="phone_numbers"></Label>
+                <Label row="2" col="0" class="ico lc" text="&#xe947;"></Label>
+                <Label row="2" col="1" clastns="label black" [text]="address" textWrap="true"></Label>
+                <Label row="3" col="0" class="ico if" text="&#xe88f;"></Label>
+                <Label row="3" col="1" class="label" [text]="information" textWrap="true"></Label>
+                <Label row="4" col="0" class="ico if" text="&#xe88f;"></Label>
+                <Label row="4" col="1" class="label" [text]="description" textWrap="true"></Label>
+                <Label row="5" col="0" class="ico if" text="&#xe88f;"></Label>
+                <Label row="5" col="1" class="label" [text]="legal" textWrap="true"></Label>
+            </GridLayout>
+        </ScrollView>
+        <StackLayout orientation="horizontal" class="centrado-horizontal p-0">
+            <Button class="btn btn-flat btn-active icono-fb-color ico" [text]="_utilService.iconFacebook" (tap)="_utilService.openLink('¿Deseas vistar nuestra página de facebook', 'fb://','http://www.facebook.com/digital.ads.ibarra','digital.ads.ibarra')"></Button>
+            <Button class="btn btn-flat btn-active ico icono-ig-color" text="&#xe906;" (tap)="_utilService.openLink('¿Deseas vistar nuestra página de instagram', 'instagram://','http://www.instagram.com/edmundoauz','edmundoauz')"></Button>
+            <Button class="btn btn-flat btn-active ico icono-tw-color" text="&#xe907;" (tap)="_utilService.openLink('¿Deseas vistar nuestra página de twitter', 'twitter://','http://www.twitter.com/andres_salgadoc','andres_salgadoc')"></Button>
+        </StackLayout>
+    </StackLayout>
+    <ContentView height="100%" width="100%">
+        <Mapbox accessToken="{{tokenMapBox}}" latitude="{{lat}}" longitude="{{long}}" zoomLevel="15" (mapReady)="onMapReady($event)">
+        </Mapbox>
+    </ContentView>
+</StackLayout>

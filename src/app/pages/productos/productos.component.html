@@ -1,5 +1,9 @@
 <ns-action-bar title="Productos" class="action-bar" [showBackButton]="false">
 
+    <!-- <ActionItem *ngIf="!aparecer" (tap)="_utilService.goToAbout()" ios.position="right" class="m-10">
+        <Button class="ico btn btn-flat btn-active icon-2x iconInfo action-item" text="&#xe88e;"></Button>
+    </ActionItem> -->
+
     <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="goCarrito()">
         <StackLayout orientation="horizontal" [isEnable]="productos.length == 0">
             <Label class="ico icono-cart-color" [text]="iconCarrito"></Label>
@@ -25,17 +29,17 @@
 
     <ActivityIndicator class="activity-indicator" [busy]="productos.length == 0" [visibility]="productos.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 
-    <RadListView *ngIf="productos.length != 0" class="visible" #myRadListView class="p-t-5" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
+    <RadListView *ngIf="productos.length != 0" #myRadListView class="p-t-5" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
 
         <ng-template tkListItemTemplate let-producto="item">
 
-            <MDCardView class="card" elevation="4" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
+            <MDCardView class="card visible" elevation="2" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
                 <GridLayout>
 
                     <Image class="img-rounded-card" [src]="producto.img | imagen:'producto'" loadMode="async" stretch="aspectFit"></Image>
 
                     <StackLayout class="card-layout-description">
-                        <Label class="label-title p-y-5" [text]="producto.nombre" textWrap="true"></Label>
+                        <Label class="label-title p-y-5 roboto-bold" [text]="producto.nombre" textWrap="true"></Label>
                         <Label class="label-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
                     </StackLayout>
 
@@ -45,7 +49,7 @@
         </ng-template>
 
         <ng-template tkListViewFooter>
-            <Label class="ico footer btn btn-active" [text]="iconUp" (tap)="onTapUp()"></Label>
+            <Label class="ico footer" [text]="iconUp" (tap)="onTapUp()"></Label>
         </ng-template>
 
     </RadListView>
