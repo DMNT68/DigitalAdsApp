@@ -1,8 +1,5 @@
 @import '~nativescript-theme-core/css/core.light.css';
 
-/* @import './assets/css/custom.css'; */
-
-
 /* margin:t r b l  */
 
 
@@ -143,7 +140,7 @@ Button {
     font-size: 24;
     width: 50;
     height: 50;
-    border-radius: 50%;
+    border-radius: 100%;
     color: white;
 }
 
@@ -197,5 +194,5 @@ Button {
 
 .background-label {
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.349);
+    background-color: rgba(0, 0, 0, 0.350);
 }
