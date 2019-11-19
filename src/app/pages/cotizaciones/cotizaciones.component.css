@@ -14,15 +14,15 @@
     background-color: #2d3440;
     color: #28bfdb;
     margin: 5 10 5 10;
-    border-radius: 5;
+    border-radius: 7;
+    padding: 0 10 0 10;
 }
 
 .card-layout {
-    padding: 5;
-    padding-left: 10;
+    padding: 5 0 5 0;
 }
 
-.icon-rigth-row {
+.icon-rigth-arrow {
     vertical-align: middle;
     font-size: 36;
     color: #28bfdb;
@@ -36,7 +36,6 @@
     vertical-align: center;
     text-align: center;
     font-size: 20;
-    padding-left: 10;
     color: #28bfdb;
 }
 

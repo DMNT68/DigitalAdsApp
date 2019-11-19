@@ -186,12 +186,8 @@
     }
     
     .background-label-2 {
-        background-color: rgba(0, 0, 0, 0.25);
+        background-color: rgba(0, 0, 0, 0.255);
         vertical-align: bottom;
-        border-bottom-width: 2;
+        border-bottom-width: 1;
         border-color: black;
-    }
-    
-    .no-border-radius {
-        border-radius: 0;
     }

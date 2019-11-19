@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PageRoute, RouterExtensions } from 'nativescript-angular/router';
+import {  RouterExtensions } from 'nativescript-angular/router';
 import { Subscription } from 'rxjs';
 
-import { CarritoService, UsuarioService, UtilService, ConectividadService } from '../../../shared/services/service.index';
+import { CarritoService, UtilService, ConectividadService } from '../../../shared/services/service.index';
 import { Detalle } from '../../../shared/models/ordenDetalle.model';
 import { Orden, OrdenClass } from '../../../shared/models/orden.model';
 
@@ -16,35 +16,20 @@ export class OrdenesDetalleComponent implements OnInit, OnDestroy {
 
   detalles:Detalle[]=[];
   orden:OrdenClass={}
-
   isLoading = false;
-
-  iconDelete: string;
-
   detalleSubcription: Subscription;
 
   constructor( 
-    private pageRoute: PageRoute,
     private activRoute : ActivatedRoute,
     private _routerExtensions: RouterExtensions,
     public cs:CarritoService,
-    private _us: UsuarioService,
-    private _util: UtilService,
+    public _util: UtilService,
     private _connect:ConectividadService) { }
 
   ngOnInit() {
 
-    // this.pageRoute.activatedRoute.subscribe(activatedRoute=>{
-    //   activatedRoute.paramMap.subscribe(paramMap=>{
-    //     const id = paramMap.get('id');
-    //     this.getOrdenDetalle(id);  
-    //   });
-    // });
-
     const id = this.activRoute.snapshot.params.id;
     this.getOrdenDetalle(id); 
-
-    this.iconDelete = this._util.iconDelete;
 
   }
 

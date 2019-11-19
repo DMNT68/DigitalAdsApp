@@ -18,10 +18,6 @@ export class PerfilComponent implements OnInit{
   usuario: Usuario;
   img:any;
   editar= false;
-	iconNombre: string;
-  iconEmail: string;
-  iconTelefono: string;
-  iconEditar:string;
   imagenSrc: any;
   imagenActiva: boolean = false;
   avatar: string;  
@@ -37,12 +33,6 @@ export class PerfilComponent implements OnInit{
       this.imagenActiva = resp.ok;
     });
     this.avatar = this._usuarioService.crearAvatar();
-    // Iconos
-    this.iconNombre = this._util.iconNombre;
-    this.iconEmail = this._util.iconEmail ;
-    this.iconTelefono = this._util.iconTelefono;
-    this.iconEditar = this._util.iconModeEdit;
-    
   }
 
   /**

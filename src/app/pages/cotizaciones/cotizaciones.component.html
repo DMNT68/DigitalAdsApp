@@ -3,9 +3,9 @@
 <GridLayout class="page">
 
     <StackLayout class="vacio visible" *ngIf="cotizaciones.length == 0">
-        <Label [text]="iconCotizaciones" class="txt-white icon-5x ico" textWrap="true"></Label>
+        <Label [text]="_utilService.iconListNumbered" class="txt-white icon-5x ico" textWrap="true"></Label>
         <Label text="Sin Cotizaciones" class="txt-white p-t-10" textWrap="true"></Label>
-        <Button [visibility]="!isLoading ? 'visible' : 'collapse'" text="Recargar... {{iconRefresh}}" class="ico btn btn-flat btn-active label-recargar m-t-10" (tap)="recargar()"></Button>
+        <Button [visibility]="!isLoading ? 'visible' : 'collapse'" text="Recargar... {{_utilService.iconRefresh}}" class="ico btn btn-flat btn-active label-recargar m-t-10" (tap)="recargar()"></Button>
         <ActivityIndicator class="activity-indicator" [busy]="isLoading" [visibility]="cotizaciones.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
     </StackLayout>
 
@@ -16,7 +16,7 @@
 
             <ng-template tkListItemTemplate let-cotizacion="item" let-i="index">
 
-                <GridLayout class="card elevation p-2" androidElevation="2" rows="auto" columns="30,*,40" (tap)="obtenerPosicionArreglo(i)" [nsRouterLink]="['/detalles', cotizacion._id]" pageTransition="slide">
+                <GridLayout class="card elevation" androidElevation="2" rows="auto" columns="30,*,40" (tap)="obtenerPosicionArreglo(i)" [nsRouterLink]="['/detalles', cotizacion._id]" pageTransition="slide">
 
                     <Label class="text-index" row="0" col="0" [text]="i+1" textWrap="true"></Label>
 
@@ -27,12 +27,12 @@
                         <Label class="text-head" row="0" col="2" text="Revisado:" textWrap="true"></Label>
                         <Label class="text-desc" row="1" col="0" [text]="cotizacion.fechaCreacion | date:'mediumDate':'es'" textWrap="true"></Label>
                         <Label class="text-desc" row="1" col="1" text="$ {{cotizacion.total | number:'.2-2'}}" textWrap="true"></Label>
-                        <Label class="text-desc check ico" row="1" col="2" *ngIf="cotizacion.atendido" [text]="iconRevisado" textWrap="true"></Label>
-                        <Label class="text-desc uncheck ico" row="1" col="2" *ngIf="!cotizacion.atendido" [text]="iconNoRevisado" textWrap="true"></Label>
+                        <Label class="text-desc check ico" row="1" col="2" *ngIf="cotizacion.atendido" [text]="_utilService.iconCheckBox" textWrap="true"></Label>
+                        <Label class="text-desc uncheck ico" row="1" col="2" *ngIf="!cotizacion.atendido" [text]="_utilService.iconcheckBoxOutlineBlank" textWrap="true"></Label>
 
                     </GridLayout>
 
-                    <Button class="btn btn-flat btn-active ico icon-rigth-row" row="0" col="2" [text]="iconIr"></Button>
+                    <Button class="btn btn-flat btn-active ico icon-rigth-arrow" row="0" col="2" [text]="_utilService.iconArrowRight"></Button>
 
                 </GridLayout>
 

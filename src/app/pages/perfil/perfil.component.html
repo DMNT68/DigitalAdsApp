@@ -1,13 +1,13 @@
 <ns-action-bar title="Perfil" class="action-bar" [showBackButton]="false">
     <ActionItem (tap)="goToAbout()" ios.position="right" class="m-10">
-        <Button class="ico btn btn-flat btn-active icon-2x iconInfo action-item" text="&#xe88e;"></Button>
+        <Button class="ico btn btn-flat btn-active icon-2x iconInfo action-item" [text]="_util.iconInfo"></Button>
     </ActionItem>
 
 </ns-action-bar>
 
 <ScrollView class="page">
 
-    <MDCardView class="card visible" elevation="4">
+    <MDCardView class="card visible" elevation="2">
         <StackLayout class="padding">
 
             <StackLayout>
@@ -18,7 +18,7 @@
 
             <GridLayout class="margen" rows="auto" columns="40, *, 40">
 
-                <Label class="ico icon-1x icon-perfil" [text]="_util.iconNombre" row="0" col="0"></Label>
+                <Label class="ico icon-1x icon-perfil" [text]="_util.iconName" row="0" col="0"></Label>
 
                 <StackLayout row="0" col="1">
                     <Label class="txt-perfil" text="Nombre"></Label>
@@ -47,7 +47,7 @@
 
             <GridLayout rows="auto" columns="40, *, 40">
 
-                <Label class="ico icon-1x icon-perfil" [text]="_util.iconTelefono" row="0" col="0"></Label>
+                <Label class="ico icon-1x icon-perfil" [text]="_util.iconPhone" row="0" col="0"></Label>
 
                 <StackLayout row="0" col="1">
                     <Label class="txt-perfil" text="Teléfono"></Label>

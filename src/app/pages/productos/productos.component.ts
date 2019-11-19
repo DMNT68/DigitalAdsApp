@@ -23,11 +23,6 @@ export class ProductosComponent implements OnInit, OnDestroy {
   productosSubs: Subscription;
   textoBuscar = '';
   aparecer = false;
-  iconSearch: String;
-  iconClose: String;
-  iconUp: String;
-  iconCarrito: String;
-  iconProductos: String;
   
   constructor(public _utilService: UtilService, 
       public _productosService: ProductoService, 
@@ -36,15 +31,8 @@ export class ProductosComponent implements OnInit, OnDestroy {
       private _connect:ConectividadService) { 
     
   }
-  
 
   ngOnInit(): void {
-
-    this.iconSearch = this._utilService.iconSearch;
-    this.iconClose = this._utilService.iconClose;
-    this.iconUp = this._utilService.iconTop;
-    this.iconCarrito = this._utilService.iconCart;
-    this.iconProductos = this._utilService.iconHome;
     
     this.isLoading = true;
     setTimeout(() => {

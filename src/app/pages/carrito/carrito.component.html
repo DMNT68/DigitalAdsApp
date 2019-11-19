@@ -1,13 +1,13 @@
 <ns-action-bar title="Lista de Pedidos ( {{ _cs.items.length}} )" class="action-bar" [showBackButton]="false">
     <ActionItem (tap)="back()" ios.position="right" class="m-5">
-        <Button [text]="iconClose" class="ico icon-close btn btn-flat btn-close btn-active" *ngIf="!isIos"></Button>
+        <Button [text]="_util.iconClose" class="ico icon-close btn btn-flat btn-close btn-active" *ngIf="!isIos"></Button>
     </ActionItem>
 </ns-action-bar>
 
 <GridLayout class="page">
 
     <StackLayout class="vacio" *ngIf="_cs.items.length === 0">
-        <Label [text]="iconCarrito" class="icon-5x ico" textWrap="true"></Label>
+        <Label [text]="_util.iconCart" class="icon-5x ico" textWrap="true"></Label>
         <Label text="Su carrito esta vacío" class="p-t-10" textWrap="true"></Label>
     </StackLayout>
 
@@ -56,7 +56,7 @@
                         <Label col="1" class="font-weight-bold" text="$ {{_cs.preciosFinales[i] | number:'.2-2'}}"></Label>
                     </GridLayout>
 
-                    <Button col="2" [text]="iconBorrar" class="btn btn-flat btn-active iconBorrar ico" (tap)="borrarItem(i)"></Button>
+                    <Button col="2" [text]="_util.iconDelete" class="btn btn-flat btn-active iconBorrar ico" (tap)="borrarItem(i)"></Button>
 
                 </GridLayout>
             </ng-template>

@@ -16,14 +16,7 @@ export class CotizacionesComponent implements OnInit, OnDestroy {
     cargando:boolean=false;
     cotizaciones: any[]=[];
     cotizacionesSubs: Subscription;
-    iconCotizaciones: string;
-    iconIr:string;
-    iconRevisado:string;
-    iconNoRevisado:string;
-    iconRefresh:string;
     isLoading = false;
-
-  
 
   constructor(public _utilService: UtilService, private _cs:CarritoService, private _connect:ConectividadService) {
     
@@ -31,11 +24,6 @@ export class CotizacionesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    this.iconCotizaciones = this._utilService.iconListNumbered;
-    this.iconIr = this._utilService.iconArrowRight;
-    this.iconRevisado = this._utilService.iconCheckBox;
-    this.iconNoRevisado = this._utilService.iconcheckBoxOutlineBlank;
-    this.iconRefresh = this._utilService.iconRefresh;
     this.cargarOrdenes();
     
   }

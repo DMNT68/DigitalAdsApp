@@ -18,29 +18,20 @@ export class ProductoComponent implements OnInit, OnDestroy {
 
   cotizar1Form: FormGroup
   cotizar2Form: FormGroup
-  
   producto: Producto;
   precioFinal: number;
   cantidad: number = 1;
   nletras: number = 0;
   alto: number = 0;
   ancho: number = 0;
-
   productoSubscription: Subscription;
-
   categoria: string;
   img: string;
   nombre: string;
   descripcion: string;
   activar:boolean=false;
-
   rotulos3D: boolean = false;
   rotulos: boolean = false;
-
-  iconCarrito: String = '';
-  iconMas: String = '';
-  iconMenos: String = '';
-
   aparecer:boolean = true;
   isLoading = false;
 
@@ -66,10 +57,6 @@ export class ProductoComponent implements OnInit, OnDestroy {
       'ancho': new FormControl('',[Validators.required, Validators.pattern('[0-9.]*[^,]')]),
       'letras': new FormControl('',[Validators.required, Validators.pattern('[0-9]*')])
     });
-    
-    this.iconCarrito = this._utilService.iconCarritoAdd;
-    this.iconMas = this._utilService.iconAdd;
-    this.iconMenos = this._utilService.iconRemove;
 
     const id = this.activRoute.snapshot.params.id;
     this.getProducto(id);    

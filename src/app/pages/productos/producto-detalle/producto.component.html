@@ -1,10 +1,9 @@
 <ScrollView>
 
     <StackLayout class="visible" *ngIf="!isLoading">
-
         <StackLayout class="background-detail" [backgroundImage]="img | imagen:'producto'">
             <GridLayout rows="auto,auto" columns="auto, *" class="background-label">
-                <Button row="0" col="0" class="ico btn btn-flat btn-active back" text="&#xe5c4;" (tap)="onBack()"></Button>
+                <Button row="0" col="0" [text]="_utilService.iconArrowLeft" class="ico btn btn-flat btn-active back" (tap)="onBack()"></Button>
                 <Label row="0" col="1" [text]="nombre" class="title p-x-10 roboto-bold" textWrap="true"></Label>
                 <Label row="1" col="1" [text]="categoria" class="sub-title p-x-10" textWrap="true"></Label>
             </GridLayout>
@@ -31,9 +30,9 @@
                             <Label text="Cantidad:" textWrap="true"></Label>
 
                             <GridLayout class="m-y-12 centrado-horizontal" columns="50,40,50">
-                                <Button col="0" [text]="iconMenos" class="btn icon-cantidad ico icon-3x btn-active" (tap)="variarPrecio(-1)"></Button>
+                                <Button col="0" [text]="_utilService.iconRemove" class="btn icon-cantidad ico icon-3x btn-active" (tap)="variarPrecio(-1)"></Button>
                                 <Label col="1" class="input-cantidad p-y-10" [text]="cantidad" textWrap="true"></Label>
-                                <Button col="2" [text]="iconMas" class="btn icon-cantidad ico icon-3x btn-active" (tap)="variarPrecio(+1)"></Button>
+                                <Button col="2" [text]="_utilService.iconAdd" class="btn icon-cantidad ico icon-3x btn-active" (tap)="variarPrecio(+1)"></Button>
                             </GridLayout>
 
                         </StackLayout>
@@ -84,7 +83,7 @@
                         <Label *ngIf="aparecer" row="2" class=" m-y-11 h2 invalid text-center animate-transition-up" textWrap="true" text="${{precioFinal | number:'.2-2'}}"></Label>
                         <Label row="3" text="Agregar a la lista de pedidos:" class="font-small" textWrap="true"></Label>
                         <StackLayout row="4" class="hr-light m-b-10"></StackLayout>
-                        <Button row="5" [text]="iconCarrito" class=" m-y-10 btn ico icon-cart-add icon-2x btn-active" width="50" (tap)="agregarPedido()"></Button>
+                        <Button row="5" [text]="_utilService.iconCartAdd" class=" m-y-10 btn ico icon-cart-add icon-2x btn-active" width="50" (tap)="agregarPedido()"></Button>
                     </GridLayout>
                 </GridLayout>
             </StackLayout>

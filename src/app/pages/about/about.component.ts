@@ -3,8 +3,6 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import { MapboxViewApi} from "nativescript-mapbox";
 import { Page } from 'tns-core-modules/ui/page/page';
 import { UtilService } from '~/app/shared/services/service.index';
-import { Info, Information } from '../../shared/models/information.model';
-
 
 @Component({
   selector: 'ns-about',
@@ -27,6 +25,7 @@ export class AboutComponent implements OnInit {
   public exit:string;
   private map: MapboxViewApi;
   public tokenMapBox:string; 
+  public isLoading: boolean = false;
 
   constructor(private page: Page, public _utilService:UtilService, private router:RouterExtensions) {
   }
@@ -34,8 +33,8 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
     this.tokenMapBox = 'pk.eyJ1IjoiYW5kcmVzc2FsZ2Fkb2MxIiwiYSI6ImNrMXRyN2c2bDAxZHUzb3FmcmRpdWIwdDIifQ.uT9V4dExJjvVNRWPQaZT_Q'
     this.page.actionBarHidden = true;
+    this.isLoading = true;
     this._utilService.getInformation().subscribe(res=>{
-      
       this.long = res.location.longitude;
       this.lat = res.location.latitude;
       this.img = res.pic;
@@ -48,6 +47,9 @@ export class AboutComponent implements OnInit {
       this.legal = res.legal;
       this.entrance = res.office_hours.entrance;
       this.exit = res.office_hours.exit;
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 500);
     });
   }
 

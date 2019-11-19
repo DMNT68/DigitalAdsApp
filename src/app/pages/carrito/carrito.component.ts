@@ -12,34 +12,25 @@ import { ios, android } from 'tns-core-modules/application/application';
 })
 export class CarritoComponent implements OnInit {
 
-  iconClose:string;
-  iconCarrito: String;
-  iconBorrar: String;
-
   ordenes:any []=[];
-
   isAndroid:boolean;
   isIos:boolean;
 
   private _itemDeleteAnimation: ListViewItemAnimation;
 
-  constructor(private router: RouterExtensions, private _util: UtilService, public _cs: CarritoService, private _connect:ConectividadService) { }
+  constructor(private router: RouterExtensions, public _util: UtilService, public _cs: CarritoService, private _connect:ConectividadService) { }
 
   ngOnInit() {
-
-    this.iconClose = this._util.iconClose;
-    this.iconCarrito = this._util.iconCart;
-    this.iconBorrar = this._util.iconDelete;
 
     this.ordenes = this._cs.items;
 
     if (ios) {
       this.isAndroid = false;
       this.isIos = true;
-  } else if (android) {
+    } else if (android) {
       this.isAndroid = true;
       this.isIos = false;
-  }
+    }
 
   }
 

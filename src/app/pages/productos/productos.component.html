@@ -1,12 +1,12 @@
 <ns-action-bar title="Productos" class="action-bar" [showBackButton]="false">
 
-    <!-- <ActionItem *ngIf="!aparecer" (tap)="_utilService.goToAbout()" ios.position="right" class="m-10">
-        <Button class="ico btn btn-flat btn-active icon-2x iconInfo action-item" text="&#xe88e;"></Button>
-    </ActionItem> -->
+    <ActionItem *ngIf="!aparecer" (tap)="_utilService.goToAbout()" ios.position="right" class="m-10">
+        <Button class="ico btn btn-flat btn-active icon-2x iconInfo action-item" [text]="_utilService.iconInfo"></Button>
+    </ActionItem>
 
     <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="goCarrito()">
         <StackLayout orientation="horizontal" [isEnable]="productos.length == 0">
-            <Label class="ico icono-cart-color" [text]="iconCarrito"></Label>
+            <Label class="ico icono-cart-color" [text]="_utilService.iconCart"></Label>
             <StackLayout class="badge" *ngIf="cs.items.length > 0">
                 <Label [text]="cs.items.length" class="badge-text"></Label>
             </StackLayout>
@@ -14,7 +14,7 @@
     </ActionItem>
 
     <ActionItem *ngIf="!aparecer" ios.position="rigth" (tap)="aparecerBuscar()">
-        <Button class="btn btn-flat btn-active icon-search-color ico icon-2x" [text]="iconSearch" [isEnable]="productos.length == 0"></Button>
+        <Button class="btn btn-flat btn-active icon-search-color ico icon-2x" [text]="_utilService.iconSearch" [isEnable]="productos.length == 0"></Button>
     </ActionItem>
 
     <ActionItem *ngIf="aparecer" (tap)="aparecerBuscar()" ios.position="right">
@@ -47,7 +47,7 @@
         </ng-template>
 
         <ng-template tkListViewFooter>
-            <Label class="ico footer" [text]="iconUp" (tap)="onTapUp()"></Label>
+            <Label class="ico footer" [text]="_utilService.iconTop" (tap)="onTapUp()"></Label>
         </ng-template>
 
     </RadListView>

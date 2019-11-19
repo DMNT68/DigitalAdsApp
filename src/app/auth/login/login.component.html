@@ -8,13 +8,13 @@
             <Label class="text-sub m-b-20" text="Ingresa tus credenciales"></Label>
 
             <GridLayout rows="auto, auto" columns="auto, *">
-                <Label [text]="iconEmail" row="0" col="0" class="ico icon-login"></Label>
+                <Label [text]="_util.iconEmail" row="0" col="0" class="ico icon-login"></Label>
                 <TextField class="m-b-10" row="0" col="1" [isEnabled]="!_usuarioService.processing" hint="Correo Electrónico" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" [(ngModel)]="email" required></TextField>
-                <Label [text]="iconPassword" row="1" col="0" class="ico icon-login"></Label>
+                <Label [text]="_util.iconPassword2" row="1" col="0" class="ico icon-login"></Label>
                 <GridLayout row="1" col="1" columns="*,auto" class="container-tf">
                     <TextField col="0" [isEnabled]="!_usuarioService.processing" hint="Contraseña" [secure]="visibility" returnKeyType="done" [(ngModel)]="password" required (returnPress)="ingresar()"></TextField>
-                    <Label *ngIf="!visibility" [text]="iconVisibilityOff" col="1" class="ico icon-visible" (tap)="visibility=true" autocorrect="false" autocapitalizationType="none"></Label>
-                    <Label *ngIf="visibility" [text]="iconVisibility" col="1" class="ico icon-visible" (tap)="visibility=false" autocorrect="false" autocapitalizationType="none"></Label>
+                    <Label *ngIf="!visibility" [text]="_util.iconVisibilityOff" col="1" class="ico icon-visible" (tap)="visibility=true" autocorrect="false" autocapitalizationType="none"></Label>
+                    <Label *ngIf="visibility" [text]="_util.iconVisibility" col="1" class="ico icon-visible" (tap)="visibility=false" autocorrect="false" autocapitalizationType="none"></Label>
                 </GridLayout>
 
             </GridLayout>
