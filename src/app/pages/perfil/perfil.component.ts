@@ -26,7 +26,7 @@ export class PerfilComponent implements OnInit{
   imagenActiva: boolean = false;
   avatar: string;  
 
-  constructor(public _usuarioService: UsuarioService, private _util: UtilService, private _cs: CarritoService) {
+  constructor(public _usuarioService: UsuarioService, public _util: UtilService, private _cs: CarritoService) {
 
   }
 

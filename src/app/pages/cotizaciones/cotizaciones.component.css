@@ -22,10 +22,14 @@
     padding-left: 10;
 }
 
-.text-icon {
-    vertical-align: center;
+.icon-rigth-row {
+    vertical-align: middle;
     font-size: 36;
     color: #28bfdb;
+    padding: 0;
+    height: 40;
+    width: 40;
+    border-radius: 100%;
 }
 
 .text-index {

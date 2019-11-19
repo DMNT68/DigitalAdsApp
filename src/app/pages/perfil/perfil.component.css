@@ -47,6 +47,17 @@
     text-align: center;
 }
 
+.icon-edit {
+    color: gray;
+    font-size: 20;
+    height: 30;
+    width: 30;
+    border-radius: 100%;
+    padding: 0;
+    vertical-align: top;
+    margin: 0;
+}
+
 .avatar {
     color: white;
     font-size: 85;

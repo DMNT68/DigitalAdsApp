@@ -1,15 +1,7 @@
-    .card {
-        background-color: #ffffff;
-        margin: 5 3 5 3;
-        border-radius: 7;
-    }
-    
     .card-layout-description {
-        background-color: rgb(255, 255, 255, 0.7);
-        color: #0e3743;
+        color: white;
         vertical-align: bottom;
-        padding: 2 10 2 10;
-        border-radius: 0 0 7 7;
+        padding: 2 10 10 10;
     }
     
     .card-layout-description-p {
@@ -18,14 +10,12 @@
     }
     
     .label-title {
-        font-size: 18;
+        font-size: 24;
         font-weight: bold;
     }
     
     .label-description {
-        font-size: 14;
-        /* color: #6644cc; */
-        /* height: 15 */
+        font-size: 16;
     }
     
     .card-cotizar {
@@ -35,20 +25,12 @@
         vertical-align: center;
     }
     
-    .img-rounded {
-        border-radius: 7;
-    }
-    
-    .img-rounded-card {
-        border-radius: 7 7 0 0;
-    }
-    
     .input-field {
         margin-bottom: 25;
     }
     
     .input-cantidad {
-        font-size: 24s;
+        font-size: 24;
         margin: 5 5 5 5;
         text-align: center;
     }
@@ -199,6 +181,17 @@
         font-size: 30;
     }
     
-    .full {
-        padding-bottom: 100%;
+    .background-detail-2 {
+        height: 300;
+    }
+    
+    .background-label-2 {
+        background-color: rgba(0, 0, 0, 0.25);
+        vertical-align: bottom;
+        border-bottom-width: 2;
+        border-color: black;
+    }
+    
+    .no-border-radius {
+        border-radius: 0;
     }

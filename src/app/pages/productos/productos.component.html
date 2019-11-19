@@ -25,26 +25,24 @@
 
 </ns-action-bar>
 
-<GridLayout class="page">
+<GridLayout>
 
     <ActivityIndicator class="activity-indicator" [busy]="productos.length == 0" [visibility]="productos.length == 0 ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
 
-    <RadListView *ngIf="productos.length != 0" #myRadListView class="p-t-5" [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
+    <RadListView *ngIf="productos.length != 0" #myRadListView [items]="productos | filtro:textoBuscar" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefreshInitiated($event)">
 
         <ng-template tkListItemTemplate let-producto="item">
 
-            <MDCardView class="card visible" elevation="2" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
-                <GridLayout>
-
-                    <Image class="img-rounded-card" [src]="producto.img | imagen:'producto'" loadMode="async" stretch="aspectFit"></Image>
-
-                    <StackLayout class="card-layout-description">
-                        <Label class="label-title p-y-5 roboto-bold" [text]="producto.nombre" textWrap="true"></Label>
-                        <Label class="label-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
+            <StackLayout class="visible" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
+                <StackLayout class="background-detail background-detail-2" [backgroundImage]="producto.img | imagen:'producto'">
+                    <StackLayout class="background-label background-label-2">
+                        <StackLayout class="card-layout-description">
+                            <Label class="label-title p-y-5 roboto-bold" [text]="producto.nombre" textWrap="true"></Label>
+                            <Label class="label-description" [text]="producto.categoria.descripcion" textWrap="true"></Label>
+                        </StackLayout>
                     </StackLayout>
-
-                </GridLayout>
-            </MDCardView>
+                </StackLayout>
+            </StackLayout>
 
         </ng-template>
 

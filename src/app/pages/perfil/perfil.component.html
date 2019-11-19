@@ -18,7 +18,7 @@
 
             <GridLayout class="margen" rows="auto" columns="40, *, 40">
 
-                <Label class="ico icon-1x icon-perfil" [text]="iconNombre" row="0" col="0"></Label>
+                <Label class="ico icon-1x icon-perfil" [text]="_util.iconNombre" row="0" col="0"></Label>
 
                 <StackLayout row="0" col="1">
                     <Label class="txt-perfil" text="Nombre"></Label>
@@ -26,13 +26,13 @@
                     <StackLayout class="hr-light margen-linea"></StackLayout>
                 </StackLayout>
 
-                <Label class="ico icon-1x text-muted text-center" [text]="iconEditar" (tap)="modificar('Nombre', usuario)" row="0" col="2"></Label>
+                <Button class="ico icon-edit btn btn-flat btn-active" [text]="_util.iconModeEdit" (tap)="modificar('Nombre', usuario)" row="0" col="2"></Button>
 
             </GridLayout>
 
             <GridLayout class="margen" rows="auto" columns="40, *, 40">
 
-                <Label class="ico icon-1x icon-perfil" [text]="iconEmail" row="0" col="0"></Label>
+                <Label class="ico icon-1x icon-perfil" [text]="_util.iconEmail" row="0" col="0"></Label>
 
                 <StackLayout row="0" col="1">
                     <Label class="txt-perfil" text="Correo Electrónico"></Label>
@@ -41,13 +41,13 @@
 
                 </StackLayout>
 
-                <Label class="ico icon-1x text-muted text-center" [text]="iconEditar" (tap)="modificar('Correo Electrónico', usuario)" row="0" col="2"></Label>
+                <Button class="ico icon-edit btn btn-flat btn-active" [text]="_util.iconModeEdit" (tap)="modificar('Correo Electrónico', usuario)" row="0" col="2"></Button>
 
             </GridLayout>
 
             <GridLayout rows="auto" columns="40, *, 40">
 
-                <Label class="ico icon-1x icon-perfil" [text]="iconTelefono" row="0" col="0"></Label>
+                <Label class="ico icon-1x icon-perfil" [text]="_util.iconTelefono" row="0" col="0"></Label>
 
                 <StackLayout row="0" col="1">
                     <Label class="txt-perfil" text="Teléfono"></Label>
@@ -55,7 +55,7 @@
                     <StackLayout class="hr-light margen-linea"></StackLayout>
                 </StackLayout>
 
-                <Label class="ico icon-1x text-muted text-center" [text]="iconEditar" (tap)="modificar('Telefono', usuario)" row="0" col="2"></Label>
+                <Button class="ico icon-edit btn btn-flat btn-active" [text]="_util.iconModeEdit" (tap)="modificar('Telefono', usuario)" row="0" col="2"></Button>
 
             </GridLayout>
 
