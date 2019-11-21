@@ -1,6 +1,6 @@
 .label {
     color: gray;
-    margin-bottom: 5;
+    margin:0 0 5 10;
     font-size: 14;
     vertical-align: top;
 }
@@ -21,19 +21,19 @@
 .wt {
     color: #25D366;
     vertical-align: top;
-    margin-right: 5;
+    margin-right: 0;
 }
 
 .gm {
     color: #D14836;
     vertical-align: top;
-    margin-right: 5;
+    margin-right: 0;
 }
 
 .lc {
     color: tomato;
     vertical-align: top;
-    margin-right: 5;
+    margin-right: 0;
 }
 
 .if {
@@ -70,4 +70,9 @@
     border-radius: 100%;
     text-align: center;
     padding: 0;
+}
+
+.sub-title {
+    margin-top: 5;
+    vertical-align: top;
 }

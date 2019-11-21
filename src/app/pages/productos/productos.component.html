@@ -1,6 +1,6 @@
 <ns-action-bar title="Productos" class="action-bar" [showBackButton]="false">
 
-    <ActionItem *ngIf="!aparecer" (tap)="_utilService.goToAbout()" ios.position="right" class="m-10">
+    <ActionItem *ngIf="!aparecer" (tap)="_utilService.goToAbout()" ios.position="left" class="m-10">
         <Button class="ico btn btn-flat btn-active icon-2x iconInfo action-item" [text]="_utilService.iconInfo"></Button>
     </ActionItem>
 
