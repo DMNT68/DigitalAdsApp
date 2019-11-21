@@ -9,7 +9,7 @@
                 <StackLayout class="m-x-10">
 
                     <GridLayout rows="*, *" columns="auto, *" [ngClass]="{invalid:registroForm.controls['nombre'].errors?.minlength}">
-                        <Label [text]="_util.iconNombre" row="0" col="0" class="ico icon-signup"></Label>
+                        <Label [text]="_util.iconName" row="0" col="0" class="ico icon-signup"></Label>
                         <TextField [isEnabled]="!_usuarioService.processing" row="0" col="1" hint="Nombre y Apellido" autocorrect="true" formControlName="nombre" returnKeyType="next" required></TextField>
                         <Label row="1" col="1" text="Por lo menos tres caracteres" class="p-l-10 invalid h6" *ngIf="registroForm.controls['nombre'].errors?.minlength"></Label>
                     </GridLayout>
@@ -21,7 +21,7 @@
                     </GridLayout>
 
                     <GridLayout rows="*,*,*" columns="auto, *" [ngClass]="{invalid:registroForm.controls['telefono'].errors?.minlength || registroForm.controls['telefono'].errors?.maxlength}">
-                        <Label [text]="_util.iconTelefono" row="0" col="0" class="ico icon-signup"></Label>
+                        <Label [text]="_util.iconPhone" row="0" col="0" class="ico icon-signup"></Label>
                         <TextField [isEnabled]="!_usuarioService.processing" row="0" col="1" hint="Número telefónico" maxLength="10" keyboardType="number" returnKeyType="next" formControlName="telefono"></TextField>
                         <Label row="1" col="1" class="p-l-10 invalid h6" text="No es un número válido" *ngIf="registroForm.controls['telefono'].errors?.minlength || registroForm.controls['telefono'].errors?.maxlength"></Label>
                         <Label row="2" col="1" class="p-l-10 invalid h6" text="Ingrese solo números" *ngIf="registroForm.controls['telefono'].errors?.pattern || registroForm.controls['telefono'].errors?.maxlength"></Label>
