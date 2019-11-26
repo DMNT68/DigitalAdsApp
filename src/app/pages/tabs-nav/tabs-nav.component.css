@@ -1,13 +1,11 @@
-TabStripItem Label {
-    color: #2d3440;
+TabStripItem Label,
+Image {
+    color: #6c6f74;
+    font-size: 12;
 }
 
 TabStripItem:active Label {
     color: #ef424c;
-}
-
-TabStripItem Image {
-    color: #2d3440;
 }
 
 TabStripItem:active Image {
