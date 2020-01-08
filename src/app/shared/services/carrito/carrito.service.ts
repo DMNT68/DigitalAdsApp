@@ -133,7 +133,7 @@ export class CarritoService {
    */
   public verCarrito() {
     if(this._us.token){
-      this.router.navigate(['/carrito'], {transition:{name:'slideTop'}});
+      this.router.navigate(['/pages/carrito'], {transition:{name:'slideTop'}});
     } else {
       this._us.logout();
     }

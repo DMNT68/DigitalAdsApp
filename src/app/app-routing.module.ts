@@ -6,7 +6,8 @@ import { LoginGuard } from './shared/services/service.index';
 
 const routes: Routes = [
     { path: "login", loadChildren: () => import( './auth/auth.module' ).then( m => m.AuthModule ) },
-    { path: "",canActivate:[LoginGuard], loadChildren: () => import( './pages/pages.module' ).then( m => m.PagesModule )} 
+    { path: "pages",canActivate:[LoginGuard], loadChildren: () => import( './pages/pages.module' ).then( m => m.PagesModule )},
+    {path:'',redirectTo: 'pages/tabs-nav',pathMatch:'full'}
 ];
 
 @NgModule({

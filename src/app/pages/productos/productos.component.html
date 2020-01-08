@@ -33,7 +33,7 @@
 
         <ng-template tkListItemTemplate let-producto="item">
 
-            <StackLayout class="visible" [nsRouterLink]="['/producto', producto._id]" pageTransition="slide">
+            <StackLayout class="visible" [nsRouterLink]="['/pages/producto', producto._id]" pageTransition="slide">
                 <StackLayout class="background-detail background-detail-2" [backgroundImage]="producto.img | imagen:'producto'">
                     <StackLayout class="background-label background-label-2">
                         <StackLayout class="card-layout-description">

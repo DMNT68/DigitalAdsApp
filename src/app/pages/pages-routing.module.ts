@@ -22,7 +22,7 @@ const routes: Routes = [
     { path: "producto/:id", component: ProductoComponent},
     { path: "carrito", component: CarritoComponent},
     { path: "about", loadChildren: ()=> import ('./about/about.module').then(m => m.AboutModule)},    
-    { path: '', redirectTo:'tabs-nav', pathMatch:'full'}
+    { path: '', redirectTo:'pages/tabs-nav', pathMatch:'full'}
 ];
 
 

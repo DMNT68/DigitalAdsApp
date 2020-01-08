@@ -149,7 +149,7 @@ export class UtilService {
      * Función que permitir dirigir a la pantalla de about
      */
     public goToAbout() {
-        this.router.navigate(['/about'], {transition:{name:'slide'}});
+        this.router.navigate(['/pages/about'], {transition:{name:'slide'}});
     }
 
     /**
