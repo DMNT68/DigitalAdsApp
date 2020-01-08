@@ -38,6 +38,7 @@ Image {
 .btn-sec {
     color: #ef424c;
     margin: 5 0 5 0;
+    border-radius: 4;
     font-weight: normal;
     text-transform: none;
 }

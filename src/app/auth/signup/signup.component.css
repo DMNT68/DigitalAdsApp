@@ -18,6 +18,7 @@
 .btn-sec {
     color: #6644cc;
     margin: 2 10 5 10;
+    border-radius: 4;
     font-weight: normal;
     text-transform: none;
 }

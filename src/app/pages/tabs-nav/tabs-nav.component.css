@@ -4,6 +4,10 @@ Image {
     font-size: 12;
 }
 
+TabStripItem {
+    background-color: #ffffff;
+}
+
 TabStripItem:active Label {
     color: #ef424c;
 }
