@@ -24,7 +24,7 @@ export class CarritoService {
   total_carrito:number = 0;
 
   pedidos:any[]=[];
-  i:number;
+  index:number;
 
   constructor(
     private http: HttpClient, 
@@ -121,7 +121,7 @@ export class CarritoService {
     });
 
     return this.http.delete(url,{headers:header}).pipe(map((resp:any)=>{
-      this.pedidos.splice(this.i,1);
+      this.pedidos.splice(this.index,1);
       this.cargarOrdenes();
     }));
   }

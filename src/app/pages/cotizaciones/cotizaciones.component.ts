@@ -34,10 +34,10 @@ export class CotizacionesComponent implements OnInit, OnDestroy {
 
   /**
    * Función que permite obtener la posición del arreglo.
-   * @param i Posición del arreglo.
+   * @param idx Posición del arreglo.
    */
-  obtenerPosicionArreglo(i:number) { 
-    this._cs.i=i;
+  obtenerPosicionArreglo(idx:number) { 
+    this._cs.index=idx;
   }
   
   /**
